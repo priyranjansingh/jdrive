@@ -35,7 +35,8 @@ class SongsController extends Controller
 	public function actionCreate()
 	{
 		$model=new Songs;
-
+		$genres = Genres::model()->findAll(array('condition' => 'parent = 0','order' => 'name ASC'));
+		$genres = CHtml::listData($genres, 'id', 'name');
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -48,6 +49,7 @@ class SongsController extends Controller
 
 		$this->render('create',array(
 			'model'=>$model,
+			'genres'=>$genres
 		));
 	}
 
