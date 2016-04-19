@@ -100,7 +100,7 @@
                         <h4 class="modal-title" id="myModalLabel">SIGN UP JOCKDRIVE</h4>
                     </div>
                     <div class="modal-body">
-                        <div class="">
+                        <!--<div class="">
                             <?php
                             $form = $this->beginWidget('CActiveForm', array(
                                 'id' => 'registration-form',
@@ -117,7 +117,7 @@
                             <form id="" name="" method="POST">
                                 <div class="m_row"> <i class="fa fa-envelope"></i>
                                     <div class="mr_col">
-                                        <?php echo $form->textField($model, 'email', array("placeholder" => "Email *", "class" => "t_box")); ?>
+                                        <?php // echo $form->textField($model, 'email', array("placeholder" => "Email *", "class" => "t_box")); ?>
                                     </div>
                                 </div>
                                 <div class="m_row"> <i class="fa fa-lock"></i>
@@ -143,7 +143,7 @@
                             </form>
                               <?php $this->endWidget(); ?>  
                             <div class="m_row tac"> Already have a JOCKDRIVE? <a class="log_btn" href="#" data-dismiss="modal" data-toggle="modal" data-target="#Login-pop">Login Now</a></div>
-                        </div>
+                        </div>-->
                     </div>
                     <div class="modal-footer"> 
                         <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -162,7 +162,8 @@
                         <h4 class="modal-title" id="myModalLabel">LOGIN</h4>
                     </div>
                     <div class="modal-body">
-                        <form id="" name="" method="POST">
+                        <?php $this->widget('LoginWidget'); ?>
+                        <!--<form id="" name="" method="POST">
                             <div class="m_row"> <i class="fa fa-user"></i>
                                 <div class="mr_col">
                                     <input type="text" class="t_box" placeholder="Enter Email ID">
@@ -182,7 +183,7 @@
                                 <input type="submit" value="Login &amp; Continue" class="btn_small fc_white bg_blue">
                             </div>
                             <div class="m_row tac">New to JOCKDRIVE? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#Signup-pop">Sign Up</a></div>
-                        </form>
+                        </form>-->
                     </div>
                 </div>
             </div>
