@@ -10904,3 +10904,30 @@ in C:\xampp\htdocs\jdrive\index.php (13)
 2016/04/18 05:21:42 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
 in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
 in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/19 18:04:19 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/19 18:04:20 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/19 18:04:20 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/19 18:05:38 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/19 18:05:38 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/19 18:05:38 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/19 18:09:33 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/19 18:09:33 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/19 18:09:33 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)

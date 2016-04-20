@@ -117,7 +117,7 @@
                             <form id="" name="" method="POST">
                                 <div class="m_row"> <i class="fa fa-envelope"></i>
                                     <div class="mr_col">
-                                        <?php echo $form->textField($model, 'email', array("placeholder" => "Email *", "class" => "t_box")); ?>
+                                        <input type="text" class="t_box" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="m_row"> <i class="fa fa-lock"></i>
