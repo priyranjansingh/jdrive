@@ -2470,3 +2470,661 @@ Stack trace:
 REQUEST_URI=/jdrive/server/php/
 HTTP_REFERER=http://localhost/jdrive/home
 ---
+2016/04/20 03:55:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 03:55:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 03:55:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 03:55:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 03:55:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 03:55:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 03:55:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 03:55:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 03:55:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 03:56:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 03:56:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 03:56:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 03:58:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 03:58:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:06:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "default".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('default')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('default')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('site/default/lo...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/index.php/site/login
+HTTP_REFERER=http://localhost/jdrive/admin
+---
+2016/04/20 04:10:43 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php:58)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\widgets\CContentDecorator.php(76): DefaultController->renderFile()
+#1 C:\xampp\htdocs\framework\web\widgets\CContentDecorator.php(54): CContentDecorator->decorate()
+#2 C:\xampp\htdocs\framework\web\widgets\COutputProcessor.php(44): CContentDecorator->processOutput()
+#3 C:\xampp\htdocs\framework\web\CBaseController.php(214): CContentDecorator->run()
+#4 C:\xampp\htdocs\framework\web\CBaseController.php(308): DefaultController->endWidget()
+#5 C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column1.php(4): DefaultController->endContent()
+#6 C:\xampp\htdocs\framework\web\CBaseController.php(126): require()
+#7 C:\xampp\htdocs\framework\web\CBaseController.php(95): DefaultController->renderInternal()
+#8 C:\xampp\htdocs\framework\web\CController.php(784): DefaultController->renderFile()
+#9 C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\DefaultController.php(7): DefaultController->render()
+#10 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#11 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#12 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#13 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#14 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#15 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#16 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/admin
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (58)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column1.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\DefaultController.php (7)
+2016/04/20 04:11:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "childs".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('childs')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('childs')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/songs/chi...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/index.php/admin/songs/childs
+HTTP_REFERER=http://localhost/jdrive/index.php/admin/songs/create
+---
+2016/04/20 04:13:26 [warning] [application] Failed to set unsafe attribute "genre_for" of "Genres".
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (45)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "childs".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('childs')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('childs')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/songs/chi...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/index.php/admin/songs/childs
+HTTP_REFERER=http://localhost/jdrive/index.php/admin/songs/create
+---
+2016/04/20 04:14:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "childs".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('childs')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('childs')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/songs/chi...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/index.php/admin/songs/childs
+HTTP_REFERER=http://localhost/jdrive/index.php/admin/songs/create
+---
+2016/04/20 04:14:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "childs".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('childs')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('childs')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/songs/chi...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/index.php/admin/songs/childs
+HTTP_REFERER=http://localhost/jdrive/index.php/admin/songs/create
+---
+2016/04/20 04:52:27 [error] [php] Undefined variable: genre_for (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:8)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:52:33 [error] [php] Undefined variable: genre_for (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:8)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:52:50 [error] [php] Undefined variable: genre_for (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:8)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:53:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:53:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:53:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:53:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:53:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:53:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:53:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:54:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:54:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:54:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:54:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:54:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:54:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:54:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:54:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:54:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:54:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:55:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:55:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:55:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:55:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:57:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:57:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:57:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:57:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 04:57:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/04/20 04:58:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+---
+2016/04/20 18:14:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 18:14:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 18:14:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/04/20 18:15:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 18:15:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 18:28:23 [error] [php] include(Genres.php): failed to open stream: No such file or directory (C:\xampp\htdocs\framework\YiiBase.php:432)
+Stack trace:
+#0 C:\xampp\htdocs\framework\db\ar\CActiveRecord.php(395): spl_autoload_call()
+#1 C:\xampp\htdocs\framework\db\ar\CActiveFinder.php(182): model()
+#2 C:\xampp\htdocs\framework\db\ar\CActiveFinder.php(230): CActiveFinder->getModel()
+#3 C:\xampp\htdocs\framework\db\ar\CActiveFinder.php(48): CActiveFinder->buildJoinTree()
+#4 C:\xampp\htdocs\framework\db\ar\CActiveRecord.php(912): CActiveFinder->__construct()
+#5 C:\xampp\htdocs\framework\db\ar\CActiveRecord.php(280): Songs->getActiveFinder()
+#6 C:\xampp\htdocs\framework\db\ar\CActiveRecord.php(143): Songs->getRelated()
+#7 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(10): Songs->__get()
+#8 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#9 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#10 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#11 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#12 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#13 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (10)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:29:38 [error] [php] include(Genres.php): failed to open stream: No such file or directory (C:\xampp\htdocs\framework\YiiBase.php:432)
+Stack trace:
+#0 C:\xampp\htdocs\framework\db\ar\CActiveRecord.php(395): spl_autoload_call()
+#1 C:\xampp\htdocs\framework\db\ar\CActiveFinder.php(182): model()
+#2 C:\xampp\htdocs\framework\db\ar\CActiveFinder.php(230): CActiveFinder->getModel()
+#3 C:\xampp\htdocs\framework\db\ar\CActiveFinder.php(48): CActiveFinder->buildJoinTree()
+#4 C:\xampp\htdocs\framework\db\ar\CActiveRecord.php(912): CActiveFinder->__construct()
+#5 C:\xampp\htdocs\framework\db\ar\CActiveRecord.php(280): Songs->getActiveFinder()
+#6 C:\xampp\htdocs\framework\db\ar\CActiveRecord.php(143): Songs->getRelated()
+#7 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(10): Songs->__get()
+#8 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#9 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#10 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#11 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#12 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#13 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (10)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:34:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 18:34:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 18:43:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "img/alb2.jpg".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('img/alb2.jpg')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/img/alb2.jpg
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 18:43:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 18:45:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 18:45:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 18:45:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 18:45:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 18:51:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/04/20 19:15:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---

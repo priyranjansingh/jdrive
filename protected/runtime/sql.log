@@ -10931,3 +10931,1124 @@ in C:\xampp\htdocs\jdrive\index.php (13)
 2016/04/19 18:09:33 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
 in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
 in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:10:43 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column1.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\DefaultController.php (7)
+2016/04/20 04:10:43 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column1.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\DefaultController.php (7)
+2016/04/20 04:10:43 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column1.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\DefaultController.php (7)
+2016/04/20 04:10:43 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column1.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\DefaultController.php (7)
+2016/04/20 04:10:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id` IS NULL LIMIT 1
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column1.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\DefaultController.php (7)
+2016/04/20 04:11:06 [trace] [system.db.ar.CActiveRecord] Users.find()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\components\UserIdentity.php (29)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\models\LoginForm.php (60)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\LoginController.php (20)
+2016/04/20 04:11:06 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\admin\components\UserIdentity.php (29)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\models\LoginForm.php (60)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\LoginController.php (20)
+2016/04/20 04:11:06 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\components\UserIdentity.php (29)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\models\LoginForm.php (60)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\LoginController.php (20)
+2016/04/20 04:11:06 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\components\UserIdentity.php (29)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\models\LoginForm.php (60)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\LoginController.php (20)
+2016/04/20 04:11:06 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE username = 'admin' AND is_admin = 1 LIMIT 1
+in C:\xampp\htdocs\jdrive\protected\modules\admin\components\UserIdentity.php (29)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\models\LoginForm.php (60)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\LoginController.php (20)
+2016/04/20 04:11:06 [trace] [system.db.ar.CActiveRecord] Roles.findByPk()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\components\UserIdentity.php (44)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\models\LoginForm.php (60)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\LoginController.php (20)
+2016/04/20 04:11:06 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `roles`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\components\UserIdentity.php (44)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\models\LoginForm.php (60)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\LoginController.php (20)
+2016/04/20 04:11:06 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `roles`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\components\UserIdentity.php (44)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\models\LoginForm.php (60)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\LoginController.php (20)
+2016/04/20 04:11:06 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `roles` `t` WHERE `t`.`id`='4eee73be-fb69-11e5-91d7-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\jdrive\protected\modules\admin\components\UserIdentity.php (44)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\models\LoginForm.php (60)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\LoginController.php (20)
+2016/04/20 04:11:07 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\DashboardController.php (26)
+2016/04/20 04:11:07 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\DashboardController.php (26)
+2016/04/20 04:11:07 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\DashboardController.php (26)
+2016/04/20 04:11:07 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\DashboardController.php (26)
+2016/04/20 04:11:07 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='7e567f4c-fb69-11e5-91d7-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\DashboardController.php (26)
+2016/04/20 04:11:12 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (107)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:11:12 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (107)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:11:12 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (107)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:11:12 [trace] [system.db.ar.CActiveRecord] Songs.count()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\songs\admin.php (74)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (114)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:11:12 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM `media` `t` WHERE type=:ycp0
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\songs\admin.php (74)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (114)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:11:12 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\songs\admin.php (74)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (114)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:11:12 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE type=:ycp0 LIMIT 10
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\songs\admin.php (74)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (114)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:11:12 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (114)
+2016/04/20 04:11:12 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (114)
+2016/04/20 04:11:12 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (114)
+2016/04/20 04:11:12 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='7e567f4c-fb69-11e5-91d7-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (114)
+2016/04/20 04:11:20 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (37)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:11:20 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (37)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:11:20 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (37)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:11:20 [trace] [system.db.ar.CActiveRecord] Genres.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:11:20 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:11:20 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:11:20 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `genres` `t` WHERE parent = 0 ORDER BY name ASC
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:11:20 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (53)
+2016/04/20 04:11:20 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (53)
+2016/04/20 04:11:20 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (53)
+2016/04/20 04:11:20 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='7e567f4c-fb69-11e5-91d7-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (53)
+2016/04/20 04:12:10 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (37)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:10 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (37)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:10 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (37)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:10 [trace] [system.db.ar.CActiveRecord] Genres.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:10 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:10 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:10 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `genres` `t` WHERE parent = 0 ORDER BY name ASC
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:10 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (53)
+2016/04/20 04:12:10 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (53)
+2016/04/20 04:12:10 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (53)
+2016/04/20 04:12:10 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='7e567f4c-fb69-11e5-91d7-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (53)
+2016/04/20 04:12:28 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (37)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:28 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (37)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:28 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (37)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:28 [trace] [system.db.ar.CActiveRecord] Genres.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:28 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:28 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:28 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `genres` `t` WHERE parent = 0 ORDER BY name ASC
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:28 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (53)
+2016/04/20 04:12:28 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (53)
+2016/04/20 04:12:28 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (53)
+2016/04/20 04:12:28 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='7e567f4c-fb69-11e5-91d7-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (53)
+2016/04/20 04:12:39 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (106)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:39 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (106)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:39 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (106)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:39 [trace] [system.db.ar.CActiveRecord] Genres.count()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:39 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM `genres` `t`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:39 [trace] [system.db.ar.CActiveRecord] Genres.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:39 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `genres` `t` LIMIT 10
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:12:39 [trace] [system.db.ar.CActiveRecord] Genres.findByPk()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (160)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:12:39 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `genres` `t` WHERE `t`.`id`='4996790b-d8fe-3fa3-8dc9-5704359b7417' LIMIT 1
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (160)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:12:39 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:12:39 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:12:39 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:12:39 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='7e567f4c-fb69-11e5-91d7-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:13:03 [trace] [system.db.ar.CActiveRecord] Genres.findByPk()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (135)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (62)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:03 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (135)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (62)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:03 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (135)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (62)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:03 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (135)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (62)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:03 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `genres` `t` WHERE `t`.`id`='22c52c3c-e19f-7a57-dc87-5704360feee9' LIMIT 1
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (135)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (62)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:03 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (76)
+2016/04/20 04:13:03 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (76)
+2016/04/20 04:13:03 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (76)
+2016/04/20 04:13:03 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='7e567f4c-fb69-11e5-91d7-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (76)
+2016/04/20 04:13:10 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (106)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:10 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (106)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:10 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (106)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:10 [trace] [system.db.ar.CActiveRecord] Genres.count()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:10 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM `genres` `t`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:10 [trace] [system.db.ar.CActiveRecord] Genres.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:10 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `genres` `t` LIMIT 10
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:10 [trace] [system.db.ar.CActiveRecord] Genres.findByPk()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (160)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:13:10 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `genres` `t` WHERE `t`.`id`='4996790b-d8fe-3fa3-8dc9-5704359b7417' LIMIT 1
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (160)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:13:10 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:13:10 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:13:10 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:13:10 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='7e567f4c-fb69-11e5-91d7-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:13:11 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:11 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:11 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:11 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (52)
+2016/04/20 04:13:11 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (52)
+2016/04/20 04:13:11 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (52)
+2016/04/20 04:13:11 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='7e567f4c-fb69-11e5-91d7-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (52)
+2016/04/20 04:13:14 [trace] [system.db.ar.CActiveRecord] Genres.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (119)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:14 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (119)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:14 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (119)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:14 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (119)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:14 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `genres` `t` WHERE genre_for = 'song' AND parent = 0
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (119)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:25 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:25 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:26 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:26 [trace] [system.db.ar.CActiveRecord] Genres.insert()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (46)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:26 [trace] [system.db.CDbCommand] Executing SQL: INSERT INTO `genres` (`parent`, `status`, `deleted`, `name`, `id`, `date_entered`, `created_by`, `modified_by`, `date_modified`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (46)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:26 [trace] [system.db.ar.CActiveRecord] Genres.findByPk()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (135)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (28)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:26 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (135)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (28)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:26 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (135)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (28)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:26 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (135)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (28)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:26 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `genres` `t` WHERE `t`.`id`='3cff061a-dbbf-8144-bac3-5716e5ccbac4' LIMIT 1
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (135)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (28)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:26 [trace] [system.db.ar.CActiveRecord] Genres.findByPk()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\view.php (27)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (29)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:26 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `genres` `t` WHERE `t`.`id`='4996790b-d8fe-3fa3-8dc9-5704359b7417' LIMIT 1
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\view.php (27)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (29)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:26 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (29)
+2016/04/20 04:13:26 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (29)
+2016/04/20 04:13:26 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (29)
+2016/04/20 04:13:26 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='7e567f4c-fb69-11e5-91d7-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (29)
+2016/04/20 04:13:28 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (106)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:28 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (106)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:28 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (106)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:28 [trace] [system.db.ar.CActiveRecord] Genres.count()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:28 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM `genres` `t`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:28 [trace] [system.db.ar.CActiveRecord] Genres.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:28 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `genres` `t` LIMIT 10
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:28 [trace] [system.db.ar.CActiveRecord] Genres.findByPk()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (160)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:13:28 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `genres` `t` WHERE `t`.`id`='4996790b-d8fe-3fa3-8dc9-5704359b7417' LIMIT 1
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (160)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:13:28 [trace] [system.db.ar.CActiveRecord] Genres.findByPk()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (160)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:13:28 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `genres` `t` WHERE `t`.`id`='4996790b-d8fe-3fa3-8dc9-5704359b7417' LIMIT 1
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (160)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\genres\admin.php (92)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:13:28 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:13:28 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:13:28 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:13:28 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='7e567f4c-fb69-11e5-91d7-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\GenresController.php (113)
+2016/04/20 04:13:36 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (107)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:36 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (107)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:36 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (107)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:36 [trace] [system.db.ar.CActiveRecord] Songs.count()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\songs\admin.php (74)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (114)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:36 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM `media` `t` WHERE type=:ycp0
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\songs\admin.php (74)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (114)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:36 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\songs\admin.php (74)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (114)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:36 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE type=:ycp0 LIMIT 10
+in C:\xampp\htdocs\jdrive\protected\modules\admin\views\songs\admin.php (74)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (114)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:36 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (114)
+2016/04/20 04:13:36 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (114)
+2016/04/20 04:13:36 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (114)
+2016/04/20 04:13:36 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='7e567f4c-fb69-11e5-91d7-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (114)
+2016/04/20 04:13:41 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (37)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:41 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (37)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:41 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (37)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:41 [trace] [system.db.ar.CActiveRecord] Genres.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:41 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:41 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:41 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `genres` `t` WHERE parent = 0 ORDER BY name ASC
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (38)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 04:13:41 [trace] [system.db.ar.CActiveRecord] Users.findByPk()
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (53)
+2016/04/20 04:13:41 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (53)
+2016/04/20 04:13:41 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `users`
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (53)
+2016/04/20 04:13:41 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `users` `t` WHERE `t`.`id`='7e567f4c-fb69-11e5-91d7-3c07717072c4' LIMIT 1
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\main.php (55)
+in C:\xampp\htdocs\jdrive\themes\admin\views\layouts\column2.php (4)
+in C:\xampp\htdocs\jdrive\protected\modules\admin\controllers\SongsController.php (53)
+2016/04/20 05:00:00 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 05:00:00 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 05:00:00 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 05:00:00 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 05:00:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 05:00:00 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 05:00:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:12:29 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:12:29 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:12:29 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:12:29 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:12:29 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:12:29 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:12:29 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:14:27 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:14:27 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:14:27 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:14:27 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:14:27 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:14:27 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:14:27 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:15:42 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:15:42 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:15:42 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:15:42 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:15:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:15:42 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:15:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:17:19 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:17:19 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:17:19 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:17:19 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:17:19 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:17:19 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:17:19 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:27:54 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:27:54 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:27:54 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:27:54 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:27:54 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:27:54 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:27:54 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:28:07 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:28:07 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:28:07 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:28:07 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:28:07 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:28:07 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:28:07 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:28:23 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:28:23 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:28:23 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:28:23 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:28:23 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:28:23 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:28:23 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:28:23 [trace] [system.db.ar.CActiveRecord] lazy loading Songs.media_genre
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (10)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:29:38 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:29:38 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:29:38 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:29:38 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:29:38 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:29:38 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:29:38 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:29:38 [trace] [system.db.ar.CActiveRecord] lazy loading Songs.media_genre
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (10)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:31:23 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:31:23 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:31:23 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:31:23 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:31:23 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:31:23 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:31:23 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:31:23 [trace] [system.db.ar.CActiveRecord] lazy loading Songs.media_genre
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (10)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:31:23 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (10)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:31:23 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (10)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:31:23 [trace] [system.db.CDbCommand] Querying SQL: SELECT `media_genre`.`id` AS `t1_c0`, `media_genre`.`genre_for` AS `t1_c1`, `media_genre`.`parent` AS `t1_c2`, `media_genre`.`name` AS `t1_c3`, `media_genre`.`status` AS `t1_c4`, `media_genre`.`deleted` AS `t1_c5`, `media_genre`.`created_by` AS `t1_c6`, `media_genre`.`modified_by` AS `t1_c7`, `media_genre`.`date_entered` AS `t1_c8`, `media_genre`.`date_modified` AS `t1_c9` FROM `genres` `media_genre`  WHERE (`media_genre`.`id`=:ypl0)
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (10)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:32:04 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:32:04 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:32:04 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:32:04 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:32:04 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:32:04 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:32:04 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:32:04 [trace] [system.db.ar.CActiveRecord] lazy loading Songs.media_genre
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (10)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:32:04 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (10)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:32:04 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (10)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:32:04 [trace] [system.db.CDbCommand] Querying SQL: SELECT `media_genre`.`id` AS `t1_c0`, `media_genre`.`genre_for` AS `t1_c1`, `media_genre`.`parent` AS `t1_c2`, `media_genre`.`name` AS `t1_c3`, `media_genre`.`status` AS `t1_c4`, `media_genre`.`deleted` AS `t1_c5`, `media_genre`.`created_by` AS `t1_c6`, `media_genre`.`modified_by` AS `t1_c7`, `media_genre`.`date_entered` AS `t1_c8`, `media_genre`.`date_modified` AS `t1_c9` FROM `genres` `media_genre`  WHERE (`media_genre`.`id`=:ypl0)
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (10)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:33:05 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:33:05 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:33:05 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:33:05 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:33:05 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:33:05 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:33:05 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:33:05 [trace] [system.db.ar.CActiveRecord] lazy loading Songs.media_genre
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (10)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:33:05 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (10)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:33:06 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `genres`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (10)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:33:06 [trace] [system.db.CDbCommand] Querying SQL: SELECT `media_genre`.`id` AS `t1_c0`, `media_genre`.`genre_for` AS `t1_c1`, `media_genre`.`parent` AS `t1_c2`, `media_genre`.`name` AS `t1_c3`, `media_genre`.`status` AS `t1_c4`, `media_genre`.`deleted` AS `t1_c5`, `media_genre`.`created_by` AS `t1_c6`, `media_genre`.`modified_by` AS `t1_c7`, `media_genre`.`date_entered` AS `t1_c8`, `media_genre`.`date_modified` AS `t1_c9` FROM `genres` `media_genre`  WHERE (`media_genre`.`id`=:ypl0)
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (10)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:34:37 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:34:37 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:34:37 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:34:37 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:34:37 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:34:37 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:34:37 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:43:49 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:43:49 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:43:49 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:43:49 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:43:49 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:43:49 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:43:49 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:14 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:14 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:14 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:14 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:14 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:14 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:14 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:38 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:38 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:38 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:38 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:38 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:39 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:39 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:42 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:42 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:42 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:42 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:42 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:46 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:46 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:46 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:46 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:46 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:46 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:45:46 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:51:39 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:51:39 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:51:39 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:51:39 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:51:39 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:51:39 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 18:51:39 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:12:55 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:12:55 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:12:55 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:12:55 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:12:55 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0 ORDER BY date_entered desc LIMIT 20
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:12:55 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:12:55 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:13:16 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:13:16 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:13:16 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:13:16 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:13:16 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0 ORDER BY date_entered desc LIMIT 20
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:13:16 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:13:16 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:13:39 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:13:39 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:13:39 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:13:39 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:13:39 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0 ORDER BY date_entered desc LIMIT 1
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:13:39 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:13:39 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:15:30 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:15:30 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:15:30 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:15:30 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:15:30 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0 ORDER BY date_entered desc LIMIT 20
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:15:30 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:15:30 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0 ORDER BY date_entered desc LIMIT 20
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
