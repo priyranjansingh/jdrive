@@ -5,7 +5,7 @@ class DefaultController extends Controller {
     public $param = 'value';
 
     public function actionIndex() {
-        $model = new Registration;
+        /*$model = new Registration;
         if (isset($_POST['Registration'])) {
             $model->attributes = $_POST['Registration'];
             if ($model->validate()) {
@@ -32,8 +32,39 @@ class DefaultController extends Controller {
                 //Yii::app()->session['user_name'] = $model->username;
                 //$this->redirect(array("myaccount"));
             }
+        }*/
+        // $this->render('index',array('model' => $model));
+        $this->render('index');
+    }
+
+    public function actionLogin()
+    {
+        if (Yii::app()->user->isGuest) {
+            $model = new FrontUserLogin;
+            $this->performAjaxValidation($model,'login-form');
+            if (isset($_POST['FrontUserLogin'])) {
+                $model->attributes = $_POST['FrontUserLogin'];
+                if ($model->validate()) {
+                    $this->redirect(Yii::app()->controller->module->returnUrl);
+                }
+            }
+            $this->render('index', array('model' => $model));
+        } else {
+            $this->redirect(Yii::app()->controller->module->returnUrl);
         }
-        $this->render('index',array('model' => $model));
+    }
+
+    /**
+     * Performs the AJAX validation.
+     * @param Genres $model the model to be validated
+     */
+    protected function performAjaxValidation($model, $form_id)
+    {
+        if(isset($_POST['ajax']) && $_POST['ajax']===$form_id)
+        {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
     }
 
 }

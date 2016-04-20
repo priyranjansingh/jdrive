@@ -491,3 +491,4 @@ ol.list li{ list-style:decimal; margin-bottom:7px;}
 .table { background:#fff;}
 .table thead{ background:#1c1c1c; color:#ffffff;}
 .titel{ border-bottom:1px solid #999; padding-bottom:5px;}
+.errorMessage{color: red;}
