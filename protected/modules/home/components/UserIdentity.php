@@ -1,7 +1,5 @@
 <?php
-
 ob_start();
-
 /**
  * UserIdentity represents the data needed to identity a user.
  * It contains the authentication method that checks if the provided
@@ -10,8 +8,7 @@ ob_start();
 class UserIdentity extends CUserIdentity {
 
     private $_id;
-    public $role;
-
+    
     const ERROR_EMAIL_INVALID = 3;
     const ERROR_STATUS_NOTACTIV = 4;
     const ERROR_STATUS_BAN = 5;
@@ -25,21 +22,21 @@ class UserIdentity extends CUserIdentity {
      * @return boolean whether authentication succeeds.
      */
     public function authenticate() {
-        $user = Users::model()->findByAttributes(array('username' => $this->username));
+        if (strpos($this->username, "@")) {
+            $user = Users::model()->findByAttributes(array('email' => $this->username));
+        } else {
+            $user = Users::model()->findByAttributes(array('username' => $this->username));
+        }
         if ($user === null)
             if (strpos($this->username, "@")) {
                 $this->errorCode = self::ERROR_EMAIL_INVALID;
             } else {
-                $this->errorCode = self::ERROR_EMAIL_INVALID;
+                $this->errorCode = self::ERROR_USERNAME_INVALID;
             } else if (md5($this->password) !== $user->password)
-            $this->errorCode = self::ERROR_PASSWORD_INVALID;
-        else if ($user->status == -1)
-            $this->errorCode = self::ERROR_STATUS_BAN;
-        /*else if ($user->is_admin == 0)
-            $this->errorCode = self::ERROR_STATUS_BAN;*/
+                $this->errorCode = self::ERROR_PASSWORD_INVALID;
         else {
             $this->_id = $user->id;
-            $this->username = $user->email;
+            $this->username = $user->username;
             $this->errorCode = self::ERROR_NONE;
         }
         return !$this->errorCode;

@@ -12,19 +12,33 @@ class DefaultController extends Controller {
 
     public function actionLogin()
     {
+
+        // pre($_POST['FrontUserLogin'],true);
         if (Yii::app()->user->isGuest) {
             $model = new FrontUserLogin;
-            $this->performAjaxValidation($model,'login-form');
+
+            if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
+            {
+                echo CActiveForm::validate($model);
+                Yii::app()->end();
+            }
             if (isset($_POST['FrontUserLogin'])) {
                 $model->attributes = $_POST['FrontUserLogin'];
-                if ($model->validate()) {
-                    $this->redirect(Yii::app()->controller->module->returnUrl);
+                if ($model->validate() && $model->login()) {
+                    $this->redirect(Yii::app()->user->returnUrl);
                 }
             }
             $this->render('index', array('model' => $model));
         } else {
-            $this->redirect(Yii::app()->controller->module->returnUrl);
+            die("here");
+            $this->redirect(Yii::app()->user->returnUrl);
         }
+    }
+
+    public function actionLogout()
+    {
+        Yii::app()->user->logout();
+        $this->redirect(Yii::app()->baseUrl.'/home');
     }
 
     /**

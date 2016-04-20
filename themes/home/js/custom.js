@@ -1,7 +1,7 @@
 $(document).ready(function() {				
 		
 	//Owl Slider
-	$('.home-slider').owlCarousel({
+	/*$('.home-slider').owlCarousel({
 	loop:true,	
     animateOut: 'fadeOut',
     items:1,
@@ -11,7 +11,7 @@ $(document).ready(function() {
 	navText: [ '<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>' ],
 	autoplayTimeout:5000
 	});
-
+*/
 
 	$('.av_tab span').click(function(){
 		$('.av_tab span').removeClass('active');
