@@ -52,13 +52,14 @@ class Frontusers extends AdminBaseModel
 			array('state_id, country_id, is_admin, status, deleted', 'numerical', 'integerOnly'=>true),
 			array('id, role_id, created_by, modified_by', 'length', 'max'=>36),
 			array('username, first_name, last_name', 'length', 'max'=>128),
+			array('username, password, verifyPassword','length', 'min' => 6),
 			array('password, email', 'length', 'max'=>255),
 			array('phone', 'length', 'max'=>16),
 			array('profile_pic', 'length', 'max'=>256),
 			array('date_modified', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, username, password, first_name, last_name, email, phone, profile_pic, state_id, country_id, is_admin, role_id, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on'=>'search'),
+			array('id, username, s3_bucket, password, first_name, last_name, email, phone, profile_pic, state_id, country_id, is_admin, role_id, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -81,6 +82,7 @@ class Frontusers extends AdminBaseModel
 		return array(
 			'id' => 'ID',
 			'username' => 'Username',
+			's3_bucket' => 'S3 Bucket',
 			'password' => 'Password',
 			'verifyPassword' => 'Verify Password',
 			'first_name' => 'First Name',

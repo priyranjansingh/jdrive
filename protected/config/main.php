@@ -8,10 +8,11 @@ require_once( dirname(__FILE__) . '/../components/helpers.php');
 require(dirname(__FILE__) . '/global.php');
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
-    'name' => 'School Management',
+    'name' => 'Jock Drive',
     'theme' => 'home',
     // preloading 'log' component
     'preload' => array('log'),
+    'defaultController' => 'home',
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
@@ -26,10 +27,16 @@ return array(
             'ipFilters' => array('127.0.0.1', '::1'),
         ),
         'admin',
-        'home'
+        'home',
+        'songs',
+        'videos',
+        'genre'
     ),
     // application components
     'components' => array(
+        's3' => array(
+            'class' => 'ext.s3.S3',
+        ),
         'user' => array(
             // enable cookie-based authentication
             'allowAutoLogin' => true,

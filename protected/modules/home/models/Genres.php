@@ -14,7 +14,7 @@
  * @property string $date_entered
  * @property string $date_modified
  */
-class Genres extends AdminBaseModel
+class Genres extends BaseModel
 {
 	/**
 	 * @return string the associated database table name

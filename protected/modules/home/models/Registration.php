@@ -19,11 +19,13 @@ class Registration extends BaseModel {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('id, password,confirm_password,email, role_id, created_by, date_entered', 'required'),
+            array('id, password,confirm_password,username,email, role_id, created_by, date_entered', 'required'),
+            array('username,email','unique'),
             array('confirm_password', 'compare', 'compareAttribute'=>'password'),
             array('state_id, country_id, is_admin, status, deleted', 'numerical', 'integerOnly' => true),
             array('id, role_id, created_by, modified_by', 'length', 'max' => 36),
             array('username, first_name, last_name', 'length', 'max' => 128),
+            array('username, password, confirm_password','length', 'min' => 6),
             array('password, email', 'length', 'max' => 255),
             array('phone', 'length', 'max' => 16),
             array('profile_pic', 'length', 'max' => 256),

@@ -91,8 +91,8 @@ ol.list li{ list-style:decimal; margin-bottom:7px;}
 .form-group{ margin:0 -15px 15px;}
 .form-group:after{ content:''; display:block; clear:both;}
 
-.t_box {width:100%; padding:0 8px; border: 1px solid #dfdfdf; height:32px; line-height:32px; box-shadow:none; border-radius:3px;}
-.t_area {width:100%; height:100px; resize:vertical; border: 1px solid #dfdfdf; padding:8px; border-radius:3px;}
+.t_box {color: #000; width:100%; padding:0 8px; border: 1px solid #dfdfdf; height:32px; line-height:32px; box-shadow:none; border-radius:3px;}
+.t_area {color: #000; width:100%; height:100px; resize:vertical; border: 1px solid #dfdfdf; padding:8px; border-radius:3px;}
 
 ::-webkit-input-placeholder { color:#000; opacity:1; font-size:13px;}
 :-moz-placeholder {color:#000; opacity:1; font-size:13px;}
@@ -491,4 +491,18 @@ ol.list li{ list-style:decimal; margin-bottom:7px;}
 .table { background:#fff;}
 .table thead{ background:#1c1c1c; color:#ffffff;}
 .titel{ border-bottom:1px solid #999; padding-bottom:5px;}
-.errorMessage{color: red;}
+.errorMessage,.payment-error{color: red;}
+.payment-error{display: none;}
+input.control-label {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 2px;
+}
+input.submit {
+    background: #7d0000;
+    padding: 15px 0;
+    border-radius: 4px;
+    width: 100%;
+    color: #fff;
+    text-transform: uppercase;
+}

@@ -35,15 +35,37 @@ class PlansController extends Controller
 	public function actionCreate()
 	{
 		$model=new Plans;
-
+		require('./assets/stripe/init.php');
+		// require('./assets/stripe/lib/Stripe.php');
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Plans']))
 		{
 			$model->attributes=$_POST['Plans'];
-			if($model->save())
+			if($model->validate()){
+				$plan_id = create_guid();
+				$secret_key = getParam('stripe_secret_key');
+				$free_duration = 0;
+				if(!empty($model->free_duration)){
+					$free_duration = $model->free_duration;
+				}
+				\Stripe\Stripe::setApiKey($secret_key);
+
+				$plan = \Stripe\Plan::create(array(
+						  "amount" => ($model->plan_price * 100),
+						  "interval" => $model->plan_duration_type,
+						  "interval_count" => $model->plan_duration,
+						  "trial_period_days" => $free_duration,
+						  "name" => $model->plan_name,
+						  "currency" => "usd",
+						  "id" => $plan_id)
+						);
+				$model->stripe_plan = $plan_id;
+				$model->save();
+				// pre($plan,true);
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
@@ -59,15 +81,32 @@ class PlansController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
+		$stripe_plan = $model->stripe_plan;
+		require('./assets/stripe/init.php');
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Plans']))
 		{
 			$model->attributes=$_POST['Plans'];
-			if($model->save())
+			if($model->save()){
+				// $plan_id = create_guid();
+				$secret_key = getParam('stripe_secret_key');
+				$free_duration = 0;
+				if(!empty($model->free_duration)){
+					$free_duration = $model->free_duration;
+				}
+				\Stripe\Stripe::setApiKey($secret_key);
+
+				$p = \Stripe\Plan::retrieve($stripe_plan);
+				$p->name = $model->plan_name;
+				$p->amount = ($model->plan_price * 100);
+				$p->interval = $model->plan_duration_type;
+				$p->interval_count = $model->plan_duration;
+				$p->trial_period_days = $free_duration;
+				$p->save();
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(

@@ -71,6 +71,13 @@ function checkPaymentStatus($id, $table) {
     return $result[0]['payment_status'];
 }
 
+function createS3bucket($name)
+{
+    Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
+    Yii::app()->s3->putBucket($name,'public-read','US');
+    return true;
+}
+
 function uploadGalleryImage($images, $path) {
     $base_path = Yii::app()->params['upload_path'];
     for ($i = 1; $i < sizeof($images) + 1; $i++) {

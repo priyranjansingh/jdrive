@@ -19,10 +19,10 @@
         <link href="<?php echo $baseUrl; ?>/css/owl.carousel.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/jplayer.pink.flag.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/style.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo $baseUrl; ?>/css/membership.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/responsive.css" rel="stylesheet" type="text/css">
 
         <!-- jquery -->
-        <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/jquery-1.11.2.min.js"></script>
         <script src="<?php echo $baseUrl; ?>/js/chosen.jquery.js"></script>
         <script src="<?php echo $baseUrl; ?>/js/bootstrap.js"></script>
         <script src="<?php echo $baseUrl; ?>/js/owl.carousel.js"></script>
@@ -100,50 +100,7 @@
                         <h4 class="modal-title" id="myModalLabel">SIGN UP JOCKDRIVE</h4>
                     </div>
                     <div class="modal-body">
-                        <div class="">
-                            <?php
-                            $form = $this->beginWidget('CActiveForm', array(
-                                'id' => 'registration-form',
-                                'enableClientValidation' => true,
-                                //'enableAjaxValidation'=>true,
-                                'clientOptions' => array(
-                                    'validateOnSubmit' => true,
-                                ),
-                                'htmlOptions' => array(
-                                    'autcomplete' => "off",
-                                ),
-                            ));
-                            ?>
-                            <form id="" name="" method="POST">
-                                <div class="m_row"> <i class="fa fa-envelope"></i>
-                                    <div class="mr_col">
-                                        <input type="text" class="t_box" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="m_row"> <i class="fa fa-lock"></i>
-                                    <div class="mr_col">
-                                        <input type="password" class="t_box" placeholder="Password">
-                                    </div>
-                                </div>
-                                <div class="m_row"> <i class="fa fa-lock"></i>
-                                    <div class="mr_col">
-                                        <input type="password" class="t_box" placeholder="Confirm Password">
-                                    </div>
-                                </div>
-                                <div class="m_row mart15">
-                                    <label><span class="ck_box">
-                                            <input type="checkbox">
-                                            <span></span></span> Agree to</label>
-                                    <a href="#">Terms and Conditions</a>
-                                    <div class="mr_col"><span class="error" style="display:none"></span></div>
-                                </div>
-                                <div class="m_row tar">
-                                    <input type="submit" value="Register" class="btn_small fc_white bg_blue">
-                                </div>
-                            </form>
-                              <?php $this->endWidget(); ?>  
-                            <div class="m_row tac"> Already have a JOCKDRIVE? <a class="log_btn" href="#" data-dismiss="modal" data-toggle="modal" data-target="#Login-pop">Login Now</a></div>
-                        </div>
+                        <?php $this->widget('SignupWidget'); ?>
                     </div>
                     <div class="modal-footer"> 
                         <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -162,27 +119,7 @@
                         <h4 class="modal-title" id="myModalLabel">LOGIN</h4>
                     </div>
                     <div class="modal-body">
-                        <form id="" name="" method="POST">
-                            <div class="m_row"> <i class="fa fa-user"></i>
-                                <div class="mr_col">
-                                    <input type="text" class="t_box" placeholder="Enter Email ID">
-                                </div>
-                            </div>
-                            <div class="m_row"> <i class="fa fa-lock"></i>
-                                <div class="mr_col">
-                                    <input type="password" class="t_box" placeholder="Password">
-                                </div>
-                            </div>
-                            <div class="m_row mart15">
-                                <label><span class="ck_box">
-                                        <input type="checkbox">
-                                        <span></span></span> Remember Me</label>
-                                <a class="fr" href="#" data-dismiss="modal" data-toggle="modal" data-target="#Forgotpass">Forgot Password?</a></div>
-                            <div class="m_row tar">
-                                <input type="submit" value="Login &amp; Continue" class="btn_small fc_white bg_blue">
-                            </div>
-                            <div class="m_row tac">New to JOCKDRIVE? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#Signup-pop">Sign Up</a></div>
-                        </form>
+                        <?php $this->widget('LoginWidget'); ?>
                     </div>
                 </div>
             </div>

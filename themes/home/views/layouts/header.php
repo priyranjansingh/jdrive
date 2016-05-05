@@ -9,14 +9,26 @@
                 </span></li>
             <li><a href="#"><i class="fa fa-th-large"></i> Categories <i class="fa fa-angle-down"></i></a>
                 <ul class="dropdown-menu sub_menu">
-                    <li><a href="#">Categories 01</a></li>
-                    <li><a href="#">Categories 02</a></li>
-                    <li><a href="#">Categories 03</a></li>
+                    <?php $genres = Genres::model()->findAll(array("condition" => "parent = ''")); ?>
+
+                    <?php foreach($genres as $genre): ?>
+                        <li><a href="#"><?php echo $genre->name; ?></a></li>
+                    <?php endforeach; ?>
                 </ul>
             </li>
-            <li><a href="#" data-toggle="modal" data-target="#Upload-pop"><i class="fa fa-cloud-upload"></i> Upload</a></li>
+            <?php if(Yii::app()->user->isGuest): ?>
             <li><a href="#" data-toggle="modal" data-target="#Signup-pop">Sign Up</a></li>
             <li><a href="#" data-toggle="modal" data-target="#Login-pop">Login</a></li>
+            <?php else: ?>
+            <li><a href="#" data-toggle="modal" data-target="#Upload-pop"><i class="fa fa-cloud-upload"></i> Upload</a></li>
+            <li><a href="#"><?php echo Users::model()->findByPk(Yii::app()->user->id)->username; ?> <i class="fa fa-angle-down"></i></a>
+                <ul class="sub_menu">
+                    <li><a href="#">My Profile</a></li>
+                    <li><a href="#">Payment History</a></li>
+                    <li><a href="<?php echo base_url().'/home/logout'; ?>">Logout</a></li>
+                </ul>
+            </li>
+            <?php endif; ?>
             <li><a href="#">More <i class="fa fa-angle-down"></i></a>
                 <ul class="sub_menu">
                     <li><a href="#">About Us</a></li>

@@ -1,9 +1,11 @@
 <?php
 	$form = $this->beginWidget('CActiveForm', array(
 	        'id'=>'login-form',
-	        'action'=>array('home/login'),
+	        'action'=>array('/home/login'),
 	        'enableClientValidation'=>true,
+            'enableAjaxValidation'=> true,
 	        'clientOptions'=>array(
+                'validateOnChange'=>true,
 	            'validateOnSubmit'=>true,
 	        )
 	    ));
@@ -26,7 +28,7 @@
                 <span></span></span> Remember Me</label>
         <a class="fr" href="#" data-dismiss="modal" data-toggle="modal" data-target="#Forgotpass">Forgot Password?</a></div>
     <div class="m_row tar">
-        <?php echo CHtml::submitButton('Login &amp; Continue',array('class'=>'btn_small fc_white bg_blue')); ?>
+        <?php echo CHtml::submitButton('Login & Continue',array('class'=>'btn_small fc_white bg_blue')); ?>
     </div>
     <div class="m_row tac">New to JOCKDRIVE? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#Signup-pop">Sign Up</a></div>
 <?php $this->endWidget(); ?>
