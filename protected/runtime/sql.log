@@ -12052,3 +12052,24 @@ in C:\xampp\htdocs\jdrive\index.php (13)
 2016/04/20 19:15:30 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0 ORDER BY date_entered desc LIMIT 20
 in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
 in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:16:55 [trace] [system.db.ar.CActiveRecord] Songs.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:16:55 [trace] [system.db.CDbConnection] Opening DB connection
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:16:55 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:16:55 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `media`
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:16:55 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '1' AND deleted = 0 ORDER BY date_entered desc LIMIT 20
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (8)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:16:55 [trace] [system.db.ar.CActiveRecord] Videos.findAll()
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/04/20 19:16:55 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `media` `t` WHERE status = '2' AND deleted = 0 ORDER BY date_entered desc LIMIT 20
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (9)
+in C:\xampp\htdocs\jdrive\index.php (13)

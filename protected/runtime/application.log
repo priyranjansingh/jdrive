@@ -3128,3 +3128,12 @@ Stack trace:
 REQUEST_URI=/jdrive/server/php/
 HTTP_REFERER=http://localhost/jdrive/home
 ---
+2016/04/20 19:16:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/home
+---
