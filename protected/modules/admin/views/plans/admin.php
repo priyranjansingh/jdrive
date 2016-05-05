@@ -60,6 +60,7 @@
                                     	'plan_name',
                                         'plan_price',
                                         'plan_duration',
+                                        'plan_duration_type',
                                         array(
                                             'class'=>'CButtonColumn',
                                             'template'=>'{v} {u} {d}', // <-- TEMPLATE WITH THE TWO STATES

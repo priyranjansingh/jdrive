@@ -7,6 +7,8 @@ $baseUrl = Yii::app()->theme->baseUrl;
         <li><a href="#">Just Added</a></li>
         <li><a href="#">Playlist</a></li>
         <li><a href="#">My Drive</a></li>
+        <li><a href="#">Songs</a></li>
+        <li><a href="#">Videos</a></li>
     </ul>
     <div class="av_tab"> <span class="audio_t active">Audio</span><span class="video_t">Video</span> </div>
 </div>

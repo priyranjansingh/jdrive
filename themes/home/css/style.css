@@ -491,4 +491,18 @@ ol.list li{ list-style:decimal; margin-bottom:7px;}
 .table { background:#fff;}
 .table thead{ background:#1c1c1c; color:#ffffff;}
 .titel{ border-bottom:1px solid #999; padding-bottom:5px;}
-.errorMessage{color: red;}
+.errorMessage,.payment-error{color: red;}
+.payment-error{display: none;}
+input.control-label {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 2px;
+}
+input.submit {
+    background: #7d0000;
+    padding: 15px 0;
+    border-radius: 4px;
+    width: 100%;
+    color: #fff;
+    text-transform: uppercase;
+}

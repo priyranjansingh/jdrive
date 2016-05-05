@@ -41,17 +41,19 @@ class Users extends BaseModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, username, password, first_name, last_name, email, profile_pic, state_id, country_id, role_id, created_by, date_entered', 'required'),
+			array('id, username, password, email, created_by, date_entered', 'required'),
 			array('state_id, country_id, is_admin, status, deleted', 'numerical', 'integerOnly'=>true),
-			array('id, role_id, created_by, updated_by', 'length', 'max'=>36),
-			array('username, first_name, last_name', 'length', 'max'=>128),
+			array('id, role_id, created_by, modified_by', 'length', 'max'=>36),
+			array('username, s3_bucket, first_name, last_name', 'length', 'max'=>128),
 			array('password, email', 'length', 'max'=>255),
+			// array('username','length', 'min' => 6),
+			array('username, password','length', 'min' => 6),
 			array('phone', 'length', 'max'=>16),
 			array('profile_pic', 'length', 'max'=>256),
 			array('date_modified', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, username, password, first_name, last_name, email, phone, profile_pic, state_id, country_id, is_admin, role_id, status, deleted, created_by, updated_by, date_entered, date_modified', 'safe', 'on'=>'search'),
+			array('id, username, password, s3_bucket, first_name, last_name, email, phone, profile_pic, state_id, country_id, is_admin, role_id, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -74,6 +76,7 @@ class Users extends BaseModel
 		return array(
 			'id' => 'ID',
 			'username' => 'Username',
+			's3_bucket' => 'S3 Bucket',
 			'password' => 'Password',
 			'first_name' => 'First Name',
 			'last_name' => 'Last Name',
@@ -87,7 +90,7 @@ class Users extends BaseModel
 			'status' => 'Status',
 			'deleted' => 'Deleted',
 			'created_by' => 'Created By',
-			'updated_by' => 'Updated By',
+			'modified_by' => 'Updated By',
 			'date_entered' => 'Date Entered',
 			'date_modified' => 'Date Modified',
 		);
@@ -126,7 +129,7 @@ class Users extends BaseModel
 		$criteria->compare('status',$this->status);
 		$criteria->compare('deleted',$this->deleted);
 		$criteria->compare('created_by',$this->created_by,true);
-		$criteria->compare('updated_by',$this->updated_by,true);
+		$criteria->compare('modified_by',$this->modified_by,true);
 		$criteria->compare('date_entered',$this->date_entered,true);
 		$criteria->compare('date_modified',$this->date_modified,true);
 
