@@ -506,3 +506,6 @@ input.submit {
     color: #fff;
     text-transform: uppercase;
 }
+
+table tr.template-upload td span.preview video{height: 140px;}
+table tr.template-upload td p.name, table tr.template-upload td p.size{color: #000;}

@@ -238,6 +238,14 @@ class DefaultController extends Controller {
         }
     }
 
+    public function actionUpload()
+    {
+        $user_id = Yii::app()->user->id;
+        $bucket = Users::model()->findByPk($user_id)->s3_bucket;
+        $upload_handler = new UploadHandlerS3(null,true,null,$bucket);
+        // pre($upload_handler,true);
+    }
+
     /**
      * Performs the AJAX validation.
      * @param Genres $model the model to be validated

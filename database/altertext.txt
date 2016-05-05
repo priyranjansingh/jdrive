@@ -9,3 +9,25 @@ ALTER TABLE `plans` CHANGE `free_duration` `free_duration` ENUM('day','week','mo
 
 /*03-05-2016*/
 ALTER TABLE `users` ADD `s3_bucket` VARCHAR(128) NULL AFTER `password`;
+
+/*06-05-2016*/
+CREATE TABLE `temp_media` (
+  `id` char(36) NOT NULL,
+  `s3_bucket` varchar(128) NOT NULL,
+  `file_name` varchar(256) NOT NULL,
+  `s3_url` varchar(512) NOT NULL,
+  `user_id` char(36) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `deleted` tinyint(4) NOT NULL DEFAULT '0',
+  `created_by` char(36) NOT NULL,
+  `modified_by` char(36) NOT NULL,
+  `date_entered` datetime NOT NULL,
+  `date_modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `temp_media`
+--
+
+INSERT INTO `temp_media` (`id`, `s3_bucket`, `file_name`, `s3_url`, `user_id`, `status`, `deleted`, `created_by`, `modified_by`, `date_entered`, `date_modified`) VALUES
+('ebdca05c-9367-107d-3cef-572bbbf5b451', 'neeraj-f0b1ea', 'Mark J - Marvelous Light.mp3', 'https://neeraj-f0b1ea.s3.amazonaws.com/Mark%20J%20-%20Marvelous%20Light.mp3', 'e71ca27b-d9e6-538e-f106-572a476f04ee', 1, 0, 'e71ca27b-d9e6-538e-f106-572a476f04ee', 'e71ca27b-d9e6-538e-f106-572a476f04ee', '2016-05-05 23:32:18', '2016-05-05 23:32:18');

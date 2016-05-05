@@ -4632,3 +4632,901 @@ Stack trace:
 #14 {main}
 REQUEST_URI=/jdrive/home/test
 ---
+2016/05/05 21:04:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 21:07:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "server/default/php".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('server/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/server/php/
+HTTP_REFERER=http://localhost/jdrive/index.php
+---
+2016/05/05 21:07:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff2".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 21:07:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 21:07:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.ttf".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 21:41:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 21:43:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "upload".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('upload')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/upload
+HTTP_REFERER=http://localhost/jdrive/index.php
+---
+2016/05/05 21:43:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 21:44:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 21:44:48 [error] [php] include(Credentials.php): failed to open stream: No such file or directory (C:\xampp\htdocs\framework\YiiBase.php:432)
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(52): spl_autoload_call()
+#1 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(245): UploadHandlerS3->__construct()
+#2 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#3 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#5 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#6 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#7 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php (52)
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (245)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/05 21:45:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 21:45:59 [error] [php] is_dir(): Unable to find the wrapper &quot;s3&quot; - did you forget to enable it when you configured PHP? (C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php:351)
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(202): UploadHandlerS3->get()
+#1 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(191): UploadHandlerS3->initialize()
+#2 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(245): UploadHandlerS3->__construct()
+#3 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#4 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#6 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#7 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#8 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php (351)
+in C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php (1341)
+in C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php (202)
+2016/05/05 21:49:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 21:50:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff2".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 21:50:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 21:50:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.ttf".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 21:53:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 21:53:20 [error] [php] Argument 2 passed to Aws\AwsClient::getCommand() must be of the type array, string given, called in C:\xampp\htdocs\jdrive\assets\aws\Aws\AwsClientTrait.php on line 78 and defined (C:\xampp\htdocs\jdrive\assets\aws\Aws\AwsClient.php:202)
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(60): Aws\S3\S3Client->get()
+#1 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(245): UploadHandlerS3->__construct()
+#2 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#3 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#5 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#6 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#7 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\assets\aws\Aws\AwsClient.php (202)
+in C:\xampp\htdocs\jdrive\assets\aws\Aws\AwsClientTrait.php (78)
+in C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php (60)
+2016/05/05 22:00:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 22:00:16 [error] [php] include(Aws.php): failed to open stream: No such file or directory (C:\xampp\htdocs\framework\YiiBase.php:432)
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(53): spl_autoload_call()
+#1 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(245): UploadHandlerS3->__construct()
+#2 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#3 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#5 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#6 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#7 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php (53)
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (245)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/05 22:00:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 22:05:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 22:05:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 22:06:20 [error] [php] The unspecified location constraint is incompatible for the region specific endpoint this request was sent to. (C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php:774)
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php(385): Aws\S3\StreamWrapper->createBucket()
+#1 unknown(0): Aws\S3\StreamWrapper->mkdir()
+#2 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1104): mkdir()
+#3 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1370): UploadHandlerS3->handle_file_upload()
+#4 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(199): UploadHandlerS3->post()
+#5 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(183): UploadHandlerS3->initialize()
+#6 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(245): UploadHandlerS3->__construct()
+#7 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#8 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#10 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#11 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#12 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (774)
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (854)
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (385)
+2016/05/05 22:06:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff2".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:06:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:06:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.ttf".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:06:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 22:07:15 [error] [php] The unspecified location constraint is incompatible for the region specific endpoint this request was sent to. (C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php:774)
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php(385): Aws\S3\StreamWrapper->createBucket()
+#1 unknown(0): Aws\S3\StreamWrapper->mkdir()
+#2 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1104): mkdir()
+#3 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1370): UploadHandlerS3->handle_file_upload()
+#4 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(199): UploadHandlerS3->post()
+#5 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(183): UploadHandlerS3->initialize()
+#6 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(245): UploadHandlerS3->__construct()
+#7 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#8 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#10 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#11 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#12 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (774)
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (854)
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (385)
+2016/05/05 22:07:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff2".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:07:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:07:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.ttf".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:21:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 22:22:07 [error] [php] Cannot open a bucket. You must specify a path in the form of s3://bucket/key (C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php:774)
+Stack trace:
+#0 unknown(0): Aws\S3\StreamWrapper->stream_open()
+#1 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1130): move_uploaded_file()
+#2 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1374): UploadHandlerS3->handle_file_upload()
+#3 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(203): UploadHandlerS3->post()
+#4 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(187): UploadHandlerS3->initialize()
+#5 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(245): UploadHandlerS3->__construct()
+#6 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#7 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#9 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#10 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#11 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (774)
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (189)
+in C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php (1130)
+2016/05/05 22:22:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff2".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:22:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:22:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.ttf".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:23:29 [error] [php] Cannot open a bucket. You must specify a path in the form of s3://bucket/key (C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php:774)
+Stack trace:
+#0 unknown(0): Aws\S3\StreamWrapper->stream_open()
+#1 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1130): move_uploaded_file()
+#2 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1374): UploadHandlerS3->handle_file_upload()
+#3 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(203): UploadHandlerS3->post()
+#4 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(187): UploadHandlerS3->initialize()
+#5 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(245): UploadHandlerS3->__construct()
+#6 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#7 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#9 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#10 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#11 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (774)
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (189)
+in C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php (1130)
+2016/05/05 22:23:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 22:24:12 [error] [php] Cannot open a bucket. You must specify a path in the form of s3://bucket/key (C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php:774)
+Stack trace:
+#0 unknown(0): Aws\S3\StreamWrapper->stream_open()
+#1 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1130): move_uploaded_file()
+#2 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1374): UploadHandlerS3->handle_file_upload()
+#3 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(203): UploadHandlerS3->post()
+#4 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(187): UploadHandlerS3->initialize()
+#5 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(245): UploadHandlerS3->__construct()
+#6 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#7 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#9 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#10 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#11 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (774)
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (189)
+in C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php (1130)
+2016/05/05 22:24:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff2".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:24:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:24:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.ttf".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:26:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 22:26:57 [error] [php] Cannot open a bucket. You must specify a path in the form of s3://bucket/key (C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php:774)
+Stack trace:
+#0 unknown(0): Aws\S3\StreamWrapper->stream_open()
+#1 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1130): move_uploaded_file()
+#2 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1374): UploadHandlerS3->handle_file_upload()
+#3 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(203): UploadHandlerS3->post()
+#4 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(187): UploadHandlerS3->initialize()
+#5 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(245): UploadHandlerS3->__construct()
+#6 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#7 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#9 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#10 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#11 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (774)
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (189)
+in C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php (1130)
+2016/05/05 22:26:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff2".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:26:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:26:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.ttf".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:29:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 22:29:54 [error] [php] Cannot open a bucket. You must specify a path in the form of s3://bucket/key (C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php:774)
+Stack trace:
+#0 unknown(0): Aws\S3\StreamWrapper->stream_open()
+#1 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1132): move_uploaded_file()
+#2 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1376): UploadHandlerS3->handle_file_upload()
+#3 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(203): UploadHandlerS3->post()
+#4 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(187): UploadHandlerS3->initialize()
+#5 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(245): UploadHandlerS3->__construct()
+#6 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#7 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#9 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#10 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#11 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (774)
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (189)
+in C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php (1132)
+2016/05/05 22:29:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff2".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:29:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:29:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.ttf".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:30:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 22:31:03 [error] [php] Cannot open a bucket. You must specify a path in the form of s3://bucket/key (C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php:774)
+Stack trace:
+#0 unknown(0): Aws\S3\StreamWrapper->stream_open()
+#1 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1132): move_uploaded_file()
+#2 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1376): UploadHandlerS3->handle_file_upload()
+#3 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(203): UploadHandlerS3->post()
+#4 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(187): UploadHandlerS3->initialize()
+#5 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(245): UploadHandlerS3->__construct()
+#6 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#7 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#9 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#10 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#11 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (774)
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (189)
+in C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php (1132)
+2016/05/05 22:31:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff2".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:31:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:31:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.ttf".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 22:54:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 23:08:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff2".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:08:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:08:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.ttf".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:09:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 23:09:34 [error] [php] Cannot open a bucket. You must specify a path in the form of s3://bucket/key (C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php:774)
+Stack trace:
+#0 unknown(0): Aws\S3\StreamWrapper->stream_open()
+#1 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1132): move_uploaded_file()
+#2 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1382): UploadHandlerS3->handle_file_upload()
+#3 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(203): UploadHandlerS3->post()
+#4 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(187): UploadHandlerS3->initialize()
+#5 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(245): UploadHandlerS3->__construct()
+#6 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#7 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#9 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#10 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#11 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (774)
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (189)
+in C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php (1132)
+2016/05/05 23:09:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff2".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:09:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:09:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.ttf".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:10:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 23:10:21 [error] [php] Cannot open a bucket. You must specify a path in the form of s3://bucket/key (C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php:774)
+Stack trace:
+#0 unknown(0): Aws\S3\StreamWrapper->stream_open()
+#1 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1132): move_uploaded_file()
+#2 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1382): UploadHandlerS3->handle_file_upload()
+#3 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(203): UploadHandlerS3->post()
+#4 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(187): UploadHandlerS3->initialize()
+#5 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(245): UploadHandlerS3->__construct()
+#6 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#7 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#9 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#10 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#11 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (774)
+in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php (189)
+in C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php (1132)
+2016/05/05 23:10:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff2".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:10:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:10:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.ttf".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:11:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 23:12:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff2".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:12:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:12:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.ttf".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:13:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 23:16:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 23:17:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff2".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:17:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:17:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.ttf".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:27:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 23:27:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/05 23:28:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff2".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff2
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:28:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.woff".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.woff
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:28:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/fonts/glyphicons-halflings-regular.ttf".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.ttf
+HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
+---
+2016/05/05 23:31:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---

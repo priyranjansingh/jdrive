@@ -16,11 +16,11 @@ class BaseModel extends CActiveRecord {
 // set the create date, last updated date and the user doing the creating
             if (create_guid() && !Yii::app()->user->isGuest) {
                 $this->id = create_guid();
-                $this->date_entered = date("Y-m-d H:i:s");
                 $this->created_by = Yii::app()->user->id;
                 $this->modified_by = Yii::app()->user->id;
                 $this->deleted = 0;
                 $this->status = 1;
+                $this->date_entered = date("Y-m-d H:i:s");
                 $this->date_modified = date("Y-m-d H:i:s");
             } else {
                 $this->id = create_guid();
