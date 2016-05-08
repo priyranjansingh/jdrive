@@ -3,7 +3,7 @@
 	        'id'=>'login-form',
 	        'action'=>array('/home/login'),
 	        'enableClientValidation'=>true,
-            'enableAjaxValidation'=> true,
+                'enableAjaxValidation'=> true,
 	        'clientOptions'=>array(
                 'validateOnChange'=>true,
 	            'validateOnSubmit'=>true,

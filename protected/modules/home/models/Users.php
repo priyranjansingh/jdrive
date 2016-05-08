@@ -66,6 +66,10 @@ class Users extends BaseModel
 		// class name for the relations automatically generated below.
 		return array(
                     'followers_list'=>array(self::HAS_MANY, 'Followers', 'user_id'),
+                    'country_name' => array(self::BELONGS_TO,'Countries','country_id'),
+                    'state_name' => array(self::BELONGS_TO,'States','state_id'),
+                    'songs_list' => array(self::HAS_MANY,'Songs','created_by','condition'=>'songs_list.type = 1'),
+                    'videos_list' => array(self::HAS_MANY,'Songs','created_by','condition'=>'videos_list.type = 2')
 		);
 	}
 

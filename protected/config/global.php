@@ -38,7 +38,7 @@ $global = array(
                             ),
     'stripe_secret_key' => 'sk_test_TAUDep4BCtXVN2JylyDhkrD6',
     'stripe_access_key' => 'pk_test_jwghFvJb4NmKWhA16j1wgQva',
-    'access_key_id' => '',
-    'secret_access_key' => ''
+    'access_key_id' => 'AKIAID2S54DQ34IPX24Q',
+    'secret_access_key' => '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'
 );
 ?>
