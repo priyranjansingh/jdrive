@@ -65,6 +65,7 @@ class Users extends BaseModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                    'followers_list'=>array(self::HAS_MANY, 'Followers', 'user_id'),
 		);
 	}
 
