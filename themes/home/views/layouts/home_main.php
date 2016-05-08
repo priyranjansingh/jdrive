@@ -29,6 +29,9 @@
         <script src="<?php echo $baseUrl; ?>/js/jquery.jplayer.min.js"></script>
         <script src="<?php echo $baseUrl; ?>/js/jplayer.playlist.min.js"></script>
         <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/custom.js"></script>
+        <script>
+            var base_url = "<?php echo base_url(); ?>";
+        </script>    
     </head>
 
     <body>
@@ -349,5 +352,6 @@
             });
             //]]>
         </script>
+        <span class="loading"></span>
     </body>
 </html>
