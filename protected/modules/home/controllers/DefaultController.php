@@ -5,8 +5,8 @@ class DefaultController extends Controller {
     public $param = 'value';
 
     public function actionIndex() {
-        $songs =  Songs::model()->findAll(array("condition" => "status = '1' AND deleted = 0","order"=>"date_entered desc","limit"=>20));
-        $videos = Videos::model()->findAll(array("condition" => "status = '2' AND deleted = 0","order"=>"date_entered desc","limit"=>20));
+        $songs =  Songs::model()->findAll(array("condition" => "status = '1' AND type = '1' AND deleted = 0","order"=>"date_entered desc","limit"=>20));
+        $videos = Videos::model()->findAll(array("condition" => "status = '1' AND type ='2' AND deleted = 0","order"=>"date_entered desc","limit"=>20));
         $this->render('index',array('songs'=>$songs,'videos'=>$videos));
     }
 
@@ -34,6 +34,37 @@ class DefaultController extends Controller {
             $this->redirect(Yii::app()->user->returnUrl);
         }
     }
+    
+    public function actionSearch()
+    {
+        $srch_str = $_GET['Search']['srch_txt'];
+        
+        $songs  =   Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND (song_name like '%$srch_str%' OR artist_name like '%$srch_str%' )   ","order"=>"date_entered desc"));
+        $videos =   Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND (song_name like '%$srch_str%' OR artist_name like '%$srch_str%' )   ","order"=>"date_entered desc"));
+        $dj     =   Users::model()->findAll(array("condition" => "status = '1' AND is_admin = '0'  AND deleted = 0 AND (username like '%$srch_str%' OR first_name like '%$srch_str%' OR last_name like '%$srch_str%' )   ","order"=>"date_entered desc"));
+        $this->render('search_result', array('songs' => $songs,'videos' => $videos, 'dj'=> $dj));
+        
+    } 
+    
+    public function actionDj($user)
+    {
+        $user = Users::model()->find(array("condition"=>"username = '$user'"));
+       
+        $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$user->id'    ","order"=>"date_entered desc" ,"limit"=>20));
+        $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$user->id'    ","order"=>"date_entered desc" ,"limit"=>20));
+        $total_track_list = count($song_list) + count($video_list); 
+        $following_list = Followers::model()->findAll(array("condition" => "follower_id = '$user->id'"));
+        $this->render('dj_profile', array(
+            'user' => $user,
+            'song_list'=>$song_list,
+            'video_list'=>$video_list,
+            'total_track_list' => $total_track_list,
+            'following_list' => $following_list
+            ));
+    }        
+    
+    
+    
 
     public function actionLogout()
     {
