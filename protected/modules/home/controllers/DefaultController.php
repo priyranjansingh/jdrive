@@ -120,6 +120,12 @@ class DefaultController extends Controller {
             $user_plan->plan_start_date = date("Y-m-d");
             $user_plan->plan_end_date = date("Y-m-d", strtotime('+'.$plan->plan_duration.' '.$plan->plan_duration_type.'s'));
             $user_plan->save();
+
+            $u = Users::model()->findByPk($user->id);
+            $u->is_paid = 1;
+            $u->save();
+            Yii::app()->user->isGuest = false;
+            Yii::app()->user->id = $user->id;
             Yii::app()->session['payment_success'] = true;
             $this->redirect(array('success'));
             // pre($customer,true);
@@ -240,9 +246,10 @@ class DefaultController extends Controller {
 
     public function actionUpload()
     {
+        $mode = $_REQUEST['mode'];
         $user_id = Yii::app()->user->id;
         $bucket = Users::model()->findByPk($user_id)->s3_bucket;
-        $upload_handler = new UploadHandlerS3(null,true,null,$bucket);
+        $upload_handler = new UploadHandlerS3(null,true,null,$bucket, $mode);
         // pre($upload_handler,true);
     }
 

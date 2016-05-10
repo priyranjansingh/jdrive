@@ -30,7 +30,8 @@ return array(
         'home',
         'songs',
         'videos',
-        'genre'
+        'genre',
+        'user',
     ),
     // application components
     'components' => array(

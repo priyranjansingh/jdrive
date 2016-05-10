@@ -42,7 +42,7 @@ class Users extends BaseModel
 		// will receive user inputs.
 		return array(
 			array('id, username, password, email, created_by, date_entered', 'required'),
-			array('state_id, country_id, is_admin, status, deleted', 'numerical', 'integerOnly'=>true),
+			array('state_id, country_id, is_paid, is_admin, status, deleted', 'numerical', 'integerOnly'=>true),
 			array('id, role_id, created_by, modified_by', 'length', 'max'=>36),
 			array('username, s3_bucket, first_name, last_name', 'length', 'max'=>128),
 			array('password, email', 'length', 'max'=>255),
@@ -53,7 +53,7 @@ class Users extends BaseModel
 			array('date_modified', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, username, password, s3_bucket, first_name, last_name, email, phone, profile_pic, state_id, country_id, is_admin, role_id, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on'=>'search'),
+			array('id, username, password, s3_bucket, first_name, last_name, email, phone, is_paid, profile_pic, state_id, country_id, is_admin, role_id, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -86,6 +86,7 @@ class Users extends BaseModel
 			'state_id' => 'State',
 			'country_id' => 'Country',
 			'is_admin' => 'Is Admin',
+			'is_paid' => 'Is Paid',
 			'role_id' => 'Role',
 			'status' => 'Status',
 			'deleted' => 'Deleted',
@@ -125,6 +126,7 @@ class Users extends BaseModel
 		$criteria->compare('state_id',$this->state_id);
 		$criteria->compare('country_id',$this->country_id);
 		$criteria->compare('is_admin',$this->is_admin);
+		$criteria->compare('is_paid',$this->is_paid);
 		$criteria->compare('role_id',$this->role_id,true);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('deleted',$this->deleted);

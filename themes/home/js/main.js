@@ -13,12 +13,13 @@
 
 $(function () {
     'use strict';
-
+    var mode = $(".file_mode:checked").val();
     // Initialize the jQuery File Upload widget:
     $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
-        url: base_url+'/home/upload'
+        url: base_url+'/home/upload',
+        formData: {mode: mode},
     });
 
     // Enable iframe cross-domain access via redirect option:

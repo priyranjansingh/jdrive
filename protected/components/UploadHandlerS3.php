@@ -45,7 +45,7 @@ class UploadHandlerS3
 
     protected $image_objects = array();
 
-    function __construct($options = null, $initialize = true, $error_messages = null, $bucket) {
+    function __construct($options = null, $initialize = true, $error_messages = null, $bucket, $acl) {
 
         /*$config = array(
                             'key'    => 'AKIAID2S54DQ34IPX24Q',
@@ -59,7 +59,7 @@ class UploadHandlerS3
 
         $this->prefix=''; //note there is no "folders" in S3 though you can prefix files with a string that resembles a file system.
         $this->bucket = $bucket;
-
+        $this->acl = $acl;
         //compatible with PHP frameworks such as Codeigniter by calling:
         // $CI = & get_instance(); //get Codeigniter instance
         //$this->form_validation= $CI->form_validation; //access some Codeigniter class and make a property of UploadHandler class
@@ -1132,7 +1132,7 @@ class UploadHandlerS3
                     move_uploaded_file($uploaded_file, $file_path);
                     $key = basename($file_path);
                     $this->s3->putObjectAcl(array(
-                                      'ACL' => 'private',
+                                      'ACL' => $this->acl,
                                       'Bucket' => $this->bucket,
                                       'Key' => $key,
                                     ));
@@ -1443,11 +1443,17 @@ class UploadHandlerS3
         Yii::import("application.modules.home.models.Temp", true);
         foreach($files as $file)
         {
+            $m_acl = 0;
+            if($this->acl == "private")
+            {
+                $m_acl = 1;
+            }
             $model = new Temp;
             $model->s3_bucket = $this->bucket;
             $model->file_name = $file->name;
             $model->s3_url = $file->url;
             $model->user_id = Yii::app()->user->id;
+            $model->acl = $m_acl;
             /*$model->status = 1;
             $model->deleted = 0;
             $model->created_by = Yii::app()->user->id;

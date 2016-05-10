@@ -31,3 +31,8 @@ CREATE TABLE `temp_media` (
 
 INSERT INTO `temp_media` (`id`, `s3_bucket`, `file_name`, `s3_url`, `user_id`, `status`, `deleted`, `created_by`, `modified_by`, `date_entered`, `date_modified`) VALUES
 ('ebdca05c-9367-107d-3cef-572bbbf5b451', 'neeraj-f0b1ea', 'Mark J - Marvelous Light.mp3', 'https://neeraj-f0b1ea.s3.amazonaws.com/Mark%20J%20-%20Marvelous%20Light.mp3', 'e71ca27b-d9e6-538e-f106-572a476f04ee', 1, 0, 'e71ca27b-d9e6-538e-f106-572a476f04ee', 'e71ca27b-d9e6-538e-f106-572a476f04ee', '2016-05-05 23:32:18', '2016-05-05 23:32:18');
+
+/* 07-05-2015 */
+ALTER TABLE `temp_media` ADD `acl` TINYINT(1) NOT NULL DEFAULT '1' AFTER `s3_bucket`;
+ALTER TABLE `media` ADD `acl` TINYINT(1) NOT NULL DEFAULT '1' AFTER `s3_bucket`;
+ALTER TABLE `users` ADD `is_paid` TINYINT(1) NOT NULL DEFAULT '1' AFTER `phone`;

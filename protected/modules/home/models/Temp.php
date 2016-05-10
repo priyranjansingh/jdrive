@@ -34,15 +34,15 @@ class Temp extends BaseModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, s3_bucket, file_name, s3_url, user_id, created_by, modified_by, date_entered, date_modified', 'required'),
-			array('status, deleted', 'numerical', 'integerOnly'=>true),
+			array('id, s3_bucket, acl, file_name, s3_url, user_id, created_by, modified_by, date_entered, date_modified', 'required'),
+			array('acl, status, deleted', 'numerical', 'integerOnly'=>true),
 			array('id, user_id, created_by, modified_by', 'length', 'max'=>36),
 			array('s3_bucket', 'length', 'max'=>128),
 			array('file_name', 'length', 'max'=>256),
 			array('s3_url', 'length', 'max'=>512),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, s3_bucket, file_name, s3_url, user_id, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on'=>'search'),
+			array('id, s3_bucket, acl, file_name, s3_url, user_id, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on'=>'search'),
 		);
 	}
 
