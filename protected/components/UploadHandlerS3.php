@@ -1444,6 +1444,11 @@ class UploadHandlerS3
         foreach($files as $file)
         {
             $m_acl = 0;
+            $m_type = 2;
+            if($file->type == "audio/mp3")
+            {
+                $m_type = 1;
+            }
             if($this->acl == "private")
             {
                 $m_acl = 1;
@@ -1454,6 +1459,7 @@ class UploadHandlerS3
             $model->s3_url = $file->url;
             $model->user_id = Yii::app()->user->id;
             $model->acl = $m_acl;
+            $model->type = $m_type;
             /*$model->status = 1;
             $model->deleted = 0;
             $model->created_by = Yii::app()->user->id;
@@ -1462,6 +1468,7 @@ class UploadHandlerS3
             $model->date_modified = date("Y-m-d H:i:s");*/
             $model->save();
         }
+        pre($files,true);
         return $this->generate_response(
             array($this->options['param_name'] => $files),
             $print_response

@@ -36,3 +36,13 @@ INSERT INTO `temp_media` (`id`, `s3_bucket`, `file_name`, `s3_url`, `user_id`, `
 ALTER TABLE `temp_media` ADD `acl` TINYINT(1) NOT NULL DEFAULT '1' AFTER `s3_bucket`;
 ALTER TABLE `media` ADD `acl` TINYINT(1) NOT NULL DEFAULT '1' AFTER `s3_bucket`;
 ALTER TABLE `users` ADD `is_paid` TINYINT(1) NOT NULL DEFAULT '1' AFTER `phone`;
+
+/* 11-05-2015 */
+ALTER TABLE `temp_media` ADD `type` TINYINT(1) NOT NULL DEFAULT '1' AFTER `id`;
+ALTER TABLE `genres` DROP `genre_for`;
+ALTER TABLE `media` CHANGE `sub_genre` `sub_genre` CHAR(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL;
+ALTER TABLE `media` DROP `file_size`;
+ALTER TABLE `media` CHANGE `bpm` `bpm` VARCHAR(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL;
+ALTER TABLE `media` CHANGE `song_key` `song_key` VARCHAR(16) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL;
+ALTER TABLE `media` ADD `album_art` TEXT NULL AFTER `artist_name`;
+ALTER TABLE `media` CHANGE `bpm` `bpm` VARCHAR(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;

@@ -284,6 +284,59 @@ class DefaultController extends Controller {
         // pre($upload_handler,true);
     }
 
+    public function actionAddsongs()
+    {
+        $temp = Temp::model()->findAll();
+        Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
+        foreach($temp as $t){
+            if(copy(Yii::app()->s3->getAuthenticatedURL($t->s3_bucket, $t->file_name, 3600, false, false), "assets/temp/".$t->file_name)){
+                $info = new FileInfo("assets/temp/".$t->file_name);
+                $g = $info->data['genre'];
+                $genre = Genres::model()->find(array("condition" => "name = '$g'"));
+                if($genre === null){
+                    $g_model = new Genres;
+                    $g_model->name = $g;
+                    $g_model->parent = null;
+                    if($g_model->save()){
+                        $g = $g_model->id;
+                    } else {
+                        pre($g_model->getErrors(), true);
+                    }
+                } else {
+                    $g = $genre->id;
+                }
+                $api = new ApiSearch($info->data['artist'], $info->data['song'], $info->data['album']);
+                $model = new Media;
+                $model->id = create_guid();
+                $model->type = $t->type;
+                $model->song_name = $info->data['song'];
+                $model->artist_name = $info->data['artist'];
+                $model->acl = $t->acl;
+                $model->genre = $g;
+                $model->s3_url = $t->s3_url;
+                $model->s3_bucket = $t->s3_bucket;
+                $model->file_name = $t->file_name;
+                $model->album_art = $api->album_art;
+                $model->bpm = $api->bpm;
+                $model->created_by = $t->user_id;
+                $model->modified_by = $t->user_id;
+                $model->status = 1;
+                $model->deleted = 0;
+                $model->date_entered = date("Y-m-d H:i:s");
+                $model->date_modified = date("Y-m-d H:i:s");
+                if($model->save()){
+                    unlink("assets/temp/".$t->file_name);
+                    // Temp::model()->deleteByPk($t->id);
+                } else {
+                    pre($api->bpm);
+                    pre($model->getErrors(), true);
+                }
+            }
+            
+        }
+        
+    }
+
     /**
      * Performs the AJAX validation.
      * @param Genres $model the model to be validated

@@ -38,7 +38,10 @@ $global = array(
                             ),
     'stripe_secret_key' => 'sk_test_TAUDep4BCtXVN2JylyDhkrD6',
     'stripe_access_key' => 'pk_test_jwghFvJb4NmKWhA16j1wgQva',
-    'access_key_id' => 'AKIAID2S54DQ34IPX24Q',
-    'secret_access_key' => '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'
+    'access_key_id' => '',
+    'secret_access_key' => '',
+    'api_client_id' => '1147939910-58D33C3A6106FF75E8A80FDFE9B36758',
+    'api_client_tag' => '58D33C3A6106FF75E8A80FDFE9B36758',
+    'api_user_id' => '34435820625666996-40DF3AACF34B631C07FE7208586E9FC7'
 );
 ?>

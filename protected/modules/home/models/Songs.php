@@ -41,17 +41,17 @@ class Songs extends AdminBaseModel {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('id, song_name, artist_name, slug, s3_bucket, file_name, type, bpm, song_key, file_size, genre, sub_genre, created_by, modified_by, date_entered, date_modified', 'required'),
+            array('id, song_name, artist_name, slug, s3_bucket, file_name, type, genre, created_by, modified_by, date_entered, date_modified', 'required'),
             array('type, status, deleted', 'numerical', 'integerOnly' => true),
             array('id, genre, sub_genre, sub_sub_genre, created_by, modified_by', 'length', 'max' => 36),
             array('song_name, artist_name, s3_bucket', 'length', 'max' => 128),
             array('slug, file_name', 'length', 'max' => 256),
-            array('bpm, file_size', 'length', 'max' => 16),
+            array('bpm', 'length', 'max' => 16),
             array('song_key', 'length', 'max' => 32),
             array('s3_url', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, song_name, artist_name, slug, s3_bucket, file_name, type, bpm, song_key, file_size, genre, sub_genre, sub_sub_genre, s3_url, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on' => 'search'),
+            array('id, song_name, artist_name, slug, s3_bucket, file_name, type, bpm, song_key, genre, sub_genre, sub_sub_genre, s3_url, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on' => 'search'),
         );
     }
 
@@ -82,7 +82,6 @@ class Songs extends AdminBaseModel {
             'type' => 'Type',
             'bpm' => 'Bpm',
             'song_key' => 'Song Key',
-            'file_size' => 'File Size',
             'genre' => 'Genre',
             'sub_genre' => 'Sub Genre',
             'sub_sub_genre' => 'Sub Sub Genre',
@@ -122,7 +121,6 @@ class Songs extends AdminBaseModel {
         $criteria->compare('type', 1);
         $criteria->compare('bpm', $this->bpm, true);
         $criteria->compare('song_key', $this->song_key, true);
-        $criteria->compare('file_size', $this->file_size, true);
         $criteria->compare('genre', $this->genre, true);
         $criteria->compare('sub_genre', $this->sub_genre, true);
         $criteria->compare('sub_sub_genre', $this->sub_sub_genre, true);

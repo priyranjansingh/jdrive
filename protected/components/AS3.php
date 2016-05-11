@@ -53,5 +53,14 @@
 			}*/
 		}
 
+		public function getSong($bucket, $file)
+		{
+			return $this->s3Client->getObject(array(
+										    'Bucket' => $bucket,
+										    'Key'    => $file,
+										    // 'SaveAs' => 'assets/path/'.$file
+										));
+		}
+
 	}
 ?>
