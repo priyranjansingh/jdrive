@@ -9,3 +9,7 @@ ALTER TABLE `plans` CHANGE `free_duration` `free_duration` ENUM('day','week','mo
 
 /*03-05-2016*/
 ALTER TABLE `users` ADD `s3_bucket` VARCHAR(128) NULL AFTER `password`;
+
+/* 9-5-2016 */
+ALTER TABLE `downloads` ADD `owner_id` CHAR(36) NOT NULL AFTER `song_id`;
+ALTER TABLE `downloads` ADD `type` TINYINT(1) NOT NULL AFTER `owner_id`;
