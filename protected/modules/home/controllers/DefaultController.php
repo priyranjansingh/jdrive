@@ -1,24 +1,23 @@
 <?php
 
 class DefaultController extends Controller {
+
     public $layout = '//layouts/home_main';
     public $param = 'value';
 
     public function actionIndex() {
-        $songs =  Songs::model()->findAll(array("condition" => "status = '1' AND type = '1' AND deleted = 0","order"=>"date_entered desc","limit"=>20));
-        $videos = Videos::model()->findAll(array("condition" => "status = '1' AND type ='2' AND deleted = 0","order"=>"date_entered desc","limit"=>20));
-        $this->render('index',array('songs'=>$songs,'videos'=>$videos));
+        $songs = Songs::model()->findAll(array("condition" => "status = '1' AND type = '1' AND deleted = 0", "order" => "date_entered desc", "limit" => 20));
+        $videos = Videos::model()->findAll(array("condition" => "status = '1' AND type ='2' AND deleted = 0", "order" => "date_entered desc", "limit" => 20));
+        $this->render('index', array('songs' => $songs, 'videos' => $videos));
     }
 
-    public function actionLogin()
-    {
+    public function actionLogin() {
 
         // pre($_POST['FrontUserLogin'],true);
         if (Yii::app()->user->isGuest) {
             $model = new FrontUserLogin;
 
-            if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
-            {
+            if (isset($_POST['ajax']) && $_POST['ajax'] === 'login-form') {
                 echo CActiveForm::validate($model);
                 Yii::app()->end();
             }
@@ -34,50 +33,197 @@ class DefaultController extends Controller {
             $this->redirect(Yii::app()->user->returnUrl);
         }
     }
-    
-    public function actionSearch()
-    {
-        $srch_str = $_GET['Search']['srch_txt'];
-        
-        $songs  =   Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND (song_name like '%$srch_str%' OR artist_name like '%$srch_str%' )   ","order"=>"date_entered desc"));
-        $videos =   Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND (song_name like '%$srch_str%' OR artist_name like '%$srch_str%' )   ","order"=>"date_entered desc"));
-        $dj     =   Users::model()->findAll(array("condition" => "status = '1' AND is_admin = '0'  AND deleted = 0 AND (username like '%$srch_str%' OR first_name like '%$srch_str%' OR last_name like '%$srch_str%' )   ","order"=>"date_entered desc"));
-        $this->render('search_result', array('songs' => $songs,'videos' => $videos, 'dj'=> $dj));
-        
-    } 
-    
-    public function actionDj($user)
-    {
-        $user = Users::model()->find(array("condition"=>"username = '$user'"));
-       
-        $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$user->id'    ","order"=>"date_entered desc" ,"limit"=>20));
-        $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$user->id'    ","order"=>"date_entered desc" ,"limit"=>20));
-        $total_track_list = count($song_list) + count($video_list); 
-        $following_list = Followers::model()->findAll(array("condition" => "follower_id = '$user->id'"));
-        $this->render('dj_profile', array(
-            'user' => $user,
-            'song_list'=>$song_list,
-            'video_list'=>$video_list,
-            'total_track_list' => $total_track_list,
-            'following_list' => $following_list
-            ));
-    }        
-    
-    
-    
 
-    public function actionLogout()
-    {
-        Yii::app()->user->logout();
-        $this->redirect(Yii::app()->baseUrl.'/home');
+    public function actionSearch() {
+        $srch_str = $_GET['Search']['srch_txt'];
+
+        $songs = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND (song_name like '%$srch_str%' OR artist_name like '%$srch_str%' )   ", "order" => "date_entered desc"));
+        $videos = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND (song_name like '%$srch_str%' OR artist_name like '%$srch_str%' )   ", "order" => "date_entered desc"));
+        $dj = Users::model()->findAll(array("condition" => "status = '1' AND is_admin = '0'  AND deleted = 0 AND (username like '%$srch_str%' OR first_name like '%$srch_str%' OR last_name like '%$srch_str%' )   ", "order" => "date_entered desc"));
+        $this->render('search_result', array('songs' => $songs, 'videos' => $videos, 'dj' => $dj));
     }
 
-    public function actionSignup()
-    {
+    public function actionDj($user) {
+        if (Yii::app()->user->isGuest) {
+            $this->redirect(Yii::app()->request->urlReferrer);
+        } else {
+            $user = Users::model()->find(array("condition" => "username = '$user'"));
+            $logged_in_user_id = Yii::app()->user->id;
+            $recommended_list = Users::model()->getRecommendList($logged_in_user_id);
+            
+            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$user->id'    ", "order" => "date_entered desc", "limit" => 20));
+            $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$user->id'    ", "order" => "date_entered desc", "limit" => 20));
+            $total_track_list = count($song_list) + count($video_list);
+            $following_list = Followers::model()->findAll(array("condition" => "follower_id = '$user->id'"));
+            $follow_unfollow = Followers::model()->find(array("condition" => " user_id = '$user->id' AND follower_id = '$logged_in_user_id' "));
+            if (!empty($follow_unfollow)) {
+                if ($follow_unfollow->deleted == 0) {
+                    $follow_unfollow_text = "Unfollow";
+                } else if ($follow_unfollow->deleted == 1) {
+                    $follow_unfollow_text = "Follow";
+                }
+            } else {
+                $follow_unfollow_text = "Follow";
+            }
+
+
+
+
+            $this->render('dj_profile', array(
+                'user' => $user,
+                'song_list' => $song_list,
+                'video_list' => $video_list,
+                'total_track_list' => $total_track_list,
+                'following_list' => $following_list,
+                'follow_unfollow_text' => $follow_unfollow_text,
+                'recommended_list' => $recommended_list,
+            ));
+        }
+    }
+
+    public function actionSongType() {
+        $user_id = $_POST['user'];
+        $song_type = $_POST['song_type'];
+        if ($song_type == 'audio') {
+            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$user_id'    ", "order" => "date_entered desc", "limit" => 20));
+        } else if ($song_type == 'video') {
+            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$user_id'    ", "order" => "date_entered desc", "limit" => 20));
+        }
+        $this->renderPartial('ajax_song', array('song_list' => $song_list));
+    }
+
+    public function actionAjaxTrending() {
+        $user = $_POST['user'];
+        $song_type = $_POST['song_type'];
+        if ($song_type == 'audio') {
+            $trending_song = Downloads::model()->trendingSong($user);
+            $this->renderPartial('ajax_song', array('song_list' => $trending_song));
+        } else if ($song_type == 'video') {
+            $trending_video = Downloads::model()->trendingVideo($user);
+            $this->renderPartial('ajax_song', array('song_list' => $trending_video));
+        }
+    }
+
+    public function actionAjaxJustAdded() {
+        $user = $_POST['user'];
+        $song_type = $_POST['song_type'];
+        if ($song_type == 'audio') {
+            $song = Users::model()->AjaxJustAdded($user, 1);
+            $this->renderPartial('ajax_song', array('song_list' => $song));
+        } else if ($song_type == 'video') {
+            $video = Users::model()->AjaxJustAdded($user, 2);
+            $this->renderPartial('ajax_song', array('song_list' => $video));
+        }
+    }
+
+    public function actionAjaxMyDrive() {
+        $user = $_POST['user'];
+        $song_type = $_POST['song_type'];
+        if ($song_type == 'audio') {
+            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$user'    ", "order" => "date_entered desc", "limit" => 20));
+            $this->renderPartial('ajax_song', array('song_list' => $song_list));
+        } else if ($song_type == 'video') {
+            $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$user'    ", "order" => "date_entered desc", "limit" => 20));
+            $this->renderPartial('ajax_song', array('song_list' => $video_list));
+        }
+    }
+
+    public function actionAjaxPlaylist() {
+        $user = $_POST['user'];
+        $playlists = Playlists::model()->findAll(array("condition" => "status = '1'  AND deleted = 0 AND user_id = '$user'    ", "order" => "date_entered desc", "limit" => 20));
+        $this->renderPartial('ajax_playlist', array('playlists' => $playlists));
+    }
+    
+    public function actionAjaxPlaylistSongs() {
+        $playlist = $_POST['playlist'];
+        $playlist_detail = Playlists::model()->findByPk($playlist);
+        $playlist_songs = PlaylistSongs::model()->findAll(array("condition"=>"playlist_id = '$playlist'"));
+        $this->renderPartial('ajax_playlist_songs', array('playlist_songs' => $playlist_songs,'playlist_name'=>$playlist_detail->name));
+    }
+
+    public function actionFollowUnfollow() {
+        if (Yii::app()->user->id) {
+            $return_arr = array();
+            $user_id = $_POST['dj_id'];
+            $follower_id = $_POST['user_id'];
+            $follow_unfollow = Followers::model()->find(array("condition" => " user_id = '$user_id' AND follower_id = '$follower_id' "));
+            if (empty($follow_unfollow)) {
+                $follower_model = new Followers;
+                $follower_model->user_id = $user_id;
+                $follower_model->follower_id = $follower_id;
+                $follower_model->created_by = $follower_id;
+                $follower_model->save();
+                $user = Users::model()->find(array("condition" => "id = '$user_id'"));
+                $dj_followers_count = count($user->followers_list);
+                $return_arr['followers_count'] = $dj_followers_count;
+                $return_arr['follow_unfollow_text'] = "Unfollow";
+                echo json_encode($return_arr);
+            } else {
+                if ($follow_unfollow->deleted == 0) {
+                    $follow_unfollow->deleted = 1;
+                    $follow_unfollow->save();
+                    $user = Users::model()->find(array("condition" => "id = '$user_id'"));
+                    $dj_followers_count = count($user->followers_list);
+                    $return_arr['followers_count'] = $dj_followers_count;
+                    $return_arr['follow_unfollow_text'] = "Follow";
+                    echo json_encode($return_arr);
+                } else if ($follow_unfollow->deleted == 1) {
+                    $follow_unfollow->deleted = 0;
+                    $follow_unfollow->save();
+                    $user = Users::model()->find(array("condition" => "id = '$user_id'"));
+                    $dj_followers_count = count($user->followers_list);
+                    $return_arr['followers_count'] = $dj_followers_count;
+                    $return_arr['follow_unfollow_text'] = "Unfollow";
+                    echo json_encode($return_arr);
+                }
+            }
+        }
+    }
+    
+     public function actionFollowUnfollowRecommend() {
+        if (Yii::app()->user->id) {
+            $return_arr = array();
+            $user_id = $_POST['dj_id'];
+            $follower_id = $_POST['user_id'];
+            $follow_unfollow = Followers::model()->find(array("condition" => " user_id = '$user_id' AND follower_id = '$follower_id' "));
+            if (empty($follow_unfollow)) {
+                $follower_model = new Followers;
+                $follower_model->user_id = $user_id;
+                $follower_model->follower_id = $follower_id;
+                $follower_model->created_by = $follower_id;
+                $follower_model->save();
+                $user = Users::model()->find(array("condition" => "id = '$user_id'"));
+                $dj_followers_count = count($user->followers_list);
+            } else {
+                if ($follow_unfollow->deleted == 0) {
+                    $follow_unfollow->deleted = 1;
+                    $follow_unfollow->save();
+                    $user = Users::model()->find(array("condition" => "id = '$user_id'"));
+                    $dj_followers_count = count($user->followers_list);
+                } else if ($follow_unfollow->deleted == 1) {
+                    $follow_unfollow->deleted = 0;
+                    $follow_unfollow->save();
+                    $user = Users::model()->find(array("condition" => "id = '$user_id'"));
+                    $dj_followers_count = count($user->followers_list);
+                }
+            }
+            $logged_in_user_id = Yii::app()->user->id;
+            $recommended_list = Users::model()->getRecommendList($logged_in_user_id);
+            $this->renderPartial('ajax_recommended', array('recommended_list' => $recommended_list));
+            
+        }
+    }
+    
+
+    public function actionLogout() {
+        Yii::app()->user->logout();
+        $this->redirect(Yii::app()->baseUrl . '/home');
+    }
+
+    public function actionSignup() {
         if (Yii::app()->user->isGuest) {
             $model = new Registration;
-            if(isset($_POST['ajax']) && $_POST['ajax']==='signup-form')
-            {
+            if (isset($_POST['ajax']) && $_POST['ajax'] === 'signup-form') {
                 echo CActiveForm::validate($model);
                 Yii::app()->end();
             }
@@ -100,30 +246,25 @@ class DefaultController extends Controller {
         }
     }
 
-    public function actionChooseplans()
-    {
+    public function actionChooseplans() {
         // echo "I am Here";
         $plans = BaseModel::getAll('Plans');
-        $this->render('plans',array('plans' => $plans));
+        $this->render('plans', array('plans' => $plans));
     }
 
-    public function actionPayment($plan)
-    {
+    public function actionPayment($plan) {
         $this->layout = '//layouts/payment_main';
         $plan = Plans::model()->findByPk($plan);
-        if($plan === null)
-        {
+        if ($plan === null) {
             $this->redirect(array('chooseplans'));
         } else {
             Yii::app()->session['register_user_plan'] = serialize($plan);
-            $this->render("payment",array('plan'=>$plan));
+            $this->render("payment", array('plan' => $plan));
         }
     }
 
-    public function actionProcess()
-    {
-        if(isset($_POST['stripeToken']))
-        {
+    public function actionProcess() {
+        if (isset($_POST['stripeToken'])) {
             require('./assets/stripe/init.php');
             $token = $_POST['stripeToken'];
             $plan = Yii::app()->session['register_user_plan'];
@@ -133,14 +274,14 @@ class DefaultController extends Controller {
             $secret_key = getParam('stripe_secret_key');
             \Stripe\Stripe::setApiKey($secret_key);
             $customer = \Stripe\Customer::create(array(
-              "source" => $token,
-              "plan" => $plan->stripe_plan,
-              "email" => $user->email,
-              "id" => $user->id)
+                        "source" => $token,
+                        "plan" => $plan->stripe_plan,
+                        "email" => $user->email,
+                        "id" => $user->id)
             );
             // createS3bucket($user->username);
             $aws = new AS3;
-            $bucket = $user->username.'-'.create_guid_section(6);
+            $bucket = $user->username . '-' . create_guid_section(6);
             $aws->addBucket($bucket);
             $user_model = Users::model()->findByPk($user->id);
             $user_model->s3_bucket = $bucket;
@@ -149,53 +290,44 @@ class DefaultController extends Controller {
             $user_plan->plan_id = $plan->id;
             $user_plan->user_id = $user->id;
             $user_plan->plan_start_date = date("Y-m-d");
-            $user_plan->plan_end_date = date("Y-m-d", strtotime('+'.$plan->plan_duration.' '.$plan->plan_duration_type.'s'));
+            $user_plan->plan_end_date = date("Y-m-d", strtotime('+' . $plan->plan_duration . ' ' . $plan->plan_duration_type . 's'));
             $user_plan->save();
-
-            $u = Users::model()->findByPk($user->id);
-            $u->is_paid = 1;
-            $u->save();
-            Yii::app()->user->isGuest = false;
-            Yii::app()->user->id = $user->id;
             Yii::app()->session['payment_success'] = true;
             $this->redirect(array('success'));
             // pre($customer,true);
         }
     }
 
-    public function actionTest()
-    {
+    public function actionTest() {
         $test = Test::model()->findByPk('9d3b5927-122c-11e6-a8fe-3c07717072c4');
         $event = $test->response;
         // pre(json_decode(substr($event, 19)),true);
         $event = json_decode(substr($event, 19));
         $data = $event->data->object;
         $invoice = $data->lines->data[0];
-        pre($invoice,true);
+        pre($invoice, true);
         require('./assets/stripe/init.php');
-     
+
         $secret_key = getParam('stripe_secret_key');
-   
+
         \Stripe\Stripe::setApiKey($secret_key);
         // successful payment
         $customer = \Stripe\Customer::retrieve($data->customer);
-        pre($customer,true);
-
+        pre($customer, true);
     }
 
-    public function actionWebhook($listner)
-    {
+    public function actionWebhook($listner) {
 
-         if(isset($listner) && $listner == 'stripe') {
-     
+        if (isset($listner) && $listner == 'stripe') {
+
             global $stripe_options;
-     
+
             require('./assets/stripe/init.php');
-     
+
             $secret_key = getParam('stripe_secret_key');
-       
+
             \Stripe\Stripe::setApiKey($secret_key);
-     
+
             // retrieve the request's body and parse it as JSON
             $body = @file_get_contents('php://input');
             $model = new Test;
@@ -204,12 +336,12 @@ class DefaultController extends Controller {
             $model->save();
             // grab the event information
             $event_json = json_decode($body);
-     
+
             // this will be used to retrieve the event from Stripe
             $event_id = $event_json->id;
-     
-            if(isset($event_json->id)) {
-     
+
+            if (isset($event_json->id)) {
+
                 try {
                     // to verify this is a real event, we re-retrieve the event from Stripe 
                     $event = \Stripe\Event::retrieve($event_id);
@@ -222,20 +354,19 @@ class DefaultController extends Controller {
                     $data = $event->data->object;
                     $invoice = $data->lines->data[0];
                     // successful payment
-                    if($event->type == 'invoice.payment_succeeded') {
+                    if ($event->type == 'invoice.payment_succeeded') {
                         // send a payment receipt email here
-     
                         // retrieve the payer's information
                         $customer = \Stripe\Customer::retrieve($data->customer);
                         // pre($customer,true);
                         $email = $customer->email;
-     
+
                         $amount = $invoice->amount / 100; // amount comes in as amount in cents, so we need to convert to dollars
-                        
+
                         $jd_inv = Invoice::model()->findByPk(getParam('invoice'));
-                        
+
                         $t_model = new Transactions;
-                        $t_model->invoice = $jd_inv->invoice_text.'-'.$jd_inv->invoice_count;
+                        $t_model->invoice = $jd_inv->invoice_text . '-' . $jd_inv->invoice_count;
                         $t_model->user_id = $customer->sources->data[0]->customer;
                         $t_model->plan_id = $invoice->plan->id;
                         $t_model->transaction_id = $invoice->id;
@@ -252,10 +383,9 @@ class DefaultController extends Controller {
                         $message = "Hello User,\n\n";
                         $message .= "You have successfully made a payment of " . $amount . "\n";
                         $message .= "Thank you.";
-     
+
                         mail($email, $subject, $message, $headers);
                     }
-     
                 } catch (Exception $e) {
                     $headers = 'From: <info@dealrush.in>';
                     mail('neeraj24a@gmail.com', 'Jockdrive Payment Exception', $e, $headers);
@@ -264,13 +394,12 @@ class DefaultController extends Controller {
         }
     }
 
-    public function actionSuccess()
-    {
-        if(isset(Yii::app()->session['payment_success'])){
+    public function actionSuccess() {
+        if (isset(Yii::app()->session['payment_success'])) {
             $plan = Yii::app()->session['register_user_plan'];
             $plan = unserialize($plan);
             echo date('d/m/Y', strtotime('+1 years'));
-            pre($plan,true);
+            pre($plan, true);
             // $this->render('success',array('plan' => $plan));
         }
     }
@@ -326,7 +455,7 @@ class DefaultController extends Controller {
                 $model->date_modified = date("Y-m-d H:i:s");
                 if($model->save()){
                     unlink("assets/temp/".$t->file_name);
-                    // Temp::model()->deleteByPk($t->id);
+                    Temp::model()->deleteByPk($t->id);
                 } else {
                     pre($api->bpm);
                     pre($model->getErrors(), true);
@@ -341,10 +470,8 @@ class DefaultController extends Controller {
      * Performs the AJAX validation.
      * @param Genres $model the model to be validated
      */
-    protected function performAjaxValidation($model, $form_id)
-    {
-        if(isset($_POST['ajax']) && $_POST['ajax']===$form_id)
-        {
+    protected function performAjaxValidation($model, $form_id) {
+        if (isset($_POST['ajax']) && $_POST['ajax'] === $form_id) {
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }

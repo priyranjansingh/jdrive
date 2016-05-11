@@ -37,6 +37,10 @@ ALTER TABLE `temp_media` ADD `acl` TINYINT(1) NOT NULL DEFAULT '1' AFTER `s3_buc
 ALTER TABLE `media` ADD `acl` TINYINT(1) NOT NULL DEFAULT '1' AFTER `s3_bucket`;
 ALTER TABLE `users` ADD `is_paid` TINYINT(1) NOT NULL DEFAULT '1' AFTER `phone`;
 
+/* 9-5-2016 */
+ALTER TABLE `downloads` ADD `owner_id` CHAR(36) NOT NULL AFTER `song_id`;
+ALTER TABLE `downloads` ADD `type` TINYINT(1) NOT NULL AFTER `owner_id`;
+
 /* 11-05-2015 */
 ALTER TABLE `temp_media` ADD `type` TINYINT(1) NOT NULL DEFAULT '1' AFTER `id`;
 ALTER TABLE `genres` DROP `genre_for`;
