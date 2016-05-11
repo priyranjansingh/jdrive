@@ -365,55 +365,12 @@ function encryption($str) {
 
 // function for uploading files to S3
 // if $thumb = true then thumbnail will also be stored
-function uploadToS3($image_tmp_name, $user_image, $thumb = FALSE) {
+function uploadToS3($file_tmp_name, $file_name, $bucket) {
     Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
-    $tmp = explode('.', $user_image);
-    $extension = end($tmp);
-    $randomName = rand(123456, 1234567890) . '.' . $extension;
-    if (Yii::app()->s3->putObjectFile($image_tmp_name, "tbrs3", $randomName, S3::ACL_PUBLIC_READ)) {
-        if ($thumb) {
-            $thumbWidth = 250;
-            //get the path info
-            $info = pathinfo($user_image);
-            $extension = strtoupper($info['extension']);
-            if ($extension == 'JPG' || $extension == 'JPEG') {
-                $img = imagecreatefromjpeg($image_tmp_name);
-            } else if ($extension == 'GIF') {
-                $img = imagecreatefromgif($image_tmp_name);
-            } else if ($extension == 'PNG') {
-                $img = imagecreatefrompng($image_tmp_name);
-            }
-
-            // load image and get image size
-
-            $width = imagesx($img);
-            $height = imagesy($img);
-
-            // calculate thumbnail size
-
-            $new_width = $thumbWidth;
-            $new_height = floor($height * ( $thumbWidth / $width ));
-
-            // create a new temporary image
-            $tmp_img = imagecreatetruecolor($new_width, $new_height);
-
-            // copy and resize old image into new image 
-            imagecopyresized($tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-
-            // save thumbnail into a file
-            if ($extension == 'JPG' || $extension == 'JPEG') {
-                imagejpeg($tmp_img, "./assets/images/thumb_" . $randomName);
-            } else if ($extension == 'GIF') {
-                imagegif($tmp_img, "./assets/images/thumb_" . $randomName);
-            } else if ($extension == 'PNG') {
-                imagepng($tmp_img, "./assets/images/thumb_" . $randomName);
-            }
-            Yii::app()->s3->putObjectFile("./assets/images/thumb_" . $randomName, "tbrs3", "thumb_" . $randomName, S3::ACL_PUBLIC_READ);
-        }
-
-        return $randomName;
+    if(Yii::app()->s3->putObjectFile($file_tmp_name, $bucket, $file_name, S3::ACL_PRIVATE)){
+        return true;
     } else {
-        echo "Something went wrong while uploading your file... sorry.";
+        return false;
     }
 }
 

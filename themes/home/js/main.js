@@ -13,12 +13,13 @@
 
 $(function () {
     'use strict';
-
+    var mode = $(".file_mode:checked").val();
     // Initialize the jQuery File Upload widget:
     $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
-        url: 'server/php/'
+        url: base_url+'/home/upload',
+        formData: {mode: mode},
     });
 
     // Enable iframe cross-domain access via redirect option:
@@ -27,11 +28,11 @@ $(function () {
         'redirect',
         window.location.href.replace(
             /\/[^\/]*$/,
-            '/cors/result.html?%s'
+            base_url+'/themes/home/bimp/cors/result.html?%s'
         )
     );
 
-    /*if (window.location.hostname === 'blueimp.github.io') {
+    if (window.location.hostname === 'blueimp.github.io') {
         // Demo settings:
         $('#fileupload').fileupload('option', {
             url: '//jquery-file-upload.appspot.com/',
@@ -40,7 +41,7 @@ $(function () {
             // send Blob objects via XHR requests:
             disableImageResize: /Android(?!.*Chrome)|Opera/
                 .test(window.navigator.userAgent),
-            maxFileSize: 999000,
+            maxFileSize: 5000000,
             acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
         });
         // Upload server status check for browsers with CORS support:
@@ -70,6 +71,6 @@ $(function () {
             $(this).fileupload('option', 'done')
                 .call(this, $.Event('done'), {result: result});
         });
-    }*/
+    }
 
 });

@@ -38,13 +38,14 @@ class UploadHandler {
     );
     protected $image_objects = array();
 
-    function __construct($options = null, $initialize = true, $error_messages = null, $path , $property_id) {
+    function __construct($options = null, $initialize = true, $error_messages = null, $path, $bucket) {
         $this->response = array();
+        $this->bucket = $bucket;
         $this->options = array(
-            'script_url' => $this->get_full_url() . '/assets/bimp/',
+            'script_url' => $this->get_full_url() . '/themes/home/bimp/',
             'upload_dir' => $path,
             'upload_url' => $path,
-            'property_id' => $property_id,
+            // 'property_id' => $property_id,
             'user_dirs' => false,
             'mkdir_mode' => 0755,
             'param_name' => 'files',
@@ -1042,20 +1043,23 @@ class UploadHandler {
     }
 
     protected function uploadToS3($tmp_file_name, $file_name) {
-        Yii::import("application.modules.properties.models.PropertyGallery", true);
+        Yii::import("application.modules.home.models.Temp", true);
         
-        $s3_file_name = uploadToS3($tmp_file_name, $file_name,true);
-        $model = new PropertyGallery;
-        $model->property = $this->options['property_id'];
-        $model->image = $s3_file_name;
-        $model->type = "g";
+        $s3_file_name = uploadToS3($tmp_file_name, $file_name, $this->bucket);
+        $model = new Temp;
+        $model->s3_bucket = $this->bucket;
+        $model->file_name = $file_name;
+        $model->s3_url = "";
+        $model->user_id = Yii::app()->user->id;
         $model->status = 1;
         $model->deleted = 0;
-        $model->created_by = frontUserId();
+        $model->created_by = Yii::app()->user->id;
+        $model->modified_by = Yii::app()->user->id;
+        $model->date_entered = date("Y-m-d H:i:s");
+        $model->date_modified = date("Y-m-d H:i:s");
         $model->save();
-        $arr['file_name'] = $s3_file_name;
+        $arr['file_name'] = $file_name;
         $arr['id'] = $model->id;
-        $arr['p_id'] = $model->property;
         //return $s3_file_name;
         return $arr;
     }

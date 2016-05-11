@@ -55,6 +55,14 @@
                     </div>
                     <div class="modal-body">
                         <form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <p>Choose How Files Will be uploaded Privately or Public.</p>
+                                    <input type="radio" name="file_mode" class="file_mode" checked="checked" value="authenticated-read" />Public
+                                    <input type="radio" name="file_mode" class="file_mode" value="private" />Private
+                                </div>
+                            </div>
+                            <div class="row">&nbsp;</div>
                             <!-- Redirect browsers with JavaScript disabled to the origin page -->
                             <noscript>
                             <input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/">
@@ -229,7 +237,9 @@
             </tr>
             {% } %}
         </script>
-
+        <script>
+            var base_url = "<?php echo base_url(); ?>";
+        </script>
         <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
         <script src="<?php echo $baseUrl; ?>/js/vendor/jquery.ui.widget.js"></script>
         <!-- The Templates plugin is included to render the upload/download listings -->
