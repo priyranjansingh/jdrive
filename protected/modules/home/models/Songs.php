@@ -25,7 +25,7 @@
  * @property string $date_entered
  * @property string $date_modified
  */
-class Songs extends AdminBaseModel {
+class Songs extends BaseModel {
 
     /**
      * @return string the associated database table name
@@ -65,6 +65,7 @@ class Songs extends AdminBaseModel {
             'media_genre' => array(self::BELONGS_TO, 'Genres', 'genre'),
             'media_sub_genre' => array(self::BELONGS_TO, 'Genres', 'sub_genre'),
             'media_sub_sub_genre' => array(self::BELONGS_TO, 'Genres', 'sub_sub_genre'),
+            'like_details' => array(self::HAS_MANY,'SongLike','song_id')
         );
     }
 
