@@ -39,7 +39,8 @@ class GenresController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+		$models = Genres::model()->findAll(array("condition" => "genre_for = '$genre_for' AND parent = 0"));
+		$genres = CHtml::listData($models, 'id', 'name');
 		if(isset($_POST['Genres']))
 		{
 			$model->attributes=$_POST['Genres'];
@@ -49,6 +50,7 @@ class GenresController extends Controller
 
 		$this->render('create',array(
 			'model'=>$model,
+			'genres' => $genres
 		));
 	}
 
@@ -63,7 +65,8 @@ class GenresController extends Controller
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
+		$models = Genres::model()->findAll(array("condition" => "genre_for = '$genre_for' AND parent = 0"));
+		$genres = CHtml::listData($models, 'id', 'name');
 		if(isset($_POST['Genres']))
 		{
 			$model->attributes=$_POST['Genres'];
@@ -73,6 +76,7 @@ class GenresController extends Controller
 
 		$this->render('update',array(
 			'model'=>$model,
+			'genres' => $genres
 		));
 	}
 
