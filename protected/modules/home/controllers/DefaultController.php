@@ -49,7 +49,7 @@ class DefaultController extends Controller {
         } else {
             $user = Users::model()->find(array("condition" => "username = '$user'"));
             $logged_in_user_id = Yii::app()->user->id;
-            $recommended_list = Users::model()->getRecommendList($logged_in_user_id);
+            $recommended_list = Users::model()->getRecommendList($logged_in_user_id,"limited");
             
             $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$user->id'    ", "order" => "date_entered desc", "limit" => 20));
             $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$user->id'    ", "order" => "date_entered desc", "limit" => 20));
@@ -208,7 +208,7 @@ class DefaultController extends Controller {
                 }
             }
             $logged_in_user_id = Yii::app()->user->id;
-            $recommended_list = Users::model()->getRecommendList($logged_in_user_id);
+            $recommended_list = Users::model()->getRecommendList($logged_in_user_id,"limited");
             $this->renderPartial('ajax_recommended', array('recommended_list' => $recommended_list));
             
         }

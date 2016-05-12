@@ -19,6 +19,7 @@
         <link href="<?php echo $baseUrl; ?>/css/owl.carousel.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/jplayer.pink.flag.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/style.css" rel="stylesheet" type="text/css">
+         <link href="<?php echo $baseUrl; ?>/css/developer.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/membership.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/responsive.css" rel="stylesheet" type="text/css">
 

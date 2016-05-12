@@ -4770,3 +4770,322 @@ Stack trace:
 REQUEST_URI=/jdrive/home/dj?user=neeraj
 HTTP_REFERER=http://localhost/jdrive/index.php/home/search?Search%5Bsrch_txt%5D=kumar
 ---
+2016/05/11 16:07:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/home/dj?user=neeraj
+---
+2016/05/11 16:26:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/05/11 16:26:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/index.php
+---
+2016/05/11 16:26:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/index.php/home/search?Search%5Bsrch_txt%5D=kumar
+---
+2016/05/11 16:26:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/home/dj?user=neeraj
+---
+2016/05/11 16:43:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/home/dj?user=neeraj
+---
+2016/05/11 16:43:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/home/dj?user=priyranjan
+---
+2016/05/11 16:43:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/
+---
+2016/05/11 16:43:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/index.php/home/search?Search%5Bsrch_txt%5D=neeraj
+---
+2016/05/11 16:43:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/home/dj?user=neeraj
+---
+2016/05/11 16:45:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/
+---
+2016/05/11 16:46:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/
+---
+2016/05/11 16:48:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/developer.css".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/developer.css
+HTTP_REFERER=http://localhost/jdrive/
+---
+2016/05/11 16:48:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/
+---
+2016/05/11 16:48:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/developer.css".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/developer.css
+HTTP_REFERER=http://localhost/jdrive/
+---
+2016/05/11 16:48:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/
+---
+2016/05/11 16:48:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/developer.css".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/developer.css
+HTTP_REFERER=http://localhost/jdrive/index.php/home/search?Search%5Bsrch_txt%5D=kumar
+---
+2016/05/11 16:48:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/index.php/home/search?Search%5Bsrch_txt%5D=kumar
+---
+2016/05/11 16:48:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/developer.css".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/developer.css
+HTTP_REFERER=http://localhost/jdrive/home/dj?user=neeraj
+---
+2016/05/11 16:48:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/home/dj?user=neeraj
+---
+2016/05/11 16:48:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/developer.css".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/developer.css
+---
+2016/05/11 16:49:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/home/dj?user=neeraj
+---
+2016/05/11 16:49:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/home/dj?user=neeraj
+---
+2016/05/11 16:49:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/home/dj?user=neeraj
+---
+2016/05/11 16:50:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/
+---
+2016/05/12 06:42:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/05/12 06:48:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/index.php
+---
+2016/05/12 06:48:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/index.php/home/search?Search%5Bsrch_txt%5D=kumar
+---
+2016/05/12 06:48:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/home/dj?user=neeraj
+---
+2016/05/12 06:48:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "upload".' in C:\xampp\htdocs\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(270): CController->missingAction('upload')
+#1 C:\xampp\htdocs\framework\web\CWebApplication.php(282): CController->run('upload')
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#3 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/home
+---
