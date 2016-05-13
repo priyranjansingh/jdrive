@@ -150,13 +150,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         ?>    
                         <li>
                             <div class="i_info"> <img src="<?php echo $baseUrl; ?>/img/alb1.jpg" /> <span class="play_btn"><i class="fa fa-play-circle-o"></i></span>
-                                <ul class="l_titel">
-                                    <li><i class="fa fa-upload"></i></li>
-                                    <li><i class="fa fa-plus"></i></li>
-                                    <li><i class="fa fa-history"></i></li>
-                                    <li><i class="fa fa-retweet"></i> <span>19</span></li>
-                                    <li><i class="fa fa-heart-o"></i> <span>38</span></li>
-                                </ul>
+                                <?php $this->widget('SongWidget',array("song_id"=>$song->id)); ?>
                             </div>
                             <div class="i_titel">
                                 <div class="it_l"><?php echo $count; ?></div>

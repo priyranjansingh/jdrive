@@ -65,7 +65,8 @@ class Songs extends BaseModel {
             'media_genre' => array(self::BELONGS_TO, 'Genres', 'genre'),
             'media_sub_genre' => array(self::BELONGS_TO, 'Genres', 'sub_genre'),
             'media_sub_sub_genre' => array(self::BELONGS_TO, 'Genres', 'sub_sub_genre'),
-            'like_details' => array(self::HAS_MANY,'SongLike','song_id')
+            'like_details' => array(self::HAS_MANY,'SongLike','song_id','condition' => 'like_details.deleted = 0'),
+            'download_details' => array(self::HAS_MANY,'Downloads','song_id')
         );
     }
 

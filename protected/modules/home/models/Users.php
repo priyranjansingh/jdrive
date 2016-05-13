@@ -68,7 +68,8 @@ class Users extends BaseModel {
             'songs_list' => array(self::HAS_MANY, 'Songs', 'created_by', 'condition' => 'songs_list.type = 1'),
             'videos_list' => array(self::HAS_MANY, 'Songs', 'created_by', 'condition' => 'videos_list.type = 2'),
             'following_list' => array(self::HAS_MANY, 'Followers', 'follower_id', 'condition' => 'following_list.deleted = 0'), // the users who is being followed by this user
-        );
+            'playlist' => array(self::HAS_MANY, 'Playlists', 'user_id', 'condition' => 'playlist.deleted = 0'),
+            );
     }
 
     /**

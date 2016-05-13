@@ -49,8 +49,8 @@ class DefaultController extends Controller {
         } else {
             $user = Users::model()->find(array("condition" => "username = '$user'"));
             $logged_in_user_id = Yii::app()->user->id;
-            $recommended_list = Users::model()->getRecommendList($logged_in_user_id,"limited");
-            
+            $recommended_list = Users::model()->getRecommendList($logged_in_user_id, "limited");
+
             $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$user->id'    ", "order" => "date_entered desc", "limit" => 20));
             $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$user->id'    ", "order" => "date_entered desc", "limit" => 20));
             $total_track_list = count($song_list) + count($video_list);
@@ -133,12 +133,12 @@ class DefaultController extends Controller {
         $playlists = Playlists::model()->findAll(array("condition" => "status = '1'  AND deleted = 0 AND user_id = '$user'    ", "order" => "date_entered desc", "limit" => 20));
         $this->renderPartial('ajax_playlist', array('playlists' => $playlists));
     }
-    
+
     public function actionAjaxPlaylistSongs() {
         $playlist = $_POST['playlist'];
         $playlist_detail = Playlists::model()->findByPk($playlist);
-        $playlist_songs = PlaylistSongs::model()->findAll(array("condition"=>"playlist_id = '$playlist'"));
-        $this->renderPartial('ajax_playlist_songs', array('playlist_songs' => $playlist_songs,'playlist_name'=>$playlist_detail->name));
+        $playlist_songs = PlaylistSongs::model()->findAll(array("condition" => "playlist_id = '$playlist'"));
+        $this->renderPartial('ajax_playlist_songs', array('playlist_songs' => $playlist_songs, 'playlist_name' => $playlist_detail->name));
     }
 
     public function actionFollowUnfollow() {
@@ -179,8 +179,8 @@ class DefaultController extends Controller {
             }
         }
     }
-    
-     public function actionFollowUnfollowRecommend() {
+
+    public function actionFollowUnfollowRecommend() {
         if (Yii::app()->user->id) {
             $return_arr = array();
             $user_id = $_POST['dj_id'];
@@ -208,12 +208,10 @@ class DefaultController extends Controller {
                 }
             }
             $logged_in_user_id = Yii::app()->user->id;
-            $recommended_list = Users::model()->getRecommendList($logged_in_user_id,"limited");
+            $recommended_list = Users::model()->getRecommendList($logged_in_user_id, "limited");
             $this->renderPartial('ajax_recommended', array('recommended_list' => $recommended_list));
-            
         }
     }
-    
 
     public function actionLogout() {
         Yii::app()->user->logout();
@@ -404,29 +402,27 @@ class DefaultController extends Controller {
         }
     }
 
-    public function actionUpload()
-    {
+    public function actionUpload() {
         $mode = $_REQUEST['mode'];
         $user_id = Yii::app()->user->id;
         $bucket = Users::model()->findByPk($user_id)->s3_bucket;
-        $upload_handler = new UploadHandlerS3(null,true,null,$bucket, $mode);
+        $upload_handler = new UploadHandlerS3(null, true, null, $bucket, $mode);
         // pre($upload_handler,true);
     }
 
-    public function actionAddsongs()
-    {
+    public function actionAddsongs() {
         $temp = Temp::model()->findAll();
         Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
-        foreach($temp as $t){
-            if(copy(Yii::app()->s3->getAuthenticatedURL($t->s3_bucket, $t->file_name, 3600, false, false), "assets/temp/".$t->file_name)){
-                $info = new FileInfo("assets/temp/".$t->file_name);
+        foreach ($temp as $t) {
+            if (copy(Yii::app()->s3->getAuthenticatedURL($t->s3_bucket, $t->file_name, 3600, false, false), "assets/temp/" . $t->file_name)) {
+                $info = new FileInfo("assets/temp/" . $t->file_name);
                 $g = $info->data['genre'];
                 $genre = Genres::model()->find(array("condition" => "name = '$g'"));
-                if($genre === null){
+                if ($genre === null) {
                     $g_model = new Genres;
                     $g_model->name = $g;
                     $g_model->parent = null;
-                    if($g_model->save()){
+                    if ($g_model->save()) {
                         $g = $g_model->id;
                     } else {
                         pre($g_model->getErrors(), true);
@@ -453,17 +449,15 @@ class DefaultController extends Controller {
                 $model->deleted = 0;
                 $model->date_entered = date("Y-m-d H:i:s");
                 $model->date_modified = date("Y-m-d H:i:s");
-                if($model->save()){
-                    unlink("assets/temp/".$t->file_name);
+                if ($model->save()) {
+                    unlink("assets/temp/" . $t->file_name);
                     Temp::model()->deleteByPk($t->id);
                 } else {
                     pre($api->bpm);
                     pre($model->getErrors(), true);
                 }
             }
-            
         }
-        
     }
 
     /**
@@ -474,6 +468,135 @@ class DefaultController extends Controller {
         if (isset($_POST['ajax']) && $_POST['ajax'] === $form_id) {
             echo CActiveForm::validate($model);
             Yii::app()->end();
+        }
+    }
+
+    public function actionWidgetUpload() {
+        $user_id = $_POST['user_id'];
+        $song_id = $_POST['song_id'];
+        $song_detail = Songs::model()->findByPk($song_id);
+
+        $model = new Songs;
+        $model->song_name = $song_detail->song_name;
+        $model->artist_name = $song_detail->artist_name;
+        $model->slug = $song_detail->slug;
+        $model->s3_bucket = $song_detail->file_name;
+        $model->file_name = $song_detail->file_name;
+        $model->type = $song_detail->type;
+        $model->bpm = $song_detail->bpm;
+        $model->song_key = $song_detail->song_key;
+        $model->file_size = $song_detail->file_size;
+        $model->genre = $song_detail->genre;
+        $model->sub_genre = $song_detail->sub_genre;
+        $model->sub_sub_genre = $song_detail->sub_sub_genre;
+        $model->s3_url = $song_detail->s3_url;
+        $model->status = $song_detail->status;
+        $model->deleted = $song_detail->deleted;
+        $model->save();
+        echo "success";
+    }
+
+    public function actionWidgetLike() {
+        if (Yii::app()->user->id) {
+            $user_id = $_POST['user_id'];
+            $song_id = $_POST['song_id'];
+            $song_like = SongLike::model()->find(array("condition" => " user_id = '$user_id' AND song_id = '$song_id' "));
+            if (empty($song_like)) {
+                $song_like_model = new SongLike;
+                $song_like_model->user_id = $user_id;
+                $song_like_model->song_id = $song_id;
+                $song_like_model->save();
+                $song = Songs::model()->find(array("condition" => "id = '$song_id'"));
+                $song_like_count = count($song->like_details);
+            } else {
+                if ($song_like->deleted == 0) {
+                    $song_like->deleted = 1;
+                    $song_like->save();
+                    $song = Songs::model()->find(array("condition" => "id = '$song_id'"));
+                    $song_like_count = count($song->like_details);
+                } else if ($song_like->deleted == 1) {
+                    $song_like->deleted = 0;
+                    $song_like->save();
+                    $song = Songs::model()->find(array("condition" => "id = '$song_id'"));
+                    $song_like_count = count($song->like_details);
+                }
+            }
+            echo $song_like_count;
+        }
+    }
+
+    public function actionWidgetDownload($file) {
+        $song_detail = Songs::model()->findByPk($file);
+        $file = "./assets/user-profile/" . $song_detail->file_name;
+        if (file_exists($file)) {
+
+            $user_id = Yii::app()->user->id;
+            $download_model = new Downloads;
+            $download_model->user_id = $user_id;
+            $download_model->song_id = $song_detail->id;
+            $download_model->owner_id = $song_detail->created_by;
+            $download_model->type = $song_detail->type;
+            $download_model->save();
+
+
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename=' . basename($file));
+            header('Content-Transfer-Encoding: binary');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($file));
+            ob_clean();
+            flush();
+            readfile($file);
+            exit;
+        }
+    }
+
+    public function actionWidgetAddToPlaylist() {
+        $song_id = $_POST['song_id'];
+        $user_id = Yii::app()->user->id;
+        $playlist = Playlists::model()->findAll(array("condition" => "user_id = '$user_id'"));
+        $playlist_model = new Playlists;
+        $this->renderPartial('ajax_add_playlist', array('playlist' => $playlist, 'song_id' => $song_id, 'playlist_model' => $playlist_model));
+    }
+
+    public function actionAjaxAddToPlaylist() {
+        $song = $_POST['song'];
+        $playlist = $_POST['playlist'];
+        $playlist_model = PlaylistSongs::model()->find(array("condition" => "playlist_id = '$playlist' AND song_id ='$song' AND deleted = 0 "));
+        if (empty($playlist_model)) {
+            $playlist_new_model = new PlaylistSongs;
+            $playlist_new_model->playlist_id = $playlist;
+            $playlist_new_model->song_id = $song;
+            $playlist_new_model->validate();
+            $playlist_new_model->save();
+        }
+    }
+
+    public function actionAjaxAddPlaylistWithSong() {
+        $model = new Playlists;
+
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'playlist-form') {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+        if (isset($_POST['Playlists'])) {
+            $model->attributes = $_POST['Playlists'];
+            $model->user_id = Yii::app()->user->id;
+            if ($model->validate()) {
+                $model->save();
+                // adding to playlist_songs table
+                
+                $playlist_songs = new PlaylistSongs;
+                $playlist_songs->playlist_id = $model->id;
+                $playlist_songs->song_id = $_POST['playlist_song'];
+                $playlist_songs->save();
+                
+                
+                $this->redirect(Yii::app()->request->urlReferrer);
+            }
         }
     }
 
