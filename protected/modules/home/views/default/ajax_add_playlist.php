@@ -10,6 +10,16 @@ if (!empty($playlist)) {
         <?php
     }
 }
+else 
+{
+?>    
+    <div class="m_row">
+            <div class="mr_col">
+                No Playlist Added Yet       
+            </div>
+        </div>
+<?php
+}    
 ?>
 
 

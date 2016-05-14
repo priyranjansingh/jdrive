@@ -1,8 +1,10 @@
 $(document).ready(function() {
-
-    $(".widget_upload").click(function() {
+    
+    
+    $("body").on("click",".widget_upload",function(){
+        $(".loading").show();
         var song_id = $(this).data('song');
-        var user_id = $(this).data('user');
+        var user_id = $(this).data('user'); //logged in user id
 
         $.ajax({
             url: base_url + "/home/WidgetUpload",
@@ -13,9 +15,12 @@ $(document).ready(function() {
                 $(".loading").hide();
             }
         })
+        
     })
+
     
-    $(".widget_like").click(function() { 
+    
+    $("body").on("click",".widget_like",function(){
         var song_id = $(this).data('song');
         var user_id = $(this).data('user');
         var container = $(this); 
@@ -30,13 +35,17 @@ $(document).ready(function() {
         })
     })
     
-    $(".widget_download").click(function() {
+    
+    
+    
+    
+    $("body").on("click",".widget_download",function(){
         var song_id = $(this).data('song');
         window.location.href = base_url+"/home/WidgetDownload?file="+song_id;
-
-    })
+    });
     
-    $(".widget_playlist").click(function() {
+    
+    $("body").on("click",".widget_playlist",function(){
         var song_id = $(this).data('song');
         $.ajax({
             url: base_url + "/home/WidgetAddToPlaylist",
@@ -48,9 +57,10 @@ $(document).ready(function() {
                 $('#ajax_add_playlist').modal('show');
             }
         })
-
+        
     })
     
+ 
     
     $("body").on("click",".selected_playlist",function(){
        var song = $(this).data('song');

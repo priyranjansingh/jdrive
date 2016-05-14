@@ -6,8 +6,8 @@ class DefaultController extends Controller {
     public $param = 'value';
 
     public function actionIndex() {
-        $songs = Songs::model()->findAll(array("condition" => "status = '1' AND type = '1' AND deleted = 0", "order" => "date_entered desc", "limit" => 20));
-        $videos = Videos::model()->findAll(array("condition" => "status = '1' AND type ='2' AND deleted = 0", "order" => "date_entered desc", "limit" => 20));
+        $songs = Songs::model()->findAll(array("condition" => "status = '1' AND type = '1' AND is_shared = 0 AND deleted = 0", "order" => "date_entered desc", "limit" => 20));
+        $videos = Videos::model()->findAll(array("condition" => "status = '1' AND type ='2' AND  is_shared = 0 AND deleted = 0", "order" => "date_entered desc", "limit" => 20));
         $this->render('index', array('songs' => $songs, 'videos' => $videos));
     }
 
@@ -37,8 +37,8 @@ class DefaultController extends Controller {
     public function actionSearch() {
         $srch_str = $_GET['Search']['srch_txt'];
 
-        $songs = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND (song_name like '%$srch_str%' OR artist_name like '%$srch_str%' )   ", "order" => "date_entered desc"));
-        $videos = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND (song_name like '%$srch_str%' OR artist_name like '%$srch_str%' )   ", "order" => "date_entered desc"));
+        $songs = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND is_shared = 0 AND (song_name like '%$srch_str%' OR artist_name like '%$srch_str%' )   ", "order" => "date_entered desc"));
+        $videos = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND is_shared = 0 AND (song_name like '%$srch_str%' OR artist_name like '%$srch_str%' )   ", "order" => "date_entered desc"));
         $dj = Users::model()->findAll(array("condition" => "status = '1' AND is_admin = '0'  AND deleted = 0 AND (username like '%$srch_str%' OR first_name like '%$srch_str%' OR last_name like '%$srch_str%' )   ", "order" => "date_entered desc"));
         $this->render('search_result', array('songs' => $songs, 'videos' => $videos, 'dj' => $dj));
     }
@@ -480,18 +480,21 @@ class DefaultController extends Controller {
         $model->song_name = $song_detail->song_name;
         $model->artist_name = $song_detail->artist_name;
         $model->slug = $song_detail->slug;
-        $model->s3_bucket = $song_detail->file_name;
+        $model->s3_bucket = $song_detail->s3_bucket;
         $model->file_name = $song_detail->file_name;
         $model->type = $song_detail->type;
         $model->bpm = $song_detail->bpm;
         $model->song_key = $song_detail->song_key;
-        $model->file_size = $song_detail->file_size;
+        //  $model->file_size = $song_detail->file_size;
         $model->genre = $song_detail->genre;
         $model->sub_genre = $song_detail->sub_genre;
         $model->sub_sub_genre = $song_detail->sub_sub_genre;
         $model->s3_url = $song_detail->s3_url;
+        $model->is_shared = 1;
         $model->status = $song_detail->status;
         $model->deleted = $song_detail->deleted;
+        $model->created_by = $user_id;
+        $model->modified_by = $user_id;
         $model->save();
         echo "success";
     }
