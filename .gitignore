@@ -50,3 +50,5 @@ Temporary Items
 *.log
 *.log
 *.log
+assets/aws-v2/config/config.php
+protected/config/global.php
