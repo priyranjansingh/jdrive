@@ -11,6 +11,14 @@ class DefaultController extends Controller {
         $this->render('index', array('songs' => $songs, 'videos' => $videos));
     }
 
+    public function actionLoginCheck() {
+        if (Yii::app()->user->isGuest) {
+            echo "GUEST";
+        } else {
+            echo "USER";
+        }
+    }
+
     public function actionLogin() {
 
         // pre($_POST['FrontUserLogin'],true);
@@ -591,13 +599,13 @@ class DefaultController extends Controller {
             if ($model->validate()) {
                 $model->save();
                 // adding to playlist_songs table
-                
+
                 $playlist_songs = new PlaylistSongs;
                 $playlist_songs->playlist_id = $model->id;
                 $playlist_songs->song_id = $_POST['playlist_song'];
                 $playlist_songs->save();
-                
-                
+
+
                 $this->redirect(Yii::app()->request->urlReferrer);
             }
         }
