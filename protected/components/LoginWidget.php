@@ -3,7 +3,6 @@
 	class LoginWidget extends CWidget {
 		public function run() {
 		    $model = new FrontUserLogin;
-
 		    $this->render('loginForm',array('model'=>$model));
 		} 
 	} 

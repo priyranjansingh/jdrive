@@ -19,6 +19,7 @@
         <link href="<?php echo $baseUrl; ?>/css/owl.carousel.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/jplayer.pink.flag.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/style.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo $baseUrl; ?>/css/developer.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/membership.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/responsive.css" rel="stylesheet" type="text/css">
 
@@ -29,6 +30,7 @@
         <script src="<?php echo $baseUrl; ?>/js/jquery.jplayer.min.js"></script>
         <script src="<?php echo $baseUrl; ?>/js/jplayer.playlist.min.js"></script>
         <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/custom.js"></script>
+        <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/songwidget.js"></script>
         <script>
             var base_url = "<?php echo base_url(); ?>";
         </script>    
@@ -120,8 +122,20 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="widget_success_upload">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content log_pan">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Notification</h4>
+                    </div>
+                    <div class="modal-body">
+                        Successfully Added To Your Drive.
+                    </div>
+                </div>
+            </div>
+        </div>
 
-      
         <div class="modal fade" id="Login-pop">
             <div class="modal-dialog" role="document">
                 <div class="modal-content log_pan">
@@ -156,6 +170,25 @@
                             </div>
                             <div class="m_row mart15">To Login: <a class="log_btn" href="#" data-dismiss="modal" data-toggle="modal" data-target="#Login-pop">Click Here</a></div>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="ajax_add_playlist">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content log_pan">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Add To Playlist</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                    <div class="modal-header" style="margin-bottom: 50px;"></div>
+                    <div>
+                         <?php $this->widget('AddPlaylistWidget'); ?>
                     </div>
                 </div>
             </div>

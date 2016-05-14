@@ -68,7 +68,8 @@ class Users extends BaseModel {
             'songs_list' => array(self::HAS_MANY, 'Songs', 'created_by', 'condition' => 'songs_list.type = 1'),
             'videos_list' => array(self::HAS_MANY, 'Songs', 'created_by', 'condition' => 'videos_list.type = 2'),
             'following_list' => array(self::HAS_MANY, 'Followers', 'follower_id', 'condition' => 'following_list.deleted = 0'), // the users who is being followed by this user
-        );
+            'playlist' => array(self::HAS_MANY, 'Playlists', 'user_id', 'condition' => 'playlist.deleted = 0'),
+            );
     }
 
     /**
@@ -162,7 +163,7 @@ class Users extends BaseModel {
         return $songs;
     }
 
-    public function getRecommendList($user_id) {
+    public function getRecommendList($user_id, $type) {
         $user_detail = Users::model()->findByPk($user_id);
         $user_following_list = $user_detail->following_list; // list of users being followed by this logged in user
         $user_following_list_arr = array();
@@ -172,41 +173,43 @@ class Users extends BaseModel {
         $recommend_list_locationwise = Users::model()->findAll(array(
             "condition" => "status = '1' AND deleted = '0' AND is_admin = '0' AND state_id = '$user_detail->state_id' AND  country_id = '$user_detail->country_id' AND id !='$user_id' "
         ));
-      
+
         $recommend_list_locwise_arr = array();
         foreach ($recommend_list_locationwise as $list_locwise) {
             array_push($recommend_list_locwise_arr, $list_locwise->id);
         }
-        
-         $parent_following_list = array();
-         foreach($user_following_list as $user)
-         {
-                 
-             $user_model = Users::model()->findByPk($user->user_id);
-             foreach($user_model->following_list as $u)
-             {
-                 if($u->user_id != $user_id)
-                 {    
-                    array_push($parent_following_list,$u->user_id);
-                 }   
-             }    
-         }    
-         
-         $merged_array = array_merge($parent_following_list,$recommend_list_locwise_arr);
-         $unique_merged_array = array_unique($merged_array);
-         
+
+        $parent_following_list = array();
+        foreach ($user_following_list as $user) {
+
+            $user_model = Users::model()->findByPk($user->user_id);
+            foreach ($user_model->following_list as $u) {
+                if ($u->user_id != $user_id) {
+                    array_push($parent_following_list, $u->user_id);
+                }
+            }
+        }
+
+        $merged_array = array_merge($parent_following_list, $recommend_list_locwise_arr);
+        $unique_merged_array = array_unique($merged_array);
+
         $final_recommended_arr = array_diff($unique_merged_array, $user_following_list_arr);
-        
+
         // getting the final recommended user lists
-        
+
         $criteria = new CDbCriteria();
         $criteria->condition = "status = '1'  AND deleted = 0";
+        if ($type == "limited") {
+            $criteria->limit = 5;
+        }
         $criteria->addInCondition('id', $final_recommended_arr);
         $final_recommended_user_lists = Users::model()->findAll($criteria);
+
+
+
+
+
         return $final_recommended_user_lists;
-        
-        
-        
     }
 
 }
