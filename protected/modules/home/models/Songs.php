@@ -41,8 +41,8 @@ class Songs extends BaseModel {
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('id, song_name, artist_name, slug, s3_bucket, file_name, type, genre, created_by, modified_by, date_entered, date_modified', 'required'),
-            array('type, status, deleted', 'numerical', 'integerOnly' => true),
+            array('id, song_name, artist_name, slug, s3_bucket, file_name, type, genre,is_shared, created_by, modified_by, date_entered, date_modified', 'required'),
+            array('type, status, deleted,is_shared', 'numerical', 'integerOnly' => true),
             array('id, genre, sub_genre, sub_sub_genre, created_by, modified_by', 'length', 'max' => 36),
             array('song_name, artist_name, s3_bucket', 'length', 'max' => 128),
             array('slug, file_name', 'length', 'max' => 256),
@@ -51,7 +51,7 @@ class Songs extends BaseModel {
             array('s3_url', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, song_name, artist_name, slug, s3_bucket, file_name, type, bpm, song_key, genre, sub_genre, sub_sub_genre, s3_url, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on' => 'search'),
+            array('id, song_name, artist_name, slug, s3_bucket, file_name, type, bpm, song_key, genre, sub_genre, sub_sub_genre, s3_url, status, deleted,is_shared, created_by, modified_by, date_entered, date_modified', 'safe', 'on' => 'search'),
         );
     }
 
@@ -88,6 +88,7 @@ class Songs extends BaseModel {
             'sub_genre' => 'Sub Genre',
             'sub_sub_genre' => 'Sub Sub Genre',
             's3_url' => 'S3 Url',
+            'is_shared'=>'Is Shared',
             'status' => 'Status',
             'deleted' => 'Deleted',
             'created_by' => 'Created By',
@@ -127,6 +128,7 @@ class Songs extends BaseModel {
         $criteria->compare('sub_genre', $this->sub_genre, true);
         $criteria->compare('sub_sub_genre', $this->sub_sub_genre, true);
         $criteria->compare('s3_url', $this->s3_url, true);
+        $criteria->compare('is_shared', $this->is_shared);
         $criteria->compare('status', $this->status);
         $criteria->compare('deleted', $this->deleted);
         $criteria->compare('created_by', $this->created_by, true);
