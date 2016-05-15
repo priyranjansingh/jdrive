@@ -1468,7 +1468,7 @@ class UploadHandlerS3
             $model->date_modified = date("Y-m-d H:i:s");*/
             $model->save();
         }
-        pre($files,true);
+        // pre($files,true);
         return $this->generate_response(
             array($this->options['param_name'] => $files),
             $print_response

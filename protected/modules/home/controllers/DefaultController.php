@@ -159,6 +159,23 @@ class DefaultController extends Controller {
             $this->renderPartial('home_ajax_song', array('song_list' => $video));
         }
     }
+
+    public function actionVerifysong(){
+        $song = $_POST['song'];
+        $media = Media::model()->find(array('condition' => "slug = '$song'"));
+        if($media === null){
+            $array['error'] = true;
+        } else {
+            Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
+            $url = Yii::app()->s3->getAuthenticatedURL($media->s3_bucket, $media->file_name, 600, false, false);
+            $array['error'] = false;
+            $array['song_name'] = $media->song_name;
+            $array['artist_name'] = $media->artist_name;
+            $array['url'] = $url;
+        }
+
+        echo json_encode($array, true);
+    }
     
 
     public function actionAjaxMyDrive() {
@@ -620,7 +637,32 @@ class DefaultController extends Controller {
         $download_model->type = $song_detail->type;
         $download_model->save();
         
+        $s3 = new AS3;
+        $result = $s3->getSong($song_detail->s3_bucket, $song_detail->file_name);
+
+        // try {
+            // Display the object in the browser
+            header("Content-Type: {$result['ContentType']}");
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename='.$song_detail->file_name);
+            header('Content-Transfer-Encoding: binary');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            ob_clean();
+            flush();
+            echo $result['Body'];
+        // } catch (S3Exception $e) {
+            // echo $e->getMessage() . "\n";
+        // }
+/*
         Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
+
+
+        
+
+
         $file = $song_detail->file_name;
         $bucket_name = $song_detail->s3_bucket;
         $result = Yii::app()->s3->getObject($bucket_name, $file);
@@ -636,7 +678,7 @@ class DefaultController extends Controller {
         ob_clean();
         flush();
         echo $result->body;
-
+        */
 
 
 //        if (file_exists($file)) {

@@ -3,7 +3,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
 html, body{ height:100%;}
 *{ padding:0; margin:0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; border:none; list-style:none; outline:none;}
-input{-webkit-appearance:none;}
+input[type='checkbox']{-webkit-appearance:none;}
 img{ outline:none; max-width:100%;}
 
 .fl{ float:left;}

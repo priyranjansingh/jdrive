@@ -70,3 +70,13 @@
 .mar-t-50{
     margin-top: 50px;
 }
+
+.jp-progress {
+    width: 52%;
+    float: left;
+    margin-top: 16px;
+}
+
+.jp-type-playlist {
+    float: none !important;
+}
