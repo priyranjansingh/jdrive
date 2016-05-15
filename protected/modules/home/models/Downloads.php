@@ -138,12 +138,58 @@ class Downloads extends BaseModel {
         }
     }
     
+    
+    public function HomeTrendingSong() {
+        $current_date = date("Y-m-d");
+        $previous_seven_days_date = date("Y-m-d",strtotime("-7 days"));
+        
+        $sql = "SELECT song_id,count(*) as download_count FROM `downloads` WHERE "
+                . " type = 1 and DATE(date_entered) >= '$previous_seven_days_date' AND DATE(date_entered)<='$current_date' "
+                . "group by `song_id` order by download_count DESC limit 0,20";
+        $result = BaseModel::executeSimpleQuery($sql);
+        if (!empty($result)) {
+            $id_array = array();
+            foreach ($result as $val) {
+                array_push($id_array, $val['song_id']);
+            }
+
+            $criteria = new CDbCriteria();
+            $criteria->condition = "status = '1'  AND deleted = 0";
+            $criteria->addInCondition('id', $id_array);
+            $songs_list = Songs::model()->findAll($criteria);
+            return $songs_list;
+        }
+    }
+    
     public function trendingVideo($owner_id) {
         $current_date = date("Y-m-d");
         $previous_seven_days_date = date("Y-m-d",strtotime("-7 days"));
         
         $sql = "SELECT song_id,count(*) as download_count FROM `downloads` WHERE `owner_id` = '$owner_id' "
                 . "and type = 2 and DATE(date_entered) >= '$previous_seven_days_date' AND DATE(date_entered)<='$current_date' "
+                . "group by `song_id` order by download_count DESC limit 0,20";
+        $result = BaseModel::executeSimpleQuery($sql);
+        $result = BaseModel::executeSimpleQuery($sql);
+        if (!empty($result)) {
+            $id_array = array();
+            foreach ($result as $val) {
+                array_push($id_array, $val['song_id']);
+            }
+
+            $criteria = new CDbCriteria();
+            $criteria->condition = "status = '1'  AND deleted = 0";
+            $criteria->addInCondition('id', $id_array);
+            $songs_list = Songs::model()->findAll($criteria);
+            return $songs_list;
+        }
+    }
+    
+    public function HomeTrendingVideo() {
+        $current_date = date("Y-m-d");
+        $previous_seven_days_date = date("Y-m-d",strtotime("-7 days"));
+        
+        $sql = "SELECT song_id,count(*) as download_count FROM `downloads` WHERE "
+                . "type = 2 and DATE(date_entered) >= '$previous_seven_days_date' AND DATE(date_entered)<='$current_date' "
                 . "group by `song_id` order by download_count DESC limit 0,20";
         $result = BaseModel::executeSimpleQuery($sql);
         $result = BaseModel::executeSimpleQuery($sql);

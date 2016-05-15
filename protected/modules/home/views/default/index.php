@@ -3,14 +3,14 @@ $baseUrl = Yii::app()->theme->baseUrl;
 ?> 
 <div class="red_bar">
     <ul class="sub_top">
-        <li><a href="#">Trending</a></li>
-        <li><a href="#">Just Added</a></li>
-        <li><a href="#">Playlist</a></li>
-        <li><a href="#">My Drive</a></li>
-        <li><a href="#">Songs</a></li>
-        <li><a href="#">Videos</a></li>
+        <li><a class="home_main_type select" id="home_just_added" data-type="home_just_added" href="javascript:void(0)">Just Added</a></li>
+        <li><a class="home_main_type" id="home_trending" data-type="home_trending" href="javascript:void(0)">Trending</a></li>
+        <li><a class="home_main_type" id="home_playlist" data-type="home_playlist" href="javascript:void(0)">Playlist</a></li>
     </ul>
-    <div class="av_tab"> <span class="audio_t active">Audio</span><span class="video_t">Video</span> </div>
+    <div class="av_tab" id="home_song_type_container"> 
+        <span id="audio"  class="audio_t active home_song_type">Audio</span>
+        <span id="video"  class="video_t home_song_type">Video</span>
+    </div>
 </div>
 <div class="slider_p">
     <div class="home-slider">
@@ -77,7 +77,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
     </div>
 </div>
 <div class="h_con">
-    <div class="wraper">
+    <div class="wraper" id="home_media_container">
         <ul class="a_list">
             <?php
             if (!empty($songs)) {
@@ -86,7 +86,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                     ?>    
                     <li>
                         <div class="i_info"> <img src="<?php echo $baseUrl; ?>/img/alb1.jpg" /> <span class="play_btn"><i class="fa fa-play-circle-o"></i></span>
-                             <?php $this->widget('SongWidget',array("song_id"=>$song->id)); ?>
+                            <?php $this->widget('SongWidget', array("song_id" => $song->id)); ?>
                         </div>
                         <div class="i_titel">
                             <div class="it_l"><?php echo $count; ?></div>
@@ -107,3 +107,4 @@ $baseUrl = Yii::app()->theme->baseUrl;
         </ul>
     </div>
 </div>
+<script src="<?php echo base_url(); ?>/assets/js/home/home.js"></script>

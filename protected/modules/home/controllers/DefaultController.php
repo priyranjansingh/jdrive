@@ -99,6 +99,20 @@ class DefaultController extends Controller {
         }
         $this->renderPartial('ajax_song', array('song_list' => $song_list));
     }
+    
+    
+     public function actionHomeSongType() {
+        $song_type = $_POST['song_type'];
+        if ($song_type == 'audio') {
+            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0  ", "order" => "date_entered desc", "limit" => 20));
+        } else if ($song_type == 'video') {
+            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0  ", "order" => "date_entered desc", "limit" => 20));
+        }
+        $this->renderPartial('home_ajax_song', array('song_list' => $song_list));
+    }
+    
+    
+    
 
     public function actionAjaxTrending() {
         $user = $_POST['user'];
@@ -109,6 +123,17 @@ class DefaultController extends Controller {
         } else if ($song_type == 'video') {
             $trending_video = Downloads::model()->trendingVideo($user);
             $this->renderPartial('ajax_song', array('song_list' => $trending_video));
+        }
+    }
+    
+    public function actionHomeAjaxTrending() {
+        $song_type = $_POST['song_type'];
+        if ($song_type == 'audio') {
+            $trending_song = Downloads::model()->HomeTrendingSong();
+            $this->renderPartial('home_ajax_song', array('song_list' => $trending_song));
+        } else if ($song_type == 'video') {
+            $trending_video = Downloads::model()->HomeTrendingVideo();
+            $this->renderPartial('home_ajax_song', array('song_list' => $trending_video));
         }
     }
 
@@ -123,6 +148,18 @@ class DefaultController extends Controller {
             $this->renderPartial('ajax_song', array('song_list' => $video));
         }
     }
+    
+    public function actionHomeAjaxJustAdded() {
+        $song_type = $_POST['song_type'];
+        if ($song_type == 'audio') {
+            $song = Users::model()->HomeAjaxJustAdded(1);
+            $this->renderPartial('home_ajax_song', array('song_list' => $song));
+        } else if ($song_type == 'video') {
+            $video = Users::model()->HomeAjaxJustAdded(2);
+            $this->renderPartial('home_ajax_song', array('song_list' => $video));
+        }
+    }
+    
 
     public function actionAjaxMyDrive() {
         $user = $_POST['user'];
@@ -141,12 +178,28 @@ class DefaultController extends Controller {
         $playlists = Playlists::model()->findAll(array("condition" => "status = '1'  AND deleted = 0 AND user_id = '$user'    ", "order" => "date_entered desc", "limit" => 20));
         $this->renderPartial('ajax_playlist', array('playlists' => $playlists));
     }
+    
+    
+    
+      public function actionHomeAjaxPlaylist() {
+        $playlists = Playlists::model()->findAll(array("condition" => "status = '1'  AND deleted = 0 ", "order" => "date_entered desc", "limit" => 20));
+        $this->renderPartial('home_ajax_playlist', array('playlists' => $playlists));
+    }
+   
+    
 
     public function actionAjaxPlaylistSongs() {
         $playlist = $_POST['playlist'];
         $playlist_detail = Playlists::model()->findByPk($playlist);
         $playlist_songs = PlaylistSongs::model()->findAll(array("condition" => "playlist_id = '$playlist'"));
         $this->renderPartial('ajax_playlist_songs', array('playlist_songs' => $playlist_songs, 'playlist_name' => $playlist_detail->name));
+    }
+    
+    public function actionHomeAjaxPlaylistSongs() {
+        $playlist = $_POST['playlist'];
+        $playlist_detail = Playlists::model()->findByPk($playlist);
+        $playlist_songs = PlaylistSongs::model()->findAll(array("condition" => "playlist_id = '$playlist'"));
+        $this->renderPartial('home_ajax_playlist_songs', array('playlist_songs' => $playlist_songs, 'playlist_name' => $playlist_detail->name));
     }
 
     public function actionFollowUnfollow() {
@@ -405,7 +458,7 @@ class DefaultController extends Controller {
         if (isset(Yii::app()->session['payment_success'])) {
             $user = Yii::app()->session['register_user_info'];
             $user = unserialize($user);
-            
+
             $model = new AutoLogin;
             // pre($user->username);
             // pre($user->password);
@@ -421,12 +474,11 @@ class DefaultController extends Controller {
         }
     }
 
-    public function actionPurchased()
-    {
+    public function actionPurchased() {
         if (isset(Yii::app()->session['payment_success'])) {
             $plan = Yii::app()->session['register_user_plan'];
             $plan = unserialize($plan);
-            $this->render('success',array('plan' => $plan));
+            $this->render('success', array('plan' => $plan));
         }
     }
 
@@ -557,32 +609,60 @@ class DefaultController extends Controller {
     }
 
     public function actionWidgetDownload($file) {
+        
         $song_detail = Songs::model()->findByPk($file);
-        $file = "./assets/user-profile/" . $song_detail->file_name;
-        if (file_exists($file)) {
+        
+        $user_id = Yii::app()->user->id;
+        $download_model = new Downloads;
+        $download_model->user_id = $user_id;
+        $download_model->song_id = $song_detail->id;
+        $download_model->owner_id = $song_detail->created_by;
+        $download_model->type = $song_detail->type;
+        $download_model->save();
+        
+        Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
+        $file = $song_detail->file_name;
+        $bucket_name = $song_detail->s3_bucket;
+        $result = Yii::app()->s3->getObject($bucket_name, $file);
+        $result_info = Yii::app()->s3->getObjectInfo($bucket_name, $file);
+        header("Content-Type: {$result_info['type']}");
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename='.$file);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        ob_clean();
+        flush();
+        echo $result->body;
 
-            $user_id = Yii::app()->user->id;
-            $download_model = new Downloads;
-            $download_model->user_id = $user_id;
-            $download_model->song_id = $song_detail->id;
-            $download_model->owner_id = $song_detail->created_by;
-            $download_model->type = $song_detail->type;
-            $download_model->save();
 
 
-            header('Content-Description: File Transfer');
-            header('Content-Type: application/octet-stream');
-            header('Content-Disposition: attachment; filename=' . basename($file));
-            header('Content-Transfer-Encoding: binary');
-            header('Expires: 0');
-            header('Cache-Control: must-revalidate');
-            header('Pragma: public');
-            header('Content-Length: ' . filesize($file));
-            ob_clean();
-            flush();
-            readfile($file);
-            exit;
-        }
+//        if (file_exists($file)) {
+//
+//            $user_id = Yii::app()->user->id;
+//            $download_model = new Downloads;
+//            $download_model->user_id = $user_id;
+//            $download_model->song_id = $song_detail->id;
+//            $download_model->owner_id = $song_detail->created_by;
+//            $download_model->type = $song_detail->type;
+//            $download_model->save();
+//
+//
+//            header('Content-Description: File Transfer');
+//            header('Content-Type: application/octet-stream');
+//            header('Content-Disposition: attachment; filename=' . basename($file));
+//            header('Content-Transfer-Encoding: binary');
+//            header('Expires: 0');
+//            header('Cache-Control: must-revalidate');
+//            header('Pragma: public');
+//            header('Content-Length: ' . filesize($file));
+//            ob_clean();
+//            flush();
+//            readfile($file);
+//            exit;
+//        }
     }
 
     public function actionWidgetAddToPlaylist() {
@@ -630,5 +710,7 @@ class DefaultController extends Controller {
             }
         }
     }
+
+    
 
 }

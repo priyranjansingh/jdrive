@@ -162,6 +162,24 @@ class Users extends BaseModel {
         $songs = Songs::model()->findAll($criteria);
         return $songs;
     }
+    
+    
+    public function HomeAjaxJustAdded($song_type) {
+        $current_date = date("Y-m-d");
+        $previous_seven_days_date = date("Y-m-d", strtotime("-7 days"));
+        $criteria = new CDbCriteria();
+        $criteria->condition = "status = '1'  AND deleted = 0 AND "
+                . "type = '$song_type' "
+                . "AND DATE(date_entered) >= '$previous_seven_days_date' AND DATE(date_entered)<='$current_date'";
+        $criteria->order = "date_entered DESC";
+        $criteria->limit = 20;
+        $songs = Songs::model()->findAll($criteria);
+        return $songs;
+    }
+    
+    
+    
+    
 
     public function getRecommendList($user_id, $type) {
         $user_detail = Users::model()->findByPk($user_id);
