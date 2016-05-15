@@ -5,7 +5,7 @@
  * FrontUserLogin is the data structure for keeping
  * user login form data. It is used by the 'login' action of home module 'DefaultController'.
  */
-class FrontUserLogin extends CFormModel
+class AutoLogin extends CFormModel
 {
 	public $username;
 	public $password;
@@ -48,7 +48,7 @@ class FrontUserLogin extends CFormModel
 	{
 		if(!$this->hasErrors())
 		{
-			$this->_identity=new UserIdentity($this->username,$this->password);
+			$this->_identity = new AutoIdentity($this->username,$this->password);
 			if(!$this->_identity->authenticate()){
 				$this->addError('password','Incorrect username or password.');
 				$this->addError('username','Incorrect username or password.');
