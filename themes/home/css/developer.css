@@ -1,1 +1,72 @@
 .loading{ background:url(../img/712.GIF) no-repeat center 50% #373737; position:fixed; left:0; right:0; top:0; bottom:0; opacity:0.3; z-index:20; display:none;}
+.l_titel li a {
+    color: #fff;
+}
+
+.pad-16{
+    padding: 16px;
+}
+
+.playlistname {
+    background: #636060;
+    padding: 10px 25px;
+    border-top: 1px solid #535353;
+}
+
+.playlistname a{
+    color: #fff;
+    line-height: 27px;
+    vertical-align: middle;
+}
+.playlistname a>.fa{
+    color: #fff;
+}
+.dotes {
+    text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+}
+
+.form-details {
+    padding: 20px;
+    border-top: 1px solid #535353;
+}
+
+.validateTips {
+    color: #fbb900;
+    font-size: 90%;
+    text-align: center;
+    margin: 0 0 10px!important;
+    width: 300px;
+}
+
+.form-details ._plt {
+    margin: 20px 0;
+    text-align: left;
+}
+
+.form-details .btn {
+    background: #ff3e18;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 130%;
+    color: #fff;
+    padding: 7px 25px;
+    display: inline-block;
+    text-transform: uppercase;
+    border: 0;
+    vertical-align: middle;
+}
+
+.mar-t-50{
+    margin-top: 50px;
+}

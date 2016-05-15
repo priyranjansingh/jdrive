@@ -37,7 +37,7 @@ class Plans extends AdminBaseModel
 		return array(
 			array('id, plan_name, plan_price, plan_duration,plan_duration_type, created_by, modified_by, date_entered, date_modified', 'required'),
 			array('status, deleted', 'numerical', 'integerOnly'=>true),
-			array('id, created_by, modified_by', 'length', 'max'=>36),
+			array('id,stripe_plan, created_by, modified_by', 'length', 'max'=>36),
 			array('plan_duration,free_duration', 'length', 'max'=>3),
 			array('plan_duration,free_duration', 'numerical', 'integerOnly'=>true),
 			array('plan_name', 'length', 'max'=>255),

@@ -30,6 +30,9 @@
         <script src="<?php echo $baseUrl; ?>/js/jplayer.playlist.min.js"></script>
         <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/custom.js"></script>
         <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+        <script>
+            var base_url = "<?php echo base_url(); ?>";
+        </script>
     </head>
 
     <body>
