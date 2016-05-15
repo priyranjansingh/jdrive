@@ -275,7 +275,7 @@ class DefaultController extends Controller {
             $token = $_POST['stripeToken'];
             $plan = Yii::app()->session['register_user_plan'];
             $plan = unserialize($plan);
-            pre($plan,true);
+            //pre($plan,true);
             $user = Yii::app()->session['register_user_info'];
             $user = unserialize($user);
             $secret_key = getParam('stripe_secret_key');
