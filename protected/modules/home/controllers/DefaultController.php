@@ -403,11 +403,30 @@ class DefaultController extends Controller {
 
     public function actionSuccess() {
         if (isset(Yii::app()->session['payment_success'])) {
+            $user = Yii::app()->session['register_user_info'];
+            $user = unserialize($user);
+            
+            $model = new AutoLogin;
+            // pre($user->username);
+            // pre($user->password);
+            // new AutoIdentity($user->username,$user->password);
+            $model->username = $user->username;
+            $model->password = $user->password;
+            if ($model->validate() && $model->login()) {
+                $this->redirect(array('purchased'));
+            } else {
+                pre($model->getErrors(), true);
+            }
+            $this->redirect(array('purchased'));
+        }
+    }
+
+    public function actionPurchased()
+    {
+        if (isset(Yii::app()->session['payment_success'])) {
             $plan = Yii::app()->session['register_user_plan'];
             $plan = unserialize($plan);
-            echo date('d/m/Y', strtotime('+1 years'));
-            pre($plan, true);
-            // $this->render('success',array('plan' => $plan));
+            $this->render('success',array('plan' => $plan));
         }
     }
 
