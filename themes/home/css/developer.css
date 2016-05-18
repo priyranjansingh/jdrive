@@ -80,3 +80,8 @@
 .jp-type-playlist {
     float: none !important;
 }
+
+.drive_active_cat{
+    background: #666;
+    color: #fafafa;
+}
