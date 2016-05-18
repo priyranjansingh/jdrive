@@ -11,6 +11,18 @@ $(document).ready(function() {
         }
         else if ($("#playlist").hasClass('select'))
         {
+            var playlist = $("#playlist_name_container").data('playlist');
+            var song_type = $(".song_type.active").attr('id'); // audio or video
+            $.ajax({
+                url: base_url + "/home/AjaxPlaylistSongs",
+                method: "POST",
+                data: {'playlist': playlist, 'song_type': song_type},
+                success: function(data) {
+                    $("#song_type_container").show();
+                    $("#media_container").html(data);
+                    $(".loading").hide();
+                }
+            })
 
         }
         else if ($("#my_drive").hasClass('select'))
@@ -54,7 +66,7 @@ $(document).ready(function() {
         })
 
     });
-    
+
     $("#follow_unfollow_recommend").click(function() {
         $(".loading").show();
         var user_id = $(this).data('user');
@@ -70,10 +82,11 @@ $(document).ready(function() {
 
         })
     });
-    
+
 
     $("#trending").click(function() {
-         $("#song_type_container").show();
+        $("#play_btn_container").hide();
+        $("#song_type_container").show();
         $(".loading").show();
         var song_type = $(".song_type.active").attr('id'); // audio or video
         var user = $(".song_type.active").data('user'); // dj user id
@@ -88,10 +101,11 @@ $(document).ready(function() {
         })
 
     })
-    
-    
-     $("#just_added").click(function() {
-          $("#song_type_container").show();
+
+
+    $("#just_added").click(function() {
+        $("#play_btn_container").hide();
+        $("#song_type_container").show();
         $(".loading").show();
         var song_type = $(".song_type.active").attr('id'); // audio or video
         var user = $(".song_type.active").data('user'); // dj user id
@@ -106,9 +120,10 @@ $(document).ready(function() {
         })
 
     })
-    
-     $("#my_drive").click(function() {
-         $("#song_type_container").show();
+
+    $("#my_drive").click(function() {
+        $("#play_btn_container").hide();
+        $("#song_type_container").show();
         $(".loading").show();
         var song_type = $(".song_type.active").attr('id'); // audio or video
         var user = $(".song_type.active").data('user'); // dj user id
@@ -123,11 +138,12 @@ $(document).ready(function() {
         })
 
     })
-    
-    
-    
+
+
+
     $("#playlist").click(function() {
-         $("#song_type_container").hide();
+        $("#play_btn_container").hide();
+        $("#song_type_container").hide();
         $(".loading").show();
         var user = $(".song_type.active").data('user'); // dj user id
         $.ajax({
@@ -141,25 +157,29 @@ $(document).ready(function() {
         })
 
     })
-    
-   
-    
-    $('body').on('click','.playlist_songs',function(){
-       $(".loading").show();
+
+
+
+    $('body').on('click', '.playlist_songs', function() {
+        $(".loading").show();
         var playlist = $(this).data('id'); // playlist id
+        var song_type = $(".song_type.active").attr('id'); // audio or video
         $.ajax({
             url: base_url + "/home/AjaxPlaylistSongs",
             method: "POST",
-            data: {'playlist': playlist},
+            data: {'playlist': playlist, 'song_type': song_type},
             success: function(data) {
+                $("#song_type_container").show();
                 $("#media_container").html(data);
+                $("#play_btn_container").show();
+                $("#play_all").data("type",song_type);
                 $(".loading").hide();
             }
         })
     });
-    
-    
-    
+
+
+
 
 
 

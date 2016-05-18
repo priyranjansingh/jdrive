@@ -134,6 +134,12 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 <li><a class="main_type" id="playlist" data-type="playlist" href="javascript:void(0)">Playlist</a></li>
                 <li><a class="main_type" id="my_drive" data-type="my_drive"  href="javascript:void(0)">My Drive</a></li>
             </ul>
+            
+            
+            
+            <div style="display: none" id="play_btn_container" class="av_tab">
+                <span id="play_all" data-type="" class="audio_t">Play All</span>
+            </div> 
 
             <div id="song_type_container" class="av_tab">
                 <span id="audio" data-user="<?php echo $user->id; ?>" class="audio_t active song_type">Audio</span><span id="video" data-user="<?php echo $user->id; ?>" class="video_t song_type">Video</span>
