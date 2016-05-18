@@ -159,6 +159,21 @@ class DefaultController extends Controller {
             $this->renderPartial('home_ajax_song', array('song_list' => $video));
         }
     }
+    
+    public function actionHomeGenre() {
+        $song_type = $_POST['song_type'];
+        $genre = $_POST['genre'];
+        if ($song_type == 'audio') {
+            $song = Users::model()->HomeGenre(1,$genre);
+            $this->renderPartial('home_ajax_song', array('song_list' => $song));
+        } else if ($song_type == 'video') {
+            $video = Users::model()->HomeGenre(2,$genre);
+            $this->renderPartial('home_ajax_song', array('song_list' => $video));
+        }
+    }
+    
+    
+    
 
     public function actionVerifysong(){
         $song = $_POST['song'];

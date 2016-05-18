@@ -178,6 +178,17 @@ class Users extends BaseModel {
     }
     
     
+     public function HomeGenre($song_type,$genre) {
+        $criteria = new CDbCriteria();
+        $criteria->condition = "status = '1'  AND deleted = 0 AND "
+                . "type = '$song_type' AND genre ='$genre' ";
+        $criteria->order = "date_entered DESC";
+        $criteria->limit = 20;
+        $songs = Songs::model()->findAll($criteria);
+        return $songs;
+    }
+    
+    
     
     
 
