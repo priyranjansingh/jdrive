@@ -1,22 +1,21 @@
 <?php
 
-class DefaultController extends Controller
-{
-	public $layout = '//layouts/home_main';
-	public function actionIndex()
-	{
-		$this->render('index');
-	}
+class DefaultController extends Controller {
 
-	public function actionProfile()
-	{
-		if (Yii::app()->user->isGuest) {
+    public $layout = '//layouts/home_main';
+
+    public function actionIndex() {
+        $this->render('index');
+    }
+
+    public function actionProfile() {
+        if (Yii::app()->user->isGuest) {
             $this->redirect(Yii::app()->request->urlReferrer);
         } else {
-        	$logged_in_user_id = Yii::app()->user->id;
+            $logged_in_user_id = Yii::app()->user->id;
             $user = Users::model()->find(array("condition" => "id = '$logged_in_user_id'"));
             $recommended_list = Users::model()->getRecommendList($logged_in_user_id);
-            
+
             $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
             $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
             $total_track_list = count($song_list) + count($video_list);
@@ -42,17 +41,62 @@ class DefaultController extends Controller
                 'recommended_list' => $recommended_list,
             ));
         }
-	}
+    }
 
-	public function actionEdit()
-	{
-		if (Yii::app()->user->isGuest) {
+    public function actionEdit() {
+        if (Yii::app()->user->isGuest) {
             $this->redirect(base_url());
         } else {
-        	$logged_in_user_id = Yii::app()->user->id;
+            $logged_in_user_id = Yii::app()->user->id;
             $model = Users::model()->findByPk($logged_in_user_id);
 
-            $this->render('edit',array('model' => $model));
+            $this->render('edit', array('model' => $model));
         }
-	}
+    }
+
+    public function actionDrive() {
+        if (Yii::app()->user->isGuest) {
+            $this->redirect(Yii::app()->request->urlReferrer);
+        } else {
+            $logged_in_user_id = Yii::app()->user->id;
+            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id' ", "order" => "date_entered desc"));
+            $genres = Genres::model()->findAll(array("condition" => "parent = '0'"));
+            $this->render('drive', array('song_list' => $song_list, 'genres' => $genres));
+        }
+    }
+    
+    
+    public function actionAjaxSongType() {
+        if (Yii::app()->user->isGuest) {
+            $this->redirect(Yii::app()->request->urlReferrer);
+        } else {
+            $song_type = $_POST['song_type'];
+            if ($song_type == 'audio') {
+                $type = 1;
+            } else if ($song_type == 'video') {
+                $type = 2;
+            }
+            $logged_in_user_id = Yii::app()->user->id;
+            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='$type' AND deleted = 0 AND created_by = '$logged_in_user_id' ", "order" => "date_entered desc"));
+            $this->renderPartial('ajax_drive', array('song_list' => $song_list));
+        }
+    }
+
+    public function actionAjaxDrive() {
+        if (Yii::app()->user->isGuest) {
+            $this->redirect(Yii::app()->request->urlReferrer);
+        } else {
+            $genre = $_POST['genre'];
+            $song_type = $_POST['song_type'];
+            if ($song_type == 'audio') {
+                $type = 1;
+            } else if ($song_type == 'video') {
+                $type = 2;
+            }
+            $logged_in_user_id = Yii::app()->user->id;
+            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='$type' AND genre='$genre' AND deleted = 0 AND created_by = '$logged_in_user_id' ", "order" => "date_entered desc"));
+            $this->renderPartial('ajax_drive', array('song_list' => $song_list));
+        }
+    }
+
 }

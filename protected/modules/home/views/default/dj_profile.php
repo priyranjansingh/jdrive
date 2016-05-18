@@ -27,9 +27,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                             ?>
 
                             <div class="left_thumb">
-
                                 <img src="<?php echo base_url(); ?>/assets/user-profile/<?php echo $user_file; ?>">
-
                             </div>
                             <div class="left_con">
                                 <?php echo $following->user_details->username; ?> <i class="fa fa-star fc_red"></i>
@@ -107,7 +105,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
     </div>
     <div class="right_pan">
         <div class="pro_banner" style="background:url(<?php echo $baseUrl; ?>/img/pro_banner.jpg)">
-            <div class="change_btn"><a href="#">Change Background</a></div>
+<!--            <div class="change_btn"><a href="#">Change Background</a></div>-->
             <div class="count_t"><h2><?php echo count($user->songs_list) + count($user->videos_list); ?></h2> Tracks</div>
             <div class="pro_con">
                 <h1>

@@ -90,7 +90,7 @@ $(document).ready(function() {
     })
 
 
-    $("#genre").click(function() {
+    $(".genre_class").click(function() {
         
         $("#home_trending").removeClass('select');
         $("#home_just_added").removeClass("select");
