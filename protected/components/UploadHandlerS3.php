@@ -1132,7 +1132,7 @@ class UploadHandlerS3
                     move_uploaded_file($uploaded_file, $file_path);
                     $key = basename($file_path);
                     $this->s3->putObjectAcl(array(
-                                      'ACL' => $this->acl,
+                                      'ACL' => 'authenticated-read',
                                       'Bucket' => $this->bucket,
                                       'Key' => $key,
                                     ));
@@ -1441,21 +1441,19 @@ class UploadHandlerS3
 
         }
         Yii::import("application.modules.home.models.Temp", true);
-        Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
         foreach($files as $file)
         {
-            $m_acl = 0;
+            // $m_acl = 0;
             $m_type = 2;
             if($file->type == "audio/mp3")
             {
-                $file_url = Yii::app()->s3->getAuthenticatedURL($this->bucket, $file->name, 3600, false, false);
-                pre($file_url);
-                getSongBPM($file_url);
                 $m_type = 1;
             }
             if($this->acl == "private")
             {
                 $m_acl = 1;
+            } else {
+                $m_acl = 0;
             }
             $model = new Temp;
             $model->s3_bucket = $this->bucket;

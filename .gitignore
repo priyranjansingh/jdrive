@@ -56,3 +56,7 @@ protected/config/global.php
 assets/aws-v2/config/config.php
 protected/runtime/application.log
 protected/runtime/sql.log
+*.mp3
+*.log
+protected/config/global.php
+protected/config/global.php

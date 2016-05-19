@@ -528,6 +528,7 @@ class DefaultController extends Controller {
             Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
             foreach ($temp as $t) {
                 $file_url = Yii::app()->s3->getAuthenticatedURL($t->s3_bucket, $t->file_name, 3600, false, false);
+                // pre($file_url,true);
                 if (copy($file_url, "assets/temp/" . $t->file_name)) {
                     $info = new FileInfo("assets/temp/" . $t->file_name);
                     if($info->data['error'] === false){
@@ -549,7 +550,8 @@ class DefaultController extends Controller {
                         } else {
                             $g = $genre->id;
                         }
-
+                        $bpm = getSongBPM($file_url);
+                        $key = getSongKey($file_url);
                         $model = new Media;
                         $model->id = create_guid();
                         $model->type = $t->type;
@@ -561,7 +563,8 @@ class DefaultController extends Controller {
                         $model->s3_bucket = $t->s3_bucket;
                         $model->file_name = $t->file_name;
                         $model->album_art = $api->album_art;
-                        $model->bpm = $api->bpm;
+                        $model->bpm = $bpm;
+                        $model->song_key = $key;
                         $model->created_by = $t->user_id;
                         $model->modified_by = $t->user_id;
                         $model->status = 1;
