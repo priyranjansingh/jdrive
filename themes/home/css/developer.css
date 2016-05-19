@@ -317,3 +317,11 @@ table.table tr.template-upload td p.size {
 .jp-controls .active:before {
     background-position: 0 -224px !important;
 }
+.jp-type-playlist {
+    float: none !important;
+}
+
+.drive_active_cat{
+    background: #666;
+    color: #fafafa;
+}

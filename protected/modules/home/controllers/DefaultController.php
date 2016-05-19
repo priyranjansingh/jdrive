@@ -159,6 +159,21 @@ class DefaultController extends Controller {
             $this->renderPartial('home_ajax_song', array('song_list' => $video));
         }
     }
+    
+    public function actionHomeGenre() {
+        $song_type = $_POST['song_type'];
+        $genre = $_POST['genre'];
+        if ($song_type == 'audio') {
+            $song = Users::model()->HomeGenre(1,$genre);
+            $this->renderPartial('home_ajax_song', array('song_list' => $song));
+        } else if ($song_type == 'video') {
+            $video = Users::model()->HomeGenre(2,$genre);
+            $this->renderPartial('home_ajax_song', array('song_list' => $video));
+        }
+    }
+    
+    
+    
 
     public function actionVerifysong(){
         $song = $_POST['song'];
@@ -207,9 +222,18 @@ class DefaultController extends Controller {
 
     public function actionAjaxPlaylistSongs() {
         $playlist = $_POST['playlist'];
+        $song_type = $_POST['song_type'];
+        if($song_type =='audio')
+        {
+            $type = 1;
+        } 
+        else if($song_type =='video')
+        {
+            $type = 2;
+        }    
         $playlist_detail = Playlists::model()->findByPk($playlist);
-        $playlist_songs = PlaylistSongs::model()->findAll(array("condition" => "playlist_id = '$playlist'"));
-        $this->renderPartial('ajax_playlist_songs', array('playlist_songs' => $playlist_songs, 'playlist_name' => $playlist_detail->name));
+        $playlist_songs = PlaylistSongs::model()->findAll(array("condition" => "playlist_id = '$playlist' AND type='$type' "));
+        $this->renderPartial('ajax_playlist_songs', array('playlist_songs' => $playlist_songs,'playlist'=>$playlist,'playlist_name' => $playlist_detail->name));
     }
     
     public function actionHomeAjaxPlaylistSongs() {
@@ -721,11 +745,13 @@ class DefaultController extends Controller {
     public function actionAjaxAddToPlaylist() {
         $song = $_POST['song'];
         $playlist = $_POST['playlist'];
+        $song_detail = Songs::model()->findByPk($song);
         $playlist_model = PlaylistSongs::model()->find(array("condition" => "playlist_id = '$playlist' AND song_id ='$song' AND deleted = 0 "));
         if (empty($playlist_model)) {
             $playlist_new_model = new PlaylistSongs;
             $playlist_new_model->playlist_id = $playlist;
             $playlist_new_model->song_id = $song;
+            $playlist_new_model->type = $song_detail->type;
             $playlist_new_model->validate();
             $playlist_new_model->save();
         }
@@ -744,10 +770,13 @@ class DefaultController extends Controller {
             if ($model->validate()) {
                 $model->save();
                 // adding to playlist_songs table
+                
+                $song_detail = Songs::model()->findByPk($_POST['playlist_song']);
 
                 $playlist_songs = new PlaylistSongs;
                 $playlist_songs->playlist_id = $model->id;
                 $playlist_songs->song_id = $_POST['playlist_song'];
+                $playlist_songs->type = $song_detail->type;
                 $playlist_songs->save();
 
 

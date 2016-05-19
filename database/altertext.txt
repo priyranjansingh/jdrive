@@ -56,3 +56,8 @@ ALTER TABLE `media` CHANGE `bpm` `bpm` VARCHAR(64) CHARACTER SET utf8mb4 COLLATE
 
 ALTER TABLE `media` ADD `is_shared` TINYINT(1) NOT NULL DEFAULT '0' AFTER `s3_url`;
 
+
+/* 17-5-2016 By Priyranjan */
+
+
+ALTER TABLE `playlist_songs` ADD `type` TINYINT(1) NOT NULL AFTER `song_id`;

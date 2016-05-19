@@ -1,7 +1,7 @@
 <?php
 $baseUrl = Yii::app()->theme->baseUrl;
 ?>   
-<div style="font-size: 20px;color: #000;margin: 10px;"><?php  echo $playlist_name; ?></div>
+<div id="playlist_name_container" data-playlist="<?php echo $playlist; ?>"  style="font-size: 20px;color: #000;margin: 10px;"><?php  echo $playlist_name; ?></div>
 <ul class="a_list i_page">
 
             <?php
@@ -27,6 +27,13 @@ $baseUrl = Yii::app()->theme->baseUrl;
                     $count = $count + 1;
                 }
             }
+            else
+            {
+            ?>
+                  No record found  
+            <?php         
+                
+            }    
             ?>
 
 
