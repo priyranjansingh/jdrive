@@ -9,17 +9,20 @@
 	class ApiSearch {
 
 		public $album_art = null;
-		public $bpm = null;
+		public $genre = null;
 
 		public function __construct($artist, $song, $album){
 			$api = new Gracenote\WebAPI\GracenoteWebAPI(getParam('api_client_id'), getParam('api_client_tag'), getParam('api_user_id'));
 			$results = $api->searchTrack($artist, $album, $song, Gracenote\WebAPI\GracenoteWebAPI::BEST_MATCH_ONLY);
+			// pre($results,true);
 			if(!empty($results[0]['album_art_url'])){
 				$this->album_art = $results[0]['album_art_url'];	
 			}
 			
-			if(!empty($results[0]['tracks'][0]['tempo'])){
-				$this->bpm = $results[0]['tracks'][0]['tempo'][0]['text'];
+			if(!empty($results[0]['genre'])){
+				$this->genre = $results[0]['genre'][0]['text'];
+			} else {
+				$this->genre = "NA";
 			}
 		}
 

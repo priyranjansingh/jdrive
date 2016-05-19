@@ -1,3 +1,11 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    vertical-align: top;
+    text-decoration: none;
+    outline: none;
+}
 .loading{ background:url(../img/712.GIF) no-repeat center 50% #373737; position:fixed; left:0; right:0; top:0; bottom:0; opacity:0.3; z-index:20; display:none;}
 .l_titel li a {
     color: #fff;
@@ -71,12 +79,241 @@
     margin-top: 50px;
 }
 
-.jp-progress {
-    width: 52%;
-    float: left;
-    margin-top: 16px;
-}
 
 .jp-type-playlist {
     float: none !important;
+}
+
+table.utable{
+    background: #9C9090;
+}
+
+table.table tr.template-upload td.filename{
+    padding: 32px;
+}
+table.table tr.template-upload td p.name {
+    font-size: 18px;
+}
+table.table tr.template-upload td p.name, 
+table.table tr.template-upload td p.size {
+    padding: 3px;
+    margin: 0 0 10px 0px;
+}
+
+.utable .last {
+    padding: 30px 10px;
+}
+
+.player {
+    padding: 10px 0;
+}
+
+.jp-album {
+    position: relative;
+    cursor: pointer;
+    padding: 10px 0 0 20px;
+}
+
+.jp-cover {
+    width: 42px;
+    height: 42px;
+    margin: 0 10px 0 0 border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.jp-title {
+    font-size: 11px;
+    color: #fff;
+    opacity: 0.6;
+}
+
+.jp-title {
+    overflow: hidden;
+    display: block;
+    height: 20px;
+}
+
+.player .rating {
+    margin-top: 1px;
+}
+
+.jp-album .player-tracklist {
+    overflow: hidden;
+    position: absolute;
+    bottom: 63px;
+    left: 15px;
+    z-index: 1;
+    padding: 10px 20px 0;
+}
+
+.jp-bar-wrap, .jp-controls-wrap, .jp-controls, .jp-bar, .jp-volume {
+    display: inline-block;
+}
+
+.jp-bar {
+    overflow: hidden;
+    margin: 26px 0 0 10px;
+}
+
+.jp-progress {
+    overflow: hidden;
+    position: relative;
+    height: 10px;
+}
+
+.jp-progress .jp-bg {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 2px 2px 2px 2px;
+    width: 510px;
+    background-color: #000;
+    height: 10px;
+}
+
+.jp-progress .jp-seek-bar {
+    cursor: pointer;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 2px;
+}
+
+.jp-progress .jp-seek-wf {
+    cursor: pointer;
+    height: 6px;
+    position: absolute;
+    top: 2px;
+    width: 100%;
+    z-index: 19;
+    background-color: #222;
+}
+
+.jp-progress .jp-play-bar {
+    position: absolute;
+    top: 2px;
+    height: 100%;
+    z-index: 20;
+    width: 0;
+    height: 6px;
+    background-color: #e0191a;
+}
+
+.jp-bar .jp-time {
+    float: none;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.jp-bar .duration {
+    float: right;
+}
+
+.jp-volume {
+    position: relative;
+    height: 7px;
+    padding: 27px 5px 0 0;
+}
+
+.volume {
+    float: left;
+    cursor: pointer;
+    position: relative;
+    background-color: #111;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    height: 8px;
+    padding: 0 5px 0 0;
+    margin: 0 0 0 20px;
+    width: 75px;
+}
+
+.volume, .ui-slider-handle, .ui-slider-range {
+    background: #929292;
+}
+
+.ui-slider-range {
+    position: absolute;
+    background-color: #e0191a;
+    height: 6px;
+    top: 0;
+    left: 0;
+}
+
+.volume, .ui-slider-handle {
+    background: #929292;
+}
+
+.jp-vol {
+    float: left;
+    position: relative;
+    top: -26px;
+    width: 62px;
+    height: 62px;
+}
+
+.jp-audio .playlist {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.jp-controls div {
+    cursor: pointer;
+    position: relative;
+    width: 62px;
+    height: 62px;
+    float: left;
+}
+
+.jp-vol:before, .jp-controls div:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 62px;
+    height: 62px;
+    background: url("../img/sprites/player-sprite.png") no-repeat 0 0 transparent;
+}
+
+.jp-audio .playlist:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    background: url("../img/sprites/tracklist.png") no-repeat 0 0 transparent;
+    opacity: 0.4;
+}
+
+.jp-controls .jp-prev:hover:before {
+    background-position: 0 -672px !important;
+}
+
+.jp-controls .jp-prev:before {
+    background-position: 0 -784px !important;
+}
+
+.jp-controls .play:hover:before, .jp-controls .pause:before {
+    background-position: 0 -448px !important;
+}
+.jp-controls .play:before {
+    background-position: 0 -560px !important;
+}
+.jp-controls .jp-next:hover:before {
+    background-position: 0 0 !important;
+}
+.jp-controls .jp-next:before {
+    background-position: 0 -112px !important;
+}
+.jp-vol:before {
+    background-position: 0 -896px !important;
+}
+
+.jp-controls .active:hover:before {
+    background-position: 0 -224px !important;
+}
+.jp-controls .active:before {
+    background-position: 0 -224px !important;
 }

@@ -8,8 +8,11 @@ class FrontusersController extends Controller
 	 */
 	public $layout='//layouts/column2';
 
-	public function beforeAction()
+	protected function beforeAction($action)
 	{
+		if (!parent::beforeAction($action)) {
+	        return false;
+	    }
 		if(isFrontUserLoggedIn()){
 			return true;
 		} else {

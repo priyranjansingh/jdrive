@@ -6,10 +6,6 @@
 <div class="box-body">
 	<div class="form-group">
 		<div class="col-xs-4">
-			<?php echo $form->label($model,'genre_for'); ?>
-			<?php echo $form->dropDownList($model,'genre_for',getParam('genre_for'),array('empty'=>'Select Genre For','class' => 'form-control')); ?>
-		</div>
-		<div class="col-xs-4">
 			<?php echo $form->label($model,'name'); ?>
 			<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>255,'class' => 'form-control')); ?>
 		</div>

@@ -17,7 +17,7 @@
         <link href="<?php echo $baseUrl; ?>/css/bootstrap.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/jquery.fileupload.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/owl.carousel.css" rel="stylesheet" type="text/css">
-        <link href="<?php echo $baseUrl; ?>/css/jplayer.pink.flag.css" rel="stylesheet" type="text/css">
+        <!-- <link href="<?php echo $baseUrl; ?>/css/jplayer.pink.flag.css" rel="stylesheet" type="text/css"> -->
         <link href="<?php echo $baseUrl; ?>/css/style.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/developer.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/membership.css" rel="stylesheet" type="text/css">
@@ -199,10 +199,7 @@
         <script id="template-upload" type="text/x-tmpl">
             {% for (var i=0, file; file=o.files[i]; i++) { %}
             <tr class="template-upload fade">
-            <td>
-            <span class="preview"></span>
-            </td>
-            <td>
+            <td colspan="2" class="filename">
             <p class="name">{%=file.name%}</p>
             <strong class="error text-danger"></strong>
             </td>
@@ -303,6 +300,8 @@
         <script src="<?php echo $baseUrl; ?>/js/jquery.fileupload-ui.js"></script>
         <!-- The main application script -->
         <script src="<?php echo $baseUrl; ?>/js/main.js"></script>
+        <script src="<?php echo $baseUrl; ?>/js/jquery-ui.js"></script>
+        <script src="<?php echo $baseUrl; ?>/js/common.js"></script>
         <!-- The XDomainRequest Transport is included for cross-domain file deletion for IE 8 and IE 9 -->
         <!--[if (gte IE 8)&(lt IE 10)]>
         <script src="js/cors/jquery.xdr-transport.js"></script>

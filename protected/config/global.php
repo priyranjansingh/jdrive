@@ -42,6 +42,7 @@ $global = array(
     'secret_access_key' => '',
     'api_client_id' => '1147939910-58D33C3A6106FF75E8A80FDFE9B36758',
     'api_client_tag' => '58D33C3A6106FF75E8A80FDFE9B36758',
-    'api_user_id' => '34435820625666996-40DF3AACF34B631C07FE7208586E9FC7'
+    'api_user_id' => '34435820625666996-40DF3AACF34B631C07FE7208586E9FC7',
+    'sonic_api' => '7006ab30-f03a-4135-80fb-24b441c037fb'
 );
 ?>

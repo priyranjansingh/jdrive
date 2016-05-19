@@ -57,12 +57,7 @@
                                     'enablePagination' => true,
                                     // 'filter'=>$model,
                                     'columns' => array(
-                                    	'genre_for',
                                         'name',
-                                        array(
-                                            'name' => 'parent',
-                                            'value' => array($this, 'gridParent'),
-                                        ),
                                         array(
                                             'class'=>'CButtonColumn',
                                             'template'=>'{v} {u} {d}', // <-- TEMPLATE WITH THE TWO STATES

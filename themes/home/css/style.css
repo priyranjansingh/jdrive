@@ -298,7 +298,7 @@ ol.list li{ list-style:decimal; margin-bottom:7px;}
 
 /*Content-profile*/
 /*footer*/
-.footer{ background: #000; height:40px; position:relative; z-index:99; padding:0 15px;}
+.footer{ background: #000; /*height:40px;*/ position:relative; z-index:99; padding:0 15px;}
 .footer:after{ content:''; display:block; clear:both;}
 
 .s_info{float:left; margin-right:15px; }

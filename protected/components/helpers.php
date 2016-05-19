@@ -624,17 +624,68 @@ function getUniqueCode($school_id, $feild_name) {
     return $Code;
 }
 
- function sendSms($number,$message) {
-        $message = urlencode($message);
-        $url = "http://sms.hspsms.com/sendSMS?username=suri_1089&message=$message&sendername=SCHOOL&smstype=TRANS&numbers=$number&apikey=bf6030e3-8950-4d9d-b7cd-119833ea886b";
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_exec($ch);
-}
+ function getSongBPM($file)
+ {
+    $taskUrl = 'analyze/tempo';
+    $parameters = array();
+    $parameters['access_id'] = getParam('sonic_api');
+    $parameters['format'] = 'json';
 
-function _isCurl(){
-    return function_exists('curl_version');
-}
+    $parameters['input_file'] = $file;
+    // $parameters['detailed_result'] = 'true';
+
+    // important: the calls require the CURL extension for PHP
+    $ch = curl_init('https://api.sonicAPI.com/' . $taskUrl);
+    curl_setopt($ch, CURLOPT_HEADER, FALSE);
+    curl_setopt($ch, CURLOPT_POST, TRUE);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $parameters);
+    // you can remove the following line when using http instead of https, or
+    // you point curl to the CA certificate
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+    $httpResponse = curl_exec($ch);
+    $infos = curl_getinfo($ch);
+    curl_close($ch);
+
+    $response = json_decode($httpResponse);
+    // pre(round($response->auftakt_result->overall_tempo),true);
+    return $response->auftakt_result->overall_tempo;
+    // if ($infos['http_code'] == 200) {
+    //     echo "Task succeeded, analysis result:<br />" . json_encode($response);
+    // } else {
+    //     $errorMessages = array_map(function($error) { return $error->message; }, $response->errors);
+        
+    //     echo 'Task failed, reason: ' . implode('; ', $errorMessages);
+    // }
+ }
+
+ function getSongKey($file)
+ {
+    $taskUrl = 'analyze/key';
+    $parameters = array();
+    $parameters['access_id'] = getParam('sonic_api');
+    $parameters['format'] = 'json';
+
+    $parameters['input_file'] = $file;
+
+    // important: the calls require the CURL extension for PHP
+    $ch = curl_init('https://api.sonicAPI.com/' . $taskUrl);
+    curl_setopt($ch, CURLOPT_HEADER, FALSE);
+    curl_setopt($ch, CURLOPT_POST, TRUE);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $parameters);
+    // you can remove the following line when using http instead of https, or
+    // you point curl to the CA certificate
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+    $httpResponse = curl_exec($ch);
+    $infos = curl_getinfo($ch);
+    curl_close($ch);
+
+    $response = json_decode($httpResponse);
+    return $response->tonart_result->key;
+ }
 
 
 ?>
