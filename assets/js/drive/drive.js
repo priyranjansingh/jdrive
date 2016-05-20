@@ -50,3 +50,20 @@ $(".drive_song_type").click(function() {
         })
     }
 });
+
+
+
+
+$(".edit_btn").click(function() {
+    var song = $(this).data('song');
+    $.ajax({
+        url: base_url + "/user/SongDetail",
+        method: "POST",
+        data: {'song': song},
+        success: function(data) {
+            $("#edit_song_div_body").html(data);
+            $("#edit_song_div").modal('show');
+            $(".loading").hide();
+        }
+    })
+});

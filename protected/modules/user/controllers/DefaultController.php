@@ -64,8 +64,7 @@ class DefaultController extends Controller {
             $this->render('drive', array('song_list' => $song_list, 'genres' => $genres));
         }
     }
-    
-    
+
     public function actionAjaxSongType() {
         if (Yii::app()->user->isGuest) {
             $this->redirect(Yii::app()->request->urlReferrer);
@@ -98,5 +97,41 @@ class DefaultController extends Controller {
             $this->renderPartial('ajax_drive', array('song_list' => $song_list));
         }
     }
+
+    public function actionSongDetail() {
+        if (Yii::app()->user->isGuest) {
+            $this->redirect(Yii::app()->request->urlReferrer);
+        } else {
+            $song = $_POST['song'];
+            $song_model = Songs::model()->findByPk($song);
+            $this->renderPartial('ajax_edit_song', array('song_model' => $song_model));
+        }
+    }
+    
+    public function actionEditSong($song) {
+             $song_model = Songs::model()->findByPk($song);
+            if (isset($_POST['ajax']) && $_POST['ajax'] === 'song_edit_form') {
+                echo CActiveForm::validate($song_model);
+                Yii::app()->end();
+            }
+            if (isset($_POST['Songs'])) {
+                $model->attributes = $_POST['Registration'];
+                $model->role_id = getParam('front_user_role');
+                if ($model->validate()) {
+                    $model->password = md5($model->password);
+                    $model->confirm_password = $model->password;
+                    $model->save();
+                    Yii::app()->session['register_user_info'] = serialize($model);
+                    $this->redirect(base_url() . '/home/chooseplans');
+                } else {
+                    pre($model->getErrors());
+                }
+            }
+            // $this->render('register', array('model' => $model));
+        
+    }
+    
+    
+    
 
 }
