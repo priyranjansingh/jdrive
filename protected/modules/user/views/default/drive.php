@@ -74,7 +74,7 @@
                                 <td>
                                     <a href="#" class=""><i class="fa fa-play" aria-hidden="true"></i></a>
                                     <a href="#" class=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                     <a href="#" class=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    <a href="#" class=""><i class="fa fa-trash" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
 
@@ -87,5 +87,25 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="edit_song_div">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content log_pan">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Add To Playlist</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-header" style="margin-bottom: 50px;"></div>
+            <div>
+                <?php $this->widget('AddPlaylistWidget'); ?>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <script src="<?php echo base_url(); ?>/assets/js/drive/drive.js"></script>
