@@ -53,6 +53,7 @@ $(".drive_song_type").click(function() {
 
 
 $('body').on("click",".edit_btn",function(){
+    $(".loading").show();
     var song = $(this).data('song');
     $.ajax({
         url: base_url + "/user/SongDetail",
