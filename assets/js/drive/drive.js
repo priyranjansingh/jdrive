@@ -52,7 +52,7 @@ $(".drive_song_type").click(function() {
 });
 
 
-$(".edit_btn").click(function() {
+$('body').on("click",".edit_btn",function(){
     var song = $(this).data('song');
     $.ajax({
         url: base_url + "/user/SongDetail",
@@ -65,3 +65,5 @@ $(".edit_btn").click(function() {
         }
     })
 });
+
+
