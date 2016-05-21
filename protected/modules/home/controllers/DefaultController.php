@@ -401,11 +401,14 @@ class DefaultController extends Controller {
 
     public function actionTest() {
         // $info = new FileInfo("assets/temp/Kehlani - 24 7 (Dirty).mp3");
-        $url = "http://arommatech-dc6421.s3.amazonaws.com/Kehlani%20-%2024%207%20%28Dirty%29.mp3?AWSAccessKeyId=AKIAJBTQKEKGZSJDLKSA&Expires=1463690396&Signature=LgTUyehhZ1CKWQiDojA2RP2Cy2s%3D";
-        $info = getSongBPM($url);
+       // $url = "http://arommatech-dc6421.s3.amazonaws.com/Kehlani%20-%2024%207%20%28Dirty%29.mp3?AWSAccessKeyId=AKIAJBTQKEKGZSJDLKSA&Expires=1463690396&Signature=LgTUyehhZ1CKWQiDojA2RP2Cy2s%3D";
+       // $info = getSongBPM($url);
         // getSongBPM($url);
         // $api = new ApiSearch($info->data['artist'], $info->data['song'], $info->data['album']);
         // pre($api);
+        
+        $model = Media::model()->findAll();
+        pre($model,true);
     }
 
     public function actionWebhook($listner) {

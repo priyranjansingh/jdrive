@@ -25,7 +25,7 @@
  * @property string $date_entered
  * @property string $date_modified
  */
-class Songs extends AdminBaseModel {
+class Songs extends BaseModel {
 
     /**
      * @return string the associated database table name

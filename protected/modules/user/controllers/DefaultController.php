@@ -64,8 +64,7 @@ class DefaultController extends Controller {
             $this->render('drive', array('song_list' => $song_list, 'genres' => $genres));
         }
     }
-    
-    
+
     public function actionAjaxSongType() {
         if (Yii::app()->user->isGuest) {
             $this->redirect(Yii::app()->request->urlReferrer);
@@ -96,6 +95,35 @@ class DefaultController extends Controller {
             $logged_in_user_id = Yii::app()->user->id;
             $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='$type' AND genre='$genre' AND deleted = 0 AND created_by = '$logged_in_user_id' ", "order" => "date_entered desc"));
             $this->renderPartial('ajax_drive', array('song_list' => $song_list));
+        }
+    }
+
+    public function actionSongDetail() {
+        if (Yii::app()->user->isGuest) {
+            $this->redirect(Yii::app()->request->urlReferrer);
+        } else {
+            $song = $_POST['song'];
+            $song_model = Songs::model()->findByPk($song);
+            $this->renderPartial('ajax_edit_song', array('song_model' => $song_model));
+            $script = Yii::app()->clientScript->scripts[CClientScript::POS_READY]['CActiveForm#song_edit_form'];
+            echo "<script type='text/javascript'>$script</script>";
+        }
+    }
+
+    public function actionEditSong($song) {
+        $song_model = Songs::model()->findByPk($song);
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'song_edit_form') {
+            echo CActiveForm::validate($song_model);
+            Yii::app()->end();
+        }
+        if (isset($_POST['Songs'])) {
+            $song_model->attributes = $_POST['Songs'];
+            if ($song_model->validate()) {
+                $song_model->save();
+                $this->redirect(base_url() . '/user/drive');
+            } else {
+                pre($song_model->getErrors());
+            }
         }
     }
 
