@@ -60,3 +60,7 @@ protected/runtime/sql.log
 *.log
 protected/config/global.php
 protected/config/global.php
+protected/config/global.php
+assets/aws-v2/config/config.php
+protected/config/global.php
+assets/aws-v2/config/config.php
