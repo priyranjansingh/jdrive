@@ -15921,3 +15921,873 @@ Stack trace:
 REQUEST_URI=/jdrive/themes/home/fonts/glyphicons-halflings-regular.ttf
 HTTP_REFERER=http://localhost/jdrive/themes/home/css/bootstrap.css
 ---
+2016/05/20 13:09:43 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:518)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (518)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/20 13:12:21 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:518)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (518)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 06:07:01 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 06:09:32 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 06:09:34 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 06:24:26 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 06:24:34 [error] [php] Undefined index: Registration (C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php:118)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#3 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#4 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#5 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/index.php/user/EditSong?song=%2714df5a16-3f01-38f4-d8d9-573ef175342e%27
+in C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php (118)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 06:36:42 [error] [php] Undefined variable: song_model (C:\xampp\htdocs\jdrive\themes\home\views\layouts\home_main.php:209)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(784): DefaultController->renderFile()
+#1 C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php(64): DefaultController->render()
+#2 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionDrive()
+#3 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#5 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#6 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#7 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/user/drive
+in C:\xampp\htdocs\jdrive\themes\home\views\layouts\home_main.php (209)
+in C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php (64)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 06:36:48 [error] [php] Undefined variable: song_model (C:\xampp\htdocs\jdrive\themes\home\views\layouts\home_main.php:209)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(784): DefaultController->renderFile()
+#1 C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php(64): DefaultController->render()
+#2 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionDrive()
+#3 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#5 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#6 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#7 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/user/drive
+in C:\xampp\htdocs\jdrive\themes\home\views\layouts\home_main.php (209)
+in C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php (64)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 06:37:06 [error] [php] Undefined variable: song_model (C:\xampp\htdocs\jdrive\themes\home\views\layouts\home_main.php:209)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(784): DefaultController->renderFile()
+#1 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(13): DefaultController->render()
+#2 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#3 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#5 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#6 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#7 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/
+in C:\xampp\htdocs\jdrive\themes\home\views\layouts\home_main.php (209)
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (13)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 06:39:49 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 06:39:52 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 06:39:58 [error] [php] Undefined index: Registration (C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php:118)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#3 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#4 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#5 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/index.php/user/EditSong?song=%2714df5a16-3f01-38f4-d8d9-573ef175342e%27
+in C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php (118)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 09:22:11 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 09:22:16 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 09:22:18 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:06:13 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:06:21 [error] [php] Undefined index: Registration (C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php:118)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#3 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#4 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#5 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/index.php/user/EditSong?song=%2714df5a16-3f01-38f4-d8d9-573ef175342e%27
+in C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php (118)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:07:53 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:07:56 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:10:59 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:11:22 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:14:59 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:15:01 [error] [php] Undefined index: CActiveForm#team-form (C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php:108)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/user/SongDetail
+in C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php (108)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:15:02 [error] [php] Undefined index: CActiveForm#team-form (C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php:108)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/user/SongDetail
+in C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php (108)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:15:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 11:15:12 [error] [php] Undefined index: CActiveForm#team-form (C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php:108)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/user/SongDetail
+in C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php (108)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:15:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 11:15:46 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:17:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 11:17:08 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:17:09 [error] [php] Undefined variable: script (C:\xampp\htdocs\jdrive\protected\modules\user\views\default\ajax_edit_song.php:5)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(869): DefaultController->renderFile()
+#1 C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php(107): DefaultController->renderPartial()
+#2 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionSongDetail()
+#3 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#5 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#6 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#7 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/user/SongDetail
+in C:\xampp\htdocs\jdrive\protected\modules\user\views\default\ajax_edit_song.php (5)
+in C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php (107)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:17:11 [error] [php] Undefined variable: script (C:\xampp\htdocs\jdrive\protected\modules\user\views\default\ajax_edit_song.php:5)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(869): DefaultController->renderFile()
+#1 C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php(107): DefaultController->renderPartial()
+#2 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionSongDetail()
+#3 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#5 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#6 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#7 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/user/SongDetail
+in C:\xampp\htdocs\jdrive\protected\modules\user\views\default\ajax_edit_song.php (5)
+in C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php (107)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:17:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 11:17:18 [error] [php] Undefined variable: script (C:\xampp\htdocs\jdrive\protected\modules\user\views\default\ajax_edit_song.php:5)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(869): DefaultController->renderFile()
+#1 C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php(107): DefaultController->renderPartial()
+#2 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionSongDetail()
+#3 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#5 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#6 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#7 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/user/SongDetail
+in C:\xampp\htdocs\jdrive\protected\modules\user\views\default\ajax_edit_song.php (5)
+in C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php (107)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:17:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 11:17:55 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:19:08 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:19:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 11:41:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 11:41:07 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:41:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 11:48:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 11:48:06 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:48:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 11:48:29 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:52:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 11:52:03 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:56:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 11:56:03 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:57:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 11:57:17 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:57:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 11:57:51 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:57:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 11:57:55 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 11:58:01 [error] [php] Undefined index: Registration (C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php:120)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#3 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#4 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#5 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/index.php/user/EditSong?song=14df5a16-3f01-38f4-d8d9-573ef175342e
+in C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php (120)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:00:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 12:00:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 12:00:48 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:00:58 [error] [php] Undefined index: Registration (C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php:120)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#3 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#4 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#5 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/index.php/user/EditSong?song=14df5a16-3f01-38f4-d8d9-573ef175342e
+in C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php (120)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:01:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/05/21 12:01:43 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:02:03 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:05:20 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:05:27 [error] [php] Creating default object from empty value (C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php:120)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#3 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#4 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#5 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/index.php/user/EditSong?song=14df5a16-3f01-38f4-d8d9-573ef175342e
+in C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php (120)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:08:17 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:08:19 [error] [php] Undefined index: song (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:179)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/verifysong
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (179)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:08:23 [error] [php] Creating default object from empty value (C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php:120)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#3 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#4 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#5 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/index.php/user/EditSong?song=14df5a16-3f01-38f4-d8d9-573ef175342e
+in C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php (120)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:08:55 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:09:21 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:19:20 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:21:11 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:21:19 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:21:24 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:21:32 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:23:43 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:23:48 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:24:00 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/05/21 12:28:16 [error] [php] Undefined index: mode (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:521)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (521)
+in C:\xampp\htdocs\jdrive\index.php (13)

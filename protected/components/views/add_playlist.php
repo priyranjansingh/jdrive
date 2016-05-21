@@ -22,7 +22,7 @@ $form = $this->beginWidget('CActiveForm', array(
         <div class="col-md-4">
             <?php echo CHtml::submitButton('Create Playlist', array('class' => 'btn')); ?>
         </div>
-        <div class="col-md-4">&nbsp;</div>
+    <div class="col-md-4">&nbsp;</div>
     </div>
 </div>
 

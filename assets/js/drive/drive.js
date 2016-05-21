@@ -52,8 +52,6 @@ $(".drive_song_type").click(function() {
 });
 
 
-
-
 $(".edit_btn").click(function() {
     var song = $(this).data('song');
     $.ajax({

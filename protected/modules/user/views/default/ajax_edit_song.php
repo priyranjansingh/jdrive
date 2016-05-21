@@ -1,7 +1,10 @@
+
+
 <?php
+
 $form = $this->beginWidget('CActiveForm', array(
     'id' => 'song_edit_form',
-    'action' => array("/user/EditSong?song='$song_model->id'"),
+    'action' => array("/user/EditSong?song=$song_model->id"),
     'enableClientValidation' => true,
     'enableAjaxValidation' => true,
     'clientOptions' => array(
@@ -38,6 +41,16 @@ $form = $this->beginWidget('CActiveForm', array(
     <div class="m_col">
         <?php echo $form->textField($song_model, 'bpm', array('placeholder' => 'BPM', 'class' => 't_box')); ?>
         <?php echo $form->error($song_model, 'bpm'); ?>
+    </div>
+</div>
+
+<div class="m_row">
+    <div class="m_col">
+        <?php echo $form->labelEx($song_model, 'song_key'); ?>
+    </div>
+    <div class="m_col">
+        <?php echo $form->textField($song_model, 'song_key', array('placeholder' => 'Song Key', 'class' => 't_box')); ?>
+        <?php echo $form->error($song_model, 'song_key'); ?>
     </div>
 </div>
 
