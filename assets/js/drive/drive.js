@@ -52,7 +52,7 @@ $(".drive_song_type").click(function() {
 });
 
 
-$('body').on("click",".edit_btn",function(){
+$('body').on("click", ".edit_btn", function() {
     $(".loading").show();
     var song = $(this).data('song');
     $.ajax({
@@ -65,6 +65,46 @@ $('body').on("click",".edit_btn",function(){
             $(".loading").hide();
         }
     })
+});
+
+
+$('body').on("click", ".delete_btn", function() {
+    var song = $(this).data('song');
+    $("#delete_yes").data('song', song);
+    $("#delete_no").data('song', song);
+    $("#delete_song_div").modal('show');
+});
+
+
+
+$('body').on("click", ".delete_option", function() {
+    var song = $(this).data('song');
+    var type = $(this).attr('id');
+    if (type == 'delete_yes')
+    {
+        $(".loading").show();
+        $.ajax({
+            url: base_url + "/user/AjaxDelete",
+            method: "POST",
+            data: {'song': song},
+            success: function(data) {
+                $(".loading").hide();
+                if (data == 'success')
+                {
+                    
+                    window.location.href = base_url + "/user/drive";
+                }
+                else
+                {
+                    window.location.href = base_url + "/user/drive";
+                }    
+            }
+        })
+    }
+    else
+    {
+        $("#delete_song_div").modal('hide');
+    }    
 });
 
 

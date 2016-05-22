@@ -64,21 +64,26 @@ class AS3 {
         ));
     }
 
-    public function copySong($source_bucket,$source_key_name,$target_bucket,$target_key_name) {
+    public function copySong($source_bucket, $source_key_name, $target_bucket, $target_key_name) {
         $this->s3Client->copyObject(array(
             'Bucket' => $target_bucket,
             'Key' => $target_key_name,
             'CopySource' => "{$source_bucket}/{$source_key_name}",
         ));
     }
-    
-    public function getSongURL($bucket,$key_name) {
-        $url = $this->s3Client->getObjectUrl($bucket,$key_name);
+
+    public function getSongURL($bucket, $key_name) {
+        $url = $this->s3Client->getObjectUrl($bucket, $key_name);
         return $url;
     }
-    
-    
-    
+
+    public function deleteSong($bucket, $key_name) {
+        $result = $this->s3Client->deleteObject(array(
+            'Bucket' => $bucket,
+            'Key' => $key_name
+        ));
+        return $result;
+    }
 
 }
 
