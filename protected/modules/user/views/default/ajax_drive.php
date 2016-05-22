@@ -35,9 +35,9 @@
                                 <td><?php echo $song->media_genre->name; ?></td>
                                 <td>2015-11-30 12:35</td>
                                 <td>
-                                    <a href="#" class=""><i class="fa fa-play" aria-hidden="true"></i></a>
-                                    <a href="#" class=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                     <a href="#" class=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    <a href="#" class="play_btn" data-song="<?php echo $song->id; ?>"  ><i class="fa fa-play" aria-hidden="true"></i></a>
+                                    <a href="#" class="edit_btn" data-song="<?php echo $song->id; ?>" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                     <a href="#" class="delete_btn" data-song="<?php echo $song->id; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
 

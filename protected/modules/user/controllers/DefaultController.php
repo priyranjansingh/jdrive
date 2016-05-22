@@ -127,4 +127,45 @@ class DefaultController extends Controller {
         }
     }
 
+    public function actionAjaxDelete() {
+        if (Yii::app()->user->id) {
+            $song = $_POST['song'];
+            $song_detail = Songs::model()->findByPk($song);
+            if (!empty($song_detail)) {
+
+                // deleting from the downloads table
+                Downloads::model()->deleteAll(array("condition" => "song_id = '$song_detail->id'"));
+
+                // deleting from the song_like table
+                SongLike::model()->deleteAll(array("condition" => "song_id = '$song_detail->id'"));
+
+                // deleting from the playlist_songs table
+
+                PlaylistSongs::model()->deleteAll(array("condition" => "song_id = '$song_detail->id'"));
+
+                // deleting from the amazon bucket
+                $s3 = new AS3;
+                $result = $s3->deleteSong($song_detail->s3_bucket, $song_detail->file_name);
+
+
+                if ($song_detail->is_shared == 0) {
+                    $shared_songs = Songs::model()->findAll(array("condition" => "file_name = '$song_detail->file_name' AND is_shared = 1 ", "order" => "date_entered asc"));
+                    if (!empty($shared_songs)) {
+                        $song_model = $shared_songs[0];
+                        $song_model->is_shared = 0;
+                        $song_model->save();
+                    }
+                }
+                
+                // deleting from the media table 
+                $song_detail->delete();
+                echo "success";
+            }
+            else 
+            {
+                echo "failure";
+            }    
+        }
+    }
+
 }

@@ -184,17 +184,17 @@
                         <h4 class="modal-title" id="myModalLabel">Add To Playlist</h4>
                     </div>
                     <div class="modal-body">
-                        
+
                     </div>
                     <div class="modal-header" style="margin-bottom: 50px;"></div>
                     <div>
-                         <?php $this->widget('AddPlaylistWidget'); ?>
+                        <?php $this->widget('AddPlaylistWidget'); ?>
                     </div>
                 </div>
             </div>
         </div>
-        
-        
+
+
         <div class="modal fade" id="edit_song_div">
             <div class="modal-dialog" role="document">
                 <div class="modal-content log_pan">
@@ -210,6 +210,25 @@
             </div>
         </div>
         
+        
+        <div class="modal fade" id="delete_song_div">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content log_pan">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Want to delete this song?</h4>
+                    </div>
+                    <div class="modal-body" id="delete_song_div_body">
+                        <input id="delete_yes" type="button" value="Yes" data-song="" class="btn_small bg_blue delete_option">
+                        <input id="delete_no" type="button" value="No" data-song="" class="btn_small bg_blue delete_option">
+                    </div>
+                    <div class="modal-footer"> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
 
 
         <!-- The template to display files available for upload -->

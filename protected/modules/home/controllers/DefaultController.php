@@ -444,6 +444,9 @@ class DefaultController extends Controller {
 
             // }
         }
+        $s3 = new AS3;
+        $result = $s3->getSong("priyranjan-e15319","Mark J - Marvelous Light.mp3");
+        pre($result);
     }
 
     public function actionWebhook($listner) {
@@ -651,13 +654,22 @@ class DefaultController extends Controller {
         $user_id = $_POST['user_id'];
         $song_id = $_POST['song_id'];
         $song_detail = Songs::model()->findByPk($song_id);
-
+        
+        $user_detail = Users::model()->findByPk($user_id);
+        $source_bucket = $song_detail->s3_bucket;
+        $source_key_name = $song_detail->file_name;
+        $target_bucket = $user_detail->s3_bucket;
+        $target_key_name = $source_key_name;
+        $s3 = new AS3;
+        $s3->copySong($source_bucket,$source_key_name,$target_bucket,$target_key_name);
+        $s3_url = $s3->getSongURL($target_bucket,$target_key_name);
+         
         $model = new Songs;
         $model->song_name = $song_detail->song_name;
         $model->artist_name = $song_detail->artist_name;
         $model->slug = $song_detail->slug;
-        $model->s3_bucket = $song_detail->s3_bucket;
-        $model->file_name = $song_detail->file_name;
+        $model->s3_bucket = $target_bucket;
+        $model->file_name = $target_key_name;
         $model->type = $song_detail->type;
         $model->bpm = $song_detail->bpm;
         $model->song_key = $song_detail->song_key;
@@ -665,7 +677,7 @@ class DefaultController extends Controller {
         $model->genre = $song_detail->genre;
         $model->sub_genre = $song_detail->sub_genre;
         $model->sub_sub_genre = $song_detail->sub_sub_genre;
-        $model->s3_url = $song_detail->s3_url;
+        $model->s3_url = $s3_url;
         $model->is_shared = 1;
         $model->status = $song_detail->status;
         $model->deleted = $song_detail->deleted;
