@@ -401,14 +401,49 @@ class DefaultController extends Controller {
 
     public function actionTest() {
         // $info = new FileInfo("assets/temp/Kehlani - 24 7 (Dirty).mp3");
-       // $url = "http://arommatech-dc6421.s3.amazonaws.com/Kehlani%20-%2024%207%20%28Dirty%29.mp3?AWSAccessKeyId=AKIAJBTQKEKGZSJDLKSA&Expires=1463690396&Signature=LgTUyehhZ1CKWQiDojA2RP2Cy2s%3D";
-       // $info = getSongBPM($url);
+       $url = "http://neeraj-f0b1ea.s3.amazonaws.com/Mark%20J%20-%20Marvelous%20Light%20%282%29%20%281%29.mp3?AWSAccessKeyId=AKIAJBTQKEKGZSJDLKSA&Expires=1463945001&Signature=VF0m%2FOeusUb0ZDe2HjcAxp0i4VA%3D";
+       $info = getSongBPM($url);
+       pre($info,true);
         // getSongBPM($url);
         // $api = new ApiSearch($info->data['artist'], $info->data['song'], $info->data['album']);
         // pre($api);
         
-        $model = Media::model()->findAll();
-        pre($model,true);
+        // $model = Media::model()->findAll();
+        // pre($model,true);
+        require('./assets/stripe/init.php');
+
+        $secret_key = getParam('stripe_secret_key');
+
+        \Stripe\Stripe::setApiKey($secret_key);
+        $tests = Test::model()->findAll();
+        // $test = Test::model()->findByPk('173556cc-98bd-9d4f-ef5e-5740c531171a');
+        foreach($tests as $test){
+            // pre($test->response,true);
+        // Stripe\Event JSON: 
+            // $a = substr($test->response, 19);
+            // pre($a, true);
+            $find = substr($test->response, 0, 19);
+            if($find === "Stripe\Event JSON: "){
+                $event_json = json_decode(substr($test->response, 19));
+
+                $event = \Stripe\Event::retrieve($event_json->id);
+                $event = substr($event, 19);
+                $event = json_decode($event);
+                // $data = $event->data->object;
+                // $invoice = $data->lines->data[0];
+
+                // pre($event_json);
+                pre($event);
+            }
+            
+            // this will be used to retrieve the event from Stripe
+            // $event_id = $event_json->id;
+            
+            // pre($event_id, true);
+            // if (isset($event_json->id)) {
+
+            // }
+        }
     }
 
     public function actionWebhook($listner) {
@@ -427,14 +462,13 @@ class DefaultController extends Controller {
             $body = @file_get_contents('php://input');
             $model = new Test;
             $model->response = $body;
-            $model->type = 'response';
             $model->save();
             // grab the event information
             $event_json = json_decode($body);
 
             // this will be used to retrieve the event from Stripe
             $event_id = $event_json->id;
-
+            // pre($event_id, true);
             if (isset($event_json->id)) {
 
                 try {
@@ -442,7 +476,6 @@ class DefaultController extends Controller {
                     $event = \Stripe\Event::retrieve($event_id);
                     $model = new Test;
                     $model->response = $event;
-                    $model->type = 'event';
                     $model->save();
                     $event = substr($event, 19);
                     $evemt = json_decode($event);
@@ -480,6 +513,8 @@ class DefaultController extends Controller {
                         $message .= "Thank you.";
 
                         mail($email, $subject, $message, $headers);
+                    } else {
+                        echo $event->type;
                     }
                 } catch (Exception $e) {
                     $headers = 'From: <info@dealrush.in>';
@@ -522,7 +557,6 @@ class DefaultController extends Controller {
         if(isset($_REQUEST['mode'])){
             $mode = $_REQUEST['mode'];    
         }
-        
         $user_id = Yii::app()->user->id;
         $bucket = Users::model()->findByPk($user_id)->s3_bucket;
         $upload_handler = new UploadHandlerS3(null, true, null, $bucket, $mode);
@@ -531,19 +565,22 @@ class DefaultController extends Controller {
 
     public function actionAddsongs() {
         $temp = Temp::model()->findAll();
+        
         if($temp !== null){
             Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
             foreach ($temp as $t) {
                 $file_url = Yii::app()->s3->getAuthenticatedURL($t->s3_bucket, $t->file_name, 3600, false, false);
-                // pre($file_url,true);
+                //pre($file_url,true);
                 if (copy($file_url, "assets/temp/" . $t->file_name)) {
                     $info = new FileInfo("assets/temp/" . $t->file_name);
+                    
                     if($info->data['error'] === false){
                         $g = $info->data['genre'];
                         $api = new ApiSearch($info->data['artist'], $info->data['song'], $info->data['album']);
                         if($g == "NA"){
                             $g = $api->genre;
                         }
+                        
                         $genre = Genres::model()->find(array("condition" => "name = '$g'"));
                         if ($genre === null) {
                             $g_model = new Genres;
@@ -557,9 +594,14 @@ class DefaultController extends Controller {
                         } else {
                             $g = $genre->id;
                         }
+                        
                         $bpm = getSongBPM($file_url);
                         $key = getSongKey($file_url);
+                      
+                        // $bpm = 'BPM';
+                        // $key = 'key';
                         $model = new Media;
+                        //pre($model,true);
                         $model->id = create_guid();
                         $model->type = $t->type;
                         $model->song_name = $info->data['song'];

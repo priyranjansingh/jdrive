@@ -14,14 +14,45 @@
 $(function () {
     'use strict';
     var mode = $(".file_mode:checked").val();
+    $(document).on("click",".file_mode",function(){
+        if($(this).is(":checked")){
+            mode = $(".file_mode:checked").val();
+        }
+    });
+    
     // Initialize the jQuery File Upload widget:
+    /*
+    $('#fileupload').bind('fileuploadstart', function (e) {
+        if($(".file_mode").is(":checked")){
+            return true;    
+        } else {
+            alert("Choose How Files Will be uploaded");
+            e.preventDefault();
+            return false;
+        }
+    });*/
+    $('#fileupload').bind('fileuploadsubmit', function (e, data) {
+        // The example input, doesn't have to be part of the upload form:
+        data.formData = {mode: mode};
+        if (!data.formData.mode) {
+          data.context.find('button').prop('disabled', false);
+          input.focus();
+          return false;
+        }
+    }).fileupload({
+        // Uncomment the following to send cross-domain cookies:
+        //xhrFields: {withCredentials: true},
+        url: base_url+'/home/upload',
+        // formData: {mode: mode},
+    });
+    /*
     $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
         url: base_url+'/home/upload',
         formData: {mode: mode},
-    });
-
+    });*/
+    
     // Enable iframe cross-domain access via redirect option:
     $('#fileupload').fileupload(
         'option',
@@ -72,6 +103,6 @@ $(function () {
                 .call(this, $.Event('done'), {result: result});
         });
     }
-
+    
 
 });
