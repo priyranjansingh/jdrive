@@ -71,6 +71,14 @@ class AS3 {
             'CopySource' => "{$source_bucket}/{$source_key_name}",
         ));
     }
+    
+    public function getSongURL($bucket,$key_name) {
+        $url = $this->s3Client->getObjectUrl($bucket,$key_name);
+        return $url;
+    }
+    
+    
+    
 
 }
 
