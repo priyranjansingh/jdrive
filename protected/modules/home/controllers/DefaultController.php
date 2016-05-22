@@ -518,7 +518,11 @@ class DefaultController extends Controller {
     }
 
     public function actionUpload() {
-        $mode = $_REQUEST['mode'];
+        $mode = 'authenticated-read';
+        if(isset($_REQUEST['mode'])){
+            $mode = $_REQUEST['mode'];    
+        }
+        
         $user_id = Yii::app()->user->id;
         $bucket = Users::model()->findByPk($user_id)->s3_bucket;
         $upload_handler = new UploadHandlerS3(null, true, null, $bucket, $mode);

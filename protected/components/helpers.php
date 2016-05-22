@@ -687,5 +687,19 @@ function getUniqueCode($school_id, $feild_name) {
     return $response->tonart_result->key;
  }
 
+function elipsis($string, $repl, $limit) 
+{
+
+  if(strlen($string) > $limit) 
+  {
+    $html = '<span title="'.$string.'">';
+    return $html = $html.substr($string, 0, ($limit-4)) . $repl.'</span>'; 
+  }
+  else 
+  {
+    return $string;
+  }
+}
+
 
 ?>

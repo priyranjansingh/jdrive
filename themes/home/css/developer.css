@@ -325,3 +325,7 @@ table.table tr.template-upload td p.size {
     background: #666;
     color: #fafafa;
 }
+
+.it_m h5 span{
+    font-size: 16px;
+}
