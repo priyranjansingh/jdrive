@@ -18,14 +18,32 @@ $baseUrl = Yii::app()->theme->baseUrl;
                                 foreach ($songs as $song) {
                                     ?>    
                                     <li>
-                                        <div class="i_info"> <img src="<?php echo $baseUrl; ?>/img/alb1.jpg" /> <span class="play_btn"><i class="fa fa-play-circle-o"></i></span>
+                                        <div class="i_info">
+                                            <?php 
+                                                $src = $baseUrl."/img/alb1.jpg";
+                                                if(!empty($song->album_art)):
+                                                    $src = $song->album_art;
+                                                endif;
+                                            ?>
+                                            <img src="<?php echo $src; ?>" /> 
+                                            <span class="play_btn">
+                                                <i class="fa fa-play-circle-o" 
+                                                    data-song="<?php echo $song->slug; ?>" 
+                                                <?php if($song->type == 1): ?>
+                                                    data-type="song"
+                                                <?php else: ?>
+                                                    data-type="video"
+                                                <?php endif; ?>
+                                                ></i>
+                                            </span>
                                             <?php $this->widget('SongWidget',array("song_id"=>$song->id)); ?>
                                         </div>
                                         <div class="i_titel">
                                             <div class="it_l"><?php echo $count; ?></div>
                                             <div  class="it_m">
-                                                <h5><?php echo $song->song_name; ?></h5>
-                                                <span><?php echo $song->artist_name; ?></span> </div>
+                                                <h5><?php echo elipsis($song->song_name, '..', 17); ?></h5>
+                                                <?php echo elipsis($song->artist_name, '..', 17); ?>
+                                            </div>
                                             <div  class="it_r"> <strong><?php echo $song->bpm; ?>BPM</strong> <strong>9A</strong> </div>
                                         </div>
                                     </li>  
@@ -62,14 +80,33 @@ $baseUrl = Yii::app()->theme->baseUrl;
                                 foreach ($videos as $song) {
                             ?>    
                                     <li>
-                                        <div class="i_info"> <img src="<?php echo $baseUrl; ?>/img/alb1.jpg" /> <span class="play_btn"><i class="fa fa-play-circle-o"></i></span>
+                                        <div class="i_info">
+                                            <?php 
+                                                $src = $baseUrl."/img/alb1.jpg";
+                                                if(!empty($song->album_art)):
+                                                    $src = $song->album_art;
+                                                endif;
+                                            ?>
+                                            <img src="<?php echo $src; ?>" /> 
+
+                                            <span class="play_btn">
+                                                <i class="fa fa-play-circle-o" 
+                                                    data-song="<?php echo $song->slug; ?>" 
+                                                <?php if($song->type == 1): ?>
+                                                    data-type="song"
+                                                <?php else: ?>
+                                                    data-type="video"
+                                                <?php endif; ?>
+                                                ></i>
+                                            </span>
                                              <?php $this->widget('SongWidget',array("song_id"=>$song->id)); ?>
                                         </div>
                                         <div class="i_titel">
                                             <div class="it_l"><?php echo $count; ?></div>
                                             <div  class="it_m">
-                                                <h5><?php echo $song->song_name; ?></h5>
-                                                <span><?php echo $song->artist_name; ?></span> </div>
+                                                <h5><?php echo elipsis($song->song_name, '..', 17); ?></h5>
+                                                <?php echo elipsis($song->artist_name, '..', 17); ?>
+                                            </div>
                                             <div  class="it_r"> <strong><?php echo $song->bpm; ?>BPM</strong> <strong>9A</strong> </div>
                                         </div>
                                     </li>  

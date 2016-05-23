@@ -736,7 +736,7 @@ class DefaultController extends Controller {
             header("Content-Type: {$result['ContentType']}");
             header('Content-Description: File Transfer');
             header('Content-Type: application/octet-stream');
-            header('Content-Disposition: attachment; filename='.$song_detail->file_name);
+            header("Content-Disposition: attachment; filename=\"$song_detail->file_name\"");
             header('Content-Transfer-Encoding: binary');
             header('Expires: 0');
             header('Cache-Control: must-revalidate');

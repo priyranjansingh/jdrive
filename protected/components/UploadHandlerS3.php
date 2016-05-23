@@ -1446,7 +1446,7 @@ class UploadHandlerS3
             $file->acl = $this->acl;
             // $m_acl = 0;
             $m_type = 2;
-            if($file->type == "audio/mp3")
+            if($file->type == "audio/mp3" || $file->type == "audio/mpeg")
             {
                 $m_type = 1;
             }
