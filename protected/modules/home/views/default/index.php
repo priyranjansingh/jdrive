@@ -108,8 +108,9 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         <div class="i_titel">
                             <div class="it_l"><?php echo $count; ?></div>
                             <div  class="it_m">
-                                <h5><?php echo elipsis($song->song_name, '....', 19); ?></h5>
-                                <span><?php echo $song->artist_name; ?></span> </div>
+                                <h5><?php echo elipsis($song->song_name, '..', 17); ?></h5>
+                                <?php echo elipsis($song->artist_name, '..', 17); ?>
+                            </div>
                             <div  class="it_r"> <strong><?php echo $song->bpm; ?>BPM</strong> <strong>9A</strong> </div>
                         </div>
                     </li>  

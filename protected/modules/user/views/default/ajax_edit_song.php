@@ -33,6 +33,20 @@ $form = $this->beginWidget('CActiveForm', array(
     </div>
 </div>
 
+<div class="m_row">
+    <div class="m_col">
+        <?php echo $form->labelEx($song_model, 'genre'); ?>
+    </div>
+    <div class="m_col">
+        <?php
+            $genres = BaseModel::getAll("Genres");
+            $genres = CHtml::listData($genres, 'id', 'name');
+        ?>
+        <?php echo $form->dropDownList($song_model, 'genre', $genres, array('empty' => 'Select Genre', 'class' => 't_box')); ?>
+        <?php echo $form->error($song_model, 'genre'); ?>
+    </div>
+</div>
+
 
 <div class="m_row">
     <div class="m_col">

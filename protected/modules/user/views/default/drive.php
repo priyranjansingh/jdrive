@@ -27,11 +27,11 @@
     <div class="right_pan">
         <div class="t_bar">
             <a href="#" class="tbar_l"><i class="fa fa-cloud"></i></a>
-            <div  class="tbar_r">
+            <!--div  class="tbar_r">
                 <a href="#" class="btn_small bg_white fc_black"><i class="fa fa-plus-square"></i> New Folder</a>
                 <span class="l_view active"><i class="fa fa-list"></i></span>
                 <span class="g_view"><i class="fa fa-th-large"></i></span>
-            </div>
+            </div-->
         </div>
 
         <div id="mydrive_container"  class="table_wrap">

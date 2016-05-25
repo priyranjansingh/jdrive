@@ -649,8 +649,8 @@ function getUniqueCode($school_id, $feild_name) {
     curl_close($ch);
 
     $response = json_decode($httpResponse);
-    //pre($response,true);
-    return $response->auftakt_result->overall_tempo;
+    // pre($response,true);
+    return round($response->auftakt_result->overall_tempo_straight);
     // if ($infos['http_code'] == 200) {
     //     echo "Task succeeded, analysis result:<br />" . json_encode($response);
     // } else {
@@ -693,13 +693,11 @@ function elipsis($string, $repl, $limit)
   if(strlen($string) > $limit) 
   {
     $html = '<span title="'.$string.'">';
-    return $html = $html.substr($string, 0, ($limit-4)) . $repl.'</span>'; 
+    return $html = $html.substr($string, 0, ($limit-2)) . $repl.'</span>'; 
   }
   else 
   {
     return $string;
   }
 }
-
-
 ?>
