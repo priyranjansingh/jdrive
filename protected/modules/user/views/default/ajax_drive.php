@@ -36,8 +36,10 @@
                                 <td>2015-11-30 12:35</td>
                                 <td>
                                     <a href="#" class="play_btn" data-song="<?php echo $song->id; ?>"  ><i class="fa fa-play" aria-hidden="true"></i></a>
+                                     <?php if($logged_in_user_id == $song->created_by){   ?>
                                     <a href="#" class="edit_btn" data-song="<?php echo $song->id; ?>" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                     <a href="#" class="delete_btn" data-song="<?php echo $song->id; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    <a href="#" class="delete_btn" data-song="<?php echo $song->id; ?>" ><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    <?php   }   ?>
                                 </td>
                             </tr>
 

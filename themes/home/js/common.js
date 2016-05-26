@@ -202,7 +202,6 @@ function createMedia(){
 }
 
     $(document).on("click",".play_btn",function(){
-        
         var song = $(this).find('i').attr("data-song"),
             type = $(this).find('i').attr("data-type");
         $.ajax({

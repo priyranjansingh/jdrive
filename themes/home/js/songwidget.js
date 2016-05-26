@@ -18,8 +18,10 @@ $(document).ready(function() {
                     $.ajax({
                         url: base_url + "/home/WidgetUpload",
                         method: "POST",
+                        dataType: "json",
                         data: {'song_id': song_id, 'user_id': user_id},
                         success: function(data) {
+                            $('#widget_success_upload').find('.modal-body').html(data.message);
                             $('#widget_success_upload').modal('show');
                             $(".loading").hide();
                         }
