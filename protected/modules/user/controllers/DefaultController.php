@@ -168,4 +168,23 @@ class DefaultController extends Controller {
         }
     }
 
+    public function actionPaymenthistory(){
+        if (Yii::app()->user->id) {
+            $model=new Transactions('search');
+            $model->unsetAttributes();
+
+            $this->render('payment_history',array(
+                'model'=>$model,
+            ));
+        } else {
+            $this->redirect(Yii::app()->request->urlReferrer);
+        }
+    }
+
+    protected function gridPlan($data)
+    {
+        $plan = $data->plan_id;
+        return Plans::model()->find(array("condition" => "stripe_plan = '$plan'"))->plan_name;
+    }
+
 }

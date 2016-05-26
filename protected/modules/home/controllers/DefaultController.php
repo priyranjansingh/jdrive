@@ -380,6 +380,28 @@ class DefaultController extends Controller {
                         "email" => $user->email,
                         "id" => $user->id)
             );
+            $customer = json_decode(substr($customer, 22));
+            $invoice = Invoice::model()->findByPk(getParam('invoice'));
+            $inv_no = $invoice->invoice_text.'-'.$invoice->invoice_count;
+            $transaction = new Transactions;
+            $transaction->invoice = $inv_no;
+            $transaction->user_id = $customer->id;
+            $transaction->plan_id = $customer->subscriptions->data[0]->plan->id;
+            $transaction->transaction_id = $customer->subscriptions->data[0]->id;
+            $transaction->payment_method = 'stripe';
+            $transaction->amount = ($customer->subscriptions->data[0]->plan->amount/100);
+            $transaction->details = json_encode($customer);
+            $transaction->payment_status = 'pending';
+            if($transaction->save()){
+                $invoice->invoice_count = str_pad(($invoice->invoice_count + 1), 6, '0', STR_PAD_LEFT);
+                $invoice->save();
+                
+                $u = Users::model()->findByPk($user->id);
+                $u->is_paid = 1;
+                $u->save();
+            }
+
+            
             // createS3bucket($user->username);
             $aws = new AS3;
             $bucket = $user->username . '-' . create_guid_section(6);
@@ -401,9 +423,9 @@ class DefaultController extends Controller {
 
     public function actionTest() {
         // $info = new FileInfo("assets/temp/Kehlani - 24 7 (Dirty).mp3");
-       $url = "http://neeraj-f0b1ea.s3.amazonaws.com/Mark%20J%20-%20Marvelous%20Light%20%282%29%20%281%29.mp3?AWSAccessKeyId=AKIAJBTQKEKGZSJDLKSA&Expires=1463945001&Signature=VF0m%2FOeusUb0ZDe2HjcAxp0i4VA%3D";
-       $info = getSongBPM($url);
-       pre($info,true);
+       // $url = "http://neeraj-f0b1ea.s3.amazonaws.com/Mark%20J%20-%20Marvelous%20Light%20%282%29%20%281%29.mp3?AWSAccessKeyId=AKIAJBTQKEKGZSJDLKSA&Expires=1463945001&Signature=VF0m%2FOeusUb0ZDe2HjcAxp0i4VA%3D";
+       // $info = getSongBPM($url);
+       // pre($info,true);
         // getSongBPM($url);
         // $api = new ApiSearch($info->data['artist'], $info->data['song'], $info->data['album']);
         // pre($api);
@@ -416,25 +438,78 @@ class DefaultController extends Controller {
 
         \Stripe\Stripe::setApiKey($secret_key);
         $tests = Test::model()->findAll();
-        // $test = Test::model()->findByPk('173556cc-98bd-9d4f-ef5e-5740c531171a');
+        // $test = Test::model()->findByPk('1f4b7eb2-4341-d34b-e0f1-574611ee2536');
+        // foreach($tests as $test){
+        //     pre($test->response);
+        // }
+        // die;
         foreach($tests as $test){
             // pre($test->response,true);
         // Stripe\Event JSON: 
             // $a = substr($test->response, 19);
             // pre($a, true);
-            $find = substr($test->response, 0, 19);
-            if($find === "Stripe\Event JSON: "){
-                $event_json = json_decode(substr($test->response, 19));
+            // $find = substr($test->response, 0, 19);
+            // if($find === "Stripe\Event JSON: "){
+                $event_json = json_decode($test->response);
 
                 $event = \Stripe\Event::retrieve($event_json->id);
                 $event = substr($event, 19);
-                $event = json_decode($event);
+                $event_json = json_decode($event);
                 // $data = $event->data->object;
                 // $invoice = $data->lines->data[0];
 
                 // pre($event_json);
-                pre($event);
-            }
+                // pre($event);
+
+                if (isset($event_json->id)) {
+
+                    try {
+                        // to verify this is a real event, we re-retrieve the event from Stripe 
+                        $event = \Stripe\Event::retrieve($event_json->id);
+                        // $model = new Test;
+                        // $model->response = $event;
+                        // $model->save();
+                        // pre($event);
+                        $event = substr($event, 19);
+                        $event = json_decode($event);
+                        // pre($event,true);
+                        $data = $event->data->object;
+                        // successful payment
+                        if ($event->type == 'invoice.payment_succeeded') {
+                            $invoice = $data->lines->data[0];
+                            // send a payment receipt email here
+                            // retrieve the payer's information
+                            $customer = \Stripe\Customer::retrieve($data->customer);
+                            // pre($customer);
+                            // echo "--------------------------------------------------";
+                            $customer = json_decode(substr($customer, 22));
+                            // pre($customer,true);
+                            $email = $customer->email;
+
+                            $amount = $invoice->amount / 100; // amount comes in as amount in cents, so we need to convert to dollars
+
+                            $t_model = Transactions::model()->find(array("condition" => "transaction_id = '".$invoice->id."'"));
+                            if($t_model !== null){
+                                $t_model->payment_status = "paid";
+                                $t_model->save();
+                            }
+                            
+                            $subject = 'Jock Drive Payment Receipt';
+                            $headers = 'From: <info@dealrush.in>';
+                            $message = "Hello User,\n\n";
+                            $message .= "You have successfully made a payment of $" . $amount . "\n";
+                            $message .= "Thank you.";
+                            echo $message;
+                            mail($email, $subject, $message, $headers);
+                        } else {
+                            echo $event->type;
+                        }
+                    } catch (Exception $e) {
+                        $headers = 'From: <info@dealrush.in>';
+                        mail('neeraj24a@gmail.com', 'Jockdrive Payment Exception', $e, $headers);
+                    }
+                }
+            // }
             
             // this will be used to retrieve the event from Stripe
             // $event_id = $event_json->id;
@@ -442,11 +517,8 @@ class DefaultController extends Controller {
             // pre($event_id, true);
             // if (isset($event_json->id)) {
 
-            // }
-        }
-        $s3 = new AS3;
-        $result = $s3->getSong("priyranjan-e15319","Mark J - Marvelous Light.mp3");
-        pre($result);
+            }
+        // }
     }
 
     public function actionWebhook($listner) {
@@ -475,54 +547,65 @@ class DefaultController extends Controller {
             if (isset($event_json->id)) {
 
                 try {
-                    // to verify this is a real event, we re-retrieve the event from Stripe 
-                    $event = \Stripe\Event::retrieve($event_id);
-                    $model = new Test;
-                    $model->response = $event;
-                    $model->save();
-                    $event = substr($event, 19);
-                    $evemt = json_decode($event);
-                    $data = $event->data->object;
-                    $invoice = $data->lines->data[0];
-                    // successful payment
-                    if ($event->type == 'invoice.payment_succeeded') {
-                        // send a payment receipt email here
-                        // retrieve the payer's information
-                        $customer = \Stripe\Customer::retrieve($data->customer);
-                        // pre($customer,true);
-                        $email = $customer->email;
+                        // to verify this is a real event, we re-retrieve the event from Stripe 
+                        $event = \Stripe\Event::retrieve($event_json->id);
+                        // $model = new Test;
+                        // $model->response = $event;
+                        // $model->save();
+                        // pre($event);
+                        $event = substr($event, 19);
+                        $event = json_decode($event);
+                        // pre($event,true);
+                        $data = $event->data->object;
+                        // successful payment
+                        if ($event->type == 'invoice.payment_succeeded') {
+                            $invoice = $data->lines->data[0];
+                            // send a payment receipt email here
+                            // retrieve the payer's information
+                            $customer = \Stripe\Customer::retrieve($data->customer);
+                            // pre($customer);
+                            // echo "--------------------------------------------------";
+                            $customer = json_decode(substr($customer, 22));
+                            // pre($customer,true);
+                            $email = $customer->email;
 
-                        $amount = $invoice->amount / 100; // amount comes in as amount in cents, so we need to convert to dollars
-
-                        $jd_inv = Invoice::model()->findByPk(getParam('invoice'));
-
-                        $t_model = new Transactions;
-                        $t_model->invoice = $jd_inv->invoice_text . '-' . $jd_inv->invoice_count;
-                        $t_model->user_id = $customer->sources->data[0]->customer;
-                        $t_model->plan_id = $invoice->plan->id;
-                        $t_model->transaction_id = $invoice->id;
-                        $t_model->payment_method = 'stripe';
-                        $t_model->amount = $amount;
-                        $t_model->details = $body;
-                        $t_model->save();
-
-                        $jd_inv->invoice_count = $jd_inv->invoice_count + 1;
-                        $jd_inv->save();
-
-                        $subject = 'Jock Drive Payment Receipt';
+                            $amount = $invoice->amount / 100; // amount comes in as amount in cents, so we need to convert to dollars
+                            $transaction_id = $invoice->id;
+                            $t_model = Transactions::model()->find(array("condition" => "transaction_id = '$transaction_id'"));
+                            $user_id = $t_model->user_id;
+                            $t = "No Transaction Hit";
+                            if($t_model !== null){
+                                $t_model->payment_status = "paid";
+                                if($t_model->save()){
+                                    $t = $t_model->id;
+                                } else {
+                                    $t = serialize($t_model->getErrors());
+                                }
+                            }
+                            
+                            $u_plan = UserPlan::model()->find(array("condition" => "user_id = '$user_id'"));
+                            $u_plan->plan_end_date = date("Y-m-d", $invoice->period->end);
+                            if($u_plan->save()){
+                                $u = $u_plan->id;
+                            } else {
+                                $u = serialize($u_plan->getErrors());
+                            }
+                            $subject = 'Jock Drive Payment Receipt';
+                            $headers = 'From: <info@dealrush.in>';
+                            $message = "Hello $email,\n\n";
+                            $message .= "You have successfully made a payment of $" . $amount . "\n";
+                            $message .= "User Plan : " . $u. "\n";
+                            $message .= "Transaction : ". $t. "\n";
+                            $message .= "Thank you.";
+                            // echo $message;
+                            mail('neeraj24a@gmail.com', $subject, $message, $headers);
+                        } else {
+                            echo $event->type;
+                        }
+                    } catch (Exception $e) {
                         $headers = 'From: <info@dealrush.in>';
-                        $message = "Hello User,\n\n";
-                        $message .= "You have successfully made a payment of " . $amount . "\n";
-                        $message .= "Thank you.";
-
-                        mail($email, $subject, $message, $headers);
-                    } else {
-                        echo $event->type;
+                        mail('neeraj24a@gmail.com', 'Jockdrive Payment Exception', $e, $headers);
                     }
-                } catch (Exception $e) {
-                    $headers = 'From: <info@dealrush.in>';
-                    mail('neeraj24a@gmail.com', 'Jockdrive Payment Exception', $e, $headers);
-                }
             }
         }
     }
@@ -654,22 +737,13 @@ class DefaultController extends Controller {
         $user_id = $_POST['user_id'];
         $song_id = $_POST['song_id'];
         $song_detail = Songs::model()->findByPk($song_id);
-        
-        $user_detail = Users::model()->findByPk($user_id);
-        $source_bucket = $song_detail->s3_bucket;
-        $source_key_name = $song_detail->file_name;
-        $target_bucket = $user_detail->s3_bucket;
-        $target_key_name = $source_key_name;
-        $s3 = new AS3;
-        $s3->copySong($source_bucket,$source_key_name,$target_bucket,$target_key_name);
-        $s3_url = $s3->getSongURL($target_bucket,$target_key_name);
-         
+
         $model = new Songs;
         $model->song_name = $song_detail->song_name;
         $model->artist_name = $song_detail->artist_name;
         $model->slug = $song_detail->slug;
-        $model->s3_bucket = $target_bucket;
-        $model->file_name = $target_key_name;
+        $model->s3_bucket = $song_detail->s3_bucket;
+        $model->file_name = $song_detail->file_name;
         $model->type = $song_detail->type;
         $model->bpm = $song_detail->bpm;
         $model->song_key = $song_detail->song_key;
@@ -677,7 +751,7 @@ class DefaultController extends Controller {
         $model->genre = $song_detail->genre;
         $model->sub_genre = $song_detail->sub_genre;
         $model->sub_sub_genre = $song_detail->sub_sub_genre;
-        $model->s3_url = $s3_url;
+        $model->s3_url = $song_detail->s3_url;
         $model->is_shared = 1;
         $model->status = $song_detail->status;
         $model->deleted = $song_detail->deleted;
@@ -720,30 +794,30 @@ class DefaultController extends Controller {
         
         $song_detail = Songs::model()->findByPk($file);
         
+        $s3 = new AS3;
+        $result = $s3->getSong($song_detail->s3_bucket, $song_detail->file_name);
+
+        // try {
+            // Display the object in the browser
+        header("Content-Type: {$result['ContentType']}");
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header("Content-Disposition: attachment; filename=\"$song_detail->file_name\"");
+        // header('Content-Disposition: attachment; filename='.$song_detail->file_name);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
         $user_id = Yii::app()->user->id;
         $download_model = new Downloads;
         $download_model->user_id = $user_id;
         $download_model->song_id = $song_detail->id;
         $download_model->owner_id = $song_detail->created_by;
         $download_model->type = $song_detail->type;
-        $download_model->save();
-        
-        $s3 = new AS3;
-        $result = $s3->getSong($song_detail->s3_bucket, $song_detail->file_name);
-
-        // try {
-            // Display the object in the browser
-            header("Content-Type: {$result['ContentType']}");
-            header('Content-Description: File Transfer');
-            header('Content-Type: application/octet-stream');
-            header("Content-Disposition: attachment; filename=\"$song_detail->file_name\"");
-            header('Content-Transfer-Encoding: binary');
-            header('Expires: 0');
-            header('Cache-Control: must-revalidate');
-            header('Pragma: public');
-            ob_clean();
-            flush();
-            echo $result['Body'];
+        $download_model->save();    
+        ob_clean();
+        flush();
+        echo $result['Body'];
         // } catch (S3Exception $e) {
             // echo $e->getMessage() . "\n";
         // }

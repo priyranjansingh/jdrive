@@ -34,7 +34,11 @@ class BaseModel extends CActiveRecord {
         } else {
 //not a new record, so just set the last updated time and last updated user id
             $this->date_modified = date("Y-m-d H:i:s");
-            $this->modified_by = Yii::app()->user->id;
+            if (create_guid() && !Yii::app()->user->isGuest) {
+                $this->modified_by = Yii::app()->user->id;
+            } else {
+                $this->modified_by = getParam('admin');
+            }
         }
         return parent::beforeValidate();
     }
