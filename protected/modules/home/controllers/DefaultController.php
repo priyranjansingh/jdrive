@@ -92,16 +92,48 @@ class DefaultController extends Controller {
     public function actionSongType() {
         $user_id = $_POST['user'];
         $song_type = $_POST['song_type'];
-        if ($song_type == 'audio') {
-            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$user_id'    ", "order" => "date_entered desc", "limit" => 20));
-        } else if ($song_type == 'video') {
-            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$user_id'    ", "order" => "date_entered desc", "limit" => 20));
+         if ($song_type == 'audio') {
+             $type = 1;
+         }
+         else if ($song_type == 'video') {
+             $type = 2;
         }
+        
+         $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$user_id' "));
+
+            if (!empty($shared_songs)) {
+                $shared_songs_ids = array();
+                foreach ($shared_songs as $s) {
+                    array_push($shared_songs_ids, "'$s->song_id'");
+                }
+                $ids = implode(',', $shared_songs_ids);
+                $song_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='$type' AND deleted = 0 AND"
+                            . " ((created_by = '$user_id') OR (id IN($ids)) )  ", "order" => "date_entered desc","limit" => 20)
+                );
+            } else {
+                $song_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='$type' AND deleted = 0 AND"
+                            . " created_by = '$user_id' ", "order" => "date_entered desc","limit" => 20)
+                );
+            }
+        
+        
+        
+//        if ($song_type == 'audio') {
+//            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$user_id'    ", "order" => "date_entered desc", "limit" => 20));
+//        } else if ($song_type == 'video') {
+//            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$user_id'    ", "order" => "date_entered desc", "limit" => 20));
+//        }
+            
         $this->renderPartial('ajax_song', array('song_list' => $song_list));
     }
-    
-    
-     public function actionHomeSongType() {
+
+    public function actionHomeSongType() {
         $song_type = $_POST['song_type'];
         if ($song_type == 'audio') {
             $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0  ", "order" => "date_entered desc", "limit" => 20));
@@ -110,9 +142,6 @@ class DefaultController extends Controller {
         }
         $this->renderPartial('home_ajax_song', array('song_list' => $song_list));
     }
-    
-    
-    
 
     public function actionAjaxTrending() {
         $user = $_POST['user'];
@@ -125,7 +154,7 @@ class DefaultController extends Controller {
             $this->renderPartial('ajax_song', array('song_list' => $trending_video));
         }
     }
-    
+
     public function actionHomeAjaxTrending() {
         $song_type = $_POST['song_type'];
         if ($song_type == 'audio') {
@@ -148,7 +177,7 @@ class DefaultController extends Controller {
             $this->renderPartial('ajax_song', array('song_list' => $video));
         }
     }
-    
+
     public function actionHomeAjaxJustAdded() {
         $song_type = $_POST['song_type'];
         if ($song_type == 'audio') {
@@ -159,26 +188,23 @@ class DefaultController extends Controller {
             $this->renderPartial('home_ajax_song', array('song_list' => $video));
         }
     }
-    
+
     public function actionHomeGenre() {
         $song_type = $_POST['song_type'];
         $genre = $_POST['genre'];
         if ($song_type == 'audio') {
-            $song = Users::model()->HomeGenre(1,$genre);
+            $song = Users::model()->HomeGenre(1, $genre);
             $this->renderPartial('home_ajax_song', array('song_list' => $song));
         } else if ($song_type == 'video') {
-            $video = Users::model()->HomeGenre(2,$genre);
+            $video = Users::model()->HomeGenre(2, $genre);
             $this->renderPartial('home_ajax_song', array('song_list' => $video));
         }
     }
-    
-    
-    
 
-    public function actionVerifysong(){
+    public function actionVerifysong() {
         $song = $_POST['song'];
         $media = Media::model()->find(array('condition' => "slug = '$song'"));
-        if($media === null){
+        if ($media === null) {
             $array['error'] = true;
         } else {
             Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
@@ -191,18 +217,46 @@ class DefaultController extends Controller {
 
         echo json_encode($array, true);
     }
-    
 
     public function actionAjaxMyDrive() {
         $user = $_POST['user'];
         $song_type = $_POST['song_type'];
+        
+        
         if ($song_type == 'audio') {
-            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$user'    ", "order" => "date_entered desc", "limit" => 20));
-            $this->renderPartial('ajax_song', array('song_list' => $song_list));
+            $type = 1;
+            
         } else if ($song_type == 'video') {
-            $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$user'    ", "order" => "date_entered desc", "limit" => 20));
-            $this->renderPartial('ajax_song', array('song_list' => $video_list));
+            $type = 2;
         }
+        
+        
+        $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$user' "));
+
+            if (!empty($shared_songs)) {
+                $shared_songs_ids = array();
+                foreach ($shared_songs as $s) {
+                    array_push($shared_songs_ids, "'$s->song_id'");
+                }
+                $ids = implode(',', $shared_songs_ids);
+                $song_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='$type' AND deleted = 0 AND"
+                            . " ((created_by = '$user') OR (id IN($ids)) )  ", "order" => "date_entered desc", "limit" => 20)
+                );
+            } else {
+                $song_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='$type' AND deleted = 0 AND"
+                            . " created_by = '$user' ", "order" => "date_entered desc","limit" => 20)
+                );
+            }
+        
+        $this->renderPartial('ajax_song', array('song_list' => $song_list));
+        
+       
     }
 
     public function actionAjaxPlaylist() {
@@ -210,32 +264,25 @@ class DefaultController extends Controller {
         $playlists = Playlists::model()->findAll(array("condition" => "status = '1'  AND deleted = 0 AND user_id = '$user'    ", "order" => "date_entered desc", "limit" => 20));
         $this->renderPartial('ajax_playlist', array('playlists' => $playlists));
     }
-    
-    
-    
-      public function actionHomeAjaxPlaylist() {
+
+    public function actionHomeAjaxPlaylist() {
         $playlists = Playlists::model()->findAll(array("condition" => "status = '1'  AND deleted = 0 ", "order" => "date_entered desc", "limit" => 20));
         $this->renderPartial('home_ajax_playlist', array('playlists' => $playlists));
     }
-   
-    
 
     public function actionAjaxPlaylistSongs() {
         $playlist = $_POST['playlist'];
         $song_type = $_POST['song_type'];
-        if($song_type =='audio')
-        {
+        if ($song_type == 'audio') {
             $type = 1;
-        } 
-        else if($song_type =='video')
-        {
+        } else if ($song_type == 'video') {
             $type = 2;
-        }    
+        }
         $playlist_detail = Playlists::model()->findByPk($playlist);
         $playlist_songs = PlaylistSongs::model()->findAll(array("condition" => "playlist_id = '$playlist' AND type='$type' "));
-        $this->renderPartial('ajax_playlist_songs', array('playlist_songs' => $playlist_songs,'playlist'=>$playlist,'playlist_name' => $playlist_detail->name));
+        $this->renderPartial('ajax_playlist_songs', array('playlist_songs' => $playlist_songs, 'playlist' => $playlist, 'playlist_name' => $playlist_detail->name));
     }
-    
+
     public function actionHomeAjaxPlaylistSongs() {
         $playlist = $_POST['playlist'];
         $playlist_detail = Playlists::model()->findByPk($playlist);
@@ -401,13 +448,12 @@ class DefaultController extends Controller {
 
     public function actionTest() {
         // $info = new FileInfo("assets/temp/Kehlani - 24 7 (Dirty).mp3");
-       $url = "http://neeraj-f0b1ea.s3.amazonaws.com/Mark%20J%20-%20Marvelous%20Light%20%282%29%20%281%29.mp3?AWSAccessKeyId=AKIAJBTQKEKGZSJDLKSA&Expires=1463945001&Signature=VF0m%2FOeusUb0ZDe2HjcAxp0i4VA%3D";
-       $info = getSongBPM($url);
-       pre($info,true);
+        $url = "http://neeraj-f0b1ea.s3.amazonaws.com/Mark%20J%20-%20Marvelous%20Light%20%282%29%20%281%29.mp3?AWSAccessKeyId=AKIAJBTQKEKGZSJDLKSA&Expires=1463945001&Signature=VF0m%2FOeusUb0ZDe2HjcAxp0i4VA%3D";
+        $info = getSongBPM($url);
+        pre($info, true);
         // getSongBPM($url);
         // $api = new ApiSearch($info->data['artist'], $info->data['song'], $info->data['album']);
         // pre($api);
-        
         // $model = Media::model()->findAll();
         // pre($model,true);
         require('./assets/stripe/init.php');
@@ -417,13 +463,13 @@ class DefaultController extends Controller {
         \Stripe\Stripe::setApiKey($secret_key);
         $tests = Test::model()->findAll();
         // $test = Test::model()->findByPk('173556cc-98bd-9d4f-ef5e-5740c531171a');
-        foreach($tests as $test){
+        foreach ($tests as $test) {
             // pre($test->response,true);
-        // Stripe\Event JSON: 
+            // Stripe\Event JSON: 
             // $a = substr($test->response, 19);
             // pre($a, true);
             $find = substr($test->response, 0, 19);
-            if($find === "Stripe\Event JSON: "){
+            if ($find === "Stripe\Event JSON: ") {
                 $event_json = json_decode(substr($test->response, 19));
 
                 $event = \Stripe\Event::retrieve($event_json->id);
@@ -431,21 +477,18 @@ class DefaultController extends Controller {
                 $event = json_decode($event);
                 // $data = $event->data->object;
                 // $invoice = $data->lines->data[0];
-
                 // pre($event_json);
                 pre($event);
             }
-            
+
             // this will be used to retrieve the event from Stripe
             // $event_id = $event_json->id;
-            
             // pre($event_id, true);
             // if (isset($event_json->id)) {
-
             // }
         }
         $s3 = new AS3;
-        $result = $s3->getSong("priyranjan-e15319","Mark J - Marvelous Light.mp3");
+        $result = $s3->getSong("priyranjan-e15319", "Mark J - Marvelous Light.mp3");
         pre($result);
     }
 
@@ -557,8 +600,8 @@ class DefaultController extends Controller {
 
     public function actionUpload() {
         $mode = 'authenticated-read';
-        if(isset($_REQUEST['mode'])){
-            $mode = $_REQUEST['mode'];    
+        if (isset($_REQUEST['mode'])) {
+            $mode = $_REQUEST['mode'];
         }
         $user_id = Yii::app()->user->id;
         $bucket = Users::model()->findByPk($user_id)->s3_bucket;
@@ -568,22 +611,22 @@ class DefaultController extends Controller {
 
     public function actionAddsongs() {
         $temp = Temp::model()->findAll();
-        
-        if($temp !== null){
+
+        if ($temp !== null) {
             Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
             foreach ($temp as $t) {
                 $file_url = Yii::app()->s3->getAuthenticatedURL($t->s3_bucket, $t->file_name, 3600, false, false);
                 //pre($file_url,true);
                 if (copy($file_url, "assets/temp/" . $t->file_name)) {
                     $info = new FileInfo("assets/temp/" . $t->file_name);
-                    
-                    if($info->data['error'] === false){
+
+                    if ($info->data['error'] === false) {
                         $g = $info->data['genre'];
                         $api = new ApiSearch($info->data['artist'], $info->data['song'], $info->data['album']);
-                        if($g == "NA"){
+                        if ($g == "NA") {
                             $g = $api->genre;
                         }
-                        
+
                         $genre = Genres::model()->find(array("condition" => "name = '$g'"));
                         if ($genre === null) {
                             $g_model = new Genres;
@@ -597,10 +640,10 @@ class DefaultController extends Controller {
                         } else {
                             $g = $genre->id;
                         }
-                        
+
                         $bpm = getSongBPM($file_url);
                         $key = getSongKey($file_url);
-                      
+
                         // $bpm = 'BPM';
                         // $key = 'key';
                         $model = new Media;
@@ -653,38 +696,43 @@ class DefaultController extends Controller {
     public function actionWidgetUpload() {
         $user_id = $_POST['user_id'];
         $song_id = $_POST['song_id'];
+        //$song_detail = Songs::model()->findByPk($song_id);
+//        $user_detail = Users::model()->findByPk($user_id);
+//        $source_bucket = $song_detail->s3_bucket;
+//        $source_key_name = $song_detail->file_name;
+//        $target_bucket = $user_detail->s3_bucket;
+//        $target_key_name = $source_key_name;
+//        $s3 = new AS3;
+//        $s3->copySong($source_bucket,$source_key_name,$target_bucket,$target_key_name);
+//        $s3_url = $s3->getSongURL($target_bucket,$target_key_name);
+
+        $result_arr = array();
         $song_detail = Songs::model()->findByPk($song_id);
-        
-        $user_detail = Users::model()->findByPk($user_id);
-        $source_bucket = $song_detail->s3_bucket;
-        $source_key_name = $song_detail->file_name;
-        $target_bucket = $user_detail->s3_bucket;
-        $target_key_name = $source_key_name;
-        $s3 = new AS3;
-        $s3->copySong($source_bucket,$source_key_name,$target_bucket,$target_key_name);
-        $s3_url = $s3->getSongURL($target_bucket,$target_key_name);
-         
-        $model = new Songs;
-        $model->song_name = $song_detail->song_name;
-        $model->artist_name = $song_detail->artist_name;
-        $model->slug = $song_detail->slug;
-        $model->s3_bucket = $target_bucket;
-        $model->file_name = $target_key_name;
-        $model->type = $song_detail->type;
-        $model->bpm = $song_detail->bpm;
-        $model->song_key = $song_detail->song_key;
-        //  $model->file_size = $song_detail->file_size;
-        $model->genre = $song_detail->genre;
-        $model->sub_genre = $song_detail->sub_genre;
-        $model->sub_sub_genre = $song_detail->sub_sub_genre;
-        $model->s3_url = $s3_url;
-        $model->is_shared = 1;
-        $model->status = $song_detail->status;
-        $model->deleted = $song_detail->deleted;
-        $model->created_by = $user_id;
-        $model->modified_by = $user_id;
-        $model->save();
-        echo "success";
+        if (!empty($song_detail)) {
+            if ($song_detail->created_by == $user_id) {
+                $result_arr['status'] = 'failure';
+                $result_arr['message'] = 'You can not share this song';
+            } else {
+                $model_chk = SongShare::model()->find(array("condition" => "user_id ='$user_id' AND song_id='$song_id'"));
+
+                if (!empty($model_chk)) {
+                    $result_arr['status'] = 'failure';
+                    $result_arr['message'] = 'You have already shared this song';
+                } else {
+                    $model = new SongShare;
+                    $model->user_id = $user_id;
+                    $model->song_id = $song_id;
+                    $model->type = $song_detail->type;
+                    $model->save();
+                    $result_arr['status'] = 'success';
+                    $result_arr['message'] = 'You have successfully added the song';
+                }
+            }
+        }
+
+
+
+        echo json_encode($result_arr);
     }
 
     public function actionWidgetLike() {
@@ -717,9 +765,9 @@ class DefaultController extends Controller {
     }
 
     public function actionWidgetDownload($file) {
-        
+
         $song_detail = Songs::model()->findByPk($file);
-        
+
         $user_id = Yii::app()->user->id;
         $download_model = new Downloads;
         $download_model->user_id = $user_id;
@@ -727,49 +775,49 @@ class DefaultController extends Controller {
         $download_model->owner_id = $song_detail->created_by;
         $download_model->type = $song_detail->type;
         $download_model->save();
-        
+
         $s3 = new AS3;
         $result = $s3->getSong($song_detail->s3_bucket, $song_detail->file_name);
 
         // try {
-            // Display the object in the browser
-            header("Content-Type: {$result['ContentType']}");
-            header('Content-Description: File Transfer');
-            header('Content-Type: application/octet-stream');
-            header("Content-Disposition: attachment; filename=\"$song_detail->file_name\"");
-            header('Content-Transfer-Encoding: binary');
-            header('Expires: 0');
-            header('Cache-Control: must-revalidate');
-            header('Pragma: public');
-            ob_clean();
-            flush();
-            echo $result['Body'];
-        // } catch (S3Exception $e) {
-            // echo $e->getMessage() . "\n";
-        // }
-/*
-        Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
-
-
-        
-
-
-        $file = $song_detail->file_name;
-        $bucket_name = $song_detail->s3_bucket;
-        $result = Yii::app()->s3->getObject($bucket_name, $file);
-        $result_info = Yii::app()->s3->getObjectInfo($bucket_name, $file);
-        header("Content-Type: {$result_info['type']}");
+        // Display the object in the browser
+        header("Content-Type: {$result['ContentType']}");
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename='.$file);
+        header("Content-Disposition: attachment; filename=\"$song_detail->file_name\"");
         header('Content-Transfer-Encoding: binary');
         header('Expires: 0');
         header('Cache-Control: must-revalidate');
         header('Pragma: public');
         ob_clean();
         flush();
-        echo $result->body;
-        */
+        echo $result['Body'];
+        // } catch (S3Exception $e) {
+        // echo $e->getMessage() . "\n";
+        // }
+        /*
+          Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
+
+
+
+
+
+          $file = $song_detail->file_name;
+          $bucket_name = $song_detail->s3_bucket;
+          $result = Yii::app()->s3->getObject($bucket_name, $file);
+          $result_info = Yii::app()->s3->getObjectInfo($bucket_name, $file);
+          header("Content-Type: {$result_info['type']}");
+          header('Content-Description: File Transfer');
+          header('Content-Type: application/octet-stream');
+          header('Content-Disposition: attachment; filename='.$file);
+          header('Content-Transfer-Encoding: binary');
+          header('Expires: 0');
+          header('Cache-Control: must-revalidate');
+          header('Pragma: public');
+          ob_clean();
+          flush();
+          echo $result->body;
+         */
 
 
 //        if (file_exists($file)) {
@@ -834,7 +882,7 @@ class DefaultController extends Controller {
             if ($model->validate()) {
                 $model->save();
                 // adding to playlist_songs table
-                
+
                 $song_detail = Songs::model()->findByPk($_POST['playlist_song']);
 
                 $playlist_songs = new PlaylistSongs;
@@ -848,7 +896,5 @@ class DefaultController extends Controller {
             }
         }
     }
-
-    
 
 }

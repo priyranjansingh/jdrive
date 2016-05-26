@@ -15,9 +15,65 @@ class DefaultController extends Controller {
             $logged_in_user_id = Yii::app()->user->id;
             $user = Users::model()->find(array("condition" => "id = '$logged_in_user_id'"));
             $recommended_list = Users::model()->getRecommendList($logged_in_user_id);
+            
+            
 
-            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
-            $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
+            $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$logged_in_user_id' AND type='1' "));
+            $shared_videos = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$logged_in_user_id' AND type='2' "));
+
+            if (!empty($shared_songs)) {
+                $shared_songs_ids = array();
+                foreach ($shared_songs as $s) {
+                    array_push($shared_songs_ids, "'$s->song_id'");
+                }
+                $ids = implode(',', $shared_songs_ids);
+                $song_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='1' AND deleted = 0 AND"
+                            . " ((created_by = '$logged_in_user_id') OR (id IN($ids)) )  ", "order" => "date_entered desc")
+                );
+            } else {
+                $song_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='1' AND deleted = 0 AND"
+                            . " created_by = '$logged_in_user_id' ", "order" => "date_entered desc")
+                );
+            }
+            
+            
+            
+            if (!empty($shared_videos)) {
+                $shared_videos_ids = array();
+                foreach ($shared_videos as $s) {
+                    array_push($shared_videos_ids, "'$s->song_id'");
+                }
+                $v_ids = implode(',', $shared_videos_ids);
+                $video_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='2' AND deleted = 0 AND"
+                            . " ((created_by = '$logged_in_user_id') OR (id IN($ids)) )  ", "order" => "date_entered desc")
+                );
+            } else {
+                $video_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='2' AND deleted = 0 AND"
+                            . " created_by = '$logged_in_user_id' ", "order" => "date_entered desc")
+                );
+            }
+            
+            
+            
+            
+            
+            
+            
+
+           // $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
+           // $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
             $total_track_list = count($song_list) + count($video_list);
             $following_list = Followers::model()->findAll(array("condition" => "follower_id = '$logged_in_user_id'"));
             $follow_unfollow = Followers::model()->find(array("condition" => " user_id = '$logged_in_user_id' AND follower_id = '$logged_in_user_id' "));
@@ -30,6 +86,7 @@ class DefaultController extends Controller {
             } else {
                 $follow_unfollow_text = "Follow";
             }
+           // pre($song_list,true);
 
             $this->render('profile', array(
                 'user' => $user,
@@ -59,9 +116,32 @@ class DefaultController extends Controller {
             $this->redirect(Yii::app()->request->urlReferrer);
         } else {
             $logged_in_user_id = Yii::app()->user->id;
-            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id' ", "order" => "date_entered desc"));
+
+            $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$logged_in_user_id' "));
+
+            if (!empty($shared_songs)) {
+                $shared_songs_ids = array();
+                foreach ($shared_songs as $s) {
+                    array_push($shared_songs_ids, "'$s->song_id'");
+                }
+                $ids = implode(',', $shared_songs_ids);
+                $song_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='1' AND deleted = 0 AND"
+                            . " ((created_by = '$logged_in_user_id') OR (id IN($ids)) )  ", "order" => "date_entered desc")
+                );
+            } else {
+                $song_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='1' AND deleted = 0 AND"
+                            . " created_by = '$logged_in_user_id' ", "order" => "date_entered desc")
+                );
+            }
+
             $genres = Genres::model()->findAll(array("condition" => "parent = '0'"));
-            $this->render('drive', array('song_list' => $song_list, 'genres' => $genres));
+            $this->render('drive', array('song_list' => $song_list, 'genres' => $genres, 'logged_in_user_id' => $logged_in_user_id));
         }
     }
 
@@ -76,8 +156,31 @@ class DefaultController extends Controller {
                 $type = 2;
             }
             $logged_in_user_id = Yii::app()->user->id;
-            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='$type' AND deleted = 0 AND created_by = '$logged_in_user_id' ", "order" => "date_entered desc"));
-            $this->renderPartial('ajax_drive', array('song_list' => $song_list));
+
+            $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$logged_in_user_id' "));
+
+            if (!empty($shared_songs)) {
+                $shared_songs_ids = array();
+                foreach ($shared_songs as $s) {
+                    array_push($shared_songs_ids, "'$s->song_id'");
+                }
+                $ids = implode(',', $shared_songs_ids);
+                $song_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='$type' AND deleted = 0 AND"
+                            . " ((created_by = '$logged_in_user_id') OR (id IN($ids)) )  ", "order" => "date_entered desc")
+                );
+            } else {
+                $song_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='$type' AND deleted = 0 AND"
+                            . " created_by = '$logged_in_user_id' ", "order" => "date_entered desc")
+                );
+            }
+
+            $this->renderPartial('ajax_drive', array('song_list' => $song_list,'logged_in_user_id' => $logged_in_user_id));
         }
     }
 
@@ -93,8 +196,32 @@ class DefaultController extends Controller {
                 $type = 2;
             }
             $logged_in_user_id = Yii::app()->user->id;
-            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='$type' AND genre='$genre' AND deleted = 0 AND created_by = '$logged_in_user_id' ", "order" => "date_entered desc"));
-            $this->renderPartial('ajax_drive', array('song_list' => $song_list));
+            
+             $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$logged_in_user_id' "));
+
+            if (!empty($shared_songs)) {
+                $shared_songs_ids = array();
+                foreach ($shared_songs as $s) {
+                    array_push($shared_songs_ids, "'$s->song_id'");
+                }
+                $ids = implode(',', $shared_songs_ids);
+                $song_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='$type' AND genre='$genre' AND deleted = 0 AND"
+                            . " ((created_by = '$logged_in_user_id') OR (id IN($ids)) )  ", "order" => "date_entered desc")
+                );
+            } else {
+                $song_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='$type' AND genre='$genre' AND deleted = 0 AND"
+                            . " created_by = '$logged_in_user_id' ", "order" => "date_entered desc")
+                );
+            }
+            
+            
+            $this->renderPartial('ajax_drive', array('song_list' => $song_list,'logged_in_user_id' => $logged_in_user_id));
         }
     }
 
@@ -156,15 +283,13 @@ class DefaultController extends Controller {
                         $song_model->save();
                     }
                 }
-                
+
                 // deleting from the media table 
                 $song_detail->delete();
                 echo "success";
-            }
-            else 
-            {
+            } else {
                 echo "failure";
-            }    
+            }
         }
     }
 

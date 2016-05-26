@@ -108,7 +108,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
     <div class="right_pan">
         <div class="pro_banner" style="background:url(<?php echo $baseUrl; ?>/img/pro_banner.jpg)">
             <div class="change_btn"><a href="<?php echo base_url().'/user/edit' ?>">Edit Profile</a></div>
-            <div class="count_t"><h2><?php echo count($user->songs_list) + count($user->videos_list); ?></h2> Tracks</div>
+            <div class="count_t"><h2><?php echo $total_track_list; ?></h2> Tracks</div>
             <div class="pro_con">
                 <h1>
                     <?php echo $user->username; ?>
@@ -152,13 +152,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         ?>    
                         <li>
                             <div class="i_info"> <img src="<?php echo $baseUrl; ?>/img/alb1.jpg" /> <span class="play_btn"><i class="fa fa-play-circle-o"></i></span>
-                                <ul class="l_titel">
-                                    <li><i class="fa fa-upload"></i></li>
-                                    <li><i class="fa fa-plus"></i></li>
-                                    <li><i class="fa fa-history"></i></li>
-                                    <li><i class="fa fa-retweet"></i> <span>19</span></li>
-                                    <li><i class="fa fa-heart-o"></i> <span>38</span></li>
-                                </ul>
+                                 <?php $this->widget('SongWidget',array("song_id"=> $song->id)); ?>
                             </div>
                             <div class="i_titel">
                                 <div class="it_l"><?php echo $count; ?></div>

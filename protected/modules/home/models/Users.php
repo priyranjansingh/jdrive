@@ -69,7 +69,7 @@ class Users extends BaseModel {
             'videos_list' => array(self::HAS_MANY, 'Songs', 'created_by', 'condition' => 'videos_list.type = 2'),
             'following_list' => array(self::HAS_MANY, 'Followers', 'follower_id', 'condition' => 'following_list.deleted = 0'), // the users who is being followed by this user
             'playlist' => array(self::HAS_MANY, 'Playlists', 'user_id', 'condition' => 'playlist.deleted = 0'),
-            );
+        );
     }
 
     /**
@@ -153,17 +153,36 @@ class Users extends BaseModel {
     public function AjaxJustAdded($user, $song_type) {
         $current_date = date("Y-m-d");
         $previous_seven_days_date = date("Y-m-d", strtotime("-7 days"));
-        $criteria = new CDbCriteria();
-        $criteria->condition = "status = '1'  AND deleted = 0 AND "
-                . "type = '$song_type' AND created_by ='$user' "
-                . "AND DATE(date_entered) >= '$previous_seven_days_date' AND DATE(date_entered)<='$current_date'";
-        $criteria->order = "date_entered DESC";
-        $criteria->limit = 20;
+        $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$user' AND DATE(date_entered) >= '$previous_seven_days_date' AND DATE(date_entered)<='$current_date' "));
+
+        if (!empty($shared_songs)) {
+            $shared_songs_ids = array();
+            foreach ($shared_songs as $s) {
+                array_push($shared_songs_ids, "'$s->song_id'");
+            }
+            $ids = implode(',', $shared_songs_ids);
+
+            $criteria = new CDbCriteria();
+            $criteria->condition = "status = '1'  AND deleted = 0 AND "
+                    . "type = '$song_type' AND ((created_by = '$user') OR (id IN($ids)) ) "
+                    . "AND DATE(date_entered) >= '$previous_seven_days_date' AND DATE(date_entered)<='$current_date'";
+            $criteria->order = "date_entered DESC";
+            $criteria->limit = 20;
+
+           
+        } else {
+             $criteria = new CDbCriteria();
+            $criteria->condition = "status = '1'  AND deleted = 0 AND "
+                    . "type = '$song_type' AND created_by = '$user' "
+                    . "AND DATE(date_entered) >= '$previous_seven_days_date' AND DATE(date_entered)<='$current_date'";
+            $criteria->order = "date_entered DESC";
+            $criteria->limit = 20;
+        }
+
         $songs = Songs::model()->findAll($criteria);
         return $songs;
     }
-    
-    
+
     public function HomeAjaxJustAdded($song_type) {
         $current_date = date("Y-m-d");
         $previous_seven_days_date = date("Y-m-d", strtotime("-7 days"));
@@ -176,9 +195,8 @@ class Users extends BaseModel {
         $songs = Songs::model()->findAll($criteria);
         return $songs;
     }
-    
-    
-     public function HomeGenre($song_type,$genre) {
+
+    public function HomeGenre($song_type, $genre) {
         $criteria = new CDbCriteria();
         $criteria->condition = "status = '1'  AND deleted = 0 AND "
                 . "type = '$song_type' AND genre ='$genre' ";
@@ -187,10 +205,6 @@ class Users extends BaseModel {
         $songs = Songs::model()->findAll($criteria);
         return $songs;
     }
-    
-    
-    
-    
 
     public function getRecommendList($user_id, $type) {
         $user_detail = Users::model()->findByPk($user_id);

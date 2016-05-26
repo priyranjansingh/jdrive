@@ -61,3 +61,27 @@ ALTER TABLE `media` ADD `is_shared` TINYINT(1) NOT NULL DEFAULT '0' AFTER `s3_ur
 
 
 ALTER TABLE `playlist_songs` ADD `type` TINYINT(1) NOT NULL AFTER `song_id`;
+
+
+/*   26-5-2016  By Priyranjan */
+
+--
+-- Table structure for table `song_share`
+--
+
+CREATE TABLE IF NOT EXISTS `song_share` (
+  `id` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `song_id` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `date_entered` datetime NOT NULL,
+  `date_modified` datetime DEFAULT NULL,
+  `created_by` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `modified_by` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+----------------------Also make the id as primary key---------------------------------------
+
+ALTER TABLE `song_share` ADD `type` TINYINT(1) NOT NULL AFTER `user_id`;
+
