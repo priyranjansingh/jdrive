@@ -71,10 +71,9 @@ function checkPaymentStatus($id, $table) {
     return $result[0]['payment_status'];
 }
 
-function createS3bucket($name)
-{
+function createS3bucket($name) {
     Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
-    Yii::app()->s3->putBucket($name,'public-read','US');
+    Yii::app()->s3->putBucket($name, 'public-read', 'US');
     return true;
 }
 
@@ -367,7 +366,7 @@ function encryption($str) {
 // if $thumb = true then thumbnail will also be stored
 function uploadToS3($file_tmp_name, $file_name, $bucket) {
     Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
-    if(Yii::app()->s3->putObjectFile($file_tmp_name, $bucket, $file_name, S3::ACL_PRIVATE)){
+    if (Yii::app()->s3->putObjectFile($file_tmp_name, $bucket, $file_name, S3::ACL_PRIVATE)) {
         return true;
     } else {
         return false;
@@ -589,7 +588,7 @@ function getUniqueCode($school_id, $feild_name) {
     $y = date('y');
 
     $format_model = Format::model()->find(array("condition" => "school_id = '$school_id' AND year = '$y' "));
-    
+
     // new entry in the table
     if (empty($format_model)) {
         $school = Schools::model()->find(array("condition" => "id = '$school_id'"));
@@ -609,7 +608,7 @@ function getUniqueCode($school_id, $feild_name) {
             $format->save();
             $year++;
         }
-      $format_model = Format::model()->find(array("condition" => "school_id = '$school_id' AND year = '$y' "));
+        $format_model = Format::model()->find(array("condition" => "school_id = '$school_id' AND year = '$y' "));
     }
 
 
@@ -624,8 +623,7 @@ function getUniqueCode($school_id, $feild_name) {
     return $Code;
 }
 
- function getSongBPM($file)
- {
+function getSongBPM($file) {
     $taskUrl = 'analyze/tempo';
     $parameters = array();
     $parameters['access_id'] = getParam('sonic_api');
@@ -633,7 +631,6 @@ function getUniqueCode($school_id, $feild_name) {
 
     $parameters['input_file'] = $file;
     // $parameters['detailed_result'] = 'true';
-
     // important: the calls require the CURL extension for PHP
     $ch = curl_init('https://api.sonicAPI.com/' . $taskUrl);
     curl_setopt($ch, CURLOPT_HEADER, FALSE);
@@ -655,13 +652,11 @@ function getUniqueCode($school_id, $feild_name) {
     //     echo "Task succeeded, analysis result:<br />" . json_encode($response);
     // } else {
     //     $errorMessages = array_map(function($error) { return $error->message; }, $response->errors);
-        
     //     echo 'Task failed, reason: ' . implode('; ', $errorMessages);
     // }
- }
+}
 
- function getSongKey($file)
- {
+function getSongKey($file) {
     $taskUrl = 'analyze/key';
     $parameters = array();
     $parameters['access_id'] = getParam('sonic_api');
@@ -685,19 +680,30 @@ function getUniqueCode($school_id, $feild_name) {
 
     $response = json_decode($httpResponse);
     return $response->tonart_result->key;
- }
-
-function elipsis($string, $repl, $limit) 
-{
-
-  if(strlen($string) > $limit) 
-  {
-    $html = '<span title="'.$string.'">';
-    return $html = $html.substr($string, 0, ($limit-2)) . $repl.'</span>'; 
-  }
-  else 
-  {
-    return $string;
-  }
 }
+
+function elipsis($string, $repl, $limit) {
+
+    if (strlen($string) > $limit) {
+        $html = '<span title="' . $string . '">';
+        return $html = $html . substr($string, 0, ($limit - 2)) . $repl . '</span>';
+    } else {
+        return $string;
+    }
+}
+
+function getPlanDurationLabelPaypal($duration) {
+    $label = '';
+    if ($duration == 'day') {
+        $label = "D";
+    } else if ($duration == 'week') {
+        $label = "W";
+    } else if ($duration == 'month') {
+        $label = "M";
+    } else if ($duration == 'year') {
+        $label = "Y";
+    }
+    return $label;
+}
+
 ?>

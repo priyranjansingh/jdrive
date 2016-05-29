@@ -92,44 +92,43 @@ class DefaultController extends Controller {
     public function actionSongType() {
         $user_id = $_POST['user'];
         $song_type = $_POST['song_type'];
-         if ($song_type == 'audio') {
-             $type = 1;
-         }
-         else if ($song_type == 'video') {
-             $type = 2;
+        if ($song_type == 'audio') {
+            $type = 1;
+        } else if ($song_type == 'video') {
+            $type = 2;
         }
-        
-         $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$user_id' "));
 
-            if (!empty($shared_songs)) {
-                $shared_songs_ids = array();
-                foreach ($shared_songs as $s) {
-                    array_push($shared_songs_ids, "'$s->song_id'");
-                }
-                $ids = implode(',', $shared_songs_ids);
-                $song_list = Songs::model()->findAll(
-                        array(
-                            "condition" =>
-                            "status = '1' AND type='$type' AND deleted = 0 AND"
-                            . " ((created_by = '$user_id') OR (id IN($ids)) )  ", "order" => "date_entered desc","limit" => 20)
-                );
-            } else {
-                $song_list = Songs::model()->findAll(
-                        array(
-                            "condition" =>
-                            "status = '1' AND type='$type' AND deleted = 0 AND"
-                            . " created_by = '$user_id' ", "order" => "date_entered desc","limit" => 20)
-                );
+        $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$user_id' "));
+
+        if (!empty($shared_songs)) {
+            $shared_songs_ids = array();
+            foreach ($shared_songs as $s) {
+                array_push($shared_songs_ids, "'$s->song_id'");
             }
-        
-        
-        
+            $ids = implode(',', $shared_songs_ids);
+            $song_list = Songs::model()->findAll(
+                    array(
+                        "condition" =>
+                        "status = '1' AND type='$type' AND deleted = 0 AND"
+                        . " ((created_by = '$user_id') OR (id IN($ids)) )  ", "order" => "date_entered desc", "limit" => 20)
+            );
+        } else {
+            $song_list = Songs::model()->findAll(
+                    array(
+                        "condition" =>
+                        "status = '1' AND type='$type' AND deleted = 0 AND"
+                        . " created_by = '$user_id' ", "order" => "date_entered desc", "limit" => 20)
+            );
+        }
+
+
+
 //        if ($song_type == 'audio') {
 //            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$user_id'    ", "order" => "date_entered desc", "limit" => 20));
 //        } else if ($song_type == 'video') {
 //            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$user_id'    ", "order" => "date_entered desc", "limit" => 20));
 //        }
-            
+
         $this->renderPartial('ajax_song', array('song_list' => $song_list));
     }
 
@@ -221,42 +220,39 @@ class DefaultController extends Controller {
     public function actionAjaxMyDrive() {
         $user = $_POST['user'];
         $song_type = $_POST['song_type'];
-        
-        
+
+
         if ($song_type == 'audio') {
             $type = 1;
-            
         } else if ($song_type == 'video') {
             $type = 2;
         }
-        
-        
+
+
         $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$user' "));
 
-            if (!empty($shared_songs)) {
-                $shared_songs_ids = array();
-                foreach ($shared_songs as $s) {
-                    array_push($shared_songs_ids, "'$s->song_id'");
-                }
-                $ids = implode(',', $shared_songs_ids);
-                $song_list = Songs::model()->findAll(
-                        array(
-                            "condition" =>
-                            "status = '1' AND type='$type' AND deleted = 0 AND"
-                            . " ((created_by = '$user') OR (id IN($ids)) )  ", "order" => "date_entered desc", "limit" => 20)
-                );
-            } else {
-                $song_list = Songs::model()->findAll(
-                        array(
-                            "condition" =>
-                            "status = '1' AND type='$type' AND deleted = 0 AND"
-                            . " created_by = '$user' ", "order" => "date_entered desc","limit" => 20)
-                );
+        if (!empty($shared_songs)) {
+            $shared_songs_ids = array();
+            foreach ($shared_songs as $s) {
+                array_push($shared_songs_ids, "'$s->song_id'");
             }
-        
+            $ids = implode(',', $shared_songs_ids);
+            $song_list = Songs::model()->findAll(
+                    array(
+                        "condition" =>
+                        "status = '1' AND type='$type' AND deleted = 0 AND"
+                        . " ((created_by = '$user') OR (id IN($ids)) )  ", "order" => "date_entered desc", "limit" => 20)
+            );
+        } else {
+            $song_list = Songs::model()->findAll(
+                    array(
+                        "condition" =>
+                        "status = '1' AND type='$type' AND deleted = 0 AND"
+                        . " created_by = '$user' ", "order" => "date_entered desc", "limit" => 20)
+            );
+        }
+
         $this->renderPartial('ajax_song', array('song_list' => $song_list));
-        
-       
     }
 
     public function actionAjaxPlaylist() {
@@ -406,7 +402,9 @@ class DefaultController extends Controller {
             $this->redirect(array('chooseplans'));
         } else {
             Yii::app()->session['register_user_plan'] = serialize($plan);
-            $this->render("payment", array('plan' => $plan));
+            $user = Yii::app()->session['register_user_info'];
+            $user = unserialize($user);
+            $this->render("payment", array('plan' => $plan, 'user' => $user));
         }
     }
 
@@ -429,26 +427,26 @@ class DefaultController extends Controller {
             );
             $customer = json_decode(substr($customer, 22));
             $invoice = Invoice::model()->findByPk(getParam('invoice'));
-            $inv_no = $invoice->invoice_text.'-'.$invoice->invoice_count;
+            $inv_no = $invoice->invoice_text . '-' . $invoice->invoice_count;
             $transaction = new Transactions;
             $transaction->invoice = $inv_no;
             $transaction->user_id = $customer->id;
             $transaction->plan_id = $customer->subscriptions->data[0]->plan->id;
             $transaction->transaction_id = $customer->subscriptions->data[0]->id;
             $transaction->payment_method = 'stripe';
-            $transaction->amount = ($customer->subscriptions->data[0]->plan->amount/100);
+            $transaction->amount = ($customer->subscriptions->data[0]->plan->amount / 100);
             $transaction->details = json_encode($customer);
             $transaction->payment_status = 'pending';
-            if($transaction->save()){
+            if ($transaction->save()) {
                 $invoice->invoice_count = str_pad(($invoice->invoice_count + 1), 6, '0', STR_PAD_LEFT);
                 $invoice->save();
-                
+
                 $u = Users::model()->findByPk($user->id);
                 $u->is_paid = 1;
                 $u->save();
             }
 
-            
+
             // createS3bucket($user->username);
             $aws = new AS3;
             $bucket = $user->username . '-' . create_guid_section(6);
@@ -470,9 +468,9 @@ class DefaultController extends Controller {
 
     public function actionTest() {
         // $info = new FileInfo("assets/temp/Kehlani - 24 7 (Dirty).mp3");
-       // $url = "http://neeraj-f0b1ea.s3.amazonaws.com/Mark%20J%20-%20Marvelous%20Light%20%282%29%20%281%29.mp3?AWSAccessKeyId=AKIAJBTQKEKGZSJDLKSA&Expires=1463945001&Signature=VF0m%2FOeusUb0ZDe2HjcAxp0i4VA%3D";
-       // $info = getSongBPM($url);
-       // pre($info,true);
+        // $url = "http://neeraj-f0b1ea.s3.amazonaws.com/Mark%20J%20-%20Marvelous%20Light%20%282%29%20%281%29.mp3?AWSAccessKeyId=AKIAJBTQKEKGZSJDLKSA&Expires=1463945001&Signature=VF0m%2FOeusUb0ZDe2HjcAxp0i4VA%3D";
+        // $info = getSongBPM($url);
+        // pre($info,true);
         $url = "http://neeraj-f0b1ea.s3.amazonaws.com/Mark%20J%20-%20Marvelous%20Light%20%282%29%20%281%29.mp3?AWSAccessKeyId=AKIAJBTQKEKGZSJDLKSA&Expires=1463945001&Signature=VF0m%2FOeusUb0ZDe2HjcAxp0i4VA%3D";
         $info = getSongBPM($url);
         pre($info, true);
@@ -492,88 +490,87 @@ class DefaultController extends Controller {
         //     pre($test->response);
         // }
         // die;
-        foreach($tests as $test){
-        // $test = Test::model()->findByPk('173556cc-98bd-9d4f-ef5e-5740c531171a');
         foreach ($tests as $test) {
-            // pre($test->response,true);
-            // Stripe\Event JSON: 
-            // $a = substr($test->response, 19);
-            // pre($a, true);
-            // $find = substr($test->response, 0, 19);
-            // if($find === "Stripe\Event JSON: "){
+            // $test = Test::model()->findByPk('173556cc-98bd-9d4f-ef5e-5740c531171a');
+            foreach ($tests as $test) {
+                // pre($test->response,true);
+                // Stripe\Event JSON: 
+                // $a = substr($test->response, 19);
+                // pre($a, true);
+                // $find = substr($test->response, 0, 19);
+                // if($find === "Stripe\Event JSON: "){
                 $event_json = json_decode($test->response);
-            $find = substr($test->response, 0, 19);
-            if ($find === "Stripe\Event JSON: ") {
-                $event_json = json_decode(substr($test->response, 19));
+                $find = substr($test->response, 0, 19);
+                if ($find === "Stripe\Event JSON: ") {
+                    $event_json = json_decode(substr($test->response, 19));
 
-                $event = \Stripe\Event::retrieve($event_json->id);
-                $event = substr($event, 19);
-                $event_json = json_decode($event);
-                // $data = $event->data->object;
-                // $invoice = $data->lines->data[0];
-                // pre($event_json);
-                // pre($event);
+                    $event = \Stripe\Event::retrieve($event_json->id);
+                    $event = substr($event, 19);
+                    $event_json = json_decode($event);
+                    // $data = $event->data->object;
+                    // $invoice = $data->lines->data[0];
+                    // pre($event_json);
+                    // pre($event);
 
-                if (isset($event_json->id)) {
+                    if (isset($event_json->id)) {
 
-                    try {
-                        // to verify this is a real event, we re-retrieve the event from Stripe 
-                        $event = \Stripe\Event::retrieve($event_json->id);
-                        // $model = new Test;
-                        // $model->response = $event;
-                        // $model->save();
-                        // pre($event);
-                        $event = substr($event, 19);
-                        $event = json_decode($event);
-                        // pre($event,true);
-                        $data = $event->data->object;
-                        // successful payment
-                        if ($event->type == 'invoice.payment_succeeded') {
-                            $invoice = $data->lines->data[0];
-                            // send a payment receipt email here
-                            // retrieve the payer's information
-                            $customer = \Stripe\Customer::retrieve($data->customer);
-                            // pre($customer);
-                            // echo "--------------------------------------------------";
-                            $customer = json_decode(substr($customer, 22));
-                            // pre($customer,true);
-                            $email = $customer->email;
+                        try {
+                            // to verify this is a real event, we re-retrieve the event from Stripe 
+                            $event = \Stripe\Event::retrieve($event_json->id);
+                            // $model = new Test;
+                            // $model->response = $event;
+                            // $model->save();
+                            // pre($event);
+                            $event = substr($event, 19);
+                            $event = json_decode($event);
+                            // pre($event,true);
+                            $data = $event->data->object;
+                            // successful payment
+                            if ($event->type == 'invoice.payment_succeeded') {
+                                $invoice = $data->lines->data[0];
+                                // send a payment receipt email here
+                                // retrieve the payer's information
+                                $customer = \Stripe\Customer::retrieve($data->customer);
+                                // pre($customer);
+                                // echo "--------------------------------------------------";
+                                $customer = json_decode(substr($customer, 22));
+                                // pre($customer,true);
+                                $email = $customer->email;
 
-                            $amount = $invoice->amount / 100; // amount comes in as amount in cents, so we need to convert to dollars
+                                $amount = $invoice->amount / 100; // amount comes in as amount in cents, so we need to convert to dollars
 
-                            $t_model = Transactions::model()->find(array("condition" => "transaction_id = '".$invoice->id."'"));
-                            if($t_model !== null){
-                                $t_model->payment_status = "paid";
-                                $t_model->save();
+                                $t_model = Transactions::model()->find(array("condition" => "transaction_id = '" . $invoice->id . "'"));
+                                if ($t_model !== null) {
+                                    $t_model->payment_status = "paid";
+                                    $t_model->save();
+                                }
+
+                                $subject = 'Jock Drive Payment Receipt';
+                                $headers = 'From: <info@dealrush.in>';
+                                $message = "Hello User,\n\n";
+                                $message .= "You have successfully made a payment of $" . $amount . "\n";
+                                $message .= "Thank you.";
+                                echo $message;
+                                mail($email, $subject, $message, $headers);
+                            } else {
+                                echo $event->type;
                             }
-                            
-                            $subject = 'Jock Drive Payment Receipt';
+                        } catch (Exception $e) {
                             $headers = 'From: <info@dealrush.in>';
-                            $message = "Hello User,\n\n";
-                            $message .= "You have successfully made a payment of $" . $amount . "\n";
-                            $message .= "Thank you.";
-                            echo $message;
-                            mail($email, $subject, $message, $headers);
-                        } else {
-                            echo $event->type;
+                            mail('neeraj24a@gmail.com', 'Jockdrive Payment Exception', $e, $headers);
                         }
-                    } catch (Exception $e) {
-                        $headers = 'From: <info@dealrush.in>';
-                        mail('neeraj24a@gmail.com', 'Jockdrive Payment Exception', $e, $headers);
                     }
+                    // }
+
+                    pre($event);
                 }
+
+                // this will be used to retrieve the event from Stripe
+                // $event_id = $event_json->id;
+                // pre($event_id, true);
+                // if (isset($event_json->id)) {
+            }
             // }
-            
-                pre($event);
-            }
-
-            // this will be used to retrieve the event from Stripe
-            // $event_id = $event_json->id;
-            // pre($event_id, true);
-            // if (isset($event_json->id)) {
-
-            }
-        // }
             // }
         }
         $s3 = new AS3;
@@ -607,65 +604,65 @@ class DefaultController extends Controller {
             if (isset($event_json->id)) {
 
                 try {
-                        // to verify this is a real event, we re-retrieve the event from Stripe 
-                        $event = \Stripe\Event::retrieve($event_json->id);
-                        // $model = new Test;
-                        // $model->response = $event;
-                        // $model->save();
-                        // pre($event);
-                        $event = substr($event, 19);
-                        $event = json_decode($event);
-                        // pre($event,true);
-                        $data = $event->data->object;
-                        // successful payment
-                        if ($event->type == 'invoice.payment_succeeded') {
-                            $invoice = $data->lines->data[0];
-                            // send a payment receipt email here
-                            // retrieve the payer's information
-                            $customer = \Stripe\Customer::retrieve($data->customer);
-                            // pre($customer);
-                            // echo "--------------------------------------------------";
-                            $customer = json_decode(substr($customer, 22));
-                            // pre($customer,true);
-                            $email = $customer->email;
+                    // to verify this is a real event, we re-retrieve the event from Stripe 
+                    $event = \Stripe\Event::retrieve($event_json->id);
+                    // $model = new Test;
+                    // $model->response = $event;
+                    // $model->save();
+                    // pre($event);
+                    $event = substr($event, 19);
+                    $event = json_decode($event);
+                    // pre($event,true);
+                    $data = $event->data->object;
+                    // successful payment
+                    if ($event->type == 'invoice.payment_succeeded') {
+                        $invoice = $data->lines->data[0];
+                        // send a payment receipt email here
+                        // retrieve the payer's information
+                        $customer = \Stripe\Customer::retrieve($data->customer);
+                        // pre($customer);
+                        // echo "--------------------------------------------------";
+                        $customer = json_decode(substr($customer, 22));
+                        // pre($customer,true);
+                        $email = $customer->email;
 
-                            $amount = $invoice->amount / 100; // amount comes in as amount in cents, so we need to convert to dollars
-                            $transaction_id = $invoice->id;
-                            $t_model = Transactions::model()->find(array("condition" => "transaction_id = '$transaction_id'"));
-                            $user_id = $t_model->user_id;
-                            $t = "No Transaction Hit";
-                            if($t_model !== null){
-                                $t_model->payment_status = "paid";
-                                if($t_model->save()){
-                                    $t = $t_model->id;
-                                } else {
-                                    $t = serialize($t_model->getErrors());
-                                }
-                            }
-                            
-                            $u_plan = UserPlan::model()->find(array("condition" => "user_id = '$user_id'"));
-                            $u_plan->plan_end_date = date("Y-m-d", $invoice->period->end);
-                            if($u_plan->save()){
-                                $u = $u_plan->id;
+                        $amount = $invoice->amount / 100; // amount comes in as amount in cents, so we need to convert to dollars
+                        $transaction_id = $invoice->id;
+                        $t_model = Transactions::model()->find(array("condition" => "transaction_id = '$transaction_id'"));
+                        $user_id = $t_model->user_id;
+                        $t = "No Transaction Hit";
+                        if ($t_model !== null) {
+                            $t_model->payment_status = "paid";
+                            if ($t_model->save()) {
+                                $t = $t_model->id;
                             } else {
-                                $u = serialize($u_plan->getErrors());
+                                $t = serialize($t_model->getErrors());
                             }
-                            $subject = 'Jock Drive Payment Receipt';
-                            $headers = 'From: <info@dealrush.in>';
-                            $message = "Hello $email,\n\n";
-                            $message .= "You have successfully made a payment of $" . $amount . "\n";
-                            $message .= "User Plan : " . $u. "\n";
-                            $message .= "Transaction : ". $t. "\n";
-                            $message .= "Thank you.";
-                            // echo $message;
-                            mail('neeraj24a@gmail.com', $subject, $message, $headers);
-                        } else {
-                            echo $event->type;
                         }
-                    } catch (Exception $e) {
+
+                        $u_plan = UserPlan::model()->find(array("condition" => "user_id = '$user_id'"));
+                        $u_plan->plan_end_date = date("Y-m-d", $invoice->period->end);
+                        if ($u_plan->save()) {
+                            $u = $u_plan->id;
+                        } else {
+                            $u = serialize($u_plan->getErrors());
+                        }
+                        $subject = 'Jock Drive Payment Receipt';
                         $headers = 'From: <info@dealrush.in>';
-                        mail('neeraj24a@gmail.com', 'Jockdrive Payment Exception', $e, $headers);
+                        $message = "Hello $email,\n\n";
+                        $message .= "You have successfully made a payment of $" . $amount . "\n";
+                        $message .= "User Plan : " . $u . "\n";
+                        $message .= "Transaction : " . $t . "\n";
+                        $message .= "Thank you.";
+                        // echo $message;
+                        mail('neeraj24a@gmail.com', $subject, $message, $headers);
+                    } else {
+                        echo $event->type;
                     }
+                } catch (Exception $e) {
+                    $headers = 'From: <info@dealrush.in>';
+                    mail('neeraj24a@gmail.com', 'Jockdrive Payment Exception', $e, $headers);
+                }
             }
         }
     }
@@ -889,12 +886,12 @@ class DefaultController extends Controller {
     public function actionWidgetDownload($file) {
 
         $song_detail = Songs::model()->findByPk($file);
-        
+
         $s3 = new AS3;
         $result = $s3->getSong($song_detail->s3_bucket, $song_detail->file_name);
 
         // try {
-            // Display the object in the browser
+        // Display the object in the browser
         header("Content-Type: {$result['ContentType']}");
         header('Content-Description: File Transfer');
         header('Content-Type: application/octet-stream');
@@ -911,7 +908,7 @@ class DefaultController extends Controller {
         $download_model->song_id = $song_detail->id;
         $download_model->owner_id = $song_detail->created_by;
         $download_model->type = $song_detail->type;
-        $download_model->save();    
+        $download_model->save();
         ob_clean();
         flush();
         echo $result['Body'];
@@ -966,6 +963,102 @@ class DefaultController extends Controller {
                 $this->redirect(Yii::app()->request->urlReferrer);
             }
         }
+    }
+
+    public function actionSaveTransaction() {
+        $plan = Yii::app()->session['register_user_plan'];
+        $plan = unserialize($plan);
+        $user = Yii::app()->session['register_user_info'];
+        $user = unserialize($user);
+
+        $invoice = Invoice::model()->findByPk(getParam('invoice'));
+        $inv_no = $invoice->invoice_text . '-' . $invoice->invoice_count;
+        $transaction = new Transactions;
+        $transaction->invoice = $inv_no;
+        $transaction->user_id = $user->id;
+        $transaction->plan_id = $plan->id;
+        $transaction->payment_method = 'paypal';
+        $transaction->amount = $plan->plan_price;
+        $transaction->payment_status = 'pending';
+        if ($transaction->save()) {
+            $invoice->invoice_count = str_pad(($invoice->invoice_count + 1), 6, '0', STR_PAD_LEFT);
+            $invoice->save();
+        }
+    }
+
+    public function actionNotify() {
+        if ($_POST) {
+            $custom = $POST['custom'];
+            $custom_arr = explode("#", $custom);
+            $user_id = $custom_arr[0];
+            $plan_id = $custom_arr[1];
+            if ($POST['payment_status'] == "Completed") {
+                $transaction = Transactions::model()->find(array("condition" => "user_id = '$user_id' AND plan_id = '$plan_id' AND payment_status = 'pending'"));
+                $transaction->payment_status = 'paid';
+                $transaction->transaction_id = $POST['txn_id'];
+                $transaction->details = json_encode($_POST);
+                $transaction->date_modified = date("Y-m-d H:i:s", strtotime($POST['payment_date']));
+                $transaction->save();
+
+                // making entry in the user_plan table 
+                // first check whether there is any record or not by that user_id and plan_id and if there is any record then update 
+                // that otherwise make fresh entry 
+
+                $user_plan = UserPlan::model()->find(array("condition" => "user_id = '$user_id' AND plan_id = '$plan_id' AND status = 1 AND deleted = 0 "));
+                if (empty($user_plan)) {
+                    $user_plan_model = new UserPlan;
+                    $user_plan_model->user_id = $user_id;
+                    $user_plan_model->plan_id = $plan_id;
+                    // getting plan detail
+                    $plan_model = Plans::model()->findByPk($plan_id);
+
+                    $user_plan_model->plan_start_date = date("Y-m-d");
+                    $nxt_date_string = "+ " . $plan_model->plan_duration . " " . $plan_model->plan_duration_type;
+                    $user_plan_model->plan_end_date = date("Y-m-d", strtotime($nxt_date_string));
+                    $user_plan_model->save();
+                } else {
+                    // only update the current  record
+                    // getting plan detail
+                    $plan_model = Plans::model()->findByPk($plan_id);
+                    $nxt_date_string = "+ " . $plan_model->plan_duration . " " . $plan_model->plan_duration_type;
+                    $user_plan_model->plan_end_date = date("Y-m-d", strtotime($nxt_date_string));
+                    $user_plan_model->save();
+                }
+
+                // making entry of fresh row in the transaction table i.e. invoice
+                
+                $invoice = Invoice::model()->findByPk(getParam('invoice'));
+                $inv_no = $invoice->invoice_text . '-' . $invoice->invoice_count;
+                $transaction = new Transactions;
+                $transaction->invoice = $inv_no;
+                $transaction->user_id = $user_id;
+                $transaction->plan_id = $plan_id;
+                $transaction->payment_method = 'paypal';
+                $transaction->amount = $plan_model->plan_price;
+                $transaction->payment_status = 'pending';
+                if ($transaction->save()) {
+                    $invoice->invoice_count = str_pad(($invoice->invoice_count + 1), 6, '0', STR_PAD_LEFT);
+                    $invoice->save();
+                }
+                
+               // end of making entry of fresh row in the transaction table i.e. invoice
+                
+                
+                $u = Users::model()->findByPk($user_id);
+                $u->is_paid = 1;
+                $u->save();  
+                
+                
+            }
+        }
+    }
+
+    public function actionCancel() {
+        echo "cancel";
+    }
+
+    public function actionThank() {
+        echo "thank";
     }
 
 }

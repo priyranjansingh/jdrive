@@ -38,7 +38,7 @@ class Transactions extends BaseModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, invoice, user_id, plan_id, transaction_id, payment_method, amount, details, created_by, modified_by, date_entered, date_modified', 'required'),
+			array('id, invoice, user_id, plan_id, payment_method, amount,created_by, modified_by, date_entered, date_modified', 'required'),
 			array('status, deleted', 'numerical', 'integerOnly'=>true),
 			array('id, user_id, plan_id, created_by, modified_by', 'length', 'max'=>36),
 			array('invoice', 'length', 'max'=>64),
