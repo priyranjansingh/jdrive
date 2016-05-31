@@ -31,12 +31,18 @@ $baseUrl = Yii::app()->theme->baseUrl;
                            <?php $this->widget('SongWidget',array("song_id"=>$song->song_detail->id)); ?>
                         </div>
                         <div class="i_titel">
-                            <div class="it_l"><?php echo $count; ?></div>
                             <div  class="it_m">
-                                <h5><?php echo elipsis($song->song_detail->song_name, '..', 17); ?></h5>
-                                <?php echo elipsis($song->song_detail->artist_name, '..', 17); ?>
+                                <h5><?php echo elipsis($song->song_detail->song_name, '..', 35); ?></h5>
+                                <h6><?php echo elipsis($song->song_detail->artist_name, '..', 35); ?></h6>
                             </div>
-                            <div  class="it_r"> <strong><?php echo $song->song_detail->bpm; ?>BPM</strong> <strong>9A</strong> </div>
+                            <div  class="it_r"> 
+                                <div class="bpm">
+                                    BPM: <span><?php echo $song->song_detail->bpm; ?></span> 
+                                </div>
+                                <div class="key">
+                                    KEY: <span><?php echo $song->song_detail->song_key; ?></span>
+                                </div>
+                            </div>
                         </div>
                     </li>  
 

@@ -211,6 +211,7 @@ class DefaultController extends Controller {
             $array['error'] = false;
             $array['song_name'] = $media->song_name;
             $array['artist_name'] = $media->artist_name;
+            $array['album_art'] = $media->album_art;
             $array['url'] = $url;
         }
 

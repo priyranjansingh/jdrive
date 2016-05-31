@@ -219,6 +219,7 @@ function createMedia(){
                 this.media.player.init("#jpId");
                 this.media.player.playTrack(data.url);
                 $('.jp-title span.song-title').html(data.artist_name +" - "+data.song_name);
+                $("#album_art img").attr('src',data.album_art);
                 $('.play.jp-control').toggleClass('active');
             }
         });
