@@ -392,9 +392,24 @@ class DefaultController extends Controller {
 
     public function actionChooseplans() {
         // echo "I am Here";
+        //pre(Yii::app()->session['register_user_info'],true);
+        //$plans = BaseModel::getAll('Plans');
+        //$this->render('plans', array('plans' => $plans));
+
         $plans = BaseModel::getAll('Plans');
         $this->render('plans', array('plans' => $plans));
     }
+
+    public function actionAjaxPlanDetail() {
+        $plan = $_POST['plan'];
+        $plan = Plans::model()->findByPk($plan);
+        Yii::app()->session['register_user_plan'] = serialize($plan);
+        $user = Yii::app()->session['register_user_info'];
+        $user = unserialize($user);
+        $this->renderPartial('ajax_plan_detail', array('plan' => $plan,'user'=> $user));
+    }
+
+
 
     public function actionPayment($plan) {
         $this->layout = '//layouts/payment_main';
@@ -987,69 +1002,109 @@ class DefaultController extends Controller {
         }
     }
 
+    public function actionApplyCouponCode() {
+        $code = $_POST['code'];
+        $plan = Yii::app()->session['register_user_plan'];
+        $plan = unserialize($plan);
+        $plan_price = $plan->plan_price;
+        $result_array = array();
+        if (!empty($code)) {
+            $cur_date = date("Y-m-d");
+            $coupon = Coupon::model()->find(array("condition" => "code = '$code' AND  status=1 AND deleted = 0 AND expiry_date >= '$cur_date' AND begin_date <= '$cur_date' "));
+            if (!empty($coupon)) {
+                $discount = $coupon->discount;
+                $discount_type = $coupon->discount_type;
+                if ($discount_type == 'number') {
+                    $final_payable_amount = $plan_price - $discount;
+                } else if ($discount_type == 'percent') {
+                    $final_payable_amount = $plan_price - ($plan_price * $discount / 100);
+                }
+                $result_array['status'] = 'success';
+                $result_array['message'] = 'Your final amount payable is ' . $final_payable_amount;
+                $result_array['amount'] = $final_payable_amount;
+            } else {
+                $result_array['status'] = 'failure';
+                $result_array['message'] = 'Sorry there is no coupon by this code';
+            }
+        } else {
+            $result_array['status'] = 'failure';
+            $result_array['message'] = 'Couponcode can not be blank';
+        }
+        echo json_encode($result_array);
+    }
+
     public function actionNotify() {
+
         if ($_POST) {
-            $custom = $POST['custom'];
-            $custom_arr = explode("#", $custom);
-            $user_id = $custom_arr[0];
-            $plan_id = $custom_arr[1];
-            if ($POST['payment_status'] == "Completed") {
-                $transaction = Transactions::model()->find(array("condition" => "user_id = '$user_id' AND plan_id = '$plan_id' AND payment_status = 'pending'"));
-                $transaction->payment_status = 'paid';
-                $transaction->transaction_id = $POST['txn_id'];
-                $transaction->details = json_encode($_POST);
-                $transaction->date_modified = date("Y-m-d H:i:s", strtotime($POST['payment_date']));
-                $transaction->save();
+            // saving in log file
+            $fp = fopen('./assets/payment_log.txt', 'w');
+            fwrite($fp, json_encode($_POST));
+            fclose($fp);
+            // end of saving in the log file 
+            if (!empty($_POST['payment_status'])) {
+                if ($_POST['payment_status'] == "Completed") {
 
-                // making entry in the user_plan table 
-                // first check whether there is any record or not by that user_id and plan_id and if there is any record then update 
-                // that otherwise make fresh entry 
+                    $custom = $_POST['custom'];
+                    $custom_arr = explode("#", $custom);
+                    $user_id = $custom_arr[0];
+                    $plan_id = $custom_arr[1];
+                    $transaction = Transactions::model()->find(array("condition" => "user_id = '$user_id' AND plan_id = '$plan_id' AND payment_status = 'pending'"));
+                    if (!empty($transaction)) {
+                        $transaction->payment_status = 'paid';
+                        $transaction->transaction_id = $_POST['txn_id'];
+                        $transaction->details = json_encode($_POST);
+                        $transaction->date_modified = date("Y-m-d H:i:s", strtotime($_POST['payment_date']));
+                        $transaction->save();
+                    }
 
-                $user_plan = UserPlan::model()->find(array("condition" => "user_id = '$user_id' AND plan_id = '$plan_id' AND status = 1 AND deleted = 0 "));
-                if (empty($user_plan)) {
-                    $user_plan_model = new UserPlan;
-                    $user_plan_model->user_id = $user_id;
-                    $user_plan_model->plan_id = $plan_id;
-                    // getting plan detail
-                    $plan_model = Plans::model()->findByPk($plan_id);
+                    // making entry in the user_plan table 
+                    // first check whether there is any record or not by that user_id and plan_id and if there is any record then update 
+                    // that otherwise make fresh entry 
 
-                    $user_plan_model->plan_start_date = date("Y-m-d");
-                    $nxt_date_string = "+ " . $plan_model->plan_duration . " " . $plan_model->plan_duration_type;
-                    $user_plan_model->plan_end_date = date("Y-m-d", strtotime($nxt_date_string));
-                    $user_plan_model->save();
-                } else {
-                    // only update the current  record
-                    // getting plan detail
-                    $plan_model = Plans::model()->findByPk($plan_id);
-                    $nxt_date_string = "+ " . $plan_model->plan_duration . " " . $plan_model->plan_duration_type;
-                    $user_plan_model->plan_end_date = date("Y-m-d", strtotime($nxt_date_string));
-                    $user_plan_model->save();
+                    $user_plan = UserPlan::model()->find(array("condition" => "user_id = '$user_id' AND plan_id = '$plan_id' AND status = 1 AND deleted = 0 "));
+                    if (empty($user_plan)) {
+                        $user_plan_model = new UserPlan;
+                        $user_plan_model->user_id = $user_id;
+                        $user_plan_model->plan_id = $plan_id;
+                        // getting plan detail
+                        $plan_model = Plans::model()->findByPk($plan_id);
+
+                        $user_plan_model->plan_start_date = date("Y-m-d");
+                        $nxt_date_string = "+ " . $plan_model->plan_duration . " " . $plan_model->plan_duration_type;
+                        $user_plan_model->plan_end_date = date("Y-m-d", strtotime($nxt_date_string));
+                        $user_plan_model->save();
+                    } else {
+                        // only update the current  record
+                        // getting plan detail
+                        $plan_model = Plans::model()->findByPk($plan_id);
+                        $nxt_date_string = "+ " . $plan_model->plan_duration . " " . $plan_model->plan_duration_type;
+                        $user_plan_model->plan_end_date = date("Y-m-d", strtotime($nxt_date_string));
+                        $user_plan_model->save();
+                    }
+
+                    // making entry of fresh row in the transaction table i.e. invoice
+
+                    $invoice = Invoice::model()->findByPk(getParam('invoice'));
+                    $inv_no = $invoice->invoice_text . '-' . $invoice->invoice_count;
+                    $transaction = new Transactions;
+                    $transaction->invoice = $inv_no;
+                    $transaction->user_id = $user_id;
+                    $transaction->plan_id = $plan_id;
+                    $transaction->payment_method = 'paypal';
+                    $transaction->amount = $plan_model->plan_price;
+                    $transaction->payment_status = 'pending';
+                    if ($transaction->save()) {
+                        $invoice->invoice_count = str_pad(($invoice->invoice_count + 1), 6, '0', STR_PAD_LEFT);
+                        $invoice->save();
+                    }
+
+                    // end of making entry of fresh row in the transaction table i.e. invoice
+
+
+                    $u = Users::model()->findByPk($user_id);
+                    $u->is_paid = 1;
+                    $u->save();
                 }
-
-                // making entry of fresh row in the transaction table i.e. invoice
-                
-                $invoice = Invoice::model()->findByPk(getParam('invoice'));
-                $inv_no = $invoice->invoice_text . '-' . $invoice->invoice_count;
-                $transaction = new Transactions;
-                $transaction->invoice = $inv_no;
-                $transaction->user_id = $user_id;
-                $transaction->plan_id = $plan_id;
-                $transaction->payment_method = 'paypal';
-                $transaction->amount = $plan_model->plan_price;
-                $transaction->payment_status = 'pending';
-                if ($transaction->save()) {
-                    $invoice->invoice_count = str_pad(($invoice->invoice_count + 1), 6, '0', STR_PAD_LEFT);
-                    $invoice->save();
-                }
-                
-               // end of making entry of fresh row in the transaction table i.e. invoice
-                
-                
-                $u = Users::model()->findByPk($user_id);
-                $u->is_paid = 1;
-                $u->save();  
-                
-                
             }
         }
     }
@@ -1059,7 +1114,7 @@ class DefaultController extends Controller {
     }
 
     public function actionThank() {
-        echo "thank";
+        pre($_POST, true);
     }
 
 }

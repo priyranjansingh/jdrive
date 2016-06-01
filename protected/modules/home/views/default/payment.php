@@ -39,7 +39,6 @@
                                     <form>
                                         <span><input type="radio" class="payment_class" id="credit_card" name="payment_type">Credit Card</span>
                                         <span><input type="radio" class="payment_class" id="paypal" name="payment_type">Paypal</span>
-                                        <?php echo base_url(); ?>
                                     </form>
                                 </li>
                                 <li id="credit_card_form" style="display:none">
@@ -90,10 +89,13 @@
                                         <input type="hidden" name="page_style" value="paypal" />
                                         <input type="hidden" name="charset" value="utf-8" />
                                         <input type="hidden" name="item_name" value="<?php echo $plan->plan_name; ?>" />
-                                        <input type="hidden" name="custom" value="<?php echo $user->id."#".$plan->plan_id; ?>" />
+                                        <input type="hidden" name="custom" value="<?php echo $user->id."#".$plan->id; ?>" />
                                         <input type="hidden" name="cmd" value="_xclick-subscriptions" />
                                         <input type="hidden" name="src" value="1" />
                                         <input type="hidden" name="srt" value="0" />
+                                        <input type="text" name="a1" value="<?php echo $plan->plan_price; ?>" />
+                                        <input type="hidden" name="p1" value="<?php echo $plan->plan_duration; ?>" />
+                                        <input type="hidden" name="t1" value="<?php echo getPlanDurationLabelPaypal($plan->plan_duration_type); ?>" />
                                         <input type="hidden" name="a3" value="<?php echo $plan->plan_price; ?>" />
                                         <input type="hidden" name="p3" value="<?php echo $plan->plan_duration; ?>" />
                                         <input type="hidden" name="t3" value="<?php echo getPlanDurationLabelPaypal($plan->plan_duration_type); ?>" />

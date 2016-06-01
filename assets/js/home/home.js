@@ -49,11 +49,11 @@ $(document).ready(function() {
 
 
     $("#home_trending").click(function() {
-        
+
         $("#category_name").html('Categories');
         $("#category_name").data('genre', '');
         $("#category_name").removeClass('genre_active');
-        
+
         $("#home_song_type_container").show();
         $(".loading").show();
         var song_type = $(".home_song_type.active").attr('id'); // audio or video
@@ -71,10 +71,10 @@ $(document).ready(function() {
 
 
     $("#home_just_added").click(function() {
-         $("#category_name").html('Categories');
+        $("#category_name").html('Categories');
         $("#category_name").data('genre', '');
         $("#category_name").removeClass('genre_active');
-        
+
         $("#home_song_type_container").show();
         $(".loading").show();
         var song_type = $(".home_song_type.active").attr('id'); // audio or video
@@ -91,11 +91,11 @@ $(document).ready(function() {
 
 
     $(".genre_class").click(function() {
-        
+
         $("#home_trending").removeClass('select');
         $("#home_just_added").removeClass("select");
         $("#home_playlist").removeClass("select");
-        
+
         $("#category_name").html($(this).data('name'));
         $("#category_name").data('genre', $(this).data('genre'));
         $("#category_name").addClass('genre_active');
@@ -120,11 +120,11 @@ $(document).ready(function() {
 
 
     $("#home_playlist").click(function() {
-         $("#category_name").html('Categories');
+        $("#category_name").html('Categories');
         $("#category_name").data('genre', '');
         $("#category_name").removeClass('genre_active');
-        
-        
+
+
         $("#home_song_type_container").hide();
         $(".loading").show();
         var user = $(".home_song_type.active").data('user'); // dj user id
@@ -155,6 +155,23 @@ $(document).ready(function() {
             }
         })
     });
+
+
+    $('body').on("click", ".subscription_btn", function() {
+        $(".loading").show();
+        var plan = $(this).data('plan');
+        $.ajax({
+            url: base_url + "/home/AjaxPlanDetail",
+            method: "POST",
+            data: {'plan': plan},
+            success: function(data) {
+                $("#subscription_div_body").html(data);
+                $("#subscription_div").modal('show');
+                $(".loading").hide();
+            }
+        })
+    });
+
 
 
 
