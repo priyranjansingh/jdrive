@@ -393,25 +393,23 @@ class DefaultController extends Controller {
     public function actionChooseplans() {
         // echo "I am Here";
         //pre(Yii::app()->session['register_user_info'],true);
+        //$plans = BaseModel::getAll('Plans');
+        //$this->render('plans', array('plans' => $plans));
+
         $plans = BaseModel::getAll('Plans');
         $this->render('plans', array('plans' => $plans));
     }
-    
+
     public function actionAjaxPlanDetail() {
         $plan = $_POST['plan'];
         $plan = Plans::model()->findByPk($plan);
-        $this->renderPartial('ajax_plan_detail', array('plan' => $plan));
+        Yii::app()->session['register_user_plan'] = serialize($plan);
+        $user = Yii::app()->session['register_user_info'];
+        $user = unserialize($user);
+        $this->renderPartial('ajax_plan_detail', array('plan' => $plan,'user'=> $user));
     }
-    
-    
-    
-     public function actionChooseplans1() {
-        // echo "I am Here";
-        //pre(Yii::app()->session['register_user_info'],true);
-        $plans = BaseModel::getAll('Plans');
-        $this->render('plans1', array('plans' => $plans));
-    }
-    
+
+
 
     public function actionPayment($plan) {
         $this->layout = '//layouts/payment_main';
@@ -984,24 +982,55 @@ class DefaultController extends Controller {
     }
 
     public function actionSaveTransaction() {
-//        $plan = Yii::app()->session['register_user_plan'];
-//        $plan = unserialize($plan);
-//        $user = Yii::app()->session['register_user_info'];
-//        $user = unserialize($user);
-//
-//        $invoice = Invoice::model()->findByPk(getParam('invoice'));
-//        $inv_no = $invoice->invoice_text . '-' . $invoice->invoice_count;
-//        $transaction = new Transactions;
-//        $transaction->invoice = $inv_no;
-//        $transaction->user_id = $user->id;
-//        $transaction->plan_id = $plan->id;
-//        $transaction->payment_method = 'paypal';
-//        $transaction->amount = $plan->plan_price;
-//        $transaction->payment_status = 'pending';
-//        if ($transaction->save()) {
-//            $invoice->invoice_count = str_pad(($invoice->invoice_count + 1), 6, '0', STR_PAD_LEFT);
-//            $invoice->save();
-//        }
+        $plan = Yii::app()->session['register_user_plan'];
+        $plan = unserialize($plan);
+        $user = Yii::app()->session['register_user_info'];
+        $user = unserialize($user);
+
+        $invoice = Invoice::model()->findByPk(getParam('invoice'));
+        $inv_no = $invoice->invoice_text . '-' . $invoice->invoice_count;
+        $transaction = new Transactions;
+        $transaction->invoice = $inv_no;
+        $transaction->user_id = $user->id;
+        $transaction->plan_id = $plan->id;
+        $transaction->payment_method = 'paypal';
+        $transaction->amount = $plan->plan_price;
+        $transaction->payment_status = 'pending';
+        if ($transaction->save()) {
+            $invoice->invoice_count = str_pad(($invoice->invoice_count + 1), 6, '0', STR_PAD_LEFT);
+            $invoice->save();
+        }
+    }
+
+    public function actionApplyCouponCode() {
+        $code = $_POST['code'];
+        $plan = Yii::app()->session['register_user_plan'];
+        $plan = unserialize($plan);
+        $plan_price = $plan->plan_price;
+        $result_array = array();
+        if (!empty($code)) {
+            $cur_date = date("Y-m-d");
+            $coupon = Coupon::model()->find(array("condition" => "code = '$code' AND  status=1 AND deleted = 0 AND expiry_date >= '$cur_date' AND begin_date <= '$cur_date' "));
+            if (!empty($coupon)) {
+                $discount = $coupon->discount;
+                $discount_type = $coupon->discount_type;
+                if ($discount_type == 'number') {
+                    $final_payable_amount = $plan_price - $discount;
+                } else if ($discount_type == 'percent') {
+                    $final_payable_amount = $plan_price - ($plan_price * $discount / 100);
+                }
+                $result_array['status'] = 'success';
+                $result_array['message'] = 'Your final amount payable is ' . $final_payable_amount;
+                $result_array['amount'] = $final_payable_amount;
+            } else {
+                $result_array['status'] = 'failure';
+                $result_array['message'] = 'Sorry there is no coupon by this code';
+            }
+        } else {
+            $result_array['status'] = 'failure';
+            $result_array['message'] = 'Couponcode can not be blank';
+        }
+        echo json_encode($result_array);
     }
 
     public function actionNotify() {

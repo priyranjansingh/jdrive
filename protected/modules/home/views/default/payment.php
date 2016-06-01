@@ -78,9 +78,9 @@
                                     </form>
                                     <form id="paypal_hid_frm" name="frm_payment_method" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                                         <input type="hidden" name="business" value="singh.priyranjan-facilitator@gmail.com" />
-                                        <input type="hidden" name="notify_url" value="http://www.dealrush.in/jdrive/home/notify" />
-                                        <input type="hidden" name="cancel_return" value="http://www.dealrush.in/jdrive/home/cancel" />
-                                        <input type="hidden" name="return" value="http://www.dealrush.in/jdrive/home/thank" />
+                                        <input type="hidden" name="notify_url" value="<?php echo domainUrl() ?>/home/notify" />
+                                        <input type="hidden" name="cancel_return" value="<?php echo domainUrl() ?>/home/cancel" />
+                                        <input type="hidden" name="return" value="<?php echo domainUrl() ?>/home/thank" />
                                         <input type="hidden" name="rm" value="2" />
                                         <input type="hidden" name="lc" value="" />
                                         <input type="hidden" name="no_shipping" value="1" />
@@ -93,6 +93,9 @@
                                         <input type="hidden" name="cmd" value="_xclick-subscriptions" />
                                         <input type="hidden" name="src" value="1" />
                                         <input type="hidden" name="srt" value="0" />
+                                        <input type="text" name="a1" value="<?php echo $plan->plan_price; ?>" />
+                                        <input type="hidden" name="p1" value="<?php echo $plan->plan_duration; ?>" />
+                                        <input type="hidden" name="t1" value="<?php echo getPlanDurationLabelPaypal($plan->plan_duration_type); ?>" />
                                         <input type="hidden" name="a3" value="<?php echo $plan->plan_price; ?>" />
                                         <input type="hidden" name="p3" value="<?php echo $plan->plan_duration; ?>" />
                                         <input type="hidden" name="t3" value="<?php echo getPlanDurationLabelPaypal($plan->plan_duration_type); ?>" />

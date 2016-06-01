@@ -165,7 +165,6 @@ $(document).ready(function() {
             method: "POST",
             data: {'plan': plan},
             success: function(data) {
-                //alert(data);
                 $("#subscription_div_body").html(data);
                 $("#subscription_div").modal('show');
                 $(".loading").hide();

@@ -52,7 +52,6 @@ $(document).ready(function() {
     })
 
     $("#paypal_submit").click(function() {
-        alert("hello");
         $.ajax({
             url: base_url + "/home/SaveTransaction",
             method: "POST",
@@ -61,6 +60,29 @@ $(document).ready(function() {
             }
         })
     })
+
+
+    $("#mysubmit").click(function() {
+        var code = $.trim($("#couponcode").val());
+        $.ajax({
+            url: base_url + "/home/ApplyCouponCode",
+            method: "POST",
+            dataType: "json",
+            data:{'code':code},
+            success: function(data) {
+               if(data.status == 'failure')
+               {
+                   $("#coupon_err").html(data.message);
+               }
+               else if(data.status == 'success')
+               {
+                   $("input[name='a1']").val(data.amount);
+                   $("#coupon_err").html(data.message);
+               }    
+            }
+        })
+    })
+
 
 
 

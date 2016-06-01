@@ -1,6 +1,16 @@
 <div class="cd-pricing-container cd-has-margins inner_con bg_grey">
     <div class="wraper fc_black">
         <h2 class="fw600 mart15 marb15">Buy Your Membership Plan</h2>
+        <div>
+            Amount Payable :  <span class="cd-currency">$</span><?php echo $plan->plan_price; ?>
+            <form name="couponcode_frm" id="couponcode_frm" action="">
+                Enter Couponcode :  <input type="text" name="couponcode" id="couponcode" >
+                <input type="button" name="mysubmit" id="mysubmit" value="Apply" >
+                <div id="coupon_err"></div>
+            </form>
+        </div>
+        
+        
         <ul class="cd-pricing-list cd-bounce-invert">
             <li>
                 <ul class="cd-pricing-wrapper">
@@ -89,10 +99,13 @@
                                         <input type="hidden" name="page_style" value="paypal" />
                                         <input type="hidden" name="charset" value="utf-8" />
                                         <input type="hidden" name="item_name" value="<?php echo $plan->plan_name; ?>" />
-                                        <input type="hidden" name="custom" value="<?php //echo $user->id."#".$plan->id; ?>" />
+                                        <input type="hidden" name="custom" value="<?php echo $user->id."#".$plan->id; ?>" />
                                         <input type="hidden" name="cmd" value="_xclick-subscriptions" />
                                         <input type="hidden" name="src" value="1" />
                                         <input type="hidden" name="srt" value="0" />
+                                        <input type="text" name="a1" value="<?php echo $plan->plan_price; ?>" />
+                                        <input type="hidden" name="p1" value="<?php echo $plan->plan_duration; ?>" />
+                                        <input type="hidden" name="t1" value="<?php echo getPlanDurationLabelPaypal($plan->plan_duration_type); ?>" />
                                         <input type="hidden" name="a3" value="<?php echo $plan->plan_price; ?>" />
                                         <input type="hidden" name="p3" value="<?php echo $plan->plan_duration; ?>" />
                                         <input type="hidden" name="t3" value="<?php echo getPlanDurationLabelPaypal($plan->plan_duration_type); ?>" />
