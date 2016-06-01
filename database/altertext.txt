@@ -85,3 +85,7 @@ CREATE TABLE IF NOT EXISTS `song_share` (
 
 ALTER TABLE `song_share` ADD `type` TINYINT(1) NOT NULL AFTER `user_id`;
 
+01-06-2016
+
+ALTER TABLE  `plans` ADD  `plan_serial` TINYINT( 1 ) NOT NULL AFTER  `free_duration_type` ;
+ALTER TABLE  `plans` ADD  `plan_type` ENUM(  'basic',  'premium',  'pro' ) NOT NULL DEFAULT  'basic' AFTER  `plan_serial` ;
