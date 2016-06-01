@@ -103,7 +103,7 @@
                                         <input type="hidden" name="cmd" value="_xclick-subscriptions" />
                                         <input type="hidden" name="src" value="1" />
                                         <input type="hidden" name="srt" value="0" />
-                                        <input type="text" name="a1" value="<?php echo $plan->plan_price; ?>" />
+                                        <input type="hidden" name="a1" value="<?php echo $plan->plan_price; ?>" />
                                         <input type="hidden" name="p1" value="<?php echo $plan->plan_duration; ?>" />
                                         <input type="hidden" name="t1" value="<?php echo getPlanDurationLabelPaypal($plan->plan_duration_type); ?>" />
                                         <input type="hidden" name="a3" value="<?php echo $plan->plan_price; ?>" />
