@@ -363,6 +363,7 @@ Main Components
 @media only screen and (min-width: 768px) {
   .cd-price {
       margin-top: 35px;
+      padding-bottom: 20px;
   }
   .cd-pricing-list {
     margin: 3em 0 0;

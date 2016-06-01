@@ -17,8 +17,9 @@
         <link href="<?php echo $baseUrl; ?>/css/bootstrap.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/jquery.fileupload.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/owl.carousel.css" rel="stylesheet" type="text/css">
-        <link href="<?php echo $baseUrl; ?>/css/jplayer.pink.flag.css" rel="stylesheet" type="text/css">
+        <!-- <link href="<?php echo $baseUrl; ?>/css/jplayer.pink.flag.css" rel="stylesheet" type="text/css"> -->
         <link href="<?php echo $baseUrl; ?>/css/style.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo $baseUrl; ?>/css/developer.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/membership.css" rel="stylesheet" type="text/css">
         <link href="<?php echo $baseUrl; ?>/css/responsive.css" rel="stylesheet" type="text/css">
 
@@ -28,11 +29,13 @@
         <script src="<?php echo $baseUrl; ?>/js/owl.carousel.js"></script>
         <script src="<?php echo $baseUrl; ?>/js/jquery.jplayer.min.js"></script>
         <script src="<?php echo $baseUrl; ?>/js/jplayer.playlist.min.js"></script>
-        <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/custom.js"></script>
         <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+        <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/custom.js"></script>
+        <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/songwidget.js"></script>
+        
         <script>
             var base_url = "<?php echo base_url(); ?>";
-        </script>
+        </script>    
     </head>
 
     <body>
@@ -56,6 +59,14 @@
                     </div>
                     <div class="modal-body">
                         <form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <p>Choose How Files Will be uploaded Privately or Public.</p>
+                                    <input type="radio" name="file_mode" class="file_mode" checked="checked" value="authenticated-read" />Public
+                                    <input type="radio" name="file_mode" class="file_mode" value="private" />Private
+                                </div>
+                            </div>
+                            <div class="row">&nbsp;</div>
                             <!-- Redirect browsers with JavaScript disabled to the origin page -->
                             <noscript>
                             <input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/">
@@ -113,8 +124,20 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="widget_success_upload">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content log_pan">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Notification</h4>
+                    </div>
+                    <div class="modal-body">
+                        Successfully Added To Your Drive.
+                    </div>
+                </div>
+            </div>
+        </div>
 
-      
         <div class="modal fade" id="Login-pop">
             <div class="modal-dialog" role="document">
                 <div class="modal-content log_pan">
@@ -155,14 +178,82 @@
         </div>
 
 
+        <div class="modal fade" id="ajax_add_playlist">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content log_pan">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Add To Playlist</h4>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-header" style="margin-bottom: 50px;"></div>
+                    <div>
+                        <?php $this->widget('AddPlaylistWidget'); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="edit_song_div">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content log_pan">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Edit Song Information</h4>
+                    </div>
+                    <div class="modal-body" id="edit_song_div_body">
+                    </div>
+                    <div class="modal-footer"> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+         <div class="modal fade" id="subscription_div">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content log_pan">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Choose Payment Method</h4>
+                    </div>
+                    <div class="modal-body" id="subscription_div_body">
+                    </div>
+                    <div class="modal-footer"> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="modal fade" id="delete_song_div">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content log_pan">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Want to delete this song?</h4>
+                    </div>
+                    <div class="modal-body" id="delete_song_div_body">
+                        <input id="delete_yes" type="button" value="Yes" data-song="" class="btn_small bg_blue delete_option">
+                        <input id="delete_no" type="button" value="No" data-song="" class="btn_small bg_blue delete_option">
+                    </div>
+                    <div class="modal-footer"> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+
         <!-- The template to display files available for upload -->
         <script id="template-upload" type="text/x-tmpl">
             {% for (var i=0, file; file=o.files[i]; i++) { %}
             <tr class="template-upload fade">
-            <td>
-            <span class="preview"></span>
-            </td>
-            <td>
+            <td colspan="2" class="filename">
             <p class="name">{%=file.name%}</p>
             <strong class="error text-danger"></strong>
             </td>
@@ -230,12 +321,11 @@
             </tr>
             {% } %}
         </script>
-
+        <script>
+            var base_url = "<?php echo base_url(); ?>";
+        </script>
         <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
         <script src="<?php echo $baseUrl; ?>/js/vendor/jquery.ui.widget.js"></script>
-
-        <script src="<?php echo $baseUrl; ?>/js/jquery.payment.js"></script>
-
         <!-- The Templates plugin is included to render the upload/download listings -->
         <script src="//blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
         <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
@@ -264,12 +354,14 @@
         <script src="<?php echo $baseUrl; ?>/js/jquery.fileupload-ui.js"></script>
         <!-- The main application script -->
         <script src="<?php echo $baseUrl; ?>/js/main.js"></script>
-
+        <script src="<?php echo $baseUrl; ?>/js/jquery-ui.js"></script>
+        <script src="<?php echo $baseUrl; ?>/js/common.js"></script>
         <script src="<?php echo $baseUrl; ?>/js/payment.js"></script>
         <!-- The XDomainRequest Transport is included for cross-domain file deletion for IE 8 and IE 9 -->
         <!--[if (gte IE 8)&(lt IE 10)]>
         <script src="js/cors/jquery.xdr-transport.js"></script>
         <![endif]-->
 
+        <span class="loading"></span>
     </body>
 </html>

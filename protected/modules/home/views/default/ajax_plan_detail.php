@@ -1,127 +1,139 @@
-<div class="cd-pricing-container cd-has-margins inner_con bg_grey">
-    <div class="wraper fc_black">
-        <h2 class="fw600 mart15 marb15">Buy Your Membership Plan</h2>
-        <div>
-            Amount Payable :  <span class="cd-currency">$</span><?php echo $plan->plan_price; ?>
-            <form name="couponcode_frm" id="couponcode_frm" action="">
-                Enter Couponcode :  <input type="text" name="couponcode" id="couponcode" >
-                <input type="button" name="mysubmit" id="mysubmit" value="Apply" >
-                <div id="coupon_err"></div>
-            </form>
-        </div>
+<div class="body">
         
-        
-        <ul class="cd-pricing-list cd-bounce-invert">
-            <li>
-                <ul class="cd-pricing-wrapper">
-                    <li class="is-ended is-visible">
-                        <header class="cd-pricing-header">
-                            <h2><?php echo $plan->plan_name; ?></h2>
-
-                            <div class="cd-price">
-                                <span class="cd-currency">$</span>
-                                <span class="cd-value"><?php echo $plan->plan_price; ?></span>
-                                <span class="cd-duration"><?php echo $plan->plan_duration; ?></span>
-                            </div>
-                        </header> <!-- .cd-pricing-header -->
-
-                        <div class="cd-pricing-body">
-                            <ul class="cd-pricing-features">
-                                <li><em>1</em> <?php echo $plan->plan_desc; ?></li>
-                            </ul>
-                        </div> <!-- .cd-pricing-body -->
-
-                        <footer class="cd-pricing-footer">
-                            <a class="cd-select" href="javascript:void(0);">Choosen</a>
-                        </footer>  <!-- .cd-pricing-footer -->
-                    </li>
-                </ul> <!-- .cd-pricing-wrapper -->
-            </li>
-            <li>
-                <ul class="cd-pricing-wrapper">
-                    <li class="is-ended is-visible">
-                        <header class="cd-pricing-header">
-                            <h2>Payment Method</h2>
-                        </header> <!-- .cd-pricing-header -->					
-                        <div class="cd-pricing-body">
-                            <ul class="cd-pricing-features">
-                                <li class="payment_method">
-                                    <form>
-                                        <span><input type="radio" class="payment_class" id="credit_card" name="payment_type">Credit Card</span>
-                                        <span><input type="radio" class="payment_class" id="paypal" name="payment_type">Paypal</span>
-                                    </form>
-                                </li>
-                                <li id="credit_card_form" style="display:none">
-                                    <form action="<?php echo base_url() . '/home/process'; ?>" method="POST" id="payment-form">
-                                        <span class="payment-errors"></span>
-
-                                        <div class="form-row">
-                                            <label>
-                                                <span>Card Number</span>
-                                                <input type="text" class="control-label" size="20" maxlength="16" data-stripe="number">
-                                            </label>
-                                        </div>
-
-                                        <div class="form-row">
-                                            <label>
-                                                <span>Expiration (MM/YY)</span>
-                                                <input type="text" class="control-label" size="2" maxlength="2" data-stripe="exp_month">
-                                            </label>
-                                            <span> / </span>
-                                            <input type="text" class="control-label" size="4" maxlength="4" data-stripe="exp_year">
-                                        </div>
-
-                                        <div class="form-row">
-                                            <label>
-                                                <span>CVC</span>
-                                                <input type="text" class="control-label" size="4" maxlength="4" data-stripe="cvc">
-                                            </label>
-                                        </div>
-
-                                        <input type="submit" class="submit" value="Pay Now">
-                                    </form>
-                                </li>
-
-                                <li id="paypal_form" style="display:none">
-                                    <form action="#" method="POST" >
-                                        <input type="button" id="paypal_submit" class="submit" value="Pay Now">
-                                    </form>
-                                    <form id="paypal_hid_frm" name="frm_payment_method" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-                                        <input type="hidden" name="business" value="singh.priyranjan-facilitator@gmail.com" />
-                                        <input type="hidden" name="notify_url" value="http://www.dealrush.in/jdrive/home/notify" />
-                                        <input type="hidden" name="cancel_return" value="http://www.dealrush.in/jdrive/home/cancel" />
-                                        <input type="hidden" name="return" value="http://www.dealrush.in/jdrive/home/thank" />
-                                        <input type="hidden" name="rm" value="2" />
-                                        <input type="hidden" name="lc" value="" />
-                                        <input type="hidden" name="no_shipping" value="1" />
-                                        <input type="hidden" name="no_note" value="1" />
-                                        <input type="hidden" name="currency_code" value="USD" />
-                                        <input type="hidden" name="page_style" value="paypal" />
-                                        <input type="hidden" name="charset" value="utf-8" />
-                                        <input type="hidden" name="item_name" value="<?php echo $plan->plan_name; ?>" />
-                                        <input type="hidden" name="custom" value="<?php echo $user->id."#".$plan->id; ?>" />
-                                        <input type="hidden" name="cmd" value="_xclick-subscriptions" />
-                                        <input type="hidden" name="src" value="1" />
-                                        <input type="hidden" name="srt" value="0" />
-                                        <input type="text" name="a1" value="<?php echo $plan->plan_price; ?>" />
-                                        <input type="hidden" name="p1" value="<?php echo $plan->plan_duration; ?>" />
-                                        <input type="hidden" name="t1" value="<?php echo getPlanDurationLabelPaypal($plan->plan_duration_type); ?>" />
-                                        <input type="hidden" name="a3" value="<?php echo $plan->plan_price; ?>" />
-                                        <input type="hidden" name="p3" value="<?php echo $plan->plan_duration; ?>" />
-                                        <input type="hidden" name="t3" value="<?php echo getPlanDurationLabelPaypal($plan->plan_duration_type); ?>" />
-                                    </form>
-                                </li>
-                                <!-- <li class="payment_method"><em>2</em>Paypal</li> -->
-                            </ul>
+            <div class="sky-form">
+                <fieldset>                  
+                    <div class="row">
+                        <section class="col col-12">
+                            <label class="select">
+                                Your Choosen Plan: <?php echo $plan->plan_name.' - $'.$plan->plan_price; ?>
+                            </label>
+                        </section>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <section>
+                        <div class="inline-group">
+                            <label class="radio">Apply Coupon</label>
                         </div>
-                    </li>
-                </ul>
-            </li>
-        </ul> <!-- .cd-pricing-list -->
+                    </section> 
+                </fieldset>    
+                <form name="couponcode_frm" id="couponcode_frm" action="">
+                    <fieldset>
+                        <div class="row">
+                            <section class="col col-6">
+                                <label class="input">
+                                    <i class="icon-prepend icon-user"></i>
+                                    <input type="text" name="couponcode" id="couponcode" placeholder="Enter Coupon Code">
+                                </label>
+                                <div id="coupon_err"></div>
+                            </section>
+                            <section class="col col-6">
+                                <label class="input">
+                                    <input type="button" name="mysubmit" id="mysubmit" class="button" value="Apply Coupon">
+                                </label>
+                            </section>
+                        </div>
+                    </fieldset>    
+                </form>                  
+                
+                <fieldset>
+                    <section>
+                        <div class="inline-group">
+                            <label class="radio">
+                                <input type="radio" name="radio-inline" data-type="cc" class="payment_method_radio">
+                                <i></i>Credit Card
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="radio-inline" data-type="paypal" class="payment_method_radio">
+                                <i></i>PayPal
+                            </label>
+                        </div>
+                    </section>                  
+                    <div id="cc_method" style="display:none;">
+                    <form action="<?php echo base_url() . '/home/process'; ?>" method="POST" id="payment-form">
+                        <span class="payment-errors"></span>
 
+                        <div class="row">
+                            <section class="col col-10">
+                                <label class="input">
+                                    <input type="text" placeholder="Card numberd" size="20" maxlength="20" data-stripe="number">
+                                </label>
+                            </section>
+                            <section class="col col-2">
+                                <label class="input">
+                                    <input type="text" maxlength="3" placeholder="CVV" size="4" maxlength="4" data-stripe="cvc">
+                                </label>
+                            </section>
+                        </div>
+
+                        <div class="row">
+                            <label class="label col col-4">Expiration date</label>
+                            <section class="col col-5">
+                                <label class="select">
+                                    <select data-stripe="exp_month">
+                                        <option value="0" selected disabled>Month</option>
+                                        <option value="1">January</option>
+                                        <option value="1">February</option>
+                                        <option value="3">March</option>
+                                        <option value="4">April</option>
+                                        <option value="5">May</option>
+                                        <option value="6">June</option>
+                                        <option value="7">July</option>
+                                        <option value="8">August</option>
+                                        <option value="9">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+                                    <i></i>
+                                </label>
+                            </section>
+                            <section class="col col-3">
+                                <label class="input">
+                                    <input type="text" maxlength="4" placeholder="Year" data-stripe="exp_year">
+                                </label>
+                            </section>
+                        </div>
+
+                        <input type="submit" class="submit button" id="cc_pay" value="Pay Now">
+                    </form>
+                    </div>
+                    <div id="paypal_method" style="display:none;">
+                        <form action="#" method="POST" >
+                            <input type="button" id="paypal_submit" class="submit button" value="Pay Now">
+                        </form>
+                        <form id="paypal_hid_frm" name="frm_payment_method" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                            <input type="hidden" name="business" value="<?php echo getParam('paypal_business_email'); ?>" />
+                            <input type="hidden" name="notify_url" value="<?php echo getParam('paypal_notify_url'); ?>" />
+                            <input type="hidden" name="cancel_return" value="<?php echo getParam('paypal_cancel_url'); ?>" />
+                            <input type="hidden" name="return" value="<?php echo getParam('paypal_return_url'); ?>" />
+                            <input type="hidden" name="rm" value="2" />
+                            <input type="hidden" name="lc" value="" />
+                            <input type="hidden" name="no_shipping" value="1" />
+                            <input type="hidden" name="no_note" value="1" />
+                            <input type="hidden" name="currency_code" value="USD" />
+                            <input type="hidden" name="page_style" value="paypal" />
+                            <input type="hidden" name="charset" value="utf-8" />
+                            <input type="hidden" name="item_name" value="<?php echo $plan->plan_name; ?>" />
+                            <input type="hidden" name="custom" value="<?php echo $user->id."#".$plan->id; ?>" />
+                            <input type="hidden" name="cmd" value="_xclick-subscriptions" />
+                            <input type="hidden" name="src" value="1" />
+                            <input type="hidden" name="srt" value="0" />
+                            <input type="hidden" name="a1" value="<?php echo $plan->plan_price; ?>" />
+                            <input type="hidden" name="p1" value="<?php echo $plan->plan_duration; ?>" />
+                            <input type="hidden" name="t1" value="<?php echo getPlanDurationLabelPaypal($plan->plan_duration_type); ?>" />
+                            <input type="hidden" name="a3" value="<?php echo $plan->plan_price; ?>" />
+                            <input type="hidden" name="p3" value="<?php echo $plan->plan_duration; ?>" />
+                            <input type="hidden" name="t3" value="<?php echo getPlanDurationLabelPaypal($plan->plan_duration_type); ?>" />
+                        </form>        
+                    </div>
+                </fieldset>
+            
+        </div>
     </div>
-</div>
- <?php
+<?php
         $baseUrl = Yii::app()->theme->baseUrl;
  ?>
-<script src="<?php echo $baseUrl; ?>/js/payment.js"></script>
+<script type="text/javascript">
+    Stripe.setPublishableKey('<?php echo getParam('stripe_access_key'); ?>');
+</script>

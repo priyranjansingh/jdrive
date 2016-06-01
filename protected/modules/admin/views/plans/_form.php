@@ -47,6 +47,18 @@
 			<?php echo $form->error($model,'free_duration_type'); ?>
 		</div>
 	</div>
+	<div class="form-group">
+		<div class="col-xs-6">
+			<?php echo $form->labelEx($model,'plan_serial'); ?>
+			<?php echo $form->textField($model,'plan_serial',array('size'=>'60','maxlength'=>'128','class' => 'form-control')); ?>
+			<?php echo $form->error($model,'plan_serial'); ?>
+		</div>
+		<div class="col-xs-6">
+			<?php echo $form->labelEx($model,'plan_type'); ?>
+			<?php echo $form->dropDownList($model,'plan_type',getParam('plan_type'),array('empty'=>'Select Duration Type','class' => 'form-control')); ?>
+			<?php echo $form->error($model,'plan_type'); ?>
+		</div>
+	</div>
 </div>
 <div class="box-footer">
     <?php echo CHtml::link('Back', array('/admin/plans'), array("class" => 'btn btn-info pull-right', "style" => "margin-left:10px;")); ?>
