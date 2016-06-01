@@ -6,7 +6,7 @@
                         <div class="jp-album">
                             <div class="row ">
                                 <div class="col-lg-2 col-md-4 col-sm-1">
-                                    <div class="jp-cover">
+                                    <div class="jp-cover" id="album_art">
                                         <img src="<?php echo $baseUrl;?>/img/thumb.jpg" alt="cover">
                                     </div>
                                 </div>
