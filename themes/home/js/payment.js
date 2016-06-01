@@ -52,6 +52,7 @@ $(document).ready(function() {
     })
 
     $("#paypal_submit").click(function() {
+        alert("hello");
         $.ajax({
             url: base_url + "/home/SaveTransaction",
             method: "POST",

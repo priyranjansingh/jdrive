@@ -39,7 +39,6 @@
                                     <form>
                                         <span><input type="radio" class="payment_class" id="credit_card" name="payment_type">Credit Card</span>
                                         <span><input type="radio" class="payment_class" id="paypal" name="payment_type">Paypal</span>
-                                        <?php echo base_url(); ?>
                                     </form>
                                 </li>
                                 <li id="credit_card_form" style="display:none">
@@ -79,9 +78,9 @@
                                     </form>
                                     <form id="paypal_hid_frm" name="frm_payment_method" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
                                         <input type="hidden" name="business" value="singh.priyranjan-facilitator@gmail.com" />
-                                        <input type="hidden" name="notify_url" value="<?php echo domainUrl() ?>/home/notify" />
-                                        <input type="hidden" name="cancel_return" value="<?php echo domainUrl() ?>/home/cancel" />
-                                        <input type="hidden" name="return" value="<?php echo domainUrl() ?>/home/thank" />
+                                        <input type="hidden" name="notify_url" value="http://www.dealrush.in/jdrive/home/notify" />
+                                        <input type="hidden" name="cancel_return" value="http://www.dealrush.in/jdrive/home/cancel" />
+                                        <input type="hidden" name="return" value="http://www.dealrush.in/jdrive/home/thank" />
                                         <input type="hidden" name="rm" value="2" />
                                         <input type="hidden" name="lc" value="" />
                                         <input type="hidden" name="no_shipping" value="1" />
@@ -90,7 +89,7 @@
                                         <input type="hidden" name="page_style" value="paypal" />
                                         <input type="hidden" name="charset" value="utf-8" />
                                         <input type="hidden" name="item_name" value="<?php echo $plan->plan_name; ?>" />
-                                        <input type="hidden" name="custom" value="<?php echo $user->id."#".$plan->plan_id; ?>" />
+                                        <input type="hidden" name="custom" value="<?php echo $user->id."#".$plan->id; ?>" />
                                         <input type="hidden" name="cmd" value="_xclick-subscriptions" />
                                         <input type="hidden" name="src" value="1" />
                                         <input type="hidden" name="srt" value="0" />
