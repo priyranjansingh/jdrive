@@ -68,13 +68,10 @@ h5{ font-size:16px;}
 .btn_small:hover, .btn_big:hover, .btn_search:hover{ opacity:0.7; text-decoration:none;}
 
 /*Pagination*/
-.pagination > li > a, .pagination > li > span{ color:#d01818;}
-.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{ background:#d01818; color:#fff; border:1px solid #ccc;}
-.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus{background:#d01818; color:#fff; }
-/*.pagination{ text-align:center;}
+.pagination{ text-align:center;}
 .pagination li{ display: inline-block; vertical-align: top; }
 .pagination li a{background:#f1f1f1; color:#373737; padding:7px 15px; height: 30px; vertical-align: top; display: inline-block; border:1px solid #ddd;}
-.pagination li a:hover, .pagination li.active a{background:#fdca05; color:#373737; text-decoration:none;}*/
+.pagination li a:hover, .pagination li.active a{background:#fdca05; color:#373737; text-decoration:none;}
 
 /*List*/
 ol, ul {margin-bottom: 0px; margin-top: 0;}
@@ -161,7 +158,6 @@ ol.list li{ list-style:decimal; margin-bottom:7px;}
 .utable .last{ width:21%; text-align:right;}
 /*------------------------------------Custom part-------------------------------------------------------*/
 .wraper{/*1170px*/ width:94%; margin:0 auto; position: relative;}
-.wraper_sm{ width:30%; margin:0 auto;}
 
 /*header*/
 .header{ padding:0px 0px;}
@@ -232,7 +228,6 @@ ol.list li{ list-style:decimal; margin-bottom:7px;}
 
 .a_list:after{ content:''; display:block; clear:both;}
 .a_list>li{ width:20%; float:left; /*margin:15px 0;*/ padding:10px; max-width:243px;}
-.a_list.list_p>li{ width:16.6%;}
 .a_list .i_info{ position:relative; overflow:hidden;}
 .a_list .i_info .play_btn{ position:absolute; top:0; left:0; width:100%; height:100%; padding-top:30%; text-align:center; color:#7d0000; opacity:0;}
 .a_list .i_info:hover .play_btn{ opacity:1;}
@@ -369,7 +364,7 @@ ol.list li{ list-style:decimal; margin-bottom:7px;}
 	font-weight: 300;
 	color: #3e4f6a;
 	margin: 0;
-	padding: .6em 0 .1em;
+	padding: .6em 0;
 }
 
 .planContainer .title h2.bestPlanTitle {
@@ -427,14 +422,14 @@ ol.list li{ list-style:decimal; margin-bottom:7px;}
 .planContainer .button a {
 	text-transform: uppercase;
 	text-decoration: none;
-	/*color: #a30000;*/
+	color: #a30000;
 	font-weight: 700;
 	letter-spacing: 3px;
 	line-height: 2.8em;
-	/*border: 2px solid #a30000;*/
+	border: 2px solid #a30000;
 	display: inline-block;
 	width: 80%;
-	/*height: 2.8em;*/
+	height: 2.8em;
 	border-radius: 4px;
 	margin: 1.5em 0 1.8em;
 }
@@ -510,362 +505,4 @@ input.submit {
     width: 100%;
     color: #fff;
     text-transform: uppercase;
-}
-/*30-5-2016*/
-.basic_p{ background:#d4d4d4; color:#333;}
-.pre_p{ background:#f1d75f; color:#333;}
-.pro_p{ background:#a27ed5; color:#333;}
-.separetor{ border-bottom:1px solid #ccc;}
-.sub_t{ padding-bottom:.6em; display:block;}
-.planContainer .button a.b_mar{ margin:7.5em 0;}
-
-
-
-
-.discover-blocks .onramp-genre {
-    background-color: #fff;
-    border: 1px solid #d7d7d7;
-    display: inline-block;
-    float: none;
-    height: 120px;
-    width: 120px;
-	margin: 8px;
-	color: #919191;
-    cursor: pointer;
-    position: relative;
-	border-radius: 5px;
-    padding: 9px;
-}
-.genre-ambient, .genre-ambient-chillout {
-    background-position: 0 -33px;
-    height: 41px;
-    margin-top: 30px;
-    width: 68px;
-}
-.genre-title {
-	font-size: 14px;
-    font-weight: 600;
-    bottom: 5px;
-    left: 0;
-    line-height: 30px;
-    margin: 0;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-}
-
-/*Catagory icon*/
-
-.genre-icon {
-	margin: 0 auto;
-	background-image: url(../img/category-sprite-7.png);
-	background-size: 148px 5379px;
-	background-position: 0 0;
-	background-repeat: no-repeat
-}
-.genre-ambient, .genre-ambient-chillout {
-	background-position: 0 -33px;
-	width: 68px;
-	height: 41px;
-	margin-top: 30px
-}
-.genre-chillout {
-	background-position: 0 -2270px;
-	width: 60px;
-	height: 60px;
-	margin-top: 18px
-}
-.genre-beats {
-	background-position: 0 -735px;
-	width: 40px;
-	height: 53px;
-	margin-top: 23px
-}
-.genre-classical {
-	background-position: 0 -533px;
-	width: 53px;
-	height: 45px;
-	margin-top: 24px
-}
-.genre-dnb, .genre-drum-bass, .genre-drum-and-bass {
-	background-position: 0 -368px;
-	width: 56px;
-	height: 55px;
-	margin-top: 16px
-}
-.genre-dubstep {
-	background-position: 0 -578px;
-	width: 52px;
-	height: 52px;
-	margin-top: 21px
-}
-.genre-edm {
-	background-position: 0 -115px;
-	width: 63px;
-	height: 48px;
-	margin-top: 22px
-}
-.genre-electronica {
-	background-position: 0 -163px;
-	width: 60px;
-	height: 49px;
-	margin-top: 23px
-}
-.genre-hip-hop, .genre-hiphop, .genre-hip-hop-rap {
-	background-position: 0 -74px;
-	width: 65px;
-	height: 41px;
-	margin-top: 26px
-}
-.genre-rap {
-	background-position: 0 -2330px;
-	width: 60px;
-	height: 60px;
-	margin-top: 18px
-}
-.genre-house {
-	background-position: 0 -212px;
-	width: 60px;
-	height: 48px;
-	margin-top: 24px
-}
-.genre-jazz {
-	background-position: 8px 0;
-	width: 80px;
-	height: 33px;
-	margin-top: 31px
-}
-.genre-pop {
-	background-position: 0 -423px;
-	width: 55px;
-	height: 55px;
-	margin-top: 20px
-}
-.genre-dub {
-	background-position: 0 -2390px;
-	width: 46px;
-	height: 60px;
-	margin-top: 18px
-}
-.genre-reggae, .genre-reggae-dub {
-	background-position: 0 -260px;
-	width: 60px;
-	height: 50px;
-	margin-top: 21px
-}
-.genre-rock {
-	background-position: 0 -686px;
-	width: 41px;
-	height: 49px;
-	margin-top: 22px
-}
-.genre-news {
-	background-position: 0 -2450px;
-	width: 42px;
-	height: 60px;
-	margin-top: 18px
-}
-.genre-interview, .genre-talk {
-	background-position: 0 -788px;
-	width: 34px;
-	height: 57px;
-	margin-top: 20px
-}
-.genre-trance {
-	background-position: 0 -630px;
-	width: 52px;
-	height: 56px;
-	margin-top: 20px
-}
-.genre-techno {
-	background-position: 0 -310px;
-	width: 58px;
-	height: 58px;
-	margin-top: 19px
-}
-.genre-soul {
-	background-position: 0 -2510px;
-	width: 52px;
-	height: 60px;
-	margin-top: 18px
-}
-.genre-funk, .genre-funk-soul {
-	background-position: 4px -478px;
-	width: 60px;
-	height: 55px;
-	margin-top: 19px
-}
-.genre-rb, .genre-rnb {
-	background-position: -34px -788px;
-	width: 33px;
-	height: 60px;
-	margin-top: 19px
-}
-.genre-technology {
-	background-position: 0 -848px;
-	width: 65px;
-	height: 24px;
-	margin-top: 34px
-}
-.genre-record-labels {
-	background-position: 0 -872px;
-	width: 58px;
-	height: 58px;
-	margin-top: 18px
-}
-.genre-sound-of-london {
-	background-position: 0 -930px;
-	width: 34px;
-	height: 69px;
-	margin-top: 10px
-}
-.genre-politics, .genre-world {
-	background-position: 0 -999px;
-	width: 58px;
-	height: 58px;
-	margin-top: 19px
-}
-.genre-culture {
-	background-position: 0 -1057px;
-	width: 58px;
-	height: 58px;
-	margin-top: 19px
-}
-.genre-food {
-	background-position: 0 -1115px;
-	width: 55px;
-	height: 55px;
-	margin-top: 19px
-}
-.genre-education {
-	background-position: 0 -1170px;
-	width: 66px;
-	height: 46px;
-	margin-top: 23px
-}
-.genre-superstar-djs {
-	background-position: 0 -1216px;
-	width: 56px;
-	height: 56px;
-	margin-top: 20px
-}
-.genre-mix-series {
-	background-position: 0 -1272px;
-	width: 60px;
-	height: 40px;
-	margin-top: 27px
-}
-.genre-deep-house {
-	background-position: 0 -1312px;
-	width: 58px;
-	height: 49px;
-	margin-top: 22px
-}
-.genre-clubs {
-	background-position: 0 -1361px;
-	width: 57px;
-	height: 57px;
-	margin-top: 20px
-}
-.genre-festivals {
-	background-position: 0 -1418px;
-	width: 58px;
-	height: 58px;
-	margin-top: 19px
-}
-.genre-sport {
-	background-position: 0 -1476px;
-	width: 57px;
-	height: 57px;
-	margin-top: 20px
-}
-.genre-science {
-	background-position: 0 -1533px;
-	width: 30px;
-	height: 65px;
-	margin-top: 14px
-}
-.genre-business {
-	background-position: 0 -1598px;
-	width: 58px;
-	height: 58px;
-	margin-top: 19px
-}
-.genre-monocle-radio {
-	background-position: 0 -1656px;
-	width: 58px;
-	height: 58px;
-	margin-top: 18px
-}
-.genre-lifestyle {
-	background-position: 0 -1714px;
-	width: 58px;
-	height: 48px;
-	margin-top: 22px
-}
-.genre-comedy {
-	background-position: 0 -1762px;
-	width: 60px;
-	height: 42px;
-	margin-top: 25px
-}
-.genre-politics {
-	background-position: 0 -1804px;
-	width: 58px;
-	height: 49px;
-	margin-top: 28px
-}
-.genre-indie {
-	background-position: 0 -1853px;
-	width: 58px;
-	height: 50px;
-	margin-top: 22px
-}
-.genre-bass {
-	background-position: 0 -1903px;
-	width: 58px;
-	height: 58px;
-	margin-top: 20px
-}
-.genre-female-djs {
-	background-position: 0 -1961px;
-	width: 38px;
-	height: 60px;
-	margin-top: 18px
-}
-.genre-sound-of-la {
-	background-position: 0 -2021px;
-	width: 42px;
-	height: 60px;
-	margin-top: 17px
-}
-.genre-trap {
-	background-position: 0 -2081px;
-	width: 59px;
-	height: 56px;
-	margin-top: 20px
-}
-.genre-garage {
-	background-position: 0 -2137px;
-	width: 34px;
-	height: 60px;
-	margin-top: 17px
-}
-.genre-grime {
-	background-position: 0 -2197px;
-	width: 60px;
-	height: 24px;
-	margin-top: 39px
-}
-.genre-tech-house {
-	background-position: 0 -2221px;
-	width: 60px;
-	height: 48px;
-	margin-top: 24px
-}
-.genre-radio-stations {
-	background-position: 0 -2269px;
-	width: 60px;
-	height: 60px;
-	margin-top: 14px
 }

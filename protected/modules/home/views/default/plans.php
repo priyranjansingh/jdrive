@@ -10,7 +10,15 @@
                         ?>         
                         <li class="plan">
                             <ul class="planContainer">
-                                <li class="title pre_p">
+                                <?php
+                                    $plan_class = "basic_p";
+                                    if($plan->plan_type == 'premium'){
+                                        $plan_class = "pre_p";
+                                    } else if($plan->plan_type == 'pro'){
+                                        $plan_class = "pro_p";
+                                    }
+                                ?>
+                                <li class="title <?php echo $plan_class; ?>">
                                     <h2><?php echo $plan->plan_name; ?></h2>
                                     <div class="cd-price">
                                         <span class="cd-currency">$</span>
@@ -28,20 +36,44 @@
                                                     <em>1</em> <?php echo $plan->plan_desc; ?>
                                                 </strong>
                                             </span></li>
-                                        <li class="separetor"><span><strong>Premium Badge</strong></span></li>
-                                        <li class="separetor"><span><strong>No Adverts</strong></span></li>
-                                        <li class="separetor"><span><strong>Advanced Profile Customisation</strong></span></li>
-                                        <li class="separetor"><span>Basic Statistics</span></li>
-                                        <li><span>&nbsp;</span></li>
-                                        <li><span>&nbsp;</span></li>
-                                        <li ><span>No Extras</span></li>
-                                        <li><span>&nbsp;</span></li>
-                                        <li class="separetor"><span>&nbsp;</span></li>
+                                        <?php if($plan->plan_type == 'basic'){ ?>
+                                            <li class="separetor"><span><strong>No Badge</strong></span></li>
+                                            <li class="separetor"><span><strong>Adverts</strong></span></li>
+                                            <li class="separetor"><span><strong>Profile Customisation</strong></span></li>
+                                            <li class="separetor"><span>Basic Statistics</span></li>
+                                            <li><span>&nbsp;</span></li>
+                                            <li><span>&nbsp;</span></li>
+                                            <li ><span>No Extras</span></li>
+                                            <li><span>&nbsp;</span></li>
+                                            <li class="separetor"><span>&nbsp;</span></li>    
+                                        <?php } else if($plan->plan_type == 'premium'){ ?>
+                                            <li class="separetor"><span><strong>Premium Badge</strong></span></li>
+                                            <li class="separetor"><span><strong>No Adverts</strong></span></li>
+                                            <li class="separetor"><span><strong>Advanced Profile Customisation</strong></span></li>
+                                            <li class="separetor"><span>Basic Statistics</span></li>
+                                            <li><span>&nbsp;</span></li>
+                                            <li><span>&nbsp;</span></li>
+                                            <li ><span>No Extras</span></li>
+                                            <li><span>&nbsp;</span></li>
+                                            <li class="separetor"><span>&nbsp;</span></li>
+                                        <?php } else if($plan->plan_type == 'pro'){ ?>
+                                            <li class="separetor"><span><strong>Pro Badge</strong></span></li>
+                                            <li class="separetor"><span><strong>No Adverts</strong></span></li>
+                                            <li class="separetor"><span><strong>Advanced Profile Customisation</strong></span></li>
+                                            <li class="separetor"><span>Advanced Statistics</span></li>
+                                            <li><span>&nbsp;</span></li>
+                                            <li><span>&nbsp;</span></li>
+                                            <li ><span>All Latest Updates</span></li>
+                                            <li><span>&nbsp;</span></li>
+                                            <li class="separetor"><span>&nbsp;</span></li>
+                                        <?php } ?>
+                                        
 
                                     </ul>
                                 </li>
                                 <li class="button">
-                                    <a href="javascript:void(0)" data-plan="<?php echo $plan->id;  ?>" class="pre_p subscription_btn" >Select</a>
+                                    <a href="javascript:void(0)" class="<?php echo $plan_class; ?> subscription_btn"
+                                        data-plan="<?php echo $plan->id;  ?>">Select</a>
                                 </li>
                             </ul>
                         </li>

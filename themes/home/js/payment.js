@@ -1,13 +1,12 @@
 $(function() {
-    var $form = $('#payment-form');
-    $form.submit(function(event) {
+    $(document).on("click", "#cc_pay", function(e){
+        var $form = $('#payment-form');
         // Disable the submit button to prevent repeated clicks:
         $form.find('.submit').prop('disabled', true);
-
         // Request a token from Stripe:
         Stripe.card.createToken($form, stripeResponseHandler);
-
         // Prevent the form from being submitted:
+        e.preventDefault();
         return false;
     });
 });
@@ -23,13 +22,12 @@ function stripeResponseHandler(status, response) {
         $form.find('.submit').prop('disabled', false); // Re-enable submission
 
     } else { // Token was created!
-
         // Get the token ID:
         var token = response.id;
-
+        alert(token);
         // Insert the token ID into the form so it gets submitted to the server:
         $form.append($('<input type="hidden" name="stripeToken">').val(token));
-
+        alert('sucess');
         // Submit the form:
         $form.get(0).submit();
     }
@@ -38,20 +36,20 @@ function stripeResponseHandler(status, response) {
 
 
 $(document).ready(function() {
-    $(".payment_class").click(function() {
-        if ($(this).attr('id') == 'credit_card')
+    $(document).on("click", ".payment_method_radio", function() {
+        if ($(this).attr('data-type') == 'cc')
         {
-            $("#paypal_form").hide();
-            $("#credit_card_form").show();
+            $("#paypal_method").hide();
+            $("#cc_method").show();
         }
-        else if ($(this).attr('id') == 'paypal')
+        else if ($(this).attr('data-type') == 'paypal')
         {
-            $("#credit_card_form").hide();
-            $("#paypal_form").show();
+            $("#cc_method").hide();
+            $("#paypal_method").show();
         }
-    })
-
-    $("#paypal_submit").click(function() {
+    });
+    
+    $(document).on("click", "#paypal_submit", function() {
         $.ajax({
             url: base_url + "/home/SaveTransaction",
             method: "POST",
@@ -59,10 +57,9 @@ $(document).ready(function() {
                 $("#paypal_hid_frm").submit();
             }
         })
-    })
+    });
 
-
-    $("#mysubmit").click(function() {
+    $(document).on("click", "#mysubmit", function() {
         var code = $.trim($("#couponcode").val());
         $.ajax({
             url: base_url + "/home/ApplyCouponCode",
@@ -81,9 +78,5 @@ $(document).ready(function() {
                }    
             }
         })
-    })
-
-
-
-
-})
+    });
+});

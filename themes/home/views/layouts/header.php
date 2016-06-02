@@ -1,6 +1,6 @@
 <div class="header">
     <div class="col-md-2 logo_p">
-        <a href="<?php echo base_url(); ?>"><img src="<?php echo $baseUrl; ?>/img/logo.gif" /></a>
+        <a href="<?php echo base_url(); ?>"><img src="<?php echo $baseUrl; ?>/img/logo.png" /></a>
     </div>
     <div class="col-md-10">
         <div class="togg_bar"><span class="togg_menu"><i class="fa fa-navicon"></i></span></div>

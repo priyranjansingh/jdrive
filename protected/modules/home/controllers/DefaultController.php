@@ -391,22 +391,24 @@ class DefaultController extends Controller {
     }
 
     public function actionChooseplans() {
+        $this->layout = '//layouts/payment_main';
         // echo "I am Here";
         //pre(Yii::app()->session['register_user_info'],true);
         //$plans = BaseModel::getAll('Plans');
         //$this->render('plans', array('plans' => $plans));
 
-        $plans = BaseModel::getAll('Plans');
+        $plans = BaseModel::getAll('Plans', array('order' => 'plan_serial ASC'));
         $this->render('plans', array('plans' => $plans));
     }
 
     public function actionAjaxPlanDetail() {
+        $plans = BaseModel::getAll('Plans', array('order' => 'plan_serial ASC'));
         $plan = $_POST['plan'];
         $plan = Plans::model()->findByPk($plan);
         Yii::app()->session['register_user_plan'] = serialize($plan);
         $user = Yii::app()->session['register_user_info'];
         $user = unserialize($user);
-        $this->renderPartial('ajax_plan_detail', array('plan' => $plan,'user'=> $user));
+        $this->renderPartial('ajax_plan_detail', array('plans' => $plans,'plan' => $plan,'user'=> $user));
     }
 
 

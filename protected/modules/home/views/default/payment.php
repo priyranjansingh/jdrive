@@ -113,7 +113,4 @@
 </div>
 <script type="text/javascript">
     Stripe.setPublishableKey('pk_test_jwghFvJb4NmKWhA16j1wgQva');
-
-
-
 </script>

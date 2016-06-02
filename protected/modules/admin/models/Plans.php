@@ -35,8 +35,8 @@ class Plans extends AdminBaseModel
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, plan_name, plan_price, plan_duration,plan_duration_type, created_by, modified_by, date_entered, date_modified', 'required'),
-			array('status, deleted', 'numerical', 'integerOnly'=>true),
+			array('id, plan_name, plan_price, plan_duration,plan_duration_type,plan_serial,plan_type, created_by, modified_by, date_entered, date_modified', 'required'),
+			array('plan_serial,status, deleted', 'numerical', 'integerOnly'=>true),
 			array('id,stripe_plan, created_by, modified_by', 'length', 'max'=>36),
 			array('plan_duration,free_duration', 'length', 'max'=>3),
 			array('plan_duration,free_duration', 'numerical', 'integerOnly'=>true),
@@ -46,7 +46,7 @@ class Plans extends AdminBaseModel
 			array('plan_duration_type, free_duration_type', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, plan_name, plan_desc, plan_price, plan_duration,plan_duration_type, free_duration,free_duration_type, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on'=>'search'),
+			array('id, plan_name, plan_desc, plan_price,plan_serial, plan_type, plan_duration,plan_duration_type, free_duration,free_duration_type, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -75,6 +75,8 @@ class Plans extends AdminBaseModel
 			'plan_duration_type' => 'Plan Duration Type',
 			'free_duration' => 'Free Duration',
 			'free_duration_type' => 'Free Duration Type',
+			'plan_serial' => 'Plan Appearance',
+			'plan_type' => 'Plan Type',
 			'status' => 'Status',
 			'deleted' => 'Deleted',
 			'created_by' => 'Created By',
@@ -105,6 +107,8 @@ class Plans extends AdminBaseModel
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('plan_name',$this->plan_name,true);
 		$criteria->compare('plan_desc',$this->plan_desc,true);
+		$criteria->compare('plan_serial',$this->plan_serial);
+		$criteria->compare('plan_type',$this->plan_type,true);
 		$criteria->compare('plan_price',$this->plan_price,true);
 		$criteria->compare('plan_duration',$this->plan_duration,true);
 		$criteria->compare('free_duration',$this->free_duration,true);
