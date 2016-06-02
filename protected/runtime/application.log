@@ -19655,3 +19655,14 @@ Stack trace:
 REQUEST_URI=/jdrive/home/upload
 in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (720)
 in C:\xampp\htdocs\jdrive\index.php (13)
+2016/06/01 17:37:50 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:720)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (720)
+in C:\xampp\htdocs\jdrive\index.php (13)
