@@ -17,7 +17,7 @@
  * @property string $date_entered
  * @property string $date_modified
  */
-class Plans extends AdminBaseModel
+class Plans extends BaseModel
 {
 	/**
 	 * @return string the associated database table name

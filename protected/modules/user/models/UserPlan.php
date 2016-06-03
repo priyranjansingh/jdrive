@@ -119,4 +119,13 @@ class UserPlan extends BaseModel
 	{
 		return parent::model($className);
 	}
+        
+        public function getUserActivePlan($user_id)
+        {
+           
+           $user_plan =  UserPlan::model()->find(array("condition"=>"user_id = '$user_id' AND status = 1 AND deleted = 0 "));
+           return $user_plan;
+        }        
+        
+        
 }

@@ -311,5 +311,19 @@ class DefaultController extends Controller {
         $plan = $data->plan_id;
         return Plans::model()->find(array("condition" => "stripe_plan = '$plan'"))->plan_name;
     }
+    
+    public function actionPlans() {
+        
+        $this->layout = '//layouts/payment_main';
+        //$user = Yii::app()->session['register_user_info'];
+       
+        //$user = unserialize($user);
+        //pre($user,true);
+        $user_id = Yii::app()->user->id;
+        $user_plan = UserPlan::model()->getUserActivePlan($user_id);
+       
+        $plans = BaseModel::getAll('Plans', array('order' => 'plan_serial ASC'));
+        $this->render('plans', array('plans' => $plans, 'user_plan' => $user_plan));
+    }
 
 }

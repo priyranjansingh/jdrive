@@ -379,7 +379,28 @@ class DefaultController extends Controller {
                     $model->confirm_password = $model->password;
                     $model->save();
                     Yii::app()->session['register_user_info'] = serialize($model);
-                    $this->redirect(base_url() . '/home/chooseplans');
+
+                    // process of autologin of the user
+                    $login_model = new AutoLogin;
+                    $login_model->username = $model->username;
+                    $login_model->password = $model->password;
+                    if ($login_model->validate() && $login_model->login()) {
+                        // making entry in the user_plan table
+                        $user_plan = Plans::model()->find(array("condition" => "plan_type = 'basic'"));
+                        $user_plan_model = new UserPlan;
+                        $user_plan_model->plan_id = $user_plan->id;
+                        $user_plan_model->user_id = $model->id;
+                        $user_plan_model->plan_start_date = date("Y-m-d");
+                        $user_plan_model->plan_end_date = date("Y-m-d", strtotime("+ 20 years"));
+                        $user_plan_model->save();
+                        // end of making entry in the user_plan table
+
+                        $this->redirect(base_url() . '/home/chooseplans');
+                    } else {
+                        pre($model->getErrors(), true);
+                    }
+
+                    //  end of process of of autologin of the user 
                 } else {
                     pre($model->getErrors());
                 }
@@ -392,15 +413,14 @@ class DefaultController extends Controller {
 
     public function actionChooseplans() {
         $this->layout = '//layouts/payment_main';
-        // echo "I am Here";
-        //pre(Yii::app()->session['register_user_info'],true);
-        //$plans = BaseModel::getAll('Plans');
-        //$this->render('plans', array('plans' => $plans));
-
+        $user = Yii::app()->session['register_user_info'];
+        $user = unserialize($user);
+        $user_plan = UserPlan::model()->getUserActivePlan($user->id);
         $plans = BaseModel::getAll('Plans', array('order' => 'plan_serial ASC'));
-        $this->render('plans', array('plans' => $plans));
+        $this->render('plans', array('plans' => $plans, 'user_plan' => $user_plan));
     }
 
+    // function to hit when user select a plan , this is hit before opening the pop up
     public function actionAjaxPlanDetail() {
         $plans = BaseModel::getAll('Plans', array('order' => 'plan_serial ASC'));
         $plan = $_POST['plan'];
@@ -408,10 +428,8 @@ class DefaultController extends Controller {
         Yii::app()->session['register_user_plan'] = serialize($plan);
         $user = Yii::app()->session['register_user_info'];
         $user = unserialize($user);
-        $this->renderPartial('ajax_plan_detail', array('plans' => $plans,'plan' => $plan,'user'=> $user));
+        $this->renderPartial('ajax_plan_detail', array('plans' => $plans, 'plan' => $plan, 'user' => $user));
     }
-
-
 
     public function actionPayment($plan) {
         $this->layout = '//layouts/payment_main';
@@ -983,6 +1001,8 @@ class DefaultController extends Controller {
         }
     }
 
+    // it is hit whenn the payment button is clicked
+
     public function actionSaveTransaction() {
         $plan = Yii::app()->session['register_user_plan'];
         $plan = unserialize($plan);
@@ -1062,6 +1082,17 @@ class DefaultController extends Controller {
                     // making entry in the user_plan table 
                     // first check whether there is any record or not by that user_id and plan_id and if there is any record then update 
                     // that otherwise make fresh entry 
+                    
+                    // Before doing this if there is any entry of this user in the user_plan table of another plan id just delete that
+                    $old_user_plan = UserPlan::model()->find(array("condition" => "user_id = '$user_id' AND plan_id != '$plan_id' AND status = 1 AND deleted = 0 "));
+                    if (!empty($old_user_plan)) {
+                        $old_user_plan->status = 0;
+                        $old_user_plan->deleted = 1;
+                        $old_user_plan->save();
+                    }
+
+
+
 
                     $user_plan = UserPlan::model()->find(array("condition" => "user_id = '$user_id' AND plan_id = '$plan_id' AND status = 1 AND deleted = 0 "));
                     if (empty($user_plan)) {

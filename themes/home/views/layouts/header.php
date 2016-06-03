@@ -28,6 +28,7 @@
                 <ul class="sub_menu">
                     <li><a href="<?php echo base_url().'/user/profile'; ?>">My Profile</a></li>
                      <li><a href="<?php echo base_url().'/user/drive'; ?>">My Drive</a></li>
+                      <li><a href="<?php echo base_url().'/user/plans'; ?>">My Plans</a></li>
                     <li><a href="<?php echo base_url().'/user/paymenthistory'; ?>">Payment History</a></li>
                     <li><a href="<?php echo base_url().'/home/logout'; ?>">Logout</a></li>
                 </ul>
