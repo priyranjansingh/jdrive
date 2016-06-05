@@ -32,6 +32,9 @@ class DefaultController extends Controller {
             if (isset($_POST['FrontUserLogin'])) {
                 $model->attributes = $_POST['FrontUserLogin'];
                 if ($model->validate() && $model->login()) {
+                    
+                    $user_model = Users::model()->findByPk(Yii::app()->user->id);
+                    Yii::app()->session['register_user_info'] = serialize($user_model);
                     $this->redirect(Yii::app()->user->returnUrl);
                 }
             }

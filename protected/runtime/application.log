@@ -20092,3 +20092,137 @@ Stack trace:
 REQUEST_URI=/jdrive/user/plans
 in C:\xampp\htdocs\jdrive\protected\modules\user\controllers\DefaultController.php (320)
 in C:\xampp\htdocs\jdrive\index.php (13)
+2016/06/05 05:36:36 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:740)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (740)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/06/05 05:57:52 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\jdrive\protected\modules\home\views\default\ajax_plan_detail.php:118)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(869): DefaultController->renderFile()
+#1 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(431): DefaultController->renderPartial()
+#2 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionAjaxPlanDetail()
+#3 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#5 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#6 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#7 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/AjaxPlanDetail
+in C:\xampp\htdocs\jdrive\protected\modules\home\views\default\ajax_plan_detail.php (118)
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (431)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/06/05 06:01:52 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\jdrive\protected\modules\home\views\default\ajax_plan_detail.php:118)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(869): DefaultController->renderFile()
+#1 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(431): DefaultController->renderPartial()
+#2 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionAjaxPlanDetail()
+#3 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#5 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#6 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#7 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/AjaxPlanDetail
+in C:\xampp\htdocs\jdrive\protected\modules\home\views\default\ajax_plan_detail.php (118)
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (431)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/06/05 06:02:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/05 06:02:14 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\jdrive\protected\modules\home\views\default\ajax_plan_detail.php:118)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(869): DefaultController->renderFile()
+#1 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(431): DefaultController->renderPartial()
+#2 C:\xampp\htdocs\framework\web\actions\CInlineAction.php(49): DefaultController->actionAjaxPlanDetail()
+#3 C:\xampp\htdocs\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#5 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#6 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#7 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/AjaxPlanDetail
+in C:\xampp\htdocs\jdrive\protected\modules\home\views\default\ajax_plan_detail.php (118)
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (431)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/06/05 06:05:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/05 06:05:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/05 06:13:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/05 06:14:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/05 06:14:02 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:744)
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/upload
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (744)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/06/05 06:14:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/05 06:14:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/05 06:15:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
