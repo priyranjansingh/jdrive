@@ -15,8 +15,8 @@ class DefaultController extends Controller {
             $logged_in_user_id = Yii::app()->user->id;
             $user = Users::model()->find(array("condition" => "id = '$logged_in_user_id'"));
             $recommended_list = Users::model()->getRecommendList($logged_in_user_id);
-            
-            
+
+
 
             $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$logged_in_user_id' AND type='1' "));
             $shared_videos = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$logged_in_user_id' AND type='2' "));
@@ -41,9 +41,9 @@ class DefaultController extends Controller {
                             . " created_by = '$logged_in_user_id' ", "order" => "date_entered desc")
                 );
             }
-            
-            
-            
+
+
+
             if (!empty($shared_videos)) {
                 $shared_videos_ids = array();
                 foreach ($shared_videos as $s) {
@@ -64,16 +64,16 @@ class DefaultController extends Controller {
                             . " created_by = '$logged_in_user_id' ", "order" => "date_entered desc")
                 );
             }
-            
-            
-            
-            
-            
-            
-            
 
-           // $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
-           // $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
+
+
+
+
+
+
+
+            // $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
+            // $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
             $total_track_list = count($song_list) + count($video_list);
             $following_list = Followers::model()->findAll(array("condition" => "follower_id = '$logged_in_user_id'"));
             $follow_unfollow = Followers::model()->find(array("condition" => " user_id = '$logged_in_user_id' AND follower_id = '$logged_in_user_id' "));
@@ -86,7 +86,7 @@ class DefaultController extends Controller {
             } else {
                 $follow_unfollow_text = "Follow";
             }
-           // pre($song_list,true);
+            // pre($song_list,true);
 
             $this->render('profile', array(
                 'user' => $user,
@@ -108,6 +108,33 @@ class DefaultController extends Controller {
             $model = Users::model()->findByPk($logged_in_user_id);
 
             $this->render('edit', array('model' => $model));
+        }
+    }
+
+    public function actionChangePassword() {
+        if (Yii::app()->user->isGuest) {
+            $this->redirect(base_url());
+        } else {
+            $id = Yii::app()->user->id;
+            $model = new ChangePassword;
+            if (isset($_POST['ajax']) && $_POST['ajax'] === 'changepass-form') {
+                echo CActiveForm::validate($model);
+                Yii::app()->end();
+            }
+            
+            $user = Users::model()->findByPk($id);
+            if (isset($_POST['ChangePassword'])) {
+                $model->attributes = $_POST['ChangePassword'];
+                if ($model->validate()) {
+                    $user->password = md5($model->password);
+                    if ($user->validate()) {
+                        $user->save();
+                        Yii::app()->user->setFlash('success', "Password Changed Successfully");
+                        $this->redirect(array("changepassword"));
+                    }
+                }
+            }
+            $this->render('change_password', array('model' => $model));
         }
     }
 
@@ -180,7 +207,7 @@ class DefaultController extends Controller {
                 );
             }
 
-            $this->renderPartial('ajax_drive', array('song_list' => $song_list,'logged_in_user_id' => $logged_in_user_id));
+            $this->renderPartial('ajax_drive', array('song_list' => $song_list, 'logged_in_user_id' => $logged_in_user_id));
         }
     }
 
@@ -196,8 +223,8 @@ class DefaultController extends Controller {
                 $type = 2;
             }
             $logged_in_user_id = Yii::app()->user->id;
-            
-             $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$logged_in_user_id' "));
+
+            $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$logged_in_user_id' "));
 
             if (!empty($shared_songs)) {
                 $shared_songs_ids = array();
@@ -219,9 +246,9 @@ class DefaultController extends Controller {
                             . " created_by = '$logged_in_user_id' ", "order" => "date_entered desc")
                 );
             }
-            
-            
-            $this->renderPartial('ajax_drive', array('song_list' => $song_list,'logged_in_user_id' => $logged_in_user_id));
+
+
+            $this->renderPartial('ajax_drive', array('song_list' => $song_list, 'logged_in_user_id' => $logged_in_user_id));
         }
     }
 
@@ -293,35 +320,33 @@ class DefaultController extends Controller {
         }
     }
 
-    public function actionPaymenthistory(){
+    public function actionPaymenthistory() {
         if (Yii::app()->user->id) {
-            $model=new Transactions('search');
+            $model = new Transactions('search');
             $model->unsetAttributes();
 
-            $this->render('payment_history',array(
-                'model'=>$model,
+            $this->render('payment_history', array(
+                'model' => $model,
             ));
         } else {
             $this->redirect(Yii::app()->request->urlReferrer);
         }
     }
 
-    protected function gridPlan($data)
-    {
+    protected function gridPlan($data) {
         $plan = $data->plan_id;
         return Plans::model()->find(array("condition" => "stripe_plan = '$plan'"))->plan_name;
     }
-    
+
     public function actionPlans() {
-        
+
         $this->layout = '//layouts/payment_main';
         //$user = Yii::app()->session['register_user_info'];
-       
         //$user = unserialize($user);
         //pre($user,true);
         $user_id = Yii::app()->user->id;
         $user_plan = UserPlan::model()->getUserActivePlan($user_id);
-       
+
         $plans = BaseModel::getAll('Plans', array('order' => 'plan_serial ASC'));
         $this->render('plans', array('plans' => $plans, 'user_plan' => $user_plan));
     }
