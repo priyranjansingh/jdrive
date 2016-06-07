@@ -19,6 +19,12 @@ class DefaultController extends Controller {
         }
     }
 
+    public function actionMedia($name)
+    {
+        $media = Media::model()->find(array("condition" => "slug = '$name'"));
+        $this->render('detail',array('media' => $media));
+    }
+
     public function actionLogin() {
 
         // pre($_POST['FrontUserLogin'],true);
