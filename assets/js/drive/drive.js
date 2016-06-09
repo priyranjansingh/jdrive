@@ -68,7 +68,6 @@ $('body').on("click", ".edit_btn", function() {
 });
 
 $('body').on("click", ".drive_download_btn", function() {
-    $(".loading").show();
     var song = $(this).data('song');
     window.location.href = base_url + "/user/download?file=" + song;
 });

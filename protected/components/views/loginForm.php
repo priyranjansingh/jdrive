@@ -26,7 +26,7 @@
         <label><span class="ck_box">
                 <input type="checkbox">
                 <span></span></span> Remember Me</label>
-        <a class="fr" href="#" data-dismiss="modal" data-toggle="modal" data-target="#Forgotpass">Forgot Password?</a></div>
+        <a class="fr" id="forgot_pass_link" href="#" data-dismiss="modal" data-toggle="modal" data-target="#Forgotpass">Forgot Password?</a></div>
     <div class="m_row tar">
         <?php echo CHtml::submitButton('Login & Continue',array('class'=>'btn_small fc_white bg_blue')); ?>
     </div>
