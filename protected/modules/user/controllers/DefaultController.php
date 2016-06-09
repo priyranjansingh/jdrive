@@ -121,7 +121,7 @@ class DefaultController extends Controller {
                 echo CActiveForm::validate($model);
                 Yii::app()->end();
             }
-            
+
             $user = Users::model()->findByPk($id);
             if (isset($_POST['ChangePassword'])) {
                 $model->attributes = $_POST['ChangePassword'];
@@ -294,22 +294,16 @@ class DefaultController extends Controller {
                 SongLike::model()->deleteAll(array("condition" => "song_id = '$song_detail->id'"));
 
                 // deleting from the playlist_songs table
-
                 PlaylistSongs::model()->deleteAll(array("condition" => "song_id = '$song_detail->id'"));
+                
+                // deleting from song_share table
+                
+                $song_share = SongShare::model()->deleteAll(array("condition" => "song_id='$song_detail->id'"));
 
                 // deleting from the amazon bucket
                 $s3 = new AS3;
                 $result = $s3->deleteSong($song_detail->s3_bucket, $song_detail->file_name);
 
-
-                if ($song_detail->is_shared == 0) {
-                    $shared_songs = Songs::model()->findAll(array("condition" => "file_name = '$song_detail->file_name' AND is_shared = 1 ", "order" => "date_entered asc"));
-                    if (!empty($shared_songs)) {
-                        $song_model = $shared_songs[0];
-                        $song_model->is_shared = 0;
-                        $song_model->save();
-                    }
-                }
 
                 // deleting from the media table 
                 $song_detail->delete();
@@ -349,6 +343,49 @@ class DefaultController extends Controller {
 
         $plans = BaseModel::getAll('Plans', array('order' => 'plan_serial ASC'));
         $this->render('plans', array('plans' => $plans, 'user_plan' => $user_plan));
+    }
+
+    public function actionForgotPassword() {
+
+        $model = new ForgotPassword;
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'forgotpassword-form') {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+    }
+    // function to be hit after successfull validation of the model 
+    public function actionAjaxForgotPassword() {
+        $username = $_POST['username'];
+        $user = Users::model()->find(array("condition" => " username = '$username' OR email = '$username' "));
+        $return_array = array();
+        if (empty($user)) {
+            $return_array['status'] = "failure";
+            $return_array['message'] = "Sorry We could not find any record";
+        } else {
+            // making entry in the user table the password_reset_code	
+
+            $flag = $this->enterPasswordResetCode($user);
+            if ($flag) {
+                // sending password reset link email to the user
+                
+                
+                $return_array['status'] = "success";
+                $return_array['message'] = "We have sent you the password reset link. Please check your mail inbox";
+            }
+        }
+        echo json_encode($return_array);
+    }
+
+    public function enterPasswordResetCode($user) {
+        $password_reset_code = create_guid();
+        $check_user = Users::model()->find(array("condition" => "password_reset_code = '$password_reset_code'"));
+        if (!empty($check_user)) {
+            $this->enterPasswordResetCode($user);
+        } else {
+            $user->password_reset_code = $password_reset_code;
+            $user->save();
+            return true;
+        }
     }
 
 }
