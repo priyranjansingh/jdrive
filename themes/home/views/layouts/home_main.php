@@ -33,6 +33,13 @@
         <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/songwidget.js"></script>
         <script>
             var base_url = "<?php echo base_url(); ?>";
+            $(document).ready(function(){
+               $("#forgot_pass_link").click(function(){
+                   $("#ForgotPassword_username").val('');
+                   $("#forgot_form").show();
+                   $("#forgot_message").hide();
+               }) 
+            });
         </script>    
     </head>
 
@@ -157,19 +164,13 @@
                         <h4 class="modal-title" id="myModalLabel">Recover Password</h4>
                     </div>
                     <div class="modal-body">
-                        <form id="" name="" method="POST">
-                            <div class="m_row"> <i class="fa fa-envelope"></i>
-                                <div class="mr_col">
-                                    <input type="email" class="t_box" placeholder="Enter Email ID">
-                                </div>
-                            </div>
-                            <div class="m_row mart15">
-                                <div class="mr_col">
-                                    <input type="submit" value="Submit" class="btn_small bg_blue">
-                                </div>
-                            </div>
-                            <div class="m_row mart15">To Login: <a class="log_btn" href="#" data-dismiss="modal" data-toggle="modal" data-target="#Login-pop">Click Here</a></div>
-                        </form>
+                        <div id="forgot_form">
+                            <?php $this->widget('ForgotpassWidget'); ?>
+                        </div> 
+                        <div id="forgot_message"  style="display:none">
+                            <div id="success_message" class="alert alert-success"></div>
+                            <div class="m_row tac">New to JOCKDRIVE? <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#Signup-pop">Sign Up</a></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -210,7 +211,7 @@
             </div>
         </div>
 
-        
+
         <div class="modal fade" id="delete_song_div">
             <div class="modal-dialog" role="document">
                 <div class="modal-content log_pan">
@@ -227,7 +228,7 @@
                 </div>
             </div>
         </div>
-        
+
 
 
 
