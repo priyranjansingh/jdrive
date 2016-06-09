@@ -110,7 +110,9 @@ $baseUrl = Yii::app()->theme->baseUrl;
                                 <?php // echo $count; ?>
                             <!--</div>-->
                             <div  class="it_m">
-                                <h5><?php echo elipsis($song->song_name, '..', 35); ?></h5>
+                                <h5>
+                                    <a href="<?php echo base_url().'/media?name='.$song->slug; ?>"><?php echo elipsis($song->song_name, '..', 35); ?></a>
+                                </h5>
                                 <h6><?php echo elipsis($song->artist_name, '..', 35); ?></h6>
                             </div>
                             <div  class="it_r"> 

@@ -46,6 +46,7 @@ return array(
         'urlManager' => array(
             'urlFormat' => 'path',
             'rules' => array(
+                'media' => 'home/default/media',
                 '<module:(admin)>/<controller:\w+>/<action:\w+>/<id:(.*?)>' => '<module>/<controller>/<action>/<id>',
                 '<module:(admin)>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
                 '<module:(admin)>/<controller:\w+>' => '<module>/<controller>',
