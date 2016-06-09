@@ -32,7 +32,7 @@ class DefaultController extends Controller {
             if (isset($_POST['FrontUserLogin'])) {
                 $model->attributes = $_POST['FrontUserLogin'];
                 if ($model->validate() && $model->login()) {
-                    
+
                     $user_model = Users::model()->findByPk(Yii::app()->user->id);
                     Yii::app()->session['register_user_info'] = serialize($user_model);
                     $this->redirect(Yii::app()->user->returnUrl);
@@ -382,6 +382,15 @@ class DefaultController extends Controller {
                     $model->confirm_password = $model->password;
                     $model->save();
                     Yii::app()->session['register_user_info'] = serialize($model);
+                    
+                    // creating of the bucket
+                    $aws = new AS3;
+                    $bucket = $model->username . '-' . create_guid_section(6);
+                    $aws->addBucket($bucket);
+                    $user_model = Users::model()->findByPk($model->id);
+                    $user_model->s3_bucket = $bucket;
+                    $user_model->save();
+
 
                     // process of autologin of the user
                     $login_model = new AutoLogin;
@@ -832,7 +841,7 @@ class DefaultController extends Controller {
     public function actionWidgetUpload() {
         $user_id = $_POST['user_id'];
         $song_id = $_POST['song_id'];
-      
+
         $result_arr = array();
         $song_detail = Songs::model()->findByPk($song_id);
 
@@ -857,9 +866,6 @@ class DefaultController extends Controller {
                 }
             }
         }
-
-
-
         echo json_encode($result_arr);
     }
 
@@ -1055,7 +1061,6 @@ class DefaultController extends Controller {
                     // making entry in the user_plan table 
                     // first check whether there is any record or not by that user_id and plan_id and if there is any record then update 
                     // that otherwise make fresh entry 
-                    
                     // Before doing this if there is any entry of this user in the user_plan table of another plan id just delete that
                     $old_user_plan = UserPlan::model()->find(array("condition" => "user_id = '$user_id' AND plan_id != '$plan_id' AND status = 1 AND deleted = 0 "));
                     if (!empty($old_user_plan)) {
