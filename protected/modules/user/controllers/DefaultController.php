@@ -304,7 +304,6 @@ class DefaultController extends Controller {
                 $s3 = new AS3;
                 $result = $s3->deleteSong($song_detail->s3_bucket, $song_detail->file_name);
 
-
                 // deleting from the media table 
                 $song_detail->delete();
                 echo "success";
@@ -313,6 +312,9 @@ class DefaultController extends Controller {
             }
         }
     }
+    
+       
+    
 
     public function actionPaymenthistory() {
         if (Yii::app()->user->id) {
@@ -386,6 +388,37 @@ class DefaultController extends Controller {
             $user->save();
             return true;
         }
+    }
+    
+    
+     public function actionDownload($file) {
+
+        $song_detail = Songs::model()->findByPk($file);
+        $s3 = new AS3;
+        $result = $s3->getSong($song_detail->s3_bucket, $song_detail->file_name);
+
+        // try {
+        // Display the object in the browser
+        header("Content-Type: {$result['ContentType']}");
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header("Content-Disposition: attachment; filename=\"$song_detail->file_name\"");
+        // header('Content-Disposition: attachment; filename='.$song_detail->file_name);
+        header('Content-Transfer-Encoding: binary');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+
+        $user_id = Yii::app()->user->id;
+        $download_model = new Downloads;
+        $download_model->user_id = $user_id;
+        $download_model->song_id = $song_detail->id;
+        $download_model->owner_id = $song_detail->created_by;
+        $download_model->type = $song_detail->type;
+        $download_model->save();
+        ob_clean();
+        flush();
+        echo $result['Body'];
     }
 
 }
