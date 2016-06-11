@@ -154,7 +154,7 @@ class Downloads extends BaseModel {
             }
 
             $criteria = new CDbCriteria();
-            $criteria->condition = "status = '1'  AND deleted = 0";
+            $criteria->condition = "status = '1' AND acl=0  AND deleted = 0";
             $criteria->addInCondition('id', $id_array);
             $songs_list = Songs::model()->findAll($criteria);
             return $songs_list;
