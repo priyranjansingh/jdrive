@@ -6,8 +6,8 @@ class DefaultController extends Controller {
     public $param = 'value';
 
     public function actionIndex() {
-        $songs = Songs::model()->findAll(array("condition" => "status = '1' AND type = '1' AND is_shared = 0 AND deleted = 0", "order" => "date_entered desc", "limit" => 20));
-        $videos = Videos::model()->findAll(array("condition" => "status = '1' AND type ='2' AND  is_shared = 0 AND deleted = 0", "order" => "date_entered desc", "limit" => 20));
+        $songs = Songs::model()->findAll(array("condition" => "status = '1' AND  acl=0 AND type = '1' AND is_shared = 0 AND deleted = 0", "order" => "date_entered desc", "limit" => 20));
+        $videos = Videos::model()->findAll(array("condition" => "status = '1' AND  acl=0  AND type ='2' AND  is_shared = 0 AND deleted = 0", "order" => "date_entered desc", "limit" => 20));
         $this->render('index', array('songs' => $songs, 'videos' => $videos));
     }
 
