@@ -187,7 +187,7 @@ class Users extends BaseModel {
         $current_date = date("Y-m-d");
         $previous_seven_days_date = date("Y-m-d", strtotime("-7 days"));
         $criteria = new CDbCriteria();
-        $criteria->condition = "status = '1'  AND deleted = 0 AND "
+        $criteria->condition = "status = '1' AND acl=0  AND deleted = 0 AND "
                 . "type = '$song_type' "
                 . "AND DATE(date_entered) >= '$previous_seven_days_date' AND DATE(date_entered)<='$current_date'";
         $criteria->order = "date_entered DESC";
