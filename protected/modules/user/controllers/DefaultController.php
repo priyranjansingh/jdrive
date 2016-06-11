@@ -295,9 +295,9 @@ class DefaultController extends Controller {
 
                 // deleting from the playlist_songs table
                 PlaylistSongs::model()->deleteAll(array("condition" => "song_id = '$song_detail->id'"));
-                
+
                 // deleting from song_share table
-                
+
                 $song_share = SongShare::model()->deleteAll(array("condition" => "song_id='$song_detail->id'"));
 
                 // deleting from the amazon bucket
@@ -312,9 +312,6 @@ class DefaultController extends Controller {
             }
         }
     }
-    
-       
-    
 
     public function actionPaymenthistory() {
         if (Yii::app()->user->id) {
@@ -355,6 +352,7 @@ class DefaultController extends Controller {
             Yii::app()->end();
         }
     }
+
     // function to be hit after successfull validation of the model 
     public function actionAjaxForgotPassword() {
         $username = $_POST['username'];
@@ -369,8 +367,8 @@ class DefaultController extends Controller {
             $flag = $this->enterPasswordResetCode($user);
             if ($flag) {
                 // sending password reset link email to the user
-                
-                
+
+
                 $return_array['status'] = "success";
                 $return_array['message'] = "We have sent you the password reset link. Please check your mail inbox";
             }
@@ -389,9 +387,8 @@ class DefaultController extends Controller {
             return true;
         }
     }
-    
-    
-     public function actionDownload($file) {
+
+    public function actionDownload($file) {
 
         $song_detail = Songs::model()->findByPk($file);
         $s3 = new AS3;
@@ -419,6 +416,31 @@ class DefaultController extends Controller {
         ob_clean();
         flush();
         echo $result['Body'];
+    }
+
+    public function actionAjaxChangeFileMode() {
+        if (Yii::app()->user->id) {
+            $song = $_POST['song'];
+            $song_model = Songs::model()->findByPk($song);
+            $return_arr = array();
+            if (!empty($song_model)) {
+                if ($song_model->acl == 0) {
+                    $song_model->acl = 1;
+                    $return_arr['status'] = 'success';
+                    $return_arr['label'] = 'Private';
+                } else {
+                    $song_model->acl = 0;
+                    $return_arr['status'] = 'success';
+                    $return_arr['label'] = 'Public';
+                }
+                $song_model->save();
+            } else {
+                $return_arr['status'] = 'failure';
+            }
+        } else {
+            $return_arr['status'] = 'failure';
+        }
+        echo json_encode($return_arr);
     }
 
 }
