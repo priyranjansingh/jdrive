@@ -99,20 +99,40 @@ $('body').on("click", ".delete_option", function() {
                 $(".loading").hide();
                 if (data == 'success')
                 {
-                    
+
                     window.location.href = base_url + "/user/drive";
                 }
                 else
                 {
                     window.location.href = base_url + "/user/drive";
-                }    
+                }
             }
         })
     }
     else
     {
         $("#delete_song_div").modal('hide');
-    }    
+    }
+});
+
+
+$('body').on("click", ".file_mode_btn", function() {
+    $(".loading").show();
+    var song = $(this).data('song');
+    var current_object = $(this);
+    $.ajax({
+        url: base_url + "/user/ajaxChangeFileMode",
+        method: "POST",
+        dataType: "json",
+        data: {'song': song},
+        success: function(data) {
+            if (data.label)
+            {
+                current_object.attr('value', data.label);
+            }
+            $(".loading").hide();
+        }
+    })
 });
 
 
