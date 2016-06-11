@@ -72,24 +72,24 @@
                                 <td><?php echo $song->media_genre->name; ?></td>
                                 <td>2015-11-30 12:35</td>
                                 <td>
-                                 <?php 
-                                 if($song->type==1)
-                                 {
-                                     $type = "song";
-                                 } 
-                                 else if($song->type==2)
-                                 {
-                                     $type = "video";
-                                 }    
-                                 
-                                 ?>
-                                    
+                                    <?php
+                                    if ($song->type == 1) {
+                                        $type = "song";
+                                    } else if ($song->type == 2) {
+                                        $type = "video";
+                                    }
+                                    ?>
+
                                     <a href="javascript:void(0)" class="play_btn" data-song="<?php echo $song->id; ?>" ><i data-song="<?php echo $song->slug; ?>" data-type="<?php echo $type; ?>"  class="fa fa-play" aria-hidden="true"></i></a>
-                                    <?php if($logged_in_user_id == $song->created_by){   ?>
-                                    <a href="#" class="edit_btn" data-song="<?php echo $song->id; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                                    <a href="#" class="delete_btn" data-song="<?php echo $song->id; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                                     <a class="drive_download_btn" href="<?php echo base_url(); ?>/user/download?file=<?php echo $song->id; ?>"  data-song="<?php echo $song->id; ?>"><i class="fa fa-download" aria-hidden="true"></i></a>
-                                    <?php   }   ?>
+                                    <?php if ($logged_in_user_id == $song->created_by) { ?>
+                                        <a href="#" class="edit_btn" data-song="<?php echo $song->id; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                        <a href="#" class="delete_btn" data-song="<?php echo $song->id; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                        <a class="drive_download_btn" href="<?php echo base_url(); ?>/user/download?file=<?php echo $song->id; ?>"  data-song="<?php echo $song->id; ?>"><i class="fa fa-download" aria-hidden="true"></i></a>
+                                        <?php  
+                                        $file_mode = ($song->acl == 0)?"Public":"Private";
+                                        ?>
+                                        <input type="button" data-song="<?php echo $song->id; ?>" name="file_mode_btn" value="<?php echo $file_mode;  ?>" class="btn-xs bg_red fc_white file_mode_btn">
+                                        <?php } ?>
                                 </td>
                             </tr>
 
