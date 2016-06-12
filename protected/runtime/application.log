@@ -22763,3 +22763,323 @@ Stack trace:
 REQUEST_URI=/jdrive/home/upload
 in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (755)
 in C:\xampp\htdocs\jdrive\index.php (13)
+2016/06/12 06:53:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 08:15:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 08:41:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 08:43:04 [error] [exception.Aws\Common\Exception\TransferException] exception 'Guzzle\Http\Exception\CurlException' with message '[curl] 6: Could not resolve host: priyranjan-a31594.s3-us-west-2.amazonaws.com [url] https://priyranjan-a31594.s3-us-west-2.amazonaws.com' in C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Http\Curl\CurlMulti.php:359
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Http\Curl\CurlMulti.php(292): Guzzle\Http\Curl\CurlMulti->isCurlException(Object(Guzzle\Http\Message\Request), Object(Guzzle\Http\Curl\CurlHandle), Array)
+#1 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Http\Curl\CurlMulti.php(257): Guzzle\Http\Curl\CurlMulti->processResponse(Object(Guzzle\Http\Message\Request), Object(Guzzle\Http\Curl\CurlHandle), Array)
+#2 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Http\Curl\CurlMulti.php(240): Guzzle\Http\Curl\CurlMulti->processMessages()
+#3 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Http\Curl\CurlMulti.php(224): Guzzle\Http\Curl\CurlMulti->executeHandles()
+#4 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Http\Curl\CurlMulti.php(111): Guzzle\Http\Curl\CurlMulti->perform()
+#5 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Http\Curl\CurlMultiProxy.php(94): Guzzle\Http\Curl\CurlMulti->send()
+#6 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Http\Client.php(284): Guzzle\Http\Curl\CurlMultiProxy->send()
+#7 C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\Common\Client\AbstractClient.php(256): Guzzle\Http\Client->send(Object(Guzzle\Http\Message\Request))
+#8 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Service\Client.php(136): Aws\Common\Client\AbstractClient->send(Object(Guzzle\Http\Message\Request))
+#9 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Service\Command\AbstractCommand.php(153): Guzzle\Service\Client->execute(Object(Aws\S3\Command\S3Command))
+#10 C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\S3Client.php(680): Guzzle\Service\Command\AbstractCommand->execute()
+#11 C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\S3Client.php(411): Aws\S3\S3Client->checkExistenceWithCommand(Object(Aws\S3\Command\S3Command), true)
+#12 C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php(327): Aws\S3\S3Client->doesBucketExist('priyranjan-a315...')
+#13 [internal function]: Aws\S3\StreamWrapper->url_stat('s3://priyranjan...', 2)
+#14 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(349): is_dir('s3://priyranjan...')
+#15 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1345): UploadHandlerS3->get_file_objects()
+#16 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(198): UploadHandlerS3->get()
+#17 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(187): UploadHandlerS3->initialize()
+#18 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(756): UploadHandlerS3->__construct(NULL, true, NULL, 'priyranjan-a315...', 'authenticated-r...')
+#19 C:\xampp\htdocs\jdrive\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#20 C:\xampp\htdocs\jdrive\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#21 C:\xampp\htdocs\jdrive\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#22 C:\xampp\htdocs\jdrive\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(282): CController->run('upload')
+#24 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#25 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#26 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#27 {main}
+
+Next exception 'Aws\Common\Exception\TransferException' with message '[curl] 6: Could not resolve host: priyranjan-a31594.s3-us-west-2.amazonaws.com [url] https://priyranjan-a31594.s3-us-west-2.amazonaws.com' in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\Common\Client\AbstractClient.php:258
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Service\Client.php(136): Aws\Common\Client\AbstractClient->send(Object(Guzzle\Http\Message\Request))
+#1 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Service\Command\AbstractCommand.php(153): Guzzle\Service\Client->execute(Object(Aws\S3\Command\S3Command))
+#2 C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\S3Client.php(680): Guzzle\Service\Command\AbstractCommand->execute()
+#3 C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\S3Client.php(411): Aws\S3\S3Client->checkExistenceWithCommand(Object(Aws\S3\Command\S3Command), true)
+#4 C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php(327): Aws\S3\S3Client->doesBucketExist('priyranjan-a315...')
+#5 [internal function]: Aws\S3\StreamWrapper->url_stat('s3://priyranjan...', 2)
+#6 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(349): is_dir('s3://priyranjan...')
+#7 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1345): UploadHandlerS3->get_file_objects()
+#8 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(198): UploadHandlerS3->get()
+#9 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(187): UploadHandlerS3->initialize()
+#10 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(756): UploadHandlerS3->__construct(NULL, true, NULL, 'priyranjan-a315...', 'authenticated-r...')
+#11 C:\xampp\htdocs\jdrive\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#12 C:\xampp\htdocs\jdrive\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\xampp\htdocs\jdrive\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 C:\xampp\htdocs\jdrive\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(282): CController->run('upload')
+#16 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#17 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/user/profile
+---
+2016/06/12 08:45:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 08:46:21 [error] [exception.Aws\Common\Exception\TransferException] exception 'Guzzle\Http\Exception\CurlException' with message '[curl] 6: Could not resolve host: priyranjan-a31594.s3-us-west-2.amazonaws.com [url] https://priyranjan-a31594.s3-us-west-2.amazonaws.com' in C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Http\Curl\CurlMulti.php:359
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Http\Curl\CurlMulti.php(292): Guzzle\Http\Curl\CurlMulti->isCurlException(Object(Guzzle\Http\Message\Request), Object(Guzzle\Http\Curl\CurlHandle), Array)
+#1 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Http\Curl\CurlMulti.php(257): Guzzle\Http\Curl\CurlMulti->processResponse(Object(Guzzle\Http\Message\Request), Object(Guzzle\Http\Curl\CurlHandle), Array)
+#2 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Http\Curl\CurlMulti.php(240): Guzzle\Http\Curl\CurlMulti->processMessages()
+#3 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Http\Curl\CurlMulti.php(224): Guzzle\Http\Curl\CurlMulti->executeHandles()
+#4 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Http\Curl\CurlMulti.php(111): Guzzle\Http\Curl\CurlMulti->perform()
+#5 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Http\Curl\CurlMultiProxy.php(94): Guzzle\Http\Curl\CurlMulti->send()
+#6 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Http\Client.php(284): Guzzle\Http\Curl\CurlMultiProxy->send()
+#7 C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\Common\Client\AbstractClient.php(256): Guzzle\Http\Client->send(Object(Guzzle\Http\Message\Request))
+#8 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Service\Client.php(136): Aws\Common\Client\AbstractClient->send(Object(Guzzle\Http\Message\Request))
+#9 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Service\Command\AbstractCommand.php(153): Guzzle\Service\Client->execute(Object(Aws\S3\Command\S3Command))
+#10 C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\S3Client.php(680): Guzzle\Service\Command\AbstractCommand->execute()
+#11 C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\S3Client.php(411): Aws\S3\S3Client->checkExistenceWithCommand(Object(Aws\S3\Command\S3Command), true)
+#12 C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php(327): Aws\S3\S3Client->doesBucketExist('priyranjan-a315...')
+#13 [internal function]: Aws\S3\StreamWrapper->url_stat('s3://priyranjan...', 2)
+#14 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(349): is_dir('s3://priyranjan...')
+#15 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1345): UploadHandlerS3->get_file_objects()
+#16 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(198): UploadHandlerS3->get()
+#17 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(187): UploadHandlerS3->initialize()
+#18 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(756): UploadHandlerS3->__construct(NULL, true, NULL, 'priyranjan-a315...', 'authenticated-r...')
+#19 C:\xampp\htdocs\jdrive\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#20 C:\xampp\htdocs\jdrive\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#21 C:\xampp\htdocs\jdrive\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#22 C:\xampp\htdocs\jdrive\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(282): CController->run('upload')
+#24 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#25 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#26 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#27 {main}
+
+Next exception 'Aws\Common\Exception\TransferException' with message '[curl] 6: Could not resolve host: priyranjan-a31594.s3-us-west-2.amazonaws.com [url] https://priyranjan-a31594.s3-us-west-2.amazonaws.com' in C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\Common\Client\AbstractClient.php:258
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Service\Client.php(136): Aws\Common\Client\AbstractClient->send(Object(Guzzle\Http\Message\Request))
+#1 C:\xampp\htdocs\jdrive\assets\aws-v2\Guzzle\Service\Command\AbstractCommand.php(153): Guzzle\Service\Client->execute(Object(Aws\S3\Command\S3Command))
+#2 C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\S3Client.php(680): Guzzle\Service\Command\AbstractCommand->execute()
+#3 C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\S3Client.php(411): Aws\S3\S3Client->checkExistenceWithCommand(Object(Aws\S3\Command\S3Command), true)
+#4 C:\xampp\htdocs\jdrive\assets\aws-v2\Aws\S3\StreamWrapper.php(327): Aws\S3\S3Client->doesBucketExist('priyranjan-a315...')
+#5 [internal function]: Aws\S3\StreamWrapper->url_stat('s3://priyranjan...', 2)
+#6 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(349): is_dir('s3://priyranjan...')
+#7 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(1345): UploadHandlerS3->get_file_objects()
+#8 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(198): UploadHandlerS3->get()
+#9 C:\xampp\htdocs\jdrive\protected\components\UploadHandlerS3.php(187): UploadHandlerS3->initialize()
+#10 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(756): UploadHandlerS3->__construct(NULL, true, NULL, 'priyranjan-a315...', 'authenticated-r...')
+#11 C:\xampp\htdocs\jdrive\framework\web\actions\CInlineAction.php(49): DefaultController->actionUpload()
+#12 C:\xampp\htdocs\jdrive\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#13 C:\xampp\htdocs\jdrive\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#14 C:\xampp\htdocs\jdrive\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(282): CController->run('upload')
+#16 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('home/default/up...')
+#17 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/jdrive/home/upload
+HTTP_REFERER=http://localhost/jdrive/user/profile
+---
+2016/06/12 08:51:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 08:52:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 08:54:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 08:57:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:14:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:20:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:23:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:23:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:24:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:25:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:25:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:26:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:27:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:28:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:28:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:30:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:33:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:39:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:39:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:42:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:48:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/06/12 09:50:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---

@@ -14,7 +14,7 @@ $(document).ready(function() {
             var playlist = $("#playlist_name_container").data('playlist');
             var song_type = $(".song_type.active").attr('id'); // audio or video
             $.ajax({
-                url: base_url + "/home/AjaxPlaylistSongs",
+                url: base_url + "/user/AjaxPlaylistSongs",
                 method: "POST",
                 data: {'playlist': playlist, 'song_type': song_type},
                 success: function(data) {
@@ -34,7 +34,7 @@ $(document).ready(function() {
             var user = $(this).data('user');
             var song_type = $(this).attr("id");
             $.ajax({
-                url: base_url + "/home/SongType",
+                url: base_url + "/user/SongType",
                 method: "POST",
                 data: {'user': user, 'song_type': song_type},
                 success: function(data) {
@@ -53,7 +53,7 @@ $(document).ready(function() {
         var user_id = $(this).data('user');
         var dj_id = $(this).data('dj');
         $.ajax({
-            url: base_url + "/home/FollowUnfollow",
+            url: base_url + "/user/FollowUnfollow",
             method: "POST",
             data: {'user_id': user_id, 'dj_id': dj_id},
             dataType: 'json',
@@ -72,7 +72,7 @@ $(document).ready(function() {
         var user_id = $(this).data('user');
         var dj_id = $(this).data('dj');
         $.ajax({
-            url: base_url + "/home/FollowUnfollowRecommend",
+            url: base_url + "/user/FollowUnfollowRecommend",
             method: "POST",
             data: {'user_id': user_id, 'dj_id': dj_id},
             success: function(data) {
@@ -91,7 +91,7 @@ $(document).ready(function() {
         var song_type = $(".song_type.active").attr('id'); // audio or video
         var user = $(".song_type.active").data('user'); // dj user id
         $.ajax({
-            url: base_url + "/home/AjaxTrending",
+            url: base_url + "/user/AjaxTrending",
             method: "POST",
             data: {'user': user, 'song_type': song_type},
             success: function(data) {
@@ -110,7 +110,7 @@ $(document).ready(function() {
         var song_type = $(".song_type.active").attr('id'); // audio or video
         var user = $(".song_type.active").data('user'); // dj user id
         $.ajax({
-            url: base_url + "/home/AjaxJustAdded",
+            url: base_url + "/user/AjaxJustAdded",
             method: "POST",
             data: {'user': user, 'song_type': song_type},
             success: function(data) {
@@ -128,7 +128,7 @@ $(document).ready(function() {
         var song_type = $(".song_type.active").attr('id'); // audio or video
         var user = $(".song_type.active").data('user'); // dj user id
         $.ajax({
-            url: base_url + "/home/AjaxMyDrive",
+            url: base_url + "/user/AjaxMyDrive",
             method: "POST",
             data: {'user': user, 'song_type': song_type},
             success: function(data) {
@@ -147,7 +147,7 @@ $(document).ready(function() {
         $(".loading").show();
         var user = $(".song_type.active").data('user'); // dj user id
         $.ajax({
-            url: base_url + "/home/AjaxPlaylist",
+            url: base_url + "/user/AjaxPlaylist",
             method: "POST",
             data: {'user': user},
             success: function(data) {
@@ -165,23 +165,18 @@ $(document).ready(function() {
         var playlist = $(this).data('id'); // playlist id
         var song_type = $(".song_type.active").attr('id'); // audio or video
         $.ajax({
-            url: base_url + "/home/AjaxPlaylistSongs",
+            url: base_url + "/user/AjaxPlaylistSongs",
             method: "POST",
             data: {'playlist': playlist, 'song_type': song_type},
             success: function(data) {
                 $("#song_type_container").show();
                 $("#media_container").html(data);
                 $("#play_btn_container").show();
-                $("#play_all").data("type",song_type);
+                $("#play_all").data("type", song_type);
                 $(".loading").hide();
             }
         })
     });
-
-
-
-
-
 
 
 

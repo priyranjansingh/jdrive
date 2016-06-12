@@ -154,7 +154,6 @@ class Users extends BaseModel {
         $current_date = date("Y-m-d");
         $previous_seven_days_date = date("Y-m-d", strtotime("-7 days"));
         $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$user' AND DATE(date_entered) >= '$previous_seven_days_date' AND DATE(date_entered)<='$current_date' "));
-
         if (!empty($shared_songs)) {
             $shared_songs_ids = array();
             foreach ($shared_songs as $s) {
@@ -164,15 +163,15 @@ class Users extends BaseModel {
 
             $criteria = new CDbCriteria();
             $criteria->condition = "status = '1'  AND deleted = 0 AND "
-                    . "type = '$song_type' AND ((created_by = '$user') OR (id IN($ids)) ) "
-                    . "AND DATE(date_entered) >= '$previous_seven_days_date' AND DATE(date_entered)<='$current_date'";
+                    . "type = '$song_type' AND ((created_by = '$user' AND DATE(date_entered) >= '$previous_seven_days_date' AND DATE(date_entered)<='$current_date' ) OR (id IN($ids)) ) ";
+                   // . "AND DATE(date_entered) >= '$previous_seven_days_date' AND DATE(date_entered)<='$current_date'";
             $criteria->order = "date_entered DESC";
             $criteria->limit = 20;
 
            
         } else {
              $criteria = new CDbCriteria();
-            $criteria->condition = "status = '1'  AND deleted = 0 AND "
+            $criteria->condition = "status = '1' AND acl=0  AND deleted = 0 AND "
                     . "type = '$song_type' AND created_by = '$user' "
                     . "AND DATE(date_entered) >= '$previous_seven_days_date' AND DATE(date_entered)<='$current_date'";
             $criteria->order = "date_entered DESC";

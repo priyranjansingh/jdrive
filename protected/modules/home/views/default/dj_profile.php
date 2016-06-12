@@ -206,4 +206,4 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
     </div>
 </div>
-<script src="<?php echo base_url(); ?>/assets/js/dj/dj.js"></script>
+<script src="<?php echo base_url(); ?>/assets/js/dj/dj_public.js"></script>

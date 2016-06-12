@@ -163,7 +163,7 @@ class DefaultController extends Controller {
     public function actionHomeAjaxTrending() {
         $song_type = $_POST['song_type'];
         if ($song_type == 'audio') {
-            $trending_song = Downloads::model()->HomeTrendingSong();
+            $trending_AjaxPlaylistsong = Downloads::model()->HomeTrendingSong();
             $this->renderPartial('home_ajax_song', array('song_list' => $trending_song));
         } else if ($song_type == 'video') {
             $trending_video = Downloads::model()->HomeTrendingVideo();
@@ -248,13 +248,13 @@ class DefaultController extends Controller {
                     array(
                         "condition" =>
                         "status = '1' AND type='$type' AND deleted = 0 AND"
-                        . " ((created_by = '$user') OR (id IN($ids)) )  ", "order" => "date_entered desc", "limit" => 20)
+                        . " ((created_by = '$user' AND acl=0) OR (id IN($ids)) )  ", "order" => "date_entered desc", "limit" => 20)
             );
         } else {
             $song_list = Songs::model()->findAll(
                     array(
                         "condition" =>
-                        "status = '1' AND type='$type' AND deleted = 0 AND"
+                        "status = '1' AND acl=0 AND type='$type' AND deleted = 0 AND"
                         . " created_by = '$user' ", "order" => "date_entered desc", "limit" => 20)
             );
         }

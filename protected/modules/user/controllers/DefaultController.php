@@ -443,4 +443,196 @@ class DefaultController extends Controller {
         echo json_encode($return_arr);
     }
 
+    public function actionAjaxTrending() {
+        $user = $_POST['user'];
+        $song_type = $_POST['song_type'];
+        if ($song_type == 'audio') {
+            $trending_song = Downloads::model()->trendingSong($user);
+            $this->renderPartial('ajax_song', array('song_list' => $trending_song));
+        } else if ($song_type == 'video') {
+            $trending_video = Downloads::model()->trendingVideo($user);
+            $this->renderPartial('ajax_song', array('song_list' => $trending_video));
+        }
+    }
+
+    public function actionAjaxJustAdded() {
+        $user = $_POST['user'];
+        $song_type = $_POST['song_type'];
+        if ($song_type == 'audio') {
+            $song = Users::model()->AjaxJustAdded($user, 1);
+            $this->renderPartial('ajax_song', array('song_list' => $song));
+        } else if ($song_type == 'video') {
+            $video = Users::model()->AjaxJustAdded($user, 2);
+            $this->renderPartial('ajax_song', array('song_list' => $video));
+        }
+    }
+
+    public function actionAjaxPlaylist() {
+        $user = $_POST['user'];
+        $playlists = Playlists::model()->findAll(array("condition" => "status = '1'  AND deleted = 0 AND user_id = '$user'    ", "order" => "date_entered desc", "limit" => 20));
+        $this->renderPartial('ajax_playlist', array('playlists' => $playlists));
+    }
+
+    public function actionAjaxMyDrive() {
+        $user = $_POST['user'];
+        $song_type = $_POST['song_type'];
+
+
+        if ($song_type == 'audio') {
+            $type = 1;
+        } else if ($song_type == 'video') {
+            $type = 2;
+        }
+
+
+        $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$user' "));
+
+        if (!empty($shared_songs)) {
+            $shared_songs_ids = array();
+            foreach ($shared_songs as $s) {
+                array_push($shared_songs_ids, "'$s->song_id'");
+            }
+            $ids = implode(',', $shared_songs_ids);
+            $song_list = Songs::model()->findAll(
+                    array(
+                        "condition" =>
+                        "status = '1' AND type='$type' AND deleted = 0 AND"
+                        . " ((created_by = '$user') OR (id IN($ids)) )  ", "order" => "date_entered desc", "limit" => 20)
+            );
+        } else {
+            $song_list = Songs::model()->findAll(
+                    array(
+                        "condition" =>
+                        "status = '1' AND type='$type' AND deleted = 0 AND"
+                        . " created_by = '$user' ", "order" => "date_entered desc", "limit" => 20)
+            );
+        }
+
+        $this->renderPartial('ajax_song', array('song_list' => $song_list));
+    }
+
+    public function actionAjaxPlaylistSongs() {
+        $playlist = $_POST['playlist'];
+        $song_type = $_POST['song_type'];
+        if ($song_type == 'audio') {
+            $type = 1;
+        } else if ($song_type == 'video') {
+            $type = 2;
+        }
+        $playlist_detail = Playlists::model()->findByPk($playlist);
+        $playlist_songs = PlaylistSongs::model()->findAll(array("condition" => "playlist_id = '$playlist' AND type='$type' "));
+        $this->renderPartial('ajax_playlist_songs', array('playlist_songs' => $playlist_songs, 'playlist' => $playlist, 'playlist_name' => $playlist_detail->name));
+    }
+
+    public function actionSongType() {
+        $user_id = $_POST['user'];
+        $song_type = $_POST['song_type'];
+        if ($song_type == 'audio') {
+            $type = 1;
+        } else if ($song_type == 'video') {
+            $type = 2;
+        }
+
+        $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$user_id' "));
+
+        if (!empty($shared_songs)) {
+            $shared_songs_ids = array();
+            foreach ($shared_songs as $s) {
+                array_push($shared_songs_ids, "'$s->song_id'");
+            }
+            $ids = implode(',', $shared_songs_ids);
+            $song_list = Songs::model()->findAll(
+                    array(
+                        "condition" =>
+                        "status = '1' AND type='$type' AND deleted = 0 AND"
+                        . " ((created_by = '$user_id') OR (id IN($ids)) )  ", "order" => "date_entered desc", "limit" => 20)
+            );
+        } else {
+            $song_list = Songs::model()->findAll(
+                    array(
+                        "condition" =>
+                        "status = '1' AND type='$type' AND deleted = 0 AND"
+                        . " created_by = '$user_id' ", "order" => "date_entered desc", "limit" => 20)
+            );
+        }
+
+
+        $this->renderPartial('ajax_song', array('song_list' => $song_list));
+    }
+    
+     public function actionFollowUnfollow() {
+        if (Yii::app()->user->id) {
+            $return_arr = array();
+            $user_id = $_POST['dj_id'];
+            $follower_id = $_POST['user_id'];
+            $follow_unfollow = Followers::model()->find(array("condition" => " user_id = '$user_id' AND follower_id = '$follower_id' "));
+            if (empty($follow_unfollow)) {
+                $follower_model = new Followers;
+                $follower_model->user_id = $user_id;
+                $follower_model->follower_id = $follower_id;
+                $follower_model->created_by = $follower_id;
+                $follower_model->save();
+                $user = Users::model()->find(array("condition" => "id = '$user_id'"));
+                $dj_followers_count = count($user->followers_list);
+                $return_arr['followers_count'] = $dj_followers_count;
+                $return_arr['follow_unfollow_text'] = "Unfollow";
+                echo json_encode($return_arr);
+            } else {
+                if ($follow_unfollow->deleted == 0) {
+                    $follow_unfollow->deleted = 1;
+                    $follow_unfollow->save();
+                    $user = Users::model()->find(array("condition" => "id = '$user_id'"));
+                    $dj_followers_count = count($user->followers_list);
+                    $return_arr['followers_count'] = $dj_followers_count;
+                    $return_arr['follow_unfollow_text'] = "Follow";
+                    echo json_encode($return_arr);
+                } else if ($follow_unfollow->deleted == 1) {
+                    $follow_unfollow->deleted = 0;
+                    $follow_unfollow->save();
+                    $user = Users::model()->find(array("condition" => "id = '$user_id'"));
+                    $dj_followers_count = count($user->followers_list);
+                    $return_arr['followers_count'] = $dj_followers_count;
+                    $return_arr['follow_unfollow_text'] = "Unfollow";
+                    echo json_encode($return_arr);
+                }
+            }
+        }
+    }
+    
+     public function actionFollowUnfollowRecommend() {
+        if (Yii::app()->user->id) {
+            $return_arr = array();
+            $user_id = $_POST['dj_id'];
+            $follower_id = $_POST['user_id'];
+            $follow_unfollow = Followers::model()->find(array("condition" => " user_id = '$user_id' AND follower_id = '$follower_id' "));
+            if (empty($follow_unfollow)) {
+                $follower_model = new Followers;
+                $follower_model->user_id = $user_id;
+                $follower_model->follower_id = $follower_id;
+                $follower_model->created_by = $follower_id;
+                $follower_model->save();
+                $user = Users::model()->find(array("condition" => "id = '$user_id'"));
+                $dj_followers_count = count($user->followers_list);
+            } else {
+                if ($follow_unfollow->deleted == 0) {
+                    $follow_unfollow->deleted = 1;
+                    $follow_unfollow->save();
+                    $user = Users::model()->find(array("condition" => "id = '$user_id'"));
+                    $dj_followers_count = count($user->followers_list);
+                } else if ($follow_unfollow->deleted == 1) {
+                    $follow_unfollow->deleted = 0;
+                    $follow_unfollow->save();
+                    $user = Users::model()->find(array("condition" => "id = '$user_id'"));
+                    $dj_followers_count = count($user->followers_list);
+                }
+            }
+            $logged_in_user_id = Yii::app()->user->id;
+            $recommended_list = Users::model()->getRecommendList($logged_in_user_id, "limited");
+            $this->renderPartial('ajax_recommended', array('recommended_list' => $recommended_list));
+        }
+    }
+    
+    
+    
+
 }
