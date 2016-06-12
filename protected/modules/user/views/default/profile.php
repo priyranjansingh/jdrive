@@ -4,8 +4,8 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 <div class="inner_con">
     <div class="left_bar">
-        <a href="#"><i class="fa fa-cloud"></i></a>
-        <a href="#"><i class="fa fa-user"></i></a>
+         <a href="<?php echo base_url(); ?>/user/drive" ><i class="fa fa-cloud"></i></a>
+        <a href="<?php echo base_url(); ?>/user/profile" class="active"><i class="fa fa-user"></i></a>
     </div>
     <div class="left_menu">
         <div class="tilel_bar">

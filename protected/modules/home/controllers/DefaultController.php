@@ -68,8 +68,8 @@ class DefaultController extends Controller {
             $logged_in_user_id = Yii::app()->user->id;
             $recommended_list = Users::model()->getRecommendList($logged_in_user_id, "limited");
 
-            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$user->id'    ", "order" => "date_entered desc", "limit" => 20));
-            $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$user->id'    ", "order" => "date_entered desc", "limit" => 20));
+            $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND acl=0 AND type='1' AND deleted = 0 AND created_by = '$user->id'    ", "order" => "date_entered desc", "limit" => 20));
+            $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND acl=0  AND type='2' AND deleted = 0 AND created_by = '$user->id'    ", "order" => "date_entered desc", "limit" => 20));
             $total_track_list = count($song_list) + count($video_list);
             $following_list = Followers::model()->findAll(array("condition" => "follower_id = '$user->id'"));
             $follow_unfollow = Followers::model()->find(array("condition" => " user_id = '$user->id' AND follower_id = '$logged_in_user_id' "));
@@ -82,9 +82,6 @@ class DefaultController extends Controller {
             } else {
                 $follow_unfollow_text = "Follow";
             }
-
-
-
 
             $this->render('dj_profile', array(
                 'user' => $user,
