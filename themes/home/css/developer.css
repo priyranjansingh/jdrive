@@ -2136,3 +2136,40 @@ table.table tr.template-upload td p.size {
 input#mysubmit {
     margin-top: 0px;
 }
+
+.sd_banner{
+    background: #7d0000 !important;
+}
+
+.s_detail textarea {
+    border: 2px solid #777;
+    width: 100%;
+    height: 80px;
+}
+
+.comments {
+    height: 300px;
+    overflow: auto;
+    padding: 10px;
+}
+
+.comment {
+    padding: 10px;
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #7d0000;
+}
+
+.user_pic {
+    height: 70px;
+    width: 70px;
+    float: left;
+    padding: 5px;
+}
+
+.user_comment {
+    float: left;
+    padding: 5px;
+    color: #7d0000;
+    word-wrap: break-word;
+}
