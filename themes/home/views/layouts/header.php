@@ -12,14 +12,8 @@
                      <?php $this->widget('SearchWidget'); ?>
                 </span>
             </li>
-            <li><a href="#"><i class="fa fa-th-large"></i> <span id="category_name" data-genre="" class="">Categories</span> <i class="fa fa-angle-down"></i></a>
-                <ul class="dropdown-menu sub_menu">
-                    <?php $genres = Genres::model()->findAll(array("condition" => "parent = '0'")); ?>
-
-                    <?php foreach($genres as $genre): ?>
-                        <li><a class="genre_class" data-name="<?php echo $genre->name; ?>"  data-genre="<?php  echo $genre->id;  ?>"  href="javascript:void(0)"><?php echo $genre->name; ?></a></li>
-                    <?php endforeach; ?>
-                </ul>
+            <li>
+                <a href="<?php echo base_url(); ?>/home/discover"><i class="fa fa-th-large"></i> <span id="category_name" data-genre="" class="">Categories</span></a>
             </li>
             <?php if(Yii::app()->user->isGuest): ?>
             <li><a href="#" data-toggle="modal" data-target="#Signup-pop">Sign Up</a></li>

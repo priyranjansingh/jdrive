@@ -19,13 +19,12 @@ class DefaultController extends Controller {
         }
     }
 
-    public function actionMedia($name)
-    {
+    public function actionMedia($name) {
         $media = Media::model()->find(array("condition" => "slug = '$name'"));
         $comments = Comments::model()->findAll(array("condition" => "song = '$media->id'"));
         $song_like_count = count($media->like_details);
         $song_download_count = count($media->download_details);
-        $this->render('detail',array('media' => $media, 'comments' => $comments,
+        $this->render('detail', array('media' => $media, 'comments' => $comments,
             'song_like_count' => $song_like_count,
             'song_download_count' => $song_download_count,));
     }
@@ -390,7 +389,7 @@ class DefaultController extends Controller {
                     $model->confirm_password = $model->password;
                     $model->save();
                     Yii::app()->session['register_user_info'] = serialize($model);
-                    
+
                     // creating of the bucket
                     $aws = new AS3;
                     $bucket = $model->username . '-' . create_guid_section(6);
@@ -399,7 +398,7 @@ class DefaultController extends Controller {
                     $user_model = Users::model()->findByPk($model->id);
                     $user_model->s3_bucket = $bucket;
                     $user_model->save();
-                    
+
                     // process of autologin of the user
                     $login_model = new AutoLogin;
                     $login_model->username = $model->username;
@@ -668,7 +667,7 @@ class DefaultController extends Controller {
 
                     if ($info->data['error'] === false) {
                         $g = $info->data['genre'];
-                        if($t->type == 1){
+                        if ($t->type == 1) {
                             $album_art = NULL;
                             try {
                                 $api = new ApiSearch($info->data['artist'], $info->data['song'], $info->data['album']);
@@ -676,7 +675,7 @@ class DefaultController extends Controller {
                                 if ($g == "NA") {
                                     $g = $api->genre;
                                 }
-                            } catch(Exception $e) {
+                            } catch (Exception $e) {
                                 
                             }
                         }
@@ -693,7 +692,7 @@ class DefaultController extends Controller {
                         } else {
                             $g = $genre->id;
                         }
-                        if($t->type == 1){
+                        if ($t->type == 1) {
                             $bpm = getSongBPM($file_url);
                             $key = getSongKey($file_url);
                         } else {
@@ -714,7 +713,7 @@ class DefaultController extends Controller {
                         $model->s3_bucket = $t->s3_bucket;
                         $model->file_name = $t->file_name;
                         $model->file_size = $t->file_size;
-                        if($t->type == 1){
+                        if ($t->type == 1) {
                             $model->album_art = $album_art;
                         } else {
                             $model->album_art = NULL;
@@ -741,8 +740,8 @@ class DefaultController extends Controller {
                 }
                 $i++;
             }
-            
-            echo $i." Songs/ Videos Added";
+
+            echo $i . " Songs/ Videos Added";
         }
     }
 
@@ -1046,18 +1045,18 @@ class DefaultController extends Controller {
     public function actionThank() {
         pre($_POST, true);
     }
-	
-	public function actionContact() {
-		$model = new Contact;
-		$this->performAjaxValidation($model, 'contact-form');
-		if(isset($_POST['Contact'])){
-			$name = $_POST['Contact']['name'];
-			$email = $_POST['Contact']['email'];
-			$subject = $_POST['Contact']['subject'];
-			$desc = $_POST['Contact']['message'];
-			$to = 'contact@jdrive.com';
-			//$to = 'neeraj24a@gmail.com';
-			$headers = "From: " . strip_tags($email) . "\r\n";
+
+    public function actionContact() {
+        $model = new Contact;
+        $this->performAjaxValidation($model, 'contact-form');
+        if (isset($_POST['Contact'])) {
+            $name = $_POST['Contact']['name'];
+            $email = $_POST['Contact']['email'];
+            $subject = $_POST['Contact']['subject'];
+            $desc = $_POST['Contact']['message'];
+            $to = 'contact@jdrive.com';
+            //$to = 'neeraj24a@gmail.com';
+            $headers = "From: " . strip_tags($email) . "\r\n";
             $headers .= "Reply-To: " . strip_tags($email) . "\r\n";
             $headers .= "MIME-Version: 1.0\r\n";
             $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
@@ -1070,59 +1069,81 @@ class DefaultController extends Controller {
             $message .= "</table>";
             $message .= "</body></html>";
 
-            if(mail($to, $subject, $message, $headers)){
-				Yii::app()->user->setFlash('success', "Your message has been sent. We will revert back as soon as possible.");
-			} else {
-				Yii::app()->user->setFlash('error', "Message not sent please try again.");
-			}	
-		}
-		$this->render('contact', array('model' => $model));
-	}
-	
-	public function actionTerms(){
-		$this->render('terms');
-	}
-	
-	public function actionAbout(){
-		$this->render('about');
-	}
-        
-        public function actionAddComment(){
-            $msg = $_POST['msg'];
-            $song = $_POST['song'];
-            
-            $model = new Comments;
-            
-            $model->song = $song;
-            $model->user = Yii::app()->user->id;
-            $model->comment = $msg;
-            $data['error'] = "0";
-            if($model->save()){
-                $user = Users::model()->findByPk(Yii::app()->user->id);
-                if(!empty($user->profile_pic)){
-                    $data['avatar'] = base_url().'/assets/user-profile/'.$user->profile_pic;
-                } else {
-                    $data['avatar'] = base_url().'/themes/home/img/avatar.jpg';
-                }
-                
-                $data['user'] = $user->username;
-                $data['msg'] = $model->comment;
+            if (mail($to, $subject, $message, $headers)) {
+                Yii::app()->user->setFlash('success', "Your message has been sent. We will revert back as soon as possible.");
             } else {
-                $data['error'] = "1";
+                Yii::app()->user->setFlash('error', "Message not sent please try again.");
             }
-            
-            echo json_encode($data, true);
         }
-        
-        public function actionDiscover($genre)
-        {
-            $genres = "";
-            if(isset($genre)){
-                $genre  = Genres::model()->findByAttributes(array('name'=>$genre));
+        $this->render('contact', array('model' => $model));
+    }
+
+    public function actionTerms() {
+        $this->render('terms');
+    }
+
+    public function actionAbout() {
+        $this->render('about');
+    }
+
+    public function actionAddComment() {
+        $msg = $_POST['msg'];
+        $song = $_POST['song'];
+
+        $model = new Comments;
+
+        $model->song = $song;
+        $model->user = Yii::app()->user->id;
+        $model->comment = $msg;
+        $data['error'] = "0";
+        if ($model->save()) {
+            $user = Users::model()->findByPk(Yii::app()->user->id);
+            if (!empty($user->profile_pic)) {
+                $data['avatar'] = base_url() . '/assets/user-profile/' . $user->profile_pic;
             } else {
-                $genres = Genres::model()->findAll();
+                $data['avatar'] = base_url() . '/themes/home/img/avatar.jpg';
             }
-            $this->render('category',array('genres' => $genres,'genre' => $genre));
+
+            $data['user'] = $user->username;
+            $data['msg'] = $model->comment;
+        } else {
+            $data['error'] = "1";
         }
+
+        echo json_encode($data, true);
+    }
+
+    public function actionDiscover() {
+        $this->render('category');
+    }
+
+    public function actionGenre($name) {
+        $name = ucfirst($name);
+//        pre($name,true);
+        $genre = Yii::app()->db->createCommand()
+                ->select('id, name')
+                ->from('genres')
+                ->where(array('like', 'name', '%' . $name . '%'))
+                ->queryRow();
+        
+        $id = $genre['id'];
+        
+        $criteria = new CDbCriteria();
+        $criteria->addInCondition('genre', array($id));
+
+        $count = Media::model()->count($criteria);
+        $pages = new CPagination($count);
+        // results per page
+        $pages->pageSize = 20;
+        $pages->applyLimit($criteria);
+
+        $songs = Media::model()->findAll($criteria);
+
+        $this->render('genre', array(
+            'songs' => $songs,
+            'pages' => $pages,
+            'name' => $genre['name']
+        ));
+    }
 
 }
