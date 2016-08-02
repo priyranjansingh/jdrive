@@ -38,10 +38,14 @@ $baseUrl = Yii::app()->theme->baseUrl;
                     </div>
                     <div  class="it_r"> 
                         <div class="bpm">
-                            BPM: <span><?php echo $song->bpm; ?></span> 
+                            <?php if(!empty($song->bpm)): ?>
+                            BPM: <span><?php echo $song->bpm; ?></span>
+                            <?php endif; ?>
                         </div>
                         <div class="key">
+                            <?php if(!empty($song->song_key)): ?>
                             KEY: <span><?php echo $song->song_key; ?></span>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

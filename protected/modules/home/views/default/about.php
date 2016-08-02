@@ -1,0 +1,9 @@
+<div class="inner_con bg_grey">
+	<div class="wraper fc_black">
+	<h2 class="fw600 mart15 marb15 titel">About Us</h2>
+    
+     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum vel dolor sed varius. Etiam sit amet ullamcorper ligula. Mauris dictum libero quam, non suscipit dui mollis ac. Ut scelerisque sapien ligula, ac posuere libero tempus eget. Donec in magna erat. Proin sit amet lectus elementum, convallis dolor at, luctus tellus. Curabitur laoreet, ante a porta luctus, diam ante laoreet nulla, et convallis tortor risus a ante. Ut eros tortor, pretium sed est id, tempor feugiat odio. Morbi nec accumsan mauris. Mauris non sagittis dui. Phasellus euismod mattis tempus. In ut venenatis est. Morbi nec lectus faucibus, suscipit libero at, sodales felis. Quisque fringilla arcu quam, quis iaculis magna fringilla ut. Phasellus sed sapien efficitur, pharetra massa eget, volutpat lorem.</p>
+
+<p>Vivamus porttitor molestie est, eget elementum magna porta vitae. Fusce rhoncus orci quis leo blandit egestas. Pellentesque tempus ex quis sodales accumsan. Nam vel rhoncus ligula, et posuere est. Praesent auctor nulla vel velit consectetur posuere. Phasellus lobortis at nunc et faucibus. Nullam fermentum, quam at tincidunt maximus, ante lorem vestibulum augue, eu facilisis lorem odio in leo. Nunc consequat ornare lacus sed sollicitudin. Ut condimentum a magna sit amet rutrum. Nullam venenatis gravida cursus. Nulla porta sit amet neque pulvinar pellentesque. Maecenas ac urna ante. Nunc a dapibus eros, nec ultricies orci. Donec vel mi scelerisque, venenatis lacus cursus, varius mi. Fusce vel ex scelerisque ex lobortis pellentesque. Nulla eget dictum est.</p> 
+    </div>
+</div>

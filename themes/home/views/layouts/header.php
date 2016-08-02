@@ -1,6 +1,8 @@
 <div class="header">
     <div class="col-md-2 logo_p">
-        <a href="<?php echo base_url(); ?>"><img src="<?php echo $baseUrl; ?>/img/logo.png" /></a>
+        <a href="/">
+			<img src="<?php echo $baseUrl; ?>/img/logo.png" />
+		</a>
     </div>
     <div class="col-md-10">
         <div class="togg_bar"><span class="togg_menu"><i class="fa fa-navicon"></i></span></div>
@@ -37,9 +39,10 @@
             <?php endif; ?>
             <li><a href="#">More <i class="fa fa-angle-down"></i></a>
                 <ul class="sub_menu">
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="<?php echo base_url().'about-us'; ?>">About Us</a></li>
                     <li><a href="#">Feedback</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="<?php echo base_url().'contact-us'; ?>">Contact Us</a></li>
+					<li><a href="<?php echo base_url().'terms'; ?>">Terms</a></li>
                 </ul>
             </li>
         </ul>

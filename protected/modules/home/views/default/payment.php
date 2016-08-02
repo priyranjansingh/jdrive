@@ -76,7 +76,7 @@
                                     <form action="#" method="POST" >
                                         <input type="button" id="paypal_submit" class="submit" value="Pay Now">
                                     </form>
-                                    <form id="paypal_hid_frm" name="frm_payment_method" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                                    <form id="paypal_hid_frm" name="frm_payment_method" action="https://www.paypal.com/cgi-bin/webscr" method="post">
                                         <input type="hidden" name="business" value="singh.priyranjan-facilitator@gmail.com" />
                                         <input type="hidden" name="notify_url" value="<?php echo domainUrl() ?>/home/notify" />
                                         <input type="hidden" name="cancel_return" value="<?php echo domainUrl() ?>/home/cancel" />

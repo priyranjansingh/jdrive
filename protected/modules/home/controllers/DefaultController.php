@@ -22,7 +22,12 @@ class DefaultController extends Controller {
     public function actionMedia($name)
     {
         $media = Media::model()->find(array("condition" => "slug = '$name'"));
-        $this->render('detail',array('media' => $media));
+        $comments = Comments::model()->findAll(array("condition" => "song = '$media->id'"));
+        $song_like_count = count($media->like_details);
+        $song_download_count = count($media->download_details);
+        $this->render('detail',array('media' => $media, 'comments' => $comments,
+            'song_like_count' => $song_like_count,
+            'song_download_count' => $song_download_count,));
     }
 
     public function actionLogin() {
@@ -390,11 +395,11 @@ class DefaultController extends Controller {
                     $aws = new AS3;
                     $bucket = $model->username . '-' . create_guid_section(6);
                     $aws->addBucket($bucket);
+                    $aws->addBucketCors($bucket);
                     $user_model = Users::model()->findByPk($model->id);
                     $user_model->s3_bucket = $bucket;
                     $user_model->save();
-
-
+                    
                     // process of autologin of the user
                     $login_model = new AutoLogin;
                     $login_model->username = $model->username;
@@ -518,115 +523,7 @@ class DefaultController extends Controller {
     }
 
     public function actionTest() {
-        // $info = new FileInfo("assets/temp/Kehlani - 24 7 (Dirty).mp3");
-        // $url = "http://neeraj-f0b1ea.s3.amazonaws.com/Mark%20J%20-%20Marvelous%20Light%20%282%29%20%281%29.mp3?AWSAccessKeyId=AKIAJBTQKEKGZSJDLKSA&Expires=1463945001&Signature=VF0m%2FOeusUb0ZDe2HjcAxp0i4VA%3D";
-        // $info = getSongBPM($url);
-        // pre($info,true);
-        $url = "http://neeraj-f0b1ea.s3.amazonaws.com/Mark%20J%20-%20Marvelous%20Light%20%282%29%20%281%29.mp3?AWSAccessKeyId=AKIAJBTQKEKGZSJDLKSA&Expires=1463945001&Signature=VF0m%2FOeusUb0ZDe2HjcAxp0i4VA%3D";
-        $info = getSongBPM($url);
-        pre($info, true);
-        // getSongBPM($url);
-        // $api = new ApiSearch($info->data['artist'], $info->data['song'], $info->data['album']);
-        // pre($api);
-        // $model = Media::model()->findAll();
-        // pre($model,true);
-        require('./assets/stripe/init.php');
-
-        $secret_key = getParam('stripe_secret_key');
-
-        \Stripe\Stripe::setApiKey($secret_key);
-        $tests = Test::model()->findAll();
-        // $test = Test::model()->findByPk('1f4b7eb2-4341-d34b-e0f1-574611ee2536');
-        // foreach($tests as $test){
-        //     pre($test->response);
-        // }
-        // die;
-        foreach ($tests as $test) {
-            // $test = Test::model()->findByPk('173556cc-98bd-9d4f-ef5e-5740c531171a');
-            foreach ($tests as $test) {
-                // pre($test->response,true);
-                // Stripe\Event JSON: 
-                // $a = substr($test->response, 19);
-                // pre($a, true);
-                // $find = substr($test->response, 0, 19);
-                // if($find === "Stripe\Event JSON: "){
-                $event_json = json_decode($test->response);
-                $find = substr($test->response, 0, 19);
-                if ($find === "Stripe\Event JSON: ") {
-                    $event_json = json_decode(substr($test->response, 19));
-
-                    $event = \Stripe\Event::retrieve($event_json->id);
-                    $event = substr($event, 19);
-                    $event_json = json_decode($event);
-                    // $data = $event->data->object;
-                    // $invoice = $data->lines->data[0];
-                    // pre($event_json);
-                    // pre($event);
-
-                    if (isset($event_json->id)) {
-
-                        try {
-                            // to verify this is a real event, we re-retrieve the event from Stripe 
-                            $event = \Stripe\Event::retrieve($event_json->id);
-                            // $model = new Test;
-                            // $model->response = $event;
-                            // $model->save();
-                            // pre($event);
-                            $event = substr($event, 19);
-                            $event = json_decode($event);
-                            // pre($event,true);
-                            $data = $event->data->object;
-                            // successful payment
-                            if ($event->type == 'invoice.payment_succeeded') {
-                                $invoice = $data->lines->data[0];
-                                // send a payment receipt email here
-                                // retrieve the payer's information
-                                $customer = \Stripe\Customer::retrieve($data->customer);
-                                // pre($customer);
-                                // echo "--------------------------------------------------";
-                                $customer = json_decode(substr($customer, 22));
-                                // pre($customer,true);
-                                $email = $customer->email;
-
-                                $amount = $invoice->amount / 100; // amount comes in as amount in cents, so we need to convert to dollars
-
-                                $t_model = Transactions::model()->find(array("condition" => "transaction_id = '" . $invoice->id . "'"));
-                                if ($t_model !== null) {
-                                    $t_model->payment_status = "paid";
-                                    $t_model->save();
-                                }
-
-                                $subject = 'Jock Drive Payment Receipt';
-                                $headers = 'From: <info@dealrush.in>';
-                                $message = "Hello User,\n\n";
-                                $message .= "You have successfully made a payment of $" . $amount . "\n";
-                                $message .= "Thank you.";
-                                echo $message;
-                                mail($email, $subject, $message, $headers);
-                            } else {
-                                echo $event->type;
-                            }
-                        } catch (Exception $e) {
-                            $headers = 'From: <info@dealrush.in>';
-                            mail('neeraj24a@gmail.com', 'Jockdrive Payment Exception', $e, $headers);
-                        }
-                    }
-                    // }
-
-                    pre($event);
-                }
-
-                // this will be used to retrieve the event from Stripe
-                // $event_id = $event_json->id;
-                // pre($event_id, true);
-                // if (isset($event_json->id)) {
-            }
-            // }
-            // }
-        }
-        $s3 = new AS3;
-        $result = $s3->getSong("priyranjan-e15319", "Mark J - Marvelous Light.mp3");
-        pre($result);
+        $info = new UpdateVideoBPM("assets/temp/Beyonce - Sorry (Original) (Dirty).mp4");
     }
 
     public function actionWebhook($listner) {
@@ -762,19 +659,27 @@ class DefaultController extends Controller {
 
         if ($temp !== null) {
             Yii::app()->s3->setAuth(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
+            $i = 0;
             foreach ($temp as $t) {
                 $file_url = Yii::app()->s3->getAuthenticatedURL($t->s3_bucket, $t->file_name, 3600, false, false);
-                //pre($file_url,true);
+//                pre($file_url,true);
                 if (copy($file_url, "assets/temp/" . $t->file_name)) {
-                    $info = new FileInfo("assets/temp/" . $t->file_name);
+                    $info = new FileInfo("assets/temp/" . $t->file_name, $t->type);
 
                     if ($info->data['error'] === false) {
                         $g = $info->data['genre'];
-                        $api = new ApiSearch($info->data['artist'], $info->data['song'], $info->data['album']);
-                        if ($g == "NA") {
-                            $g = $api->genre;
+                        if($t->type == 1){
+                            $album_art = NULL;
+                            try {
+                                $api = new ApiSearch($info->data['artist'], $info->data['song'], $info->data['album']);
+                                $album_art = $api->album_art;
+                                if ($g == "NA") {
+                                    $g = $api->genre;
+                                }
+                            } catch(Exception $e) {
+                                
+                            }
                         }
-
                         $genre = Genres::model()->find(array("condition" => "name = '$g'"));
                         if ($genre === null) {
                             $g_model = new Genres;
@@ -788,10 +693,13 @@ class DefaultController extends Controller {
                         } else {
                             $g = $genre->id;
                         }
-
-                        $bpm = getSongBPM($file_url);
-                        $key = getSongKey($file_url);
-
+                        if($t->type == 1){
+                            $bpm = getSongBPM($file_url);
+                            $key = getSongKey($file_url);
+                        } else {
+                            $bpm = NULL;
+                            $key = NULL;
+                        }
                         // $bpm = 'BPM';
                         // $key = 'key';
                         $model = new Media;
@@ -805,7 +713,12 @@ class DefaultController extends Controller {
                         $model->s3_url = $t->s3_url;
                         $model->s3_bucket = $t->s3_bucket;
                         $model->file_name = $t->file_name;
-                        $model->album_art = $api->album_art;
+                        $model->file_size = $t->file_size;
+                        if($t->type == 1){
+                            $model->album_art = $album_art;
+                        } else {
+                            $model->album_art = NULL;
+                        }
                         $model->bpm = $bpm;
                         $model->song_key = $key;
                         $model->created_by = $t->user_id;
@@ -826,7 +739,10 @@ class DefaultController extends Controller {
                         Temp::model()->deleteByPk($t->id);
                     }
                 }
+                $i++;
             }
+            
+            echo $i." Songs/ Videos Added";
         }
     }
 
@@ -1130,5 +1046,83 @@ class DefaultController extends Controller {
     public function actionThank() {
         pre($_POST, true);
     }
+	
+	public function actionContact() {
+		$model = new Contact;
+		$this->performAjaxValidation($model, 'contact-form');
+		if(isset($_POST['Contact'])){
+			$name = $_POST['Contact']['name'];
+			$email = $_POST['Contact']['email'];
+			$subject = $_POST['Contact']['subject'];
+			$desc = $_POST['Contact']['message'];
+			$to = 'contact@jdrive.com';
+			//$to = 'neeraj24a@gmail.com';
+			$headers = "From: " . strip_tags($email) . "\r\n";
+            $headers .= "Reply-To: " . strip_tags($email) . "\r\n";
+            $headers .= "MIME-Version: 1.0\r\n";
+            $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+
+            $message = '<html><body>';
+            $message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
+            $message .= "<tr style='background: #eee;'><td><strong>Name:</strong> </td><td>" . strip_tags($name) . "</td></tr>";
+            $message .= "<tr><td><strong>Email:</strong> </td><td>" . strip_tags($email) . "</td></tr>";
+            $message .= "<tr><td><strong>Description:</strong> </td><td>" . strip_tags($desc) . "</td></tr>";
+            $message .= "</table>";
+            $message .= "</body></html>";
+
+            if(mail($to, $subject, $message, $headers)){
+				Yii::app()->user->setFlash('success', "Your message has been sent. We will revert back as soon as possible.");
+			} else {
+				Yii::app()->user->setFlash('error', "Message not sent please try again.");
+			}	
+		}
+		$this->render('contact', array('model' => $model));
+	}
+	
+	public function actionTerms(){
+		$this->render('terms');
+	}
+	
+	public function actionAbout(){
+		$this->render('about');
+	}
+        
+        public function actionAddComment(){
+            $msg = $_POST['msg'];
+            $song = $_POST['song'];
+            
+            $model = new Comments;
+            
+            $model->song = $song;
+            $model->user = Yii::app()->user->id;
+            $model->comment = $msg;
+            $data['error'] = "0";
+            if($model->save()){
+                $user = Users::model()->findByPk(Yii::app()->user->id);
+                if(!empty($user->profile_pic)){
+                    $data['avatar'] = base_url().'/assets/user-profile/'.$user->profile_pic;
+                } else {
+                    $data['avatar'] = base_url().'/themes/home/img/avatar.jpg';
+                }
+                
+                $data['user'] = $user->username;
+                $data['msg'] = $model->comment;
+            } else {
+                $data['error'] = "1";
+            }
+            
+            echo json_encode($data, true);
+        }
+        
+        public function actionDiscover($genre)
+        {
+            $genres = "";
+            if(isset($genre)){
+                $genre  = Genres::model()->findByAttributes(array('name'=>$genre));
+            } else {
+                $genres = Genres::model()->findAll();
+            }
+            $this->render('category',array('genres' => $genres,'genre' => $genre));
+        }
 
 }

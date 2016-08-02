@@ -45,17 +45,17 @@ class Media extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, song_name, artist_name, s3_bucket, file_name, type, genre, created_by, modified_by, date_entered, date_modified', 'required'),
+			array('id, song_name, artist_name, s3_bucket, file_name, file_size, type, genre, created_by, modified_by, date_entered, date_modified', 'required'),
 			array('acl, type, status, deleted', 'numerical', 'integerOnly'=>true),
 			array('id, genre, sub_genre, sub_sub_genre, created_by, modified_by', 'length', 'max'=>36),
-			array('song_name, artist_name, s3_bucket', 'length', 'max'=>128),
+			array('song_name, artist_name, s3_bucket, file_size', 'length', 'max'=>128),
 			array('file_name', 'length', 'max'=>256),
 			array('bpm', 'length', 'max'=>16),
 			array('song_key', 'length', 'max'=>32),
 			array('album_art, s3_url', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, song_name, artist_name, album_art, s3_bucket, acl, file_name, type, bpm, song_key, genre, sub_genre, sub_sub_genre, s3_url, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on'=>'search'),
+			array('id, song_name, artist_name, album_art, s3_bucket, acl, file_name, file_size, type, bpm, song_key, genre, sub_genre, sub_sub_genre, s3_url, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,6 +68,12 @@ class Media extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'user' => array(self::BELONGS_TO, 'Users', 'created_by'),
+                        'comment_list' => array(self::HAS_MANY, 'Comments', 'song'),
+                        'media_genre' => array(self::BELONGS_TO, 'Genres', 'genre'),
+                        'media_sub_genre' => array(self::BELONGS_TO, 'Genres', 'sub_genre'),
+                        'media_sub_sub_genre' => array(self::BELONGS_TO, 'Genres', 'sub_sub_genre'),
+                        'like_details' => array(self::HAS_MANY,'SongLike','song_id','condition' => 'like_details.deleted = 0'),
+                        'download_details' => array(self::HAS_MANY,'Downloads','song_id')
 		);
 	}
 
@@ -99,6 +105,7 @@ class Media extends CActiveRecord
 			's3_bucket' => 'S3 Bucket',
 			'acl' => 'Acl',
 			'file_name' => 'File Name',
+                        'file_size' => 'File Size',
 			'type' => 'Type',
 			'bpm' => 'Bpm',
 			'song_key' => 'Song Key',
