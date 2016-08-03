@@ -10,8 +10,8 @@ return array(
         'default_settings' => array(
             'params' => array(
                 'credentials' => array(
-                    'key'    => 'AKIAID2S54DQ34IPX24Q',
-                    'secret' => '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',
+                    'key'    => '',
+                    'secret' => '',
                 ),
                 'region' => 'us-west-1'
             )

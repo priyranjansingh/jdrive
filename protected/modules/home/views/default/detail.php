@@ -29,88 +29,28 @@
                 <div class="song_dp">
                     <h4 class="titel_p">Comments</h4>
                     <div class="s_detail">
-                        <textarea></textarea>
+                        <textarea id="comment_msg" placeholder="Enter Comment Message Here"></textarea>
+                        <input type="hidden" id="comment_song" value="<?php echo $media->id; ?>" />
+                        <button class="btn btn-warning" id="comment_btn">Submit</button>
                         <div class="comments">
-                            <div class="comment">
-                                <div class="user_pic">
-                                    <img src="" alt="user">
+                            <?php foreach($comments as $comment): ?>
+                                <div class="comment">
+                                    <div class="user_pic">
+                                        <?php 
+                                        $user = Users::model()->findByPk($comment->user);
+                                        if(empty($user->profile_pic)): ?>
+                                            <img src="<?php echo base_url(); ?>/themes/home/img/avatar.jpg" alt="user">
+                                        <?php else: ?>
+                                            <img src="<?php echo base_url().'/assets/user-profile/'.$user->profile_pic; ?>" alt="user">
+                                        <?php endif; ?>
+                                        
+                                        <div><?php echo $user->username; ?></div>
+                                    </div>
+                                    <div class="user_comment">
+                                        <?php echo $comment->comment; ?>
+                                    </div>
                                 </div>
-                                <div class="user_comment">
-                                    Lorem Ipsum is a dummy text
-                                </div>
-                            </div>
-                            <div class="comment">
-                                <div class="user_pic">
-                                    <img src="" alt="user">
-                                </div>
-                                <div class="user_comment">
-                                    Lorem Ipsum is a dummy text
-                                </div>
-                            </div>
-                            <div class="comment">
-                                <div class="user_pic">
-                                    <img src="" alt="user">
-                                </div>
-                                <div class="user_comment">
-                                    Lorem Ipsum is a dummy text
-                                </div>
-                            </div>
-                            <div class="comment">
-                                <div class="user_pic">
-                                    <img src="" alt="user">
-                                </div>
-                                <div class="user_comment">
-                                    Lorem Ipsum is a dummy text
-                                </div>
-                            </div>
-                            <div class="comment">
-                                <div class="user_pic">
-                                    <img src="" alt="user">
-                                </div>
-                                <div class="user_comment">
-                                    Lorem Ipsum is a dummy text
-                                </div>
-                            </div>
-                            <div class="comment">
-                                <div class="user_pic">
-                                    <img src="" alt="user">
-                                </div>
-                                <div class="user_comment">
-                                    Lorem Ipsum is a dummy text
-                                </div>
-                            </div>
-                            <div class="comment">
-                                <div class="user_pic">
-                                    <img src="" alt="user">
-                                </div>
-                                <div class="user_comment">
-                                    Lorem Ipsum is a dummy text
-                                </div>
-                            </div>
-                            <div class="comment">
-                                <div class="user_pic">
-                                    <img src="" alt="user">
-                                </div>
-                                <div class="user_comment">
-                                    Lorem Ipsum is a dummy text
-                                </div>
-                            </div>
-                            <div class="comment">
-                                <div class="user_pic">
-                                    <img src="" alt="user">
-                                </div>
-                                <div class="user_comment">
-                                    Lorem Ipsum is a dummy text
-                                </div>
-                            </div>
-                            <div class="comment">
-                                <div class="user_pic">
-                                    <img src="" alt="user">
-                                </div>
-                                <div class="user_comment">
-                                    Lorem Ipsum is a dummy text
-                                </div>
-                            </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                     <div class="sd_footer">

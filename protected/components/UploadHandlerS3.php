@@ -1463,6 +1463,7 @@ class UploadHandlerS3
             $model->user_id = Yii::app()->user->id;
             $model->acl = $m_acl;
             $model->type = $m_type;
+            $model->file_size = $file->size;
             /*$model->status = 1;
             $model->deleted = 0;
             $model->created_by = Yii::app()->user->id;

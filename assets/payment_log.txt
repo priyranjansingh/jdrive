@@ -1,1 +1,3 @@
-hellohello
+ALTER TABLE `media` ADD `file_size` VARCHAR(128) NOT NULL AFTER `file_name`;
+
+ALTER TABLE `temp_media` ADD `file_size` VARCHAR(128) NOT NULL AFTER `file_name`

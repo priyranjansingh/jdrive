@@ -8,7 +8,6 @@ ob_start();
 class UserIdentity extends CUserIdentity {
 
     private $_id;
-    
     const ERROR_EMAIL_INVALID = 3;
     const ERROR_STATUS_NOTACTIV = 4;
     const ERROR_STATUS_BAN = 5;
@@ -37,6 +36,7 @@ class UserIdentity extends CUserIdentity {
         else {
             $this->_id = $user->id;
             $this->username = $user->username;
+            Yii::app()->session['is_paid'] = $user->is_paid;
             $this->errorCode = self::ERROR_NONE;
         }
         return !$this->errorCode;

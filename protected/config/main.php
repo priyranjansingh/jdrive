@@ -47,6 +47,11 @@ return array(
             'urlFormat' => 'path',
             'rules' => array(
                 'media' => 'home/default/media',
+                'chooseplans' => 'home/default/chooseplans',
+                'contact-us' => 'home/default/contact',
+                'about-us' => 'home/default/about',
+                'add-comment' => 'home/default/addComment',
+                'terms' => 'home/default/terms',
                 '<module:(admin)>/<controller:\w+>/<action:\w+>/<id:(.*?)>' => '<module>/<controller>/<action>/<id>',
                 '<module:(admin)>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
                 '<module:(admin)>/<controller:\w+>' => '<module>/<controller>',
