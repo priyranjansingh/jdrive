@@ -102,7 +102,7 @@
                         <form action="#" method="POST" >
                             <input type="button" id="paypal_submit" class="submit button" value="Pay Now">
                         </form>
-                        <form id="paypal_hid_frm" name="frm_payment_method" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                        <form id="paypal_hid_frm" name="frm_payment_method" action="https://www.paypal.com/cgi-bin/webscr" method="post">
                             <input type="hidden" name="business" value="<?php echo getParam('paypal_business_email'); ?>" />
                             <input type="hidden" name="notify_url" value="<?php echo getParam('paypal_notify_url'); ?>" />
                             <input type="hidden" name="cancel_return" value="<?php echo getParam('paypal_cancel_url'); ?>" />
