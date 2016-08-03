@@ -33,12 +33,12 @@
         <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/songwidget.js"></script>
         <script>
             var base_url = "<?php echo base_url(); ?>";
-            $(document).ready(function(){
-               $("#forgot_pass_link").click(function(){
-                   $("#ForgotPassword_username").val('');
-                   $("#forgot_form").show();
-                   $("#forgot_message").hide();
-               }) 
+            $(document).ready(function () {
+                $("#forgot_pass_link").click(function () {
+                    $("#ForgotPassword_username").val('');
+                    $("#forgot_form").show();
+                    $("#forgot_message").hide();
+                })
             });
         </script>    
     </head>
@@ -228,7 +228,42 @@
                 </div>
             </div>
         </div>
-
+        
+        <div class="modal fade" id="video_container">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content log_pan">
+                    <div class="modal-header">
+                        <button type="button" class="close" id="video_close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <div class="modal-title" id="video_title">Excited</div>
+                    </div>
+                    <div class="modal-body" id="video_holder">
+                        <div id="jp_container_1" class="jp-video" oncontextmenu=”return false;”>
+                            <div id="jquery_jplayer_1" class="jp-jplayer" oncontextmenu=”return false;”></div>
+                            <div class="jp-gui">
+                                <div class="jp-interface">
+                                    <div class="jp-controls-holder">
+                                        <a href="javascript:;" class="jp-play" tabindex="1">play</a>
+                                        <a href="javascript:;" class="jp-pause" tabindex="1">pause</a>
+                                        <span class="sep-1"></span>
+                                        <div class="jp-progress">
+                                            <div class="jp-seek-bar">
+                                                <div class="jp-play-bar"><span></span></div>
+                                            </div>
+                                        </div>
+                                        <div class="jp-current-time"></div>
+                                        <span class="time-sep">/</span>
+                                        <div class="jp-duration"></div>
+                                        <span class="sep-2"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer"> 
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -263,46 +298,7 @@
         </script>
         <!-- The template to display files available for download -->
         <script id="template-download" type="text/x-tmpl">
-            {% for (var i=0, file; file=o.files[i]; i++) { %}
-            <tr class="template-download fade">
-            <td>
-            <span class="preview">
-            {% if (file.thumbnailUrl) { %}
-            <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}"></a>
-            {% } %}
-            </span>
-            </td>
-            <td>
-            <p class="name">
-            {% if (file.url) { %}
-            <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
-            {% } else { %}
-            <span>{%=file.name%}</span>
-            {% } %}
-            </p>
-            {% if (file.error) { %}
-            <div><span class="label label-danger">Error</span> {%=file.error%}</div>
-            {% } %}
-            </td>
-            <td>
-            <span class="size">{%=o.formatFileSize(file.size)%}</span>
-            </td>
-            <td class="last">
-            {% if (file.deleteUrl) { %}
-            <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
-            <i class="fa fa-trash"></i>
-            <span>Delete</span>
-            </button>
-            <input type="checkbox" name="delete" value="1" class="toggle">
-            {% } else { %}
-            <button class="btn btn-warning cancel">
-            <i class="glyphicon glyphicon-ban-circle"></i>
-            <span>Cancel</span>
-            </button>
-            {% } %}
-            </td>
-            </tr>
-            {% } %}
+            
         </script>
         <script>
             var base_url = "<?php echo base_url(); ?>";
