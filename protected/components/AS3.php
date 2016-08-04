@@ -85,20 +85,18 @@ class AS3 {
     }
     
     public function addBucketCors($bucket){
-        $result = $this->s3Client->putBucketCors(array(
-            // Bucket is required
-            'Bucket' => $bucket,
-            // CORSRules is required
-            'CORSConfiguration' => array(
-                'CORSRule' => array(
-                    array(
-                        'AllowedMethods' => array('GET', 'POST', 'DELETE' ),
-                        'AllowedOrigins' => array('*' ),
-                    ),
-                ),
-            ),
-        ));
         
+        $cors = array(array(
+            'AllowedOrigins' => array('*'),
+            'AllowedMethods' => array('POST', 'GET', 'PUT', 'DELETE'),
+            'MaxAgeSeconds' => 3000,
+            'AllowedHeaders' => array('*')
+        ));
+
+       $result = $this->s3Client->putBucketCors(array(
+            'Bucket' => $bucket,
+            'CORSConfiguration' => array('CORSRules' => $cors)
+        ));
         return $result;
     }
     

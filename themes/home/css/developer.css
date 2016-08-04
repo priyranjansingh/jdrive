@@ -2563,3 +2563,10 @@ div#video_title {
   border-bottom: 3px solid transparent;
   border-top: 3px solid #E00F0F;
 }
+.bg_grey .it_m h6, .bg_grey .it_m h6 span{
+    color: #1c1c1c;
+}
+
+.no-bot-margin{
+    margin-bottom: 0 !important;
+}
