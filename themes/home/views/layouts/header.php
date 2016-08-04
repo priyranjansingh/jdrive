@@ -1,6 +1,6 @@
 <div class="header">
     <div class="col-md-2 logo_p">
-        <a href="/">
+        <a href="<?php echo base_url(); ?>">
 			<img src="<?php echo $baseUrl; ?>/img/logo.png" />
 		</a>
     </div>

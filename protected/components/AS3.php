@@ -1,5 +1,4 @@
 <?php
-
 require './assets/aws/aws-autoloader.php';
 
 use Aws\S3\S3Client;
@@ -12,7 +11,7 @@ class AS3 {
     public $s3Client;
 
     public function __construct() {
-
+       
         $credentials = new Credentials(Yii::app()->params['access_key_id'], Yii::app()->params['secret_access_key']);
         // Instantiate the S3 client with your AWS credentials
         $this->s3Client = S3Client::factory([
