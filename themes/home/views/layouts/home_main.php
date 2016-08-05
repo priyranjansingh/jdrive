@@ -31,6 +31,8 @@
         <script src="<?php echo $baseUrl; ?>/js/jplayer.playlist.min.js"></script>
         <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/custom.js"></script>
         <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/songwidget.js"></script>
+        <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/wavesurfers/wavesurfer.js"></script>
+
         <script>
             var base_url = "<?php echo base_url(); ?>";
             $(document).ready(function () {
@@ -40,7 +42,13 @@
                     $("#forgot_message").hide();
                 })
             });
+            
+             
+            
+            
         </script>    
+        
+        
     </head>
 
     <body>

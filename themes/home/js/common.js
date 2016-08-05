@@ -204,6 +204,10 @@ function createMedia() {
 }
 
 $(document).on("click", ".play_btn", function () {
+    if(wavesurfer.isPlaying())
+    {    
+     wavesurfer.stop();
+    }
     var song = $(this).find('i').attr("data-song"),
             type = $(this).find('i').attr("data-type");
     $.ajax({
@@ -213,14 +217,15 @@ $(document).on("click", ".play_btn", function () {
     }).done(function (data) {
         data = $.parseJSON(data);
         if (type == "song") {
-            $("#jquery_jplayer_1").jPlayer( "destroy" );
-            this.media = {
-                player: null
-            }
-
-            this.media.player = new jplayer();
-            this.media.player.init("#jpId");
-            this.media.player.playTrack(data.url);
+//            $("#jquery_jplayer_1").jPlayer( "destroy" );
+//            this.media = {
+//                player: null
+//            }
+            wavesurfer.load(data.url);
+            wavesurfer.play();
+            //this.media.player = new jplayer();
+            //this.media.player.init("#jpId");
+            //this.media.player.playTrack(data.url);
             $('.jp-title span.song-title').html(data.artist_name + " - " + data.song_name);
             $("#album_art img").attr('src', data.album_art);
             $('.play.jp-control').toggleClass('active');

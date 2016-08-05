@@ -1674,3 +1674,423 @@ Stack trace:
 REQUEST_URI=/jdrive/home/HomeAjaxTrending
 in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (171)
 in C:\xampp\htdocs\jdrive\index.php (13)
+2016/08/05 11:01:34 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 12:13:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 14:35:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "Jana_Gana_Mana.mp3".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('Jana_Gana_Mana....')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/Jana_Gana_Mana.mp3
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/08/05 14:36:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 14:36:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 14:39:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 14:39:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 14:39:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/websurfers/Jana_Gana_Mana.mp3".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/websurfers/Jana_Gana_Mana.mp3
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/08/05 14:39:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/websurfers/Jana_Gana_Mana.mp3".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/websurfers/Jana_Gana_Mana.mp3
+---
+2016/08/05 14:39:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/websurfers/Jana_Gana_Mana.mp3".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/websurfers/Jana_Gana_Mana.mp3
+---
+2016/08/05 14:40:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 14:40:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 14:53:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 14:53:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 14:53:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "Jana_Gana_Mana.mp3".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('Jana_Gana_Mana....')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/Jana_Gana_Mana.mp3
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/08/05 14:54:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 14:54:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 14:54:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "Jana_Gana_Mana.mp3".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('Jana_Gana_Mana....')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/Jana_Gana_Mana.mp3
+HTTP_REFERER=http://localhost/jdrive/home
+---
+2016/08/05 14:55:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 14:55:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 14:56:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 14:56:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 15:10:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 15:10:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 15:14:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 15:14:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 15:15:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 15:15:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 15:17:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 15:17:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 15:19:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 15:19:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 17:02:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 17:02:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 17:03:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 17:03:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 17:03:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 17:03:23 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 17:03:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 17:03:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 17:03:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 17:03:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 17:04:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 17:04:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 17:04:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 17:04:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 17:11:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 17:11:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 17:14:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 17:14:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/05 17:16:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/05 17:16:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
