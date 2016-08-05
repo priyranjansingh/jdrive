@@ -1587,3 +1587,90 @@ Stack trace:
 REQUEST_URI=/jdrive/img/bb62-307b-401d-ba99-a1d248ce05bd.jpg
 HTTP_REFERER=http://localhost/jdrive/media?name=in-da-hood-clean-50-cent
 ---
+2016/08/04 15:29:34 [error] [php] Undefined variable: trending_song (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:171)
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\jdrive\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/HomeAjaxTrending
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (171)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/08/04 15:29:50 [error] [php] Undefined variable: trending_song (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:171)
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\jdrive\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/HomeAjaxTrending
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (171)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/08/04 15:29:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/04 15:30:03 [error] [php] Undefined variable: trending_song (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:171)
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\jdrive\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/HomeAjaxTrending
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (171)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/08/04 15:30:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/04 15:30:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/04 15:30:29 [error] [php] Undefined variable: trending_song (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:171)
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\jdrive\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/HomeAjaxTrending
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (171)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/08/04 15:30:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/04 15:34:01 [error] [php] Undefined variable: trending_song (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:171)
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CController.php(286): DefaultController->runAction()
+#1 C:\xampp\htdocs\jdrive\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#2 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(282): DefaultController->run()
+#3 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/home/HomeAjaxTrending
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (171)
+in C:\xampp\htdocs\jdrive\index.php (13)
