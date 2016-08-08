@@ -2988,3 +2988,29 @@ Stack trace:
 REQUEST_URI=/jdrive/media?name=give-me-everything-pitbull-ne-yo-afrojack-nayer
 in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (57)
 in C:\xampp\htdocs\jdrive\index.php (13)
+2016/08/08 18:27:37 [error] [php] Undefined variable: like_arr (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:58)
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\jdrive\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\jdrive\framework\web\CController.php(286): DefaultController->runAction()
+#3 C:\xampp\htdocs\jdrive\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#4 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(282): DefaultController->run()
+#5 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/media?name=give-me-everything-pitbull-ne-yo-afrojack-nayer
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (58)
+in C:\xampp\htdocs\jdrive\index.php (13)
+2016/08/08 18:28:57 [error] [php] Undefined variable: like_arr (C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php:58)
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\jdrive\framework\web\CController.php(308): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\jdrive\framework\web\CController.php(286): DefaultController->runAction()
+#3 C:\xampp\htdocs\jdrive\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#4 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(282): DefaultController->run()
+#5 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#6 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#7 C:\xampp\htdocs\jdrive\index.php(13): CWebApplication->run()
+REQUEST_URI=/jdrive/media?name=give-me-everything-pitbull-ne-yo-afrojack-nayer
+in C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php (58)
+in C:\xampp\htdocs\jdrive\index.php (13)

@@ -22,9 +22,8 @@ class DefaultController extends Controller {
     public function actionMedia($name) {
         $media = Media::model()->find(array("condition" => "slug = '$name'"));
         $comments = Comments::model()->findAll(array("condition" => "song = '$media->id'"));
-       // pre($media->like_details);
+        $like_arr = array();
         if (!empty($media->like_details)) {
-            $like_arr = array();
             foreach ($media->like_details as $like) {
                 $user_model = Users::model()->findByPk($like->user_id);
                 if (!empty($user_model->profile_pic)) {
@@ -36,7 +35,6 @@ class DefaultController extends Controller {
         }
 
         $song_like_count = count($media->like_details);
-        //pre($song_like_count,true);
         $song_download_count = count($media->download_details);
 
         $logged_in_user_id = Yii::app()->user->id;

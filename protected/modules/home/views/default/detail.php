@@ -54,15 +54,15 @@ $baseUrl = Yii::app()->theme->baseUrl;
                                             <img src="<?php echo base_url(); ?>/themes/home/img/avatar.jpg" alt="user">
                                         <?php else: ?>
                                             <img src="<?php echo base_url() . '/assets/user-profile/' . $user->profile_pic; ?>" alt="user">
-    <?php endif; ?>
+                                        <?php endif; ?>
 
                                         <div><?php echo $user->username; ?></div>
                                     </div>
                                     <div class="user_comment">
-    <?php echo $comment->comment; ?>
+                                        <?php echo $comment->comment; ?>
                                     </div>
                                 </div>
-<?php endforeach; ?>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                     <div class="sd_footer">
@@ -76,12 +76,14 @@ $baseUrl = Yii::app()->theme->baseUrl;
                     <h2>Liked by</h2>
                     <div class="w_con">
                         <?php
-                        foreach ($like_arr as $key => $val) {
-                            ?>
-                        <a href="<?php echo base_url() ?>/home/dj?user=<?php echo $key; ?>">
-                            <img height="50" width="50" src="<?php echo base_url(); ?>/assets/user-profile/<?php echo $val; ?>">
-                        </a>
-                            <?php
+                        if (!empty($like_arr)) {
+                            foreach ($like_arr as $key => $val) {
+                                ?>
+                                <a href="<?php echo base_url() ?>/home/dj?user=<?php echo $key; ?>">
+                                    <img height="50" width="50" src="<?php echo base_url(); ?>/assets/user-profile/<?php echo $val; ?>">
+                                </a>
+                                <?php
+                            }
                         }
                         ?>
                     </div>
