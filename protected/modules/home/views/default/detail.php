@@ -1,3 +1,7 @@
+<?php
+$baseUrl = Yii::app()->theme->baseUrl;
+?>
+<script type="text/javascript" src="<?php echo $baseUrl; ?>/js/songdetail.js"></script>
 <div class="inner_con bg_grey">
     <div class="wraper fc_black">
         <div class="sd_banner">
@@ -9,17 +13,24 @@
                 <p class="by-s"> Artist: <strong><?php echo $media->artist_name; ?></strong></p>
                 <p class="by-s"> By: <strong><?php echo $media->user->first_name . ' ' . $media->user->last_name; ?></strong></p>
                 <div class="ico_p">
-                    <span><i class="fa fa-headphones" aria-hidden="true"></i> 862</span>
-                    <span><i class="fa fa-clock-o" aria-hidden="true"></i> 1h10m</span>
                     <span><i class="fa fa-arrow-up" aria-hidden="true"></i> 3 days ago</span>
                 </div>
                 <div class="btn_p">
-                    <a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i> Follow</a>
-                    <a href="#"><i class="fa fa-upload" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-plus" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-history" aria-hidden="true"></i></a>
-                    <a href="#"><i class="fa fa-retweet" aria-hidden="true"></i><span>10</span></a>
-                    <a href="#"><i class="fa fa-heart" aria-hidden="true"></i><span>30</span></a>                    
+                    <a href="javascript:void(0)" data-dj="<?php echo $media->created_by; ?>" data-user ="<?php echo Yii::app()->user->id; ?>" id="follow_unfollow">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i> <?php echo $follow_unfollow_text; ?>
+                    </a>
+                    <a href="javascript:void(0)" class="detail_upload" data-song="<?php echo $media->id; ?>" data-user="<?php echo Yii::app()->user->id; ?>">
+                        <i class="fa fa-upload" aria-hidden="true"></i>
+                    </a>
+                    <a href="javascript:void(0)" class="detail_playlist" data-song="<?php echo $media->id; ?>" data-user="<?php echo Yii::app()->user->id; ?>">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                    </a>
+                    <a href="javascript:void(0)" class="detail_download" data-song="<?php echo $media->id; ?>" data-user="<?php echo Yii::app()->user->id; ?>">
+                        <i class="fa fa-download" aria-hidden="true"></i><span><?php echo $song_like_count; ?></span>
+                    </a>
+                    <a href="javascript:void(0)" class="detail_like" data-song="<?php echo $media->id; ?>" data-user="<?php echo Yii::app()->user->id; ?>">
+                        <i class="fa fa-heart" aria-hidden="true"></i><span><?php echo $song_download_count; ?></span>
+                    </a>                    
                 </div>
             </div>
         </div>
@@ -33,24 +44,25 @@
                         <input type="hidden" id="comment_song" value="<?php echo $media->id; ?>" />
                         <button class="btn btn-warning" id="comment_btn">Submit</button>
                         <div class="comments">
-                            <?php foreach($comments as $comment): ?>
+                            <?php foreach ($comments as $comment): ?>
                                 <div class="comment">
                                     <div class="user_pic">
-                                        <?php 
+                                        <?php
                                         $user = Users::model()->findByPk($comment->user);
-                                        if(empty($user->profile_pic)): ?>
+                                        if (empty($user->profile_pic)):
+                                            ?>
                                             <img src="<?php echo base_url(); ?>/themes/home/img/avatar.jpg" alt="user">
                                         <?php else: ?>
-                                            <img src="<?php echo base_url().'/assets/user-profile/'.$user->profile_pic; ?>" alt="user">
-                                        <?php endif; ?>
-                                        
+                                            <img src="<?php echo base_url() . '/assets/user-profile/' . $user->profile_pic; ?>" alt="user">
+    <?php endif; ?>
+
                                         <div><?php echo $user->username; ?></div>
                                     </div>
                                     <div class="user_comment">
-                                        <?php echo $comment->comment; ?>
+    <?php echo $comment->comment; ?>
                                     </div>
                                 </div>
-                            <?php endforeach; ?>
+<?php endforeach; ?>
                         </div>
                     </div>
                     <div class="sd_footer">
@@ -61,29 +73,17 @@
             </div>
             <div class="col-lg-4">
                 <div class="wiget">
-                    <h2>Listeners <span>See all</span></h2>
+                    <h2>Liked by</h2>
                     <div class="w_con">
-                        <a href="#"><img src="img/default_user_600x600-v5.png"></a>
-                        <a href="#"><img src="img/bb62-307b-401d-ba99-a1d248ce05bd.jpg"></a>
-                        <a href="#"><img src="img/default_user_600x600-v5.png"></a>
-                        <a href="#"><img src="img/bb62-307b-401d-ba99-a1d248ce05bd.jpg"></a>
-                        <a href="#"><img src="img/default_user_600x600-v5.png"></a>
-                        <a href="#"><img src="img/bb62-307b-401d-ba99-a1d248ce05bd.jpg"></a>                    	
-                        <a href="#"><img src="img/default_user_600x600-v5.png"></a>
-                        <a href="#"><img src="img/bb62-307b-401d-ba99-a1d248ce05bd.jpg"></a>                                                
-                    </div>
-                </div>            
-                <div class="wiget">
-                    <h2>Favorited by</h2>
-                    <div class="w_con">
-                        <a href="#"><img src="img/default_user_600x600-v5.png"></a>
-                        <a href="#"><img src="img/bb62-307b-401d-ba99-a1d248ce05bd.jpg"></a>                        
-                        <a href="#"><img src="img/bb62-307b-401d-ba99-a1d248ce05bd.jpg"></a>
-                        <a href="#"><img src="img/bb62-307b-401d-ba99-a1d248ce05bd.jpg"></a>
-                        <a href="#"><img src="img/default_user_600x600-v5.png"></a>
-                        <a href="#"><img src="img/bb62-307b-401d-ba99-a1d248ce05bd.jpg"></a>                    	
-                        <a href="#"><img src="img/default_user_600x600-v5.png"></a>
-                        <a href="#"><img src="img/bb62-307b-401d-ba99-a1d248ce05bd.jpg"></a>                        
+                        <?php
+                        foreach ($like_arr as $key => $val) {
+                            ?>
+                        <a href="<?php echo base_url() ?>/home/dj?user=<?php echo $key; ?>">
+                            <img height="50" width="50" src="<?php echo base_url(); ?>/assets/user-profile/<?php echo $val; ?>">
+                        </a>
+                            <?php
+                        }
+                        ?>
                     </div>
                 </div>            
             </div>

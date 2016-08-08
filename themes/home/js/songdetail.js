@@ -1,7 +1,6 @@
 $(document).ready(function() {
-    
-    
-    $("body").on("click", ".widget_upload", function() {
+
+    $("body").on("click", ".detail_upload", function() {
         $(".loading").show();
         var song_id = $(this).data('song');
         var user_id = $(this).data('user'); //logged in user id
@@ -32,58 +31,7 @@ $(document).ready(function() {
 
     })
 
-    $("body").on("click", ".widget_like", function() {
-        $(".loading").show();
-        var song_id = $(this).data('song');
-        var user_id = $(this).data('user');
-        var container = $(this);
-        $.ajax({
-            url: base_url + "/home/LoginCheck",
-            success: function(data) {
-                if (data == 'GUEST')
-                {
-                    $(".loading").hide();
-                    $("#Login-pop").modal('show');
-                }
-                else if (data == 'USER')
-                {
-                    $.ajax({
-                        url: base_url + "/home/WidgetLike",
-                        method: "POST",
-                        data: {'song_id': song_id, 'user_id': user_id},
-                        success: function(data) {
-                            container.find('span').html(data);
-                            $(".loading").hide();
-                        }
-                    })
-                }
-            }
-        })
-
-    })
-
-    $("body").on("click", ".widget_download", function() {
-        var song_id = $(this).data('song');
-        $.ajax({
-            url: base_url + "/home/LoginCheck",
-            success: function(data) {
-                if (data == 'GUEST')
-                {
-                    $(".loading").hide();
-                    $("#Login-pop").modal('show');
-                }
-                else if (data == 'USER')
-                {
-                    window.location.href = base_url + "/home/WidgetDownload?file=" + song_id;
-                }
-            }
-        })
-
-
-
-    });
-
-    $("body").on("click", ".widget_playlist", function() {
+    $("body").on("click", ".detail_playlist", function() {
         $(".loading").show();
         var song_id = $(this).data('song');
         $.ajax({
@@ -113,22 +61,93 @@ $(document).ready(function() {
 
     })
 
-    $("body").on("click", ".selected_playlist", function() {
-        $(".loading").show();
-        var song = $(this).data('song');
-        var playlist = $(this).data('playlist');
+    $("body").on("click", ".detail_download", function() {
+        var song_id = $(this).data('song');
         $.ajax({
-            url: base_url + "/home/AjaxAddToPlaylist",
-            method: "POST",
-            data: {'song': song, 'playlist': playlist},
-            success: function(data)
-            {
-                $('#ajax_add_playlist').modal('hide');
-                $(".loading").hide();
+            url: base_url + "/home/LoginCheck",
+            success: function(data) {
+                if (data == 'GUEST')
+                {
+                    $(".loading").hide();
+                    $("#Login-pop").modal('show');
+                }
+                else if (data == 'USER')
+                {
+                    window.location.href = base_url + "/home/WidgetDownload?file=" + song_id;
+                }
             }
-
         })
+
+
+
     });
 
+    $("body").on("click", ".detail_like", function() {
+        $(".loading").show();
+        var song_id = $(this).data('song');
+        var user_id = $(this).data('user');
+        var container = $(this);
+        $.ajax({
+            url: base_url + "/home/LoginCheck",
+            success: function(data) {
+                if (data == 'GUEST')
+                {
+                    $(".loading").hide();
+                    $("#Login-pop").modal('show');
+                }
+                else if (data == 'USER')
+                {
+                    $.ajax({
+                        url: base_url + "/home/WidgetLike",
+                        method: "POST",
+                        data: {'song_id': song_id, 'user_id': user_id},
+                        success: function(data) {
+                            container.find('span').html(data);
+                            $(".loading").hide();
+                        }
+                    })
+                }
+            }
+        })
+
+    })
+
+    $("#follow_unfollow").click(function() {
+        $(".loading").show();
+        var user_id = $(this).data('user');
+        var dj_id = $(this).data('dj');
+        $.ajax({
+            url: base_url + "/home/LoginCheck",
+            success: function(data) {
+                if (data == 'GUEST')
+                {
+                    $(".loading").hide();
+                    $("#Login-pop").modal('show');
+                }
+                else if (data == 'USER')
+                {
+                    $.ajax({
+                        url: base_url + "/home/FollowUnfollow",
+                        method: "POST",
+                        data: {'user_id': user_id, 'dj_id': dj_id},
+                        dataType: 'json',
+                        success: function(data) {
+                            $("#follow_unfollow").html(data.follow_unfollow_text);
+                            $(".loading").hide();
+                        }
+
+                    })
+                }
+            }
+        })
+
+
+
+
+
+
+
+
+    });
 
 })

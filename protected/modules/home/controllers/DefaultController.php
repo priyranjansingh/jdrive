@@ -22,11 +22,39 @@ class DefaultController extends Controller {
     public function actionMedia($name) {
         $media = Media::model()->find(array("condition" => "slug = '$name'"));
         $comments = Comments::model()->findAll(array("condition" => "song = '$media->id'"));
+        // pre($media->like_details, true);
+        if (!empty($media->like_details)) {
+            $like_arr = array();
+            foreach ($media->like_details as $like) {
+                $user_model = Users::model()->findByPk($like->user_id);
+                if (!empty($user_model->profile_pic)) {
+                    $like_arr[$user_model->username] = $user_model->profile_pic;
+                } else {
+                    $like_arr[$user_model->username] = 'avatar.jpg';
+                }
+            }
+        }
+
         $song_like_count = count($media->like_details);
         $song_download_count = count($media->download_details);
+
+        $logged_in_user_id = Yii::app()->user->id;
+        $follow_unfollow = Followers::model()->find(array("condition" => " user_id = '$media->created_by' AND follower_id = '$logged_in_user_id' "));
+        if (!empty($follow_unfollow)) {
+            if ($follow_unfollow->deleted == 0) {
+                $follow_unfollow_text = "Unfollow";
+            } else if ($follow_unfollow->deleted == 1) {
+                $follow_unfollow_text = "Follow";
+            }
+        } else {
+            $follow_unfollow_text = "Follow";
+        }
         $this->render('detail', array('media' => $media, 'comments' => $comments,
             'song_like_count' => $song_like_count,
-            'song_download_count' => $song_download_count,));
+            'song_download_count' => $song_download_count,
+            'follow_unfollow_text' => $follow_unfollow_text,
+            'like_arr' => $like_arr
+        ));
     }
 
     public function actionLogin() {
@@ -1125,9 +1153,9 @@ class DefaultController extends Controller {
                 ->from('genres')
                 ->where(array('like', 'name', '%' . $name . '%'))
                 ->queryRow();
-        
+
         $id = $genre['id'];
-        
+
         $criteria = new CDbCriteria();
         $criteria->addInCondition('genre', array($id));
 

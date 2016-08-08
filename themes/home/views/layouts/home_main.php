@@ -24,13 +24,13 @@
         <link href="<?php echo $baseUrl; ?>/css/responsive.css" rel="stylesheet" type="text/css">
 
         <!-- jquery -->
-        <script src="<?php echo $baseUrl; ?>/js/chosen.jquery.js"></script>
-        <script src="<?php echo $baseUrl; ?>/js/bootstrap.js"></script>
-        <script src="<?php echo $baseUrl; ?>/js/owl.carousel.js"></script>
-        <script src="<?php echo $baseUrl; ?>/js/jquery.jplayer.min.js"></script>
-        <script src="<?php echo $baseUrl; ?>/js/jplayer.playlist.min.js"></script>
-        <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/custom.js"></script>
-        <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/songwidget.js"></script>
+        <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/chosen.jquery.js"></script>
+        <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/bootstrap.js"></script>
+        <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/owl.carousel.js"></script>
+        <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/jquery.jplayer.min.js"></script>
+        <script type="text/javascript" src="<?php echo $baseUrl; ?>/js/jplayer.playlist.min.js"></script>
+        <script type="text/javascript" type="text/javascript" src="<?php echo $baseUrl; ?>/js/custom.js"></script>
+        <script type="text/javascript" type="text/javascript" src="<?php echo $baseUrl; ?>/js/songwidget.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/wavesurfers/wavesurfer.js"></script>
 
         <script>
