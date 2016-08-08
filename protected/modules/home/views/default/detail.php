@@ -26,10 +26,10 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         <i class="fa fa-plus" aria-hidden="true"></i>
                     </a>
                     <a href="javascript:void(0)" class="detail_download" data-song="<?php echo $media->id; ?>" data-user="<?php echo Yii::app()->user->id; ?>">
-                        <i class="fa fa-download" aria-hidden="true"></i><span><?php echo $song_like_count; ?></span>
+                        <i class="fa fa-download" aria-hidden="true"></i><span><?php echo $song_download_count; ?></span>
                     </a>
                     <a href="javascript:void(0)" class="detail_like" data-song="<?php echo $media->id; ?>" data-user="<?php echo Yii::app()->user->id; ?>">
-                        <i class="fa fa-heart" aria-hidden="true"></i><span><?php echo $song_download_count; ?></span>
+                        <i class="fa fa-heart" aria-hidden="true"></i><span><?php echo $song_like_count; ?></span>
                     </a>                    
                 </div>
             </div>
