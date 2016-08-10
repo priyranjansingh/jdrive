@@ -106,7 +106,13 @@ class DefaultController extends Controller {
         } else {
             $logged_in_user_id = Yii::app()->user->id;
             $model = Users::model()->findByPk($logged_in_user_id);
-
+            
+            if(isset($_POST['Users'])){
+                $model->attributes = $_POST['Users'];
+                $model->save();
+                $this->redirect(array('profile'));
+            }
+            
             $this->render('edit', array('model' => $model));
         }
     }

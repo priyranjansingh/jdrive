@@ -122,7 +122,33 @@ $baseUrl = Yii::app()->theme->baseUrl;
                             echo $user->state_name->name;
                         }
                         ?></a></p>
-                <p><a href="#"><i class="fa fa-twitter-square fc_tw"></i></a> <a href="#"><i class="fa fa-youtube-square fc_red"></i></a> <a href="#"><i class="fa fa-facebook-square fc_fb"></i></a> <a href="#"><i class="fa fa-linkedin-square fc_in"></i></a> </p>
+                <p>
+                    <?php if(!empty($user->twitter)): ?>
+                    <a target="_blank" href="<?php echo $user->twitter; ?>">
+                        <i class="fa fa-twitter-square fc_tw"></i>
+                    </a>
+                    <?php endif; ?>
+                    <?php if(!empty($user->youtube)): ?>
+                    <a target="_blank" href="<?php echo $user->youtube; ?>">
+                        <i class="fa fa-youtube-square fc_red"></i>
+                    </a> 
+                    <?php endif; ?>
+                    <?php if(!empty($user->facebook)): ?>
+                    <a target="_blank" href="<?php echo $user->facebook; ?>">
+                        <i class="fa fa-facebook-square fc_fb"></i>
+                    </a>
+                    <?php endif; ?>
+                    <?php if(!empty($user->instagram)): ?>
+                    <a target="_blank" href="<?php echo $user->instagram; ?>">
+                        <i class="fa fa-instagram fc_in"></i>
+                    </a>
+                    <?php endif; ?>
+                    <?php if(!empty($user->gplus)): ?>
+                    <a target="_blank" href="<?php echo $user->gplus; ?>">
+                        <i class="fa fa-google-plus-square fc_in"></i>
+                    </a>
+                    <?php endif; ?>
+                </p>
             </div>
         </div>
         <div class="t_bar">

@@ -52,6 +52,36 @@
                   </td>  
                 </tr>
                 <tr>
+                  <td width="28%"><?php echo $form->labelEx($model,'facebook'); ?>:</td>
+                  <td width="72%">
+                    <?php echo $form->textField($model,'facebook',array('size'=>'60','maxlength'=>'512','class' => 't_box')); ?>
+                  </td>  
+                </tr>
+                <tr>
+                  <td width="28%"><?php echo $form->labelEx($model,'twitter'); ?>:</td>
+                  <td width="72%">
+                    <?php echo $form->textField($model,'twitter',array('size'=>'60','maxlength'=>'512','class' => 't_box')); ?>
+                  </td>  
+                </tr>
+                <tr>
+                  <td width="28%"><?php echo $form->labelEx($model,'instagram'); ?>:</td>
+                  <td width="72%">
+                    <?php echo $form->textField($model,'instagram',array('size'=>'60','maxlength'=>'512','class' => 't_box')); ?>
+                  </td>  
+                </tr>
+                <tr>
+                  <td width="28%"><?php echo $form->labelEx($model,'gplus'); ?>:</td>
+                  <td width="72%">
+                    <?php echo $form->textField($model,'gplus',array('size'=>'60','maxlength'=>'512','class' => 't_box')); ?>
+                  </td>  
+                </tr>
+                <tr>
+                  <td width="28%"><?php echo $form->labelEx($model,'youtube'); ?>:</td>
+                  <td width="72%">
+                    <?php echo $form->textField($model,'youtube',array('size'=>'60','maxlength'=>'512','class' => 't_box')); ?>
+                  </td>  
+                </tr>
+                <tr>
                   <td width="28%"><?php echo $form->labelEx($model,'state_id'); ?>:</td>
                   <td width="72%">
                     <?php echo $form->textField($model,'state_id',array('size'=>'60','maxlength'=>'128','class' => 't_box')); ?>
