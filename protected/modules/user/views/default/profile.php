@@ -126,9 +126,48 @@ $baseUrl = Yii::app()->theme->baseUrl;
                             echo $user->state_name->name;
                         }
                         ?></a></p>
-                <p><a href="#"><i class="fa fa-twitter-square fc_tw"></i></a> <a href="#"><i class="fa fa-youtube-square fc_red"></i></a> <a href="#"><i class="fa fa-facebook-square fc_fb"></i></a> <a href="#"><i class="fa fa-linkedin-square fc_in"></i></a> </p>
+                <p>
+                    <?php if(!empty($user->twitter)): ?>
+                    <a target="_blank" href="<?php echo $user->twitter; ?>">
+                        <i class="fa fa-twitter-square fc_tw"></i>
+                    </a>
+                    <?php endif; ?>
+                    <?php if(!empty($user->youtube)): ?>
+                    <a target="_blank" href="<?php echo $user->youtube; ?>">
+                        <i class="fa fa-youtube-square fc_red"></i>
+                    </a> 
+                    <?php endif; ?>
+                    <?php if(!empty($user->facebook)): ?>
+                    <a target="_blank" href="<?php echo $user->facebook; ?>">
+                        <i class="fa fa-facebook-square fc_fb"></i>
+                    </a>
+                    <?php endif; ?>
+                    <?php if(!empty($user->instagram)): ?>
+                    <a target="_blank" href="<?php echo $user->instagram; ?>">
+                        <i class="fa fa-instagram fc_in"></i>
+                    </a>
+                    <?php endif; ?>
+                    <?php if(!empty($user->gplus)): ?>
+                    <a target="_blank" href="<?php echo $user->gplus; ?>">
+                        <i class="fa fa-google-plus-square fc_in"></i>
+                    </a>
+                    <?php endif; ?>
+                </p>
             </div>
         </div>
+        <?php if($user->is_paid == 0): ?>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $total_percent; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $total_percent; ?>%;background: red;">
+                <span class="sr-only" style="color: #fff;width: 100%;height: 100%;position: relative;">Total Upload: <?php echo $total_size; ?> GB / 5 GB</span>
+            </div>
+        </div>
+        <?php else: ?>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 1%;background: red;">
+                <span class="sr-only" style="color: #fff;width: 100%;height: 100%;position: relative;">Total Upload: <?php echo $total_size; ?> GB</span>
+            </div>
+        </div>
+        <?php endif; ?>
         <div class="t_bar">
             <ul class="sub_top">
                 <li><a class="main_type" id="trending" data-type="trending" href="javascript:void(0)">Trending</a></li>

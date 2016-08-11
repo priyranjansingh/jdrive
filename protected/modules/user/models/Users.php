@@ -44,6 +44,7 @@ class Users extends BaseModel {
             array('id, role_id, created_by, modified_by', 'length', 'max' => 36),
             array('username, s3_bucket, first_name, last_name', 'length', 'max' => 128),
             array('password, email', 'length', 'max' => 255),
+            array('facebook, twitter, gplus, instagram,youtube', 'length', 'max' => 512),
             // array('username','length', 'min' => 6),
             array('username, password', 'length', 'min' => 6),
             array('phone', 'length', 'max' => 16),
@@ -51,7 +52,7 @@ class Users extends BaseModel {
             array('date_modified', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, username, password, s3_bucket, first_name, last_name, email, phone, profile_pic, state_id, country_id, is_admin, role_id, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on' => 'search'),
+            array('id, username, password, facebook, twitter, gplus, instagram,youtube, s3_bucket, first_name, last_name, email, phone, profile_pic, state_id, country_id, is_admin, role_id, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on' => 'search'),
         );
     }
 
@@ -78,6 +79,11 @@ class Users extends BaseModel {
         return array(
             'id' => 'ID',
             'username' => 'Username',
+            'facebook' => 'Facebook',
+            'twitter' => 'Twitter',
+            'gplus' => 'Google Plus',
+            'instagram' => 'Instagram',
+            'youtube' => 'Yout Tube',
             's3_bucket' => 'S3 Bucket',
             'password' => 'Password',
             'first_name' => 'First Name',
