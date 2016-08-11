@@ -102,7 +102,8 @@ class DefaultController extends Controller {
                 'following_list' => $following_list,
                 'follow_unfollow_text' => $follow_unfollow_text,
                 'recommended_list' => $recommended_list,
-                'total_percent' => $total_percent
+                'total_percent' => $total_percent,
+                'total_size' => $total_size
             ));
         }
     }
