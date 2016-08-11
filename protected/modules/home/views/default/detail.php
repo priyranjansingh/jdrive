@@ -85,6 +85,10 @@ $baseUrl = Yii::app()->theme->baseUrl;
                                 <?php
                             }
                         }
+                        else 
+                        {
+                            echo "Be the first to like this.";
+                        }    
                         ?>
                     </div>
                 </div>            
