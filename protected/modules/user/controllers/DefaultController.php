@@ -15,7 +15,7 @@ class DefaultController extends Controller {
             $logged_in_user_id = Yii::app()->user->id;
             $user = Users::model()->find(array("condition" => "id = '$logged_in_user_id'"));
             $recommended_list = Users::model()->getRecommendList($logged_in_user_id);
-
+            $total_size = 0;
 
 
             $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$logged_in_user_id' AND type='1' "));
@@ -33,6 +33,8 @@ class DefaultController extends Controller {
                             "status = '1' AND type='1' AND deleted = 0 AND"
                             . " ((created_by = '$logged_in_user_id') OR (id IN($ids)) )  ", "order" => "date_entered desc")
                 );
+                $size = BaseModel::executeSimpleQuery("SELECT SUM('file_size') as total FROM 'media' WHERE status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id' OR (id IN($ids))");
+                $total_size = $size[0]['total'];
             } else {
                 $song_list = Songs::model()->findAll(
                         array(
@@ -40,6 +42,9 @@ class DefaultController extends Controller {
                             "status = '1' AND type='1' AND deleted = 0 AND"
                             . " created_by = '$logged_in_user_id' ", "order" => "date_entered desc")
                 );
+                
+                $size = BaseModel::executeSimpleQuery("SELECT SUM('file_size') as total FROM 'media' WHERE status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id'");
+                $total_size = $size[0]['total'];
             }
 
 
@@ -54,8 +59,10 @@ class DefaultController extends Controller {
                         array(
                             "condition" =>
                             "status = '1' AND type='2' AND deleted = 0 AND"
-                            . " ((created_by = '$logged_in_user_id') OR (id IN($ids)) )  ", "order" => "date_entered desc")
+                            . " ((created_by = '$logged_in_user_id') OR (id IN($v_ids)) )  ", "order" => "date_entered desc")
                 );
+                $size = BaseModel::executeSimpleQuery("SELECT SUM('file_size') as total FROM 'media' WHERE status = '1' AND type='2' AND deleted = 0 AND created_by = '$logged_in_user_id' OR (id IN($v_ids))");
+                $total_size = $total_size + $size[0]['total'];
             } else {
                 $video_list = Songs::model()->findAll(
                         array(
@@ -63,14 +70,13 @@ class DefaultController extends Controller {
                             "status = '1' AND type='2' AND deleted = 0 AND"
                             . " created_by = '$logged_in_user_id' ", "order" => "date_entered desc")
                 );
+                
+                $size = BaseModel::executeSimpleQuery("SELECT SUM('file_size') as total FROM 'media' WHERE status = '1' AND type='2' AND deleted = 0 AND created_by = '$logged_in_user_id'");
+                $total_size = $total_size + $size[0]['total'];
             }
 
-
-
-
-
-
-
+            $total_size = $total_size/1073741824;
+            $total_percent = ($total_size/5)*100;
 
             // $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
             // $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
@@ -96,6 +102,7 @@ class DefaultController extends Controller {
                 'following_list' => $following_list,
                 'follow_unfollow_text' => $follow_unfollow_text,
                 'recommended_list' => $recommended_list,
+                'total_percent' => $total_percent
             ));
         }
     }
