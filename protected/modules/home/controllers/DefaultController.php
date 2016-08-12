@@ -1173,5 +1173,9 @@ class DefaultController extends Controller {
             'name' => $genre['name']
         ));
     }
+    
+    
+         
+    
 
 }

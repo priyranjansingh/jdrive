@@ -178,41 +178,100 @@ class Users extends BaseModel {
         $recommend_list_locationwise = Users::model()->findAll(array(
             "condition" => "status = '1' AND deleted = '0' AND is_admin = '0' AND state_id = '$user_detail->state_id' AND  country_id = '$user_detail->country_id' AND id !='$user_id' "
         ));
-      
+
         $recommend_list_locwise_arr = array();
         foreach ($recommend_list_locationwise as $list_locwise) {
             array_push($recommend_list_locwise_arr, $list_locwise->id);
         }
-        
-         $parent_following_list = array();
-         foreach($user_following_list as $user)
-         {
-                 
-             $user_model = Users::model()->findByPk($user->user_id);
-             foreach($user_model->following_list as $u)
-             {
-                 if($u->user_id != $user_id)
-                 {    
-                    array_push($parent_following_list,$u->user_id);
-                 }   
-             }    
-         }    
-         
-         $merged_array = array_merge($parent_following_list,$recommend_list_locwise_arr);
-         $unique_merged_array = array_unique($merged_array);
-         
+
+        $parent_following_list = array();
+        foreach ($user_following_list as $user) {
+
+            $user_model = Users::model()->findByPk($user->user_id);
+            foreach ($user_model->following_list as $u) {
+                if ($u->user_id != $user_id) {
+                    array_push($parent_following_list, $u->user_id);
+                }
+            }
+        }
+
+        $merged_array = array_merge($parent_following_list, $recommend_list_locwise_arr);
+        $unique_merged_array = array_unique($merged_array);
+
         $final_recommended_arr = array_diff($unique_merged_array, $user_following_list_arr);
-        
+
         // getting the final recommended user lists
-        
+
         $criteria = new CDbCriteria();
         $criteria->condition = "status = '1'  AND deleted = 0";
         $criteria->addInCondition('id', $final_recommended_arr);
         $final_recommended_user_lists = Users::model()->findAll($criteria);
         return $final_recommended_user_lists;
-        
-        
-        
+    }
+
+    public function getTotalUploadedSize() {
+        $logged_in_user_id = Yii::app()->user->id;
+        $user = Users::model()->find(array("condition" => "id = '$logged_in_user_id'"));
+        $total_size = 0;
+         $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$logged_in_user_id' AND type='1' "));
+            $shared_videos = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$logged_in_user_id' AND type='2' "));
+            if (!empty($shared_songs)) {
+                $shared_songs_ids = array();
+                foreach ($shared_songs as $s) {
+                    array_push($shared_songs_ids, "'$s->song_id'");
+                }
+                $ids = implode(',', $shared_songs_ids);
+                $song_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='1' AND deleted = 0 AND"
+                            . " ((created_by = '$logged_in_user_id') OR (id IN($ids)) )  ", "order" => "date_entered desc")
+                );
+                
+                $size = BaseModel::executeSimpleQuery("SELECT SUM(`file_size`) as total FROM `media` WHERE status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id' OR (id IN($ids))");
+                $total_size = $size[0]['total'];
+            } else {
+                $song_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='1' AND deleted = 0 AND"
+                            . " created_by = '$logged_in_user_id' ", "order" => "date_entered desc")
+                );
+                
+                $size = BaseModel::executeSimpleQuery("SELECT SUM(`file_size`) as total FROM `media` WHERE status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id'");
+                $total_size = $size[0]['total'];
+            }
+
+
+
+            if (!empty($shared_videos)) {
+                $shared_videos_ids = array();
+                foreach ($shared_videos as $s) {
+                    array_push($shared_videos_ids, "'$s->song_id'");
+                }
+                $v_ids = implode(',', $shared_videos_ids);
+                $video_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='2' AND deleted = 0 AND"
+                            . " ((created_by = '$logged_in_user_id') OR (id IN($v_ids)) )  ", "order" => "date_entered desc")
+                );
+                $size = BaseModel::executeSimpleQuery("SELECT SUM(`file_size`) as total FROM media WHERE status = '1' AND type='2' AND deleted = 0 AND created_by = '$logged_in_user_id' OR (id IN($v_ids))");
+                $total_size = $total_size + $size[0]['total'];
+            } else {
+                $video_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='2' AND deleted = 0 AND"
+                            . " created_by = '$logged_in_user_id' ", "order" => "date_entered desc")
+                );
+                
+                $size = BaseModel::executeSimpleQuery("SELECT SUM(`file_size`) as total FROM media WHERE status = '1' AND type='2' AND deleted = 0 AND created_by = '$logged_in_user_id'");
+                $total_size = $total_size + $size[0]['total'];
+            }
+
+            $total_size = $total_size/1073741824;
+            return $total_size;
     }
 
 }

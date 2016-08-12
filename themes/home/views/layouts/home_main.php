@@ -273,6 +273,24 @@
             </div>
         </div>
 
+        
+        <div class="modal fade" id="crossed_upload_limit">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content log_pan">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Notification</h4>
+                    </div>
+                    <div class="modal-body">
+                        Please note that you have crossed the upload limit of 5 GB.<br>
+                        Either <a href="<?php echo base_url(); ?>/user/plans">Upgrade</a> the membership or <a href="<?php echo base_url();?>/user/drive">delete</a> few files from your drive.<br>
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <!-- The template to display files available for upload -->

@@ -17,7 +17,6 @@ class DefaultController extends Controller {
             $recommended_list = Users::model()->getRecommendList($logged_in_user_id);
             $total_size = 0;
 
-
             $shared_songs = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$logged_in_user_id' AND type='1' "));
             $shared_videos = SongShare::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$logged_in_user_id' AND type='2' "));
             if (!empty($shared_songs)) {
@@ -646,7 +645,20 @@ class DefaultController extends Controller {
         }
     }
     
-    
+    public function actionCheckUploadLimit()
+    {
+        $toatal_uploaded_size = Users::model()->getTotalUploadedSize();
+        $return_array = array();
+        if($toatal_uploaded_size >= 5)
+        {
+            $return_array['status'] = 'CROSSED';
+        }
+        else
+        {
+             $return_array['status'] = 'NOTCROSSED';
+        } 
+        echo json_encode($return_array);
+    }   
     
 
 }

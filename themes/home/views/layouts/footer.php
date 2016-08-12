@@ -63,21 +63,24 @@
                         <div class="jp-audio">
                             <div class="jp-controls-wrap">
                                 <div class="jp-controls" id="jp_controls">
-                                    <div id="jp_prev" class="jp-prev jp-control"></div>
-                                    <div class="play jp-control" id="play"></div>
-                                    <div id="jp_next" class="jp-next jp-control"></div>
+                                    <div id="backward" class="jp-prev jp-control"></div>
+                                    <div class="play jp-control" id="playpause"></div>
+                                    <div id="forward" class="jp-next jp-control"></div>
                                 </div>
                             </div>
                             <div class="jp-bar">
                                 <div class="jp-progress">
-                                    <div class="jp-bg"></div>
-                                    <div class="jp-seek-bar">
+                                    <progress id="progress" class="progress progress-striped" value="0" max="100"></progress>
+                                    <div class="jp-bg">
+                                        <div id="waveform"></div>
+                                    </div>
+                                    <!--<div class="jp-seek-bar">
                                         <div class="jp-play-bar"></div>
                                         <div class="jp-seek-wf"></div>
-                                    </div>
+                                    </div>-->
                                 </div>
-                                <div class="jp-time duration" id="duration">00:00</div>
-                                <div class="jp-time jp-current-time" id="current_time">00:00</div>
+                                <!--<div class="jp-time duration" id="duration">00:00</div>
+                                <div class="jp-time jp-current-time" id="current_time">00:00</div>-->
                             </div>
                             <div id="jp_volume" class="vol-wrapper jp-volume">
                                 <div class="volume"></div>
@@ -88,4 +91,31 @@
                     </div>
                 </div>
             </section>
+           
+        <script>
+           var wavesurfer = WaveSurfer.create({
+                container: '#waveform',
+                backend: 'MediaElement',
+                waveColor: 'white',
+                progressColor: 'red',
+                cursorColor: 'red',
+                barWidth: 2,
+                height: 40,
+                maxCanvasWidth: 510
+            });
+            
+            $(document).ready(function() {
+                $("#playpause").click(function() {
+                    wavesurfer.playPause();
+                     $('.play.jp-control').toggleClass('active');
+                });
+                $("#forward").click(function() {
+                    wavesurfer.skipForward();
+                });
+                $("#backward").click(function() {
+                    wavesurfer.skipBackward();
+                });
+            })
+
+        </script>
         </div>

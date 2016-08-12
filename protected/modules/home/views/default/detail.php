@@ -6,7 +6,18 @@ $baseUrl = Yii::app()->theme->baseUrl;
     <div class="wraper fc_black">
         <div class="sd_banner">
             <div class="col-lg-4 tac">
-                <img src="<?php echo $media->album_art; ?>" alt="<?php echo $media->song_name; ?>" />
+                <?php 
+                if(!empty($media->album_art))
+                {
+                    $src = $media->album_art;
+                }   
+                else 
+                {
+                     $src = $baseUrl."/img/alb1.jpg";
+                }    
+                
+                ?>
+                <img src="<?php echo $src; ?>" alt="<?php echo $media->song_name; ?>" />
             </div>
             <div class="col-lg-8 song_d">
                 <h2><?php echo $media->song_name; ?></h2>
@@ -30,7 +41,17 @@ $baseUrl = Yii::app()->theme->baseUrl;
                     </a>
                     <a href="javascript:void(0)" class="detail_like" data-song="<?php echo $media->id; ?>" data-user="<?php echo Yii::app()->user->id; ?>">
                         <i class="fa fa-heart" aria-hidden="true"></i><span><?php echo $song_like_count; ?></span>
-                    </a>                    
+                    </a> 
+                     <?php
+                                    if ($media->type == 1) {
+                                        $type = "song";
+                                    } else if ($media->type == 2) {
+                                        $type = "video";
+                                    }
+                                    ?>
+                    <a href="javascript:void(0)" class="play_btn" data-song="<?php echo $media->id; ?>" data-user="<?php echo Yii::app()->user->id; ?>">
+                        <i data-song="<?php echo $media->slug; ?>" data-type="<?php echo $type; ?>"  class="fa fa-play" aria-hidden="true"></i>
+                    </a> 
                 </div>
             </div>
         </div>

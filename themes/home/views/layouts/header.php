@@ -19,7 +19,7 @@
             <li><a href="#" data-toggle="modal" data-target="#Signup-pop">Sign Up</a></li>
             <li><a href="#" data-toggle="modal" data-target="#Login-pop">Login</a></li>
             <?php else: ?>
-            <li><a href="#" data-toggle="modal" data-target="#Upload-pop"><i class="fa fa-cloud-upload"></i> Upload</a></li>
+            <li><a href="#" data-toggle="modal" id="upload_file"><i class="fa fa-cloud-upload"></i> Upload</a></li>
             <li><a href="#"><?php echo Users::model()->findByPk(Yii::app()->user->id)->username; ?> <i class="fa fa-angle-down"></i></a>
                 <ul class="sub_menu">
                     <li><a href="<?php echo base_url().'/user/profile'; ?>">My Profile</a></li>
