@@ -2570,3 +2570,7 @@ div#video_title {
 .no-bot-margin{
     margin-bottom: 0 !important;
 }
+
+.upload_text {
+    color: #000;
+}

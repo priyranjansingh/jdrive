@@ -4,7 +4,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 <div class="inner_con">
     <div class="left_bar">
-         <a href="<?php echo base_url(); ?>/user/drive" ><i class="fa fa-cloud"></i></a>
+        <a href="<?php echo base_url(); ?>/user/drive" ><i class="fa fa-cloud"></i></a>
         <a href="<?php echo base_url(); ?>/user/profile" class="active"><i class="fa fa-user"></i></a>
     </div>
     <div class="left_menu">
@@ -69,33 +69,31 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         $user_file = "no_dj1.jpg";
                     }
                     ?>
-               <a href="<?php echo base_url() ?>/home/dj?user=<?php echo $recommended->username; ?>">
-                    <li>
-                        <div class="left_thumb">
-                            <img src="<?php echo base_url(); ?>/assets/user-profile/<?php echo $user_file; ?>">
-                        </div>
-                        <div class="left_con">
-                            <?php echo $recommended->username; ?> <i class="fa fa-star fc_red"></i>
-                            <div class="small_sec"><span><i class="fa fa-users"></i> <?php echo count($recommended->followers_list); ?></span> <span><i class="fa fa-volume-up"></i> <?php echo count($recommended->songs_list) + count($recommended->videos_list) ?></span></div>
-                        </div>
-                        <div class="flow_p">
-                            <a href="javascript:void(0)" class="btn" data-dj="<?php echo $recommended->id; ?>" data-user ="<?php echo Yii::app()->user->id; ?>" id="follow_unfollow_recommend">
-                            Follow
-                            </a>
-                        </div>                             
-                    </li>
-               </a>     
+                    <a href="<?php echo base_url() ?>/home/dj?user=<?php echo $recommended->username; ?>">
+                        <li>
+                            <div class="left_thumb">
+                                <img src="<?php echo base_url(); ?>/assets/user-profile/<?php echo $user_file; ?>">
+                            </div>
+                            <div class="left_con">
+                                <?php echo $recommended->username; ?> <i class="fa fa-star fc_red"></i>
+                                <div class="small_sec"><span><i class="fa fa-users"></i> <?php echo count($recommended->followers_list); ?></span> <span><i class="fa fa-volume-up"></i> <?php echo count($recommended->songs_list) + count($recommended->videos_list) ?></span></div>
+                            </div>
+                            <div class="flow_p">
+                                <a href="javascript:void(0)" class="btn" data-dj="<?php echo $recommended->id; ?>" data-user ="<?php echo Yii::app()->user->id; ?>" id="follow_unfollow_recommend">
+                                    Follow
+                                </a>
+                            </div>                             
+                        </li>
+                    </a>     
                     <?php
                 }
+            } else {
+                ?>    
+                <li>
+                    No Records
+                </li>
+                <?php
             }
-            else 
-            {
-            ?>    
-            <li>
-                No Records
-            </li>
-            <?php     
-            }    
             ?>
         </ul>
         <?php
@@ -107,7 +105,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
     </div>
     <div class="right_pan">
         <div class="pro_banner" style="background:url(<?php echo $baseUrl; ?>/img/pro_banner.jpg)">
-            <div class="change_btn"><a href="<?php echo base_url().'/user/edit' ?>">Edit Profile</a></div>
+            <div class="change_btn"><a href="<?php echo base_url() . '/user/edit' ?>">Edit Profile</a></div>
             <div class="count_t"><h2><?php echo $total_track_list; ?></h2> Tracks</div>
             <div class="pro_con">
                 <h1>
@@ -118,7 +116,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 <p><a href="#">
                         <?php
                         if (!empty($user->country_name->name)) {
-                            echo $user->country_name->name.',';
+                            echo $user->country_name->name . ',';
                         };
                         ?>
                         <?php
@@ -127,48 +125,68 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         }
                         ?></a></p>
                 <p>
-                    <?php if(!empty($user->twitter)): ?>
-                    <a target="_blank" href="<?php echo $user->twitter; ?>">
-                        <i class="fa fa-twitter-square fc_tw"></i>
-                    </a>
+                    <?php if (!empty($user->twitter)): ?>
+                        <a target="_blank" href="<?php echo $user->twitter; ?>">
+                            <i class="fa fa-twitter-square fc_tw"></i>
+                        </a>
                     <?php endif; ?>
-                    <?php if(!empty($user->youtube)): ?>
-                    <a target="_blank" href="<?php echo $user->youtube; ?>">
-                        <i class="fa fa-youtube-square fc_red"></i>
-                    </a> 
+                    <?php if (!empty($user->youtube)): ?>
+                        <a target="_blank" href="<?php echo $user->youtube; ?>">
+                            <i class="fa fa-youtube-square fc_red"></i>
+                        </a> 
                     <?php endif; ?>
-                    <?php if(!empty($user->facebook)): ?>
-                    <a target="_blank" href="<?php echo $user->facebook; ?>">
-                        <i class="fa fa-facebook-square fc_fb"></i>
-                    </a>
+                    <?php if (!empty($user->facebook)): ?>
+                        <a target="_blank" href="<?php echo $user->facebook; ?>">
+                            <i class="fa fa-facebook-square fc_fb"></i>
+                        </a>
                     <?php endif; ?>
-                    <?php if(!empty($user->instagram)): ?>
-                    <a target="_blank" href="<?php echo $user->instagram; ?>">
-                        <i class="fa fa-instagram fc_in"></i>
-                    </a>
+                    <?php if (!empty($user->instagram)): ?>
+                        <a target="_blank" href="<?php echo $user->instagram; ?>">
+                            <i class="fa fa-instagram fc_in"></i>
+                        </a>
                     <?php endif; ?>
-                    <?php if(!empty($user->gplus)): ?>
-                    <a target="_blank" href="<?php echo $user->gplus; ?>">
-                        <i class="fa fa-google-plus-square fc_in"></i>
-                    </a>
+                    <?php if (!empty($user->gplus)): ?>
+                        <a target="_blank" href="<?php echo $user->gplus; ?>">
+                            <i class="fa fa-google-plus-square fc_in"></i>
+                        </a>
                     <?php endif; ?>
                 </p>
             </div>
         </div>
-        <?php if($user->is_paid == 0): ?>
-        <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $total_percent; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $total_percent; ?>%;background: red;">
-                <span class="sr-only" style="color: #fff;width: 100%;height: 100%;position: relative;">Total Upload: <?php echo $total_size; ?> GB / 5 GB</span>
-            </div>
-        </div>
-        <?php else: ?>
-        <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 1%;background: red;">
-                <span class="sr-only" style="color: #fff;width: 100%;height: 100%;position: relative;">Total Upload: <?php echo $total_size; ?> GB</span>
-            </div>
-        </div>
-        <?php endif; ?>
+
         <div class="t_bar">
+            <?php if ($user->is_paid == 0): ?>
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="<?php echo $total_percent; ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $total_percent; ?>%;background: red;">
+                                <span class="sr-only">Total Upload: <?php echo number_format($total_size, 2); ?> GB / 5 GB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="upload_text">
+                            <span>Total Upload: <?php echo number_format($total_size, 2); ?> GB / 5 GB</span>
+                        </div>
+                    </div>
+                </div>
+            <?php else: ?>
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 1%;background: red;">
+                                <span class="sr-only">Total Upload: <?php echo number_format($total_size, 2); ?> GB</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="upload_text">
+                            <span>Total Upload: <?php echo number_format($total_size, 2); ?> GB</span>
+                        </div>
+                    </div>
+                </div>
+                
+            <?php endif; ?>
             <ul class="sub_top">
                 <li><a class="main_type" id="trending" data-type="trending" href="javascript:void(0)">Trending</a></li>
                 <li><a class="main_type" id="just_added" data-type="just_added" href="javascript:void(0)">Just Added</a></li>
@@ -191,28 +209,28 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         ?>    
                         <li>
                             <div class="i_info"> 
-                                <?php 
-                                    $src = $baseUrl."/img/alb1.jpg";
-                                    if(!empty($song->album_art)):
-                                        $src = $song->album_art;
-                                    endif;
+                                <?php
+                                $src = $baseUrl . "/img/alb1.jpg";
+                                if (!empty($song->album_art)):
+                                    $src = $song->album_art;
+                                endif;
                                 ?>
                                 <img src="<?php echo $src; ?>" />  
                                 <span class="play_btn">
                                     <i class="fa fa-play-circle-o" 
-                                        data-song="<?php echo $song->slug; ?>" 
-                                    <?php if($song->type == 1): ?>
-                                        data-type="song"
-                                    <?php else: ?>
-                                        data-type="video"
-                                    <?php endif; ?>
-                                    ></i>
+                                       data-song="<?php echo $song->slug; ?>" 
+                                       <?php if ($song->type == 1): ?>
+                                           data-type="song"
+                                       <?php else: ?>
+                                           data-type="video"
+                                       <?php endif; ?>
+                                       ></i>
                                 </span>
-                                <?php $this->widget('SongWidget',array("song_id"=>$song->id)); ?>
+                                <?php $this->widget('SongWidget', array("song_id" => $song->id)); ?>
                             </div>
                             <div class="i_titel">
                                 <!--<div class="it_l">
-                                    <?php // echo $count; ?>
+                                <?php // echo $count;  ?>
                                 <!--</div>-->
                                 <div  class="it_m">
                                     <h5><?php echo elipsis($song->song_name, '..', 35); ?></h5>
