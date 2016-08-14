@@ -24,7 +24,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 <p class="by-s"> Artist: <strong><?php echo $media->artist_name; ?></strong></p>
                 <p class="by-s"> By: <strong><?php echo $media->user->first_name . ' ' . $media->user->last_name; ?></strong></p>
                 <div class="ico_p">
-                    <span><i class="fa fa-arrow-up" aria-hidden="true"></i> 3 days ago</span>
+                    <span><i class="fa fa-arrow-up" aria-hidden="true"></i> <?php echo time_elapsed_string($media->date_entered);  ?></span>
                 </div>
                 <div class="btn_p">
                     <a href="javascript:void(0)" data-dj="<?php echo $media->created_by; ?>" data-user ="<?php echo Yii::app()->user->id; ?>" id="follow_unfollow">
