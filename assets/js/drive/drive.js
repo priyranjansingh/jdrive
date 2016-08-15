@@ -84,6 +84,15 @@ $('body').on("click", ".delete_btn", function() {
 });
 
 
+$('body').on("click", ".unshare_btn", function() {
+    var song = $(this).data('song');
+    $("#unshare_yes").data('song', song);
+    $("#unshare_no").data('song', song);
+    $("#unshare_song_div").modal('show');
+});
+
+
+
 
 $('body').on("click", ".delete_option", function() {
     var song = $(this).data('song');
@@ -114,6 +123,39 @@ $('body').on("click", ".delete_option", function() {
         $("#delete_song_div").modal('hide');
     }
 });
+
+
+
+$('body').on("click", ".unshare_option", function() {
+    var song = $(this).data('song');
+    var type = $(this).attr('id');
+    if (type == 'unshare_yes')
+    {
+        $(".loading").show();
+        $.ajax({
+            url: base_url + "/user/AjaxUnshare",
+            method: "POST",
+            data: {'song': song},
+            success: function(data) {
+                $(".loading").hide();
+                if (data == 'success')
+                {
+
+                    window.location.href = base_url + "/user/drive";
+                }
+                else
+                {
+                    window.location.href = base_url + "/user/drive";
+                }
+            }
+        })
+    }
+    else
+    {
+        $("#unshare_song_div").modal('hide');
+    }
+});
+
 
 
 $('body').on("click", ".file_mode_btn", function() {

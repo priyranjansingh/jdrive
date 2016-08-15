@@ -82,14 +82,20 @@
 
                                     <a href="javascript:void(0)" class="play_btn" data-song="<?php echo $song->id; ?>" ><i data-song="<?php echo $song->slug; ?>" data-type="<?php echo $type; ?>"  class="fa fa-play" aria-hidden="true"></i></a>
                                     <a class="drive_download_btn" href="<?php echo base_url(); ?>/user/download?file=<?php echo $song->id; ?>"  data-song="<?php echo $song->id; ?>"><i class="fa fa-download" aria-hidden="true"></i></a>
-                                        <?php if ($logged_in_user_id == $song->created_by) { ?>
+                                    <?php if ($logged_in_user_id == $song->created_by) { ?>
                                         <a href="#" class="edit_btn" data-song="<?php echo $song->id; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                         <a href="#" class="delete_btn" data-song="<?php echo $song->id; ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                                        <?php  
-                                        $file_mode = ($song->acl == 0)?"Public":"Private";
+                                        <?php
+                                        $file_mode = ($song->acl == 0) ? "Public" : "Private";
                                         ?>
-                                        <input type="button" data-song="<?php echo $song->id; ?>" name="file_mode_btn" value="<?php echo $file_mode;  ?>" class="btn-xs bg_red fc_white file_mode_btn">
-                                        <?php } ?>
+                                        <input type="button" data-song="<?php echo $song->id; ?>" name="file_mode_btn" value="<?php echo $file_mode; ?>" class="btn-xs bg_red fc_white file_mode_btn">
+                                    <?php
+                                    } else {
+                                        ?>   
+                                        <a href="#" class="unshare_btn" data-song="<?php echo $song->id; ?>"><i title="Unshare this song" class="fa fa-times" aria-hidden="true"></i></a>
+                                            <?php
+                                        }
+                                        ?>
                                 </td>
                             </tr>
 

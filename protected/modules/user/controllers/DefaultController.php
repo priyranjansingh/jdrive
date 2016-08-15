@@ -325,6 +325,23 @@ class DefaultController extends Controller {
             }
         }
     }
+    
+    
+     public function actionAjaxUnshare() {
+        if (Yii::app()->user->id) {
+            $user_id = Yii::app()->user->id;
+            $song = $_POST['song'];
+            $song_detail = Songs::model()->findByPk($song);
+            if (!empty($song_detail)) {
+                // deleting from song_share table
+                $song_share = SongShare::model()->deleteAll(array("condition" => "song_id='$song_detail->id' AND user_id ='$user_id'"));
+                $song_share->delete();
+                echo "success";
+            } else {
+                echo "failure";
+            }
+        }
+    }
 
     public function actionPaymenthistory() {
         if (Yii::app()->user->id) {

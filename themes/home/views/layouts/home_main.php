@@ -237,6 +237,30 @@
             </div>
         </div>
         
+        
+        <div class="modal fade" id="unshare_song_div">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content log_pan">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Want to unshare this song?</h4>
+                    </div>
+                    <div class="modal-body" id="delete_song_div_body">
+                        <input id="unshare_yes" type="button" value="Yes" data-song="" class="btn_small bg_blue unshare_option">
+                        <input id="unshare_no" type="button" value="No" data-song="" class="btn_small bg_blue unshare_option">
+                    </div>
+                    <div class="modal-footer"> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
         <div class="modal fade" id="video_container">
             <div class="modal-dialog" role="document">
                 <div class="modal-content log_pan">

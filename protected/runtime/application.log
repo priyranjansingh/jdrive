@@ -3827,3 +3827,73 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
 ---
+2016/08/14 11:04:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/14 11:04:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/14 13:49:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/14 13:49:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/14 13:50:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "assets/default/js/wavesurfers/wavesurfer.min.js.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('assets/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/assets/js/wavesurfers/wavesurfer.min.js.map
+---
+2016/08/14 13:50:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "themes/default/home/css/bootstrap.css.map".' in C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('themes/default/...')
+#1 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/jdrive/themes/home/css/bootstrap.css.map
+---
+2016/08/15 03:02:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+' in C:\xampp\htdocs\jdrive\framework\db\CDbConnection.php:399
+Stack trace:
+#0 C:\xampp\htdocs\jdrive\framework\db\CDbConnection.php(347): CDbConnection->open()
+#1 C:\xampp\htdocs\jdrive\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
+#2 C:\xampp\htdocs\jdrive\framework\base\CModule.php(394): CDbConnection->init()
+#3 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(458): CModule->getComponent('db')
+#4 C:\xampp\htdocs\jdrive\framework\db\ar\CActiveRecord.php(637): CApplication->getDb()
+#5 C:\xampp\htdocs\jdrive\framework\db\ar\CActiveRecord.php(670): CActiveRecord->getDbConnection()
+#6 C:\xampp\htdocs\jdrive\framework\db\ar\CActiveRecord.php(1474): CActiveRecord->getCommandBuilder()
+#7 C:\xampp\htdocs\jdrive\protected\modules\home\controllers\DefaultController.php(9): CActiveRecord->findAll(Array)
+#8 C:\xampp\htdocs\jdrive\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#9 C:\xampp\htdocs\jdrive\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\jdrive\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\jdrive\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(282): CController->run('')
+#13 C:\xampp\htdocs\jdrive\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#14 C:\xampp\htdocs\jdrive\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\jdrive\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/jdrive/
+---
