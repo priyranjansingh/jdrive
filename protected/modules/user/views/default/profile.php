@@ -192,6 +192,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
                 <li><a class="main_type" id="just_added" data-type="just_added" href="javascript:void(0)">Just Added</a></li>
                 <li><a class="main_type" id="playlist" data-type="playlist" href="javascript:void(0)">Playlist</a></li>
                 <li><a class="main_type" id="my_drive" data-type="my_drive"  href="javascript:void(0)">My Drive</a></li>
+                <li><a class="main_type" id="my_likes" data-type="my_likes"  href="javascript:void(0)">My Favorites</a></li>
             </ul>
 
             <div id="song_type_container" class="av_tab">

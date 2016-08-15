@@ -540,6 +540,39 @@ class DefaultController extends Controller {
 
         $this->renderPartial('ajax_song', array('song_list' => $song_list));
     }
+    
+    
+    
+     public function actionAjaxMyLikes() {
+        $user = $_POST['user'];
+        $song_type = $_POST['song_type'];
+
+
+        if ($song_type == 'audio') {
+            $type = 1;
+        } else if ($song_type == 'video') {
+            $type = 2;
+        }
+
+
+        $liked_songs = SongLike::model()->findAll(array("select" => "song_id", "condition" => "user_id = '$user' AND deleted = 0 "));
+        $song_list = array();
+        if (!empty($liked_songs)) {
+            $liked_songs_ids = array();
+            foreach ($liked_songs as $s) {
+                array_push($liked_songs_ids, "'$s->song_id'");
+            }
+            $ids = implode(',', $liked_songs_ids);
+            $song_list = Songs::model()->findAll(
+                    array(
+                        "condition" =>
+                        "status = '1' AND type='$type' AND deleted = 0 AND"
+                        . " id IN($ids) ", "order" => "date_entered desc", "limit" => 20)
+            );
+        } 
+
+        $this->renderPartial('ajax_song', array('song_list' => $song_list));
+    }
 
     public function actionAjaxPlaylistSongs() {
         $playlist = $_POST['playlist'];
