@@ -740,8 +740,9 @@ class DefaultController extends Controller {
     public function actiongetNotification()
     {
         if (Yii::app()->user->id) {
+            Users::model()->updateByPk(Yii::app()->user->id,array('notification_count'=>0));
             $receiver_id = Yii::app()->user->id;
-            $notifications = Notifications::model()->findAll(array("condition" => "receiver_id = '$receiver_id' AND deleted = 0"));
+            $notifications = Notifications::model()->findAll(array("condition" => "receiver_id = '$receiver_id' AND deleted = 0","limit"=>10));
             $this->renderPartial('ajax_notifications', array(
                 'notifications' => $notifications,
             ));

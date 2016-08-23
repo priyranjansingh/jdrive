@@ -551,6 +551,7 @@ class DefaultController extends Controller {
     public function actionTest() {
         $info = new UpdateVideoBPM("assets/temp/Beyonce - Sorry (Original) (Dirty).mp4");
     }
+    
 
     public function actionWebhook($listner) {
 
@@ -767,6 +768,7 @@ class DefaultController extends Controller {
                             $message_text = "Your song" . $info->data['song'] . " has been posted ";
                             $notification->message = $message_text;
                             $notification->save();
+                            Users::model()->updateNotification($notification->receiver_id);
                             // end of notifications
                         } else {
                             pre($api->bpm);
@@ -835,6 +837,7 @@ class DefaultController extends Controller {
 
                         $notification->message = $message_text;
                         $notification->save();
+                        Users::model()->updateNotification($notification->receiver_id);
                     }
                     // end of notifications
                 }
@@ -872,6 +875,10 @@ class DefaultController extends Controller {
 
                     $notification->message = $message_text;
                     $notification->save();
+                    
+                    Users::model()->updateNotification($notification->receiver_id);
+                    
+                    
                 }
                 // end of notifications
             } else {
@@ -1195,6 +1202,7 @@ class DefaultController extends Controller {
                 $message_text = $user->username." has commented on your song ".$song_detail->song_name;
                 $notification->message = $message_text;
                 $notification->save();
+                Users::model()->updateNotification($notification->receiver_id);
             }
             // end of notifications
         } else {

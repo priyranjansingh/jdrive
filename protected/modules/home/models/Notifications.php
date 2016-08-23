@@ -37,12 +37,12 @@ class Notifications extends BaseModel
 		return array(
 			array('id, sender_id, receiver_id, notification_type, message, date_entered, date_modified, created_by, modified_by', 'required'),
 			array('is_read, status, deleted', 'numerical', 'integerOnly'=>true),
-			array('id, sender_id, receiver_id, created_by, modified_by', 'length', 'max'=>36),
+			array('id, sender_id, receiver_id,related_to_id, created_by, modified_by', 'length', 'max'=>36),
 			array('notification_type', 'length', 'max'=>100),
 			array('message', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, sender_id, receiver_id, notification_type, message, is_read, status, deleted, date_entered, date_modified, created_by, modified_by', 'safe', 'on'=>'search'),
+			array('id, sender_id, receiver_id,related_to_id, notification_type, message, is_read, status, deleted, date_entered, date_modified, created_by, modified_by', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,6 +54,8 @@ class Notifications extends BaseModel
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+                     'sender_detail' => array(self::BELONGS_TO, 'Users', 'sender_id'),
+                     'receiver_detail' => array(self::BELONGS_TO, 'Users', 'receiver_id'),
 		);
 	}
 
@@ -66,6 +68,7 @@ class Notifications extends BaseModel
 			'id' => 'ID',
 			'sender_id' => 'Sender',
 			'receiver_id' => 'Receiver',
+                        'related_to_id' => 'Related To',
 			'notification_type' => 'Notification Type',
 			'message' => 'Message',
 			'is_read' => 'Is Read',
@@ -99,6 +102,7 @@ class Notifications extends BaseModel
 		$criteria->compare('id',$this->id,true);
 		$criteria->compare('sender_id',$this->sender_id,true);
 		$criteria->compare('receiver_id',$this->receiver_id,true);
+                $criteria->compare('related_to_id',$this->related_to_id,true);
 		$criteria->compare('notification_type',$this->notification_type,true);
 		$criteria->compare('message',$this->message,true);
 		$criteria->compare('is_read',$this->is_read);

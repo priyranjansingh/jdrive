@@ -17,14 +17,6 @@
                     </div>
                     <?php
                 }
-                if(count($notifications) > 10)
-                {
-                ?>
-            <div>
-                <a href="<?php echo base_url().'/user/notifications'  ?>">See All</a>
-            </div>
-                <?php     
-                }    
             } else {
                 ?>   
                 <div>Sorry there is not any notifications for you</div>

@@ -402,7 +402,7 @@ $(document).ready(function() {
     })
 
 
-    $(".unread_notifications").click(function() {
+    $('body').on('click','.unread_notifications',function(){
         $(".loading").show();
         var notification_id = $(this).attr('id');
         var url = $(this).data('url');
@@ -422,6 +422,7 @@ $(document).ready(function() {
     });
 
 
+
     $("#notification").click(function() {
         // first check whether popup is opened or not
         // if it is opened then close otherwise fire ajax
@@ -435,6 +436,7 @@ $(document).ready(function() {
             $.ajax({
                 url: base_url + "/user/getNotification",
                 success: function(data) {
+                    $(".badge").html(0);
                     $("#notifications").html(data);
                     $("#notification_popup").show();
                     $(".loading").hide();

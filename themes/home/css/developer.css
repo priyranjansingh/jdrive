@@ -2576,6 +2576,8 @@ div#video_title {
 }
 
 .nt-wraper {
+    margin-left: 807px;
+    margin-top: -32px;
     position: absolute;
     width: 400px;
     padding: 10px;
@@ -2583,7 +2585,7 @@ div#video_title {
     border: 1px solid #5e5e5e;
     border-radius: 5px;
     z-index: 999;
-    max-height: 500px;
+    max-height: 528px;
     overflow: hidden;
     display: none;
 }
