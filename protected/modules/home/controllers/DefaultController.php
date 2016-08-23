@@ -551,6 +551,7 @@ class DefaultController extends Controller {
     public function actionTest() {
         $info = new UpdateVideoBPM("assets/temp/Beyonce - Sorry (Original) (Dirty).mp4");
     }
+    
 
     public function actionWebhook($listner) {
 
@@ -674,10 +675,11 @@ class DefaultController extends Controller {
         if (isset($_REQUEST['mode'])) {
             $mode = $_REQUEST['mode'];
         }
+
         $user_id = Yii::app()->user->id;
         $bucket = Users::model()->findByPk($user_id)->s3_bucket;
         $upload_handler = new UploadHandlerS3(null, true, null, $bucket, $mode);
-        // pre($upload_handler,true);
+        //pre($upload_handler,true);
     }
 
     public function actionAddsongs() {
@@ -756,6 +758,18 @@ class DefaultController extends Controller {
                         if ($model->save()) {
                             unlink("assets/temp/" . $t->file_name);
                             Temp::model()->deleteByPk($t->id);
+                            // for notifications
+                            $notification = new Notifications;
+                            $notification->sender_id = $t->user_id;
+                            $notification->receiver_id = $t->user_id;
+                            $notification->related_to_id = $model->id;
+                            $notification->notification_type = 'POST';
+                            $notification->is_read = 0;
+                            $message_text = "Your song" . $info->data['song'] . " has been posted ";
+                            $notification->message = $message_text;
+                            $notification->save();
+                            Users::model()->updateNotification($notification->receiver_id);
+                            // end of notifications
                         } else {
                             pre($api->bpm);
                             pre($model->getErrors(), true);
@@ -808,6 +822,24 @@ class DefaultController extends Controller {
                     $model->save();
                     $result_arr['status'] = 'success';
                     $result_arr['message'] = 'You have successfully added the song';
+                    // for notifications
+                    if ($song_detail->created_by != $user_id) {
+                        $notification = new Notifications;
+                        $notification->sender_id = $user_id;
+                        $notification->receiver_id = $song_detail->created_by;
+                        $notification->related_to_id = $song_id;
+                        $notification->notification_type = 'SHARE';
+                        $notification->is_read = 0;
+                        $sender_detail = Users::model()->findByPk($user_id);
+                        if (!empty($sender_detail) && !empty($song_detail)) {
+                            $message_text = $sender_detail->username . " has shared your song " . $song_detail->song_name;
+                        }
+
+                        $notification->message = $message_text;
+                        $notification->save();
+                        Users::model()->updateNotification($notification->receiver_id);
+                    }
+                    // end of notifications
                 }
             }
         }
@@ -816,7 +848,7 @@ class DefaultController extends Controller {
 
     public function actionWidgetLike() {
         if (Yii::app()->user->id) {
-            $user_id = $_POST['user_id'];
+            $user_id = $_POST['user_id']; // logged in user id
             $song_id = $_POST['song_id'];
             $song_like = SongLike::model()->find(array("condition" => " user_id = '$user_id' AND song_id = '$song_id' "));
             if (empty($song_like)) {
@@ -826,6 +858,29 @@ class DefaultController extends Controller {
                 $song_like_model->save();
                 $song = Songs::model()->find(array("condition" => "id = '$song_id'"));
                 $song_like_count = count($song->like_details);
+
+                // for notifications
+                if ($song->created_by != $user_id) {
+                    $notification = new Notifications;
+                    $notification->sender_id = $user_id;
+                    $notification->receiver_id = $song->created_by;
+                    $notification->related_to_id = $song_id;
+                    $notification->notification_type = 'LIKE';
+                    $notification->is_read = 0;
+                    $sender_detail = Users::model()->findByPk($user_id);
+                    $song_detail = Media::model()->findByPk($song_id);
+                    if (!empty($sender_detail) && !empty($song_detail)) {
+                        $message_text = $sender_detail->username . " has liked your song " . $song_detail->song_name;
+                    }
+
+                    $notification->message = $message_text;
+                    $notification->save();
+                    
+                    Users::model()->updateNotification($notification->receiver_id);
+                    
+                    
+                }
+                // end of notifications
             } else {
                 if ($song_like->deleted == 0) {
                     $song_like->deleted = 1;
@@ -1133,6 +1188,23 @@ class DefaultController extends Controller {
 
             $data['user'] = $user->username;
             $data['msg'] = $model->comment;
+
+            // for notifications
+            $song_detail = Songs::model()->findByPk($song);
+            if(Yii::app()->user->id != $song_detail->created_by)
+            {
+                $notification = new Notifications;
+                $notification->sender_id = Yii::app()->user->id;
+                $notification->receiver_id = $song_detail->created_by;
+                $notification->related_to_id = $song;
+                $notification->notification_type = 'COMMENT';
+                $notification->is_read = 0;
+                $message_text = $user->username." has commented on your song ".$song_detail->song_name;
+                $notification->message = $message_text;
+                $notification->save();
+                Users::model()->updateNotification($notification->receiver_id);
+            }
+            // end of notifications
         } else {
             $data['error'] = "1";
         }

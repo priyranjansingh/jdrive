@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>JOCKDRIVE</title>
 
@@ -237,6 +238,30 @@
             </div>
         </div>
         
+        
+        <div class="modal fade" id="unshare_song_div">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content log_pan">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Want to unshare this song?</h4>
+                    </div>
+                    <div class="modal-body" id="delete_song_div_body">
+                        <input id="unshare_yes" type="button" value="Yes" data-song="" class="btn_small bg_blue unshare_option">
+                        <input id="unshare_no" type="button" value="No" data-song="" class="btn_small bg_blue unshare_option">
+                    </div>
+                    <div class="modal-footer"> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
         <div class="modal fade" id="video_container">
             <div class="modal-dialog" role="document">
                 <div class="modal-content log_pan">
@@ -273,6 +298,24 @@
             </div>
         </div>
 
+        
+        <div class="modal fade" id="crossed_upload_limit">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content log_pan">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Notification</h4>
+                    </div>
+                    <div class="modal-body">
+                        Please note that you have crossed the upload limit of 5 GB.<br>
+                        Either <a href="<?php echo base_url(); ?>/user/plans">Upgrade</a> the membership or <a href="<?php echo base_url();?>/user/drive">delete</a> few files from your drive.<br>
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <!-- The template to display files available for upload -->

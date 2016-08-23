@@ -29,6 +29,10 @@ $(document).ready(function() {
         {
             $("#my_drive").trigger("click");
         }
+        else if ($("#my_likes").hasClass('select'))
+        {
+            $("#my_likes").trigger("click");
+        }
         else
         {
             var user = $(this).data('user');
@@ -138,6 +142,28 @@ $(document).ready(function() {
         })
 
     })
+    
+     $("#my_likes").click(function() {
+        $("#play_btn_container").hide();
+        $("#song_type_container").show();
+        $(".loading").show();
+        var song_type = $(".song_type.active").attr('id'); // audio or video
+        var user = $(".song_type.active").data('user'); // dj user id
+        $.ajax({
+            url: base_url + "/user/AjaxMyLikes",
+            method: "POST",
+            data: {'user': user, 'song_type': song_type},
+            success: function(data) {
+                $("#media_container").html(data);
+                $(".loading").hide();
+            }
+        })
+
+    })
+    
+    
+    
+    
 
 
 

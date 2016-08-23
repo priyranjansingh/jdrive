@@ -94,3 +94,29 @@ ALTER TABLE  `plans` ADD  `plan_type` ENUM(  'basic',  'premium',  'pro' ) NOT N
 6-6-2016
 
 ALTER TABLE `users` ADD `password_reset_code` VARCHAR(256) NULL AFTER `password`;
+
+
+23-8-2016
+
+
+CREATE TABLE IF NOT EXISTS `notifications` (
+  `id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sender_id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `receiver_id` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `related_to_id` char(36) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `notification_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_read` tinyint(1) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `date_entered` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  `created_by` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `modified_by` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+
+
+ALTER TABLE `users` ADD `notification_count` INT(11) NULL DEFAULT '0' AFTER `phone`;

@@ -706,4 +706,51 @@ function getPlanDurationLabelPaypal($duration) {
     return $label;
 }
 
+function time_elapsed_string($datetime, $full = false) {
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
+
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+
+    $string = array(
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+
+    if (!$full)
+        $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
+}
+
+function getNotificationCount($user_id) {
+    Yii::import("application.modules.home.models.Users", true);
+    return Users::model()->getNotificationCount($user_id);
+}
+
+// function for getting the notification url
+
+function getNotificationUrl($notification_type, $related_to_id) {
+    $url = '#';
+    Yii::import("application.modules.home.models.Songs", true);
+    $song_detail = Songs::model()->findByPk($related_to_id);
+    if ($notification_type == 'LIKE' || $notification_type == 'SHARE' || $notification_type == 'POST' || $notification_type == 'COMMENT' ) {
+        $url = base_url() . "/media?name=$song_detail->slug";
+    }
+    return $url;
+}
+
 ?>
