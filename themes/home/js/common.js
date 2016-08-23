@@ -204,8 +204,14 @@ function createMedia() {
 }
 
 $(document).on("click", ".play_btn", function () {
+    if(wavesurfer.isPlaying())
+    {    
+        wavesurfer.stop();
+        $('.play.jp-control').toggleClass('active');
+    }
     var song = $(this).find('i').attr("data-song"),
             type = $(this).find('i').attr("data-type");
+            $(".loading").show();
     $.ajax({
         url: base_url + "/home/verifysong",
         type: "POST",
@@ -213,17 +219,32 @@ $(document).on("click", ".play_btn", function () {
     }).done(function (data) {
         data = $.parseJSON(data);
         if (type == "song") {
-            $("#jquery_jplayer_1").jPlayer( "destroy" );
-            this.media = {
-                player: null
-            }
-
-            this.media.player = new jplayer();
-            this.media.player.init("#jpId");
-            this.media.player.playTrack(data.url);
+//            $("#jquery_jplayer_1").jPlayer( "destroy" );
+//            this.media = {
+//                player: null
+//            }
+            
+            wavesurfer.on('loading', function (percents) {
+                document.getElementById('progress').value = percents;
+                if(percents == "100"){
+                    $('.play.jp-control').click();
+                    $(".loading").hide();
+                }
+            });
+            
+            wavesurfer.on('ready', function (wavesurfer) {
+                document.getElementById('progress').style.display = 'none';
+            });
+            wavesurfer.on('finish', function (wavesurfer) {
+                $('.play.jp-control').toggleClass('active');
+            });
+            wavesurfer.load(data.url);
+            //this.media.player = new jplayer();
+            //this.media.player.init("#jpId");
+            //this.media.player.playTrack(data.url);
             $('.jp-title span.song-title').html(data.artist_name + " - " + data.song_name);
             $("#album_art img").attr('src', data.album_art);
-            $('.play.jp-control').toggleClass('active');
+//            $('.play.jp-control').toggleClass('active');
         } else {
             $("#video_container").modal('show');
             this.media = {

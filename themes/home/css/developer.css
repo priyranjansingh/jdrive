@@ -151,21 +151,21 @@ table.table tr.template-upload td p.size {
 
 .jp-bar {
     overflow: hidden;
-    margin: 26px 0 0 10px;
+    margin: 15px 0 0 10px;
 }
 
 .jp-progress {
     overflow: hidden;
     position: relative;
-    height: 10px;
+    height: 40px;
 }
 
 .jp-progress .jp-bg {
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 2px 2px 2px 2px;
+    /*border: 1px solid rgba(255, 255, 255, 0.3);*/
+    /*border-radius: 2px 2px 2px 2px;*/
     width: 510px;
-    background-color: #000;
-    height: 10px;
+    /*background-color: #000;*/
+    height: 40px;
 }
 
 .jp-progress .jp-seek-bar {
@@ -339,7 +339,7 @@ table.table tr.template-upload td p.size {
     width: 100%;
     bottom: 0;
 }
-.a_list>li {min-height: 350px;}
+.a_list>li {min-height: 370px;}
 
 .it_m{border: none !important; font-weight: normal;color: #d01818;word-wrap: break-word; line-height: 16px; margin-bottom: 10px;margin-left: 0px;}
 .it_m h5 {
@@ -2569,4 +2569,8 @@ div#video_title {
 
 .no-bot-margin{
     margin-bottom: 0 !important;
+}
+
+.upload_text {
+    color: #000;
 }
