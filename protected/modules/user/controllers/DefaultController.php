@@ -31,7 +31,7 @@ class DefaultController extends Controller {
                             "status = '1' AND type='1' AND deleted = 0 AND"
                             . " ((created_by = '$logged_in_user_id') OR (id IN($ids)) )  ", "order" => "date_entered desc")
                 );
-                
+
                 $size = BaseModel::executeSimpleQuery("SELECT SUM(`file_size`) as total FROM `media` WHERE status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id' OR (id IN($ids))");
                 $total_size = $size[0]['total'];
             } else {
@@ -41,7 +41,7 @@ class DefaultController extends Controller {
                             "status = '1' AND type='1' AND deleted = 0 AND"
                             . " created_by = '$logged_in_user_id' ", "order" => "date_entered desc")
                 );
-                
+
                 $size = BaseModel::executeSimpleQuery("SELECT SUM(`file_size`) as total FROM `media` WHERE status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id'");
                 $total_size = $size[0]['total'];
             }
@@ -69,13 +69,13 @@ class DefaultController extends Controller {
                             "status = '1' AND type='2' AND deleted = 0 AND"
                             . " created_by = '$logged_in_user_id' ", "order" => "date_entered desc")
                 );
-                
+
                 $size = BaseModel::executeSimpleQuery("SELECT SUM(`file_size`) as total FROM media WHERE status = '1' AND type='2' AND deleted = 0 AND created_by = '$logged_in_user_id'");
                 $total_size = $total_size + $size[0]['total'];
             }
 
-            $total_size = $total_size/1073741824;
-            $total_percent = ($total_size/5)*100;
+            $total_size = $total_size / 1073741824;
+            $total_percent = ($total_size / 5) * 100;
 
             // $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
             // $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
@@ -113,13 +113,13 @@ class DefaultController extends Controller {
         } else {
             $logged_in_user_id = Yii::app()->user->id;
             $model = Users::model()->findByPk($logged_in_user_id);
-            
-            if(isset($_POST['Users'])){
+
+            if (isset($_POST['Users'])) {
                 $model->attributes = $_POST['Users'];
                 $model->save();
                 $this->redirect(array('profile'));
             }
-            
+
             $this->render('edit', array('model' => $model));
         }
     }
@@ -325,9 +325,8 @@ class DefaultController extends Controller {
             }
         }
     }
-    
-    
-     public function actionAjaxUnshare() {
+
+    public function actionAjaxUnshare() {
         if (Yii::app()->user->id) {
             $user_id = Yii::app()->user->id;
             $song = $_POST['song'];
@@ -540,10 +539,8 @@ class DefaultController extends Controller {
 
         $this->renderPartial('ajax_song', array('song_list' => $song_list));
     }
-    
-    
-    
-     public function actionAjaxMyLikes() {
+
+    public function actionAjaxMyLikes() {
         $user = $_POST['user'];
         $song_type = $_POST['song_type'];
 
@@ -569,7 +566,7 @@ class DefaultController extends Controller {
                         "status = '1' AND type='$type' AND deleted = 0 AND"
                         . " id IN($ids) ", "order" => "date_entered desc", "limit" => 20)
             );
-        } 
+        }
 
         $this->renderPartial('ajax_song', array('song_list' => $song_list));
     }
@@ -622,8 +619,8 @@ class DefaultController extends Controller {
 
         $this->renderPartial('ajax_song', array('song_list' => $song_list));
     }
-    
-     public function actionFollowUnfollow() {
+
+    public function actionFollowUnfollow() {
         if (Yii::app()->user->id) {
             $return_arr = array();
             $user_id = $_POST['dj_id'];
@@ -661,8 +658,8 @@ class DefaultController extends Controller {
             }
         }
     }
-    
-     public function actionFollowUnfollowRecommend() {
+
+    public function actionFollowUnfollowRecommend() {
         if (Yii::app()->user->id) {
             $return_arr = array();
             $user_id = $_POST['dj_id'];
@@ -694,21 +691,68 @@ class DefaultController extends Controller {
             $this->renderPartial('ajax_recommended', array('recommended_list' => $recommended_list));
         }
     }
-    
-    public function actionCheckUploadLimit()
-    {
+
+    public function actionCheckUploadLimit() {
         $toatal_uploaded_size = Users::model()->getTotalUploadedSize();
         $return_array = array();
-        if($toatal_uploaded_size >= 5)
-        {
+        if ($toatal_uploaded_size >= 5) {
             $return_array['status'] = 'CROSSED';
+        } else {
+            $return_array['status'] = 'NOTCROSSED';
         }
-        else
-        {
-             $return_array['status'] = 'NOTCROSSED';
-        } 
         echo json_encode($return_array);
-    }   
+    }
+
+    public function actionNotifications() {
+        if (Yii::app()->user->id) {
+            $receiver_id = Yii::app()->user->id;
+            $notifications = Notifications::model()->findAll(array("condition" => "receiver_id = '$receiver_id' AND deleted = 0"));
+            $this->render('notifications', array(
+                'notifications' => $notifications,
+            ));
+        } else {
+            $this->redirect(Yii::app()->request->urlReferrer);
+        }
+    }
+    
+    public function actionreadNotification()
+    {
+         if (Yii::app()->user->id) {
+            $notification_id = $_POST['notification_id'];
+            $notification = Notifications::model()->findByPk($notification_id);
+            $notification->is_read = 1;
+            $return_arr = array();
+            if($notification->save())
+            {
+                $return_arr['status'] = 'SUCCESS';
+            }
+            else
+            {
+                $return_arr['status'] = 'FAILURE';
+            } 
+            echo json_encode($return_arr);
+        } else {
+            $this->redirect(Yii::app()->request->urlReferrer);
+        }
+    } 
+    
+    
+    public function actiongetNotification()
+    {
+        if (Yii::app()->user->id) {
+            $receiver_id = Yii::app()->user->id;
+            $notifications = Notifications::model()->findAll(array("condition" => "receiver_id = '$receiver_id' AND deleted = 0"));
+            $this->renderPartial('ajax_notifications', array(
+                'notifications' => $notifications,
+            ));
+        } else {
+            $this->redirect(Yii::app()->request->urlReferrer);
+        }
+    }        
+    
+    
+    
+    
     
 
 }

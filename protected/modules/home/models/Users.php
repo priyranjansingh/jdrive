@@ -259,4 +259,10 @@ class Users extends BaseModel {
         return $final_recommended_user_lists;
     }
 
+    // function for getting the total notification count of a particular user
+    public function getNotificationCount($user_id) {
+        $notification_count = Notifications::model()->count(array("condition"=>"receiver_id = '$user_id' AND is_read= 0 AND deleted = 0 "));
+        return $notification_count; 
+    }
+
 }

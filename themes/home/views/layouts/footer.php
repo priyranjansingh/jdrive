@@ -1,6 +1,6 @@
  <div class="footer">
             <!--<div class="sound_bar"><img src="<?php echo $baseUrl;?>/img/74.gif"><img src="<?php echo $baseUrl;?>/img/73.gif"><img src="<?php echo $baseUrl;?>/img/74.gif"></div>-->
-            <section class="player">
+            <section class="player" id="player_container" style="display:none">
                 <div class="row">
                     <div class="col-lg-3 col-md-1 col-sm-1">
                         <div class="jp-album">
@@ -55,7 +55,7 @@
                             </div>          
                         </div>
                     </div>
-                    <div class="col-lg-9 col-md-11 col-sm-11 nopadding">
+                    <div class="col-lg-9 col-md-11 col-sm-11 nopadding" >
                         <div id="jpId" style="width: 0px; height: 0px;">
                             <img id="jp_poster_0" style="width: 0px; height: 0px; display: none;">
                             <audio id="jp_audio_0" preload="metadata"></audio>
@@ -70,9 +70,9 @@
                             </div>
                             <div class="jp-bar">
                                 <div class="jp-progress">
-                                    <progress id="progress" class="progress progress-striped" value="0" max="100"></progress>
+<!--                                    <progress id="progress" class="progress progress-striped" value="0" max="100"></progress>-->
                                     <div class="jp-bg">
-                                        <div id="waveform"></div>
+                                        <div id="waveform" style="background-image:url('<?php echo $baseUrl?>/img/download.png'); "></div>
                                     </div>
                                     <!--<div class="jp-seek-bar">
                                         <div class="jp-play-bar"></div>

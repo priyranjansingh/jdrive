@@ -706,7 +706,6 @@ function getPlanDurationLabelPaypal($duration) {
     return $label;
 }
 
-
 function time_elapsed_string($datetime, $full = false) {
     $now = new DateTime;
     $ago = new DateTime($datetime);
@@ -732,8 +731,26 @@ function time_elapsed_string($datetime, $full = false) {
         }
     }
 
-    if (!$full) $string = array_slice($string, 0, 1);
+    if (!$full)
+        $string = array_slice($string, 0, 1);
     return $string ? implode(', ', $string) . ' ago' : 'just now';
+}
+
+function getNotificationCount($user_id) {
+    Yii::import("application.modules.home.models.Users", true);
+    return Users::model()->getNotificationCount($user_id);
+}
+
+// function for getting the notification url
+
+function getNotificationUrl($notification_type, $related_to_id) {
+    $url = '#';
+    Yii::import("application.modules.home.models.Songs", true);
+    $song_detail = Songs::model()->findByPk($related_to_id);
+    if ($notification_type == 'LIKE' || $notification_type == 'SHARE' || $notification_type == 'POST' || $notification_type == 'COMMENT' ) {
+        $url = base_url() . "/media?name=$song_detail->slug";
+    }
+    return $url;
 }
 
 ?>

@@ -7,28 +7,28 @@ var current_track = null;
 
 function jplayer() {
     var jThis = this;
-    this.init = function (container) {
+    this.init = function(container) {
         jp = $(container);
 
         jp.jPlayer({
             solution: "html,flash", // Flash with an HTML5 fallback.
             swfPath: "jquery.jplayer.swf",
             supplied: "mp3,mp4",
-            ready: function (event) {
+            ready: function(event) {
                 var $time = $(event.jPlayer.options.cssSelectorAncestor + " .jp-current-time");
             },
-            play: function () {
+            play: function() {
                 jThis.activate();
             },
-            stop: function () {
+            stop: function() {
                 jThis.destroy();
             },
-            pause: function () {
+            pause: function() {
                 jThis.deactivate();
             },
-            ended: function (obj) {
+            ended: function(obj) {
             },
-            timeupdate: function () {
+            timeupdate: function() {
                 //showTimeLeft();
             },
             volume: 0.8
@@ -40,12 +40,12 @@ function jplayer() {
             range: "min",
             orientation: "horizontal",
             min: 1,
-            slide: function (event, ui) {
+            slide: function(event, ui) {
                 jp.jPlayer('volume', ui.value / 100);
             },
-            start: function (event, ui) {
+            start: function(event, ui) {
             },
-            stop: function (event, ui) {
+            stop: function(event, ui) {
                 // end slide event
                 // cookie
             }
@@ -55,7 +55,7 @@ function jplayer() {
         // init observers 
         // player
 
-        $('#jp_controls').on('click', function (evt) {
+        $('#jp_controls').on('click', function(evt) {
             var elm = evt.target;
 
             if ($(elm).closest('.jp-control').length > 0 && last_track) {
@@ -86,7 +86,7 @@ function jplayer() {
 
 
         // releases 
-        $('#releases').on('click', function (evt) {
+        $('#releases').on('click', function(evt) {
             var elm = evt.target;
 
             if ($(elm).closest('.play').length > 0) {
@@ -96,7 +96,7 @@ function jplayer() {
 
 
 
-        $('#mute').on('click', function (evt) {
+        $('#mute').on('click', function(evt) {
             var elm = evt.target;
             if ($(elm).closest('.jp-vol').length > 0) {
                 $(elm).closest('#mute').toggleClass('muted');
@@ -109,20 +109,20 @@ function jplayer() {
 
     // declare functions
 
-    this.activate = function () {
+    this.activate = function() {
         $("#play").removeClass('pause').addClass('active');
 
         var progress = $('.jp-audio');
         jp.jPlayer("option", "cssSelectorAncestor", '.jp-audio');
     }
-    this.deactivate = function () {
+    this.deactivate = function() {
         $("#play").removeClass('active').addClass('pause');
 
         jp.jPlayer("pause");
         current_track = null;
     }
 
-    this.playNext = function () {
+    this.playNext = function() {
         var next = last_track.next('tr.track');
 
         if (next.length > 0) {
@@ -141,7 +141,7 @@ function jplayer() {
         }
     }
 
-    this.playPrev = function () {
+    this.playPrev = function() {
         var prev = last_track.prev('tr.track');
 
         if (prev.length > 0) {
@@ -159,7 +159,7 @@ function jplayer() {
     function showTimeLeft() {
     }
 
-    this.playTrack = function (track) {
+    this.playTrack = function(track) {
         // var sample = track.attr('id');
         jp.jPlayer("setMedia", {
             mp3: track
@@ -174,7 +174,7 @@ function jplayer() {
         jp.jPlayer("play");
     }
 
-    this.clickOnTrack = function (track) {
+    this.clickOnTrack = function(track) {
         if (current_track && current_track.attr('id') == track.attr('id')) {
 
             jp.jPlayer("pause");
@@ -197,48 +197,61 @@ function createMedia() {
         player: null
     }
 
-    this.init = function () {
+    this.init = function() {
         this.media.player = new jplayer();
         this.media.player.init("#jpId");
     }
 }
 
-$(document).on("click", ".play_btn", function () {
-    if(wavesurfer.isPlaying())
-    {    
+$(document).on("click", ".play_btn", function() {
+    $("#player_container").slideDown("slow");
+    if (wavesurfer.isPlaying())
+    {
         wavesurfer.stop();
         $('.play.jp-control').toggleClass('active');
     }
     var song = $(this).find('i').attr("data-song"),
             type = $(this).find('i').attr("data-type");
-            $(".loading").show();
+    $(".loading").show();
     $.ajax({
         url: base_url + "/home/verifysong",
         type: "POST",
         data: {song: song}
-    }).done(function (data) {
+    }).done(function(data) {
         data = $.parseJSON(data);
         if (type == "song") {
+            $('#waveform').css('background-image', 'url(' + base_url + '/themes/home/img/download.png)');
 //            $("#jquery_jplayer_1").jPlayer( "destroy" );
 //            this.media = {
 //                player: null
 //            }
-            
-            wavesurfer.on('loading', function (percents) {
-                document.getElementById('progress').value = percents;
-                if(percents == "100"){
-                    $('.play.jp-control').click();
-                    $(".loading").hide();
+
+//            wavesurfer.on('loading', function (percents) {
+//                document.getElementById('progress').value = percents;
+//                if(percents == "100"){
+//                    $('.play.jp-control').click();
+//                    $(".loading").hide();
+//                }
+//            });
+
+            wavesurfer.on('loading', function(percents) {
+                if (percents == "100") {
+                    $('#waveform').css('background-image', 'none');
                 }
             });
-            
-            wavesurfer.on('ready', function (wavesurfer) {
-                document.getElementById('progress').style.display = 'none';
-            });
-            wavesurfer.on('finish', function (wavesurfer) {
+
+            $(".loading").hide();
+            wavesurfer.on('finish', function(wavesurfer) {
                 $('.play.jp-control').toggleClass('active');
             });
+            //wavesurfer.load(base_url+"/assets/demo.mp3");
+
             wavesurfer.load(data.url);
+            wavesurfer.play();
+            $('.play.jp-control').toggleClass('active');
+//              wavesurfer.on('ready', function() {
+//               
+//            });
             //this.media.player = new jplayer();
             //this.media.player.init("#jpId");
             //this.media.player.playTrack(data.url);
@@ -250,11 +263,11 @@ $(document).on("click", ".play_btn", function () {
             this.media = {
                 player: null
             }
-            $("#jpId").jPlayer( "destroy" );
+            $("#jpId").jPlayer("destroy");
             //set player
             $('#video_title').html(data.artist_name + " - " + data.song_name);
             $("#jquery_jplayer_1").jPlayer({
-                ready: function () {
+                ready: function() {
                     $(this).jPlayer("setMedia", {
                         m4v: data.url
                     }).jPlayer("play");
@@ -270,11 +283,12 @@ $(document).on("click", ".play_btn", function () {
     });
 });
 
-$(document).on("click", "#video_close", function () {
-    $("#jquery_jplayer_1").jPlayer( "destroy" );
+$(document).on("click", "#video_close", function() {
+    $("#jquery_jplayer_1").jPlayer("destroy");
+    $(".loading").hide();
 });
 
-$( "#video_container" ).draggable({ handle: "div#video_title" });
+$("#video_container").draggable({handle: "div#video_title"});
 
 var ino = $('#navigation');
 var footer = $('.footer');
@@ -293,7 +307,7 @@ lovers = new createMedia();
 
 // ie fix of prop indexOf
 if (!Array.prototype.indexOf) {
-    Array.prototype.indexOf = function (obj, start) {
+    Array.prototype.indexOf = function(obj, start) {
         for (var i = (start || 0), j = this.length; i < j; i++) {
             if (this[i] === obj) {
                 return i;
@@ -303,9 +317,9 @@ if (!Array.prototype.indexOf) {
     }
 }
 
-(function ($) {
-    $(function () {
-        $('.player').click(function (evt) {
+(function($) {
+    $(function() {
+        $('.player').click(function(evt) {
             var elm = evt.target;
             if ($(elm).closest('#playlist').length) {
                 $('#player_tracklist').fadeToggle();
@@ -314,8 +328,8 @@ if (!Array.prototype.indexOf) {
 
     });
 
-    $(function () {
-        $("#comment_btn").click(function (e) {
+    $(function() {
+        $("#comment_btn").click(function(e) {
             $(".loading").show();
             var msg = $("#comment_msg").val();
             var song = $("#comment_song").val();
@@ -325,7 +339,7 @@ if (!Array.prototype.indexOf) {
                     url: base_url + '/add-comment',
                     method: "POST",
                     data: {"msg": msg, "song": song},
-                    success: function (data) {
+                    success: function(data) {
                         var record = $.parseJSON(data);
                         if (record.error == "0") {
                             comment += '<div class="comment"><div class="user_pic">'
@@ -352,10 +366,10 @@ if (!Array.prototype.indexOf) {
 
 
 
-$(document).ready(function(){
-    $("#upload_file").click(function(){
+$(document).ready(function() {
+    $("#upload_file").click(function() {
         $(".loading").show();
-         $.ajax({
+        $.ajax({
             url: base_url + "/home/LoginCheck",
             success: function(data) {
                 if (data == 'GUEST')
@@ -370,20 +384,73 @@ $(document).ready(function(){
                         method: "POST",
                         dataType: "json",
                         success: function(data) {
-                            if(data.status == 'CROSSED')
+                            if (data.status == 'CROSSED')
                             {
                                 $('#crossed_upload_limit').modal('show');
-                            } 
-                            else if(data.status == 'NOTCROSSED')
+                            }
+                            else if (data.status == 'NOTCROSSED')
                             {
                                 $('#Upload-pop').modal('show');
-                            }    
+                            }
                             $(".loading").hide();
                         }
                     })
                 }
             }
         })
-        
+
     })
+
+
+    $(".unread_notifications").click(function() {
+        $(".loading").show();
+        var notification_id = $(this).attr('id');
+        var url = $(this).data('url');
+        $.ajax({
+            url: base_url + "/user/readNotification",
+            method: "POST",
+            data: {notification_id: notification_id},
+            dataType: "json",
+            success: function(data) {
+                if (data.status == 'SUCCESS')
+                {
+                    window.location.href = url;
+                }
+                $(".loading").hide();
+            }
+        })
+    });
+
+
+    $("#notification").click(function() {
+        // first check whether popup is opened or not
+        // if it is opened then close otherwise fire ajax
+        if ($("#notification_popup").is(":visible"))
+        {
+            $("#notification_popup").hide();
+        }
+        else
+        {
+            $(".loading").show();
+            $.ajax({
+                url: base_url + "/user/getNotification",
+                success: function(data) {
+                    $("#notifications").html(data);
+                    $("#notification_popup").show();
+                    $(".loading").hide();
+                }
+            })
+        }
+    })
+
+
+
+
+
+
+
 })
+
+
+
+
