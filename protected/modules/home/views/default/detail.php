@@ -90,9 +90,9 @@ if (empty($user->profile_pic)):
                             <div class="comment-container">
                                 <div class="comment-item">
                                     <div class="comment-avatar">
-                                        <a href="#">
+                                        <?php $user = Users::model()->findByPk($comment->user); ?>
+                                        <a href="<?php echo base_url() ?>/home/dj?user=<?php echo $user->username; ?>">
                                             <?php
-                                            $user = Users::model()->findByPk($comment->user);
                                             if (empty($user->profile_pic)):
                                             ?>
                                                 <img src="<?php echo base_url(); ?>/themes/home/img/avatar.jpg" alt="user">
@@ -105,7 +105,9 @@ if (empty($user->profile_pic)):
                                         <div class="comment-head cf">
                                             <a href="#" class="comment-author"><?php echo $user->username; ?></a>
                                             <span class="card-stats">
-                                                <span class="card-posted"><?php echo $comment->date_entered; ?></span>
+                                                <span class="card-posted">
+                                                    <i class="fa fa-calendar-o"></i><?php echo $comment->date_entered; ?>
+                                                </span>
                                             </span>
                                         </div>
                                         <div class="comment-body">

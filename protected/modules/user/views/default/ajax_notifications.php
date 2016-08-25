@@ -25,7 +25,7 @@ if (!empty($notifications)) {
     }
 } else {
     ?>   
-    <div class="row no-notification">Sorry there is not any notifications for you</div>
+    <div class="row no-notification">Ooops! No Notification.</div>
     <?php
 }
 ?>

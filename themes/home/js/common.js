@@ -226,29 +226,17 @@ $(document).on("click", ".play_btn", function() {
 //                player: null
 //            }
             
-            wavesurfer.on('loading', function (percents) {
+            /*wavesurfer.on('loading', function (percents) {
                 document.getElementById('progress').value = percents;
                 if(percents == "100"){
                     $('.play.jp-control').click();
                     $(".loading").hide();
                 }
-            });
+            });*/
             
-            wavesurfer.on('ready', function (wavesurfer) {
-                document.getElementById('progress').style.display = 'none';
-            });
             wavesurfer.on('finish', function (wavesurfer) {
                 $('.play.jp-control').toggleClass('active');
             });
-            wavesurfer.load(data.url);
-
-//            wavesurfer.on('loading', function (percents) {
-//                document.getElementById('progress').value = percents;
-//                if(percents == "100"){
-//                    $('.play.jp-control').click();
-//                    $(".loading").hide();
-//                }
-//            });
 
             wavesurfer.on('loading', function(percents) {
                 if (percents == "100") {
@@ -459,7 +447,11 @@ $(document).ready(function() {
                 }
             })
         }
-    })
+    });
+    
+    $("#user_profile_image").click(function(){
+        $("#Users_profile_pic").click();
+    });
 
 
 

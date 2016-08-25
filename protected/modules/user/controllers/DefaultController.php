@@ -25,15 +25,24 @@ class DefaultController extends Controller {
                     array_push($shared_songs_ids, "'$s->song_id'");
                 }
                 $ids = implode(',', $shared_songs_ids);
+                $song_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='1' AND deleted = 0 AND"
+                            . " ((created_by = '$logged_in_user_id') OR (id IN($ids)) )  ", "order" => "date_entered desc")
+                );
                 $size = BaseModel::executeSimpleQuery("SELECT SUM(`file_size`) as total FROM `media` WHERE status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id' OR (id IN($ids))");
                 $total_size = $size[0]['total'];
             } else {
+                $song_list = Songs::model()->findAll(
+                        array(
+                            "condition" =>
+                            "status = '1' AND type='1' AND deleted = 0 AND"
+                            . " created_by = '$logged_in_user_id' ", "order" => "date_entered desc")
+                );
                 $size = BaseModel::executeSimpleQuery("SELECT SUM(`file_size`) as total FROM `media` WHERE status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id'");
                 $total_size = $size[0]['total'];
             }
-
-
-
             if (!empty($shared_videos)) {
                 $shared_videos_ids = array();
                 foreach ($shared_videos as $s) {
@@ -62,8 +71,8 @@ class DefaultController extends Controller {
             $total_size = $total_size / 1073741824;
             $total_percent = ($total_size / 5) * 100;
 
-            // $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
-            // $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
+             $song_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
+             $video_list = Songs::model()->findAll(array("condition" => "status = '1' AND type='2' AND deleted = 0 AND created_by = '$logged_in_user_id'    ", "order" => "date_entered desc", "limit" => 20));
             $total_track_list = count($song_list) + count($video_list);
             $following_list = Followers::model()->findAll(array("condition" => "follower_id = '$logged_in_user_id'"));
             $follow_unfollow = Followers::model()->find(array("condition" => " user_id = '$logged_in_user_id' AND follower_id = '$logged_in_user_id' "));
@@ -100,7 +109,11 @@ class DefaultController extends Controller {
             $model = Users::model()->findByPk($logged_in_user_id);
 
             if (isset($_POST['Users'])) {
+                if($_FILES['Users']['error']['profile_pic'] == "0"){
+                    $name = uploadImage($_FILES['Users']['name']['profile_pic'], $_FILES['Users']['type']['profile_pic'], $_FILES['Users']['tmp_name']['profile_pic'], 'user-profile');
+                }
                 $model->attributes = $_POST['Users'];
+                $model->profile_pic = $name;
                 $model->save();
                 $this->redirect(array('profile'));
             }
@@ -167,6 +180,19 @@ class DefaultController extends Controller {
 
             $genres = Genres::model()->findAll(array("condition" => "parent = '0'"));
             $this->render('drive', array('song_list' => $song_list, 'genres' => $genres, 'logged_in_user_id' => $logged_in_user_id));
+        }
+    }
+    
+    public function actionRecentupload() {
+        if (Yii::app()->user->isGuest) {
+            $this->redirect(Yii::app()->request->urlReferrer);
+        } else {
+            $logged_in_user_id = Yii::app()->user->id;
+
+            $song_list = Temp::model()->findAll(array("condition" => "created_by = '$logged_in_user_id' "));
+
+            $genres = Genres::model()->findAll(array("condition" => "parent = '0'"));
+            $this->render('recent-upload', array('song_list' => $song_list, 'genres' => $genres, 'logged_in_user_id' => $logged_in_user_id));
         }
     }
 

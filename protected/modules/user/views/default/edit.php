@@ -2,12 +2,6 @@
 	<div class="wraper fc_black">
 	<h2 class="fw600 mart15 marb15 titel">Edit Your Profile</h2>
     	<div class="row">
-          <div class="col-md-3 tac">
-            	<div class="marb15"><img class="pro_img" src="<?php echo base_url(); ?>/assets/user-profile/<?php echo $model->profile_pic; ?>"></div>
-                <h5 class="fw400 marb15">Account status:  <br>Active<br>(some information needed)</h5>
-                <div><a class="btn_big bg_black" href="#">Edit Profile</a></div>
-            </div>
-            <div class="col-md-9">
             <?php
               $form = $this->beginWidget('CActiveForm', array(
                       'id'=>'users-form',
@@ -16,9 +10,18 @@
                       'clientOptions'=>array(
                           'validateOnChange'=>true,
                           'validateOnSubmit'=>true,
-                      )
+                      ),
+                      'htmlOptions'=>array('enctype'=>'multipart/form-data'),
                   ));
             ?>
+            <div class="col-md-3 tac">
+            	<div class="marb15">
+                    <div class="ribbon" style="left: 35px;"><a href="javascript:void(0);" id="user_profile_image"><span>Change</span></a></div>
+                    <img class="pro_img" src="<?php echo base_url(); ?>/assets/user-profile/<?php echo $model->profile_pic; ?>">
+                </div>
+                <h5 class="fw400 marb15">Account status:  <br>Active<br>(some information needed)</h5>
+            </div>
+            <div class="col-md-9">
             <table cellspacing="0" cellpadding="0" border="1" width="100%" class="table">
               <tbody>
                 <tr>
@@ -95,13 +98,14 @@
                 </tr>
                 <tr>
                   <td width="100%" colspan="2">
+                    <?php echo $form->fileField($model,'profile_pic',array('style'=>'display:none;')); ?>
                     <?php echo CHtml::submitButton('Save',array('class'=>'btn_small fc_white bg_blue')); ?>
                   </td>
                 </tr>
               </tbody>
             </table>
-            <?php $this->endWidget(); ?>
           </div> 
+          <?php $this->endWidget(); ?>
         </div>      
     </div>
 </div>

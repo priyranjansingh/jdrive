@@ -2239,10 +2239,15 @@ span.card-stats {
 
 span.card-posted {
     padding: 0 10px 0 14px;
-    background-image: url(https://www.mixcloud.com/media/images/www/sprite/sprite-59.png);
+    /*background-image: url(https://www.mixcloud.com/media/images/www/sprite/sprite-59.png);
     background-size: 530px 3100px;
     background-position: -145px -271px;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;*/
+}
+
+span.card-posted i {
+    margin-top: 2px;
+    padding: 3px;
 }
 
 .comment-body {
@@ -2694,3 +2699,7 @@ div#video_title {
 .unread a{color: #000;}
 
 #notifications div.row:last-child{border:none;}
+.no-notification {
+    color: red;
+    padding: 5px;
+}

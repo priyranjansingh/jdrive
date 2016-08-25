@@ -25,6 +25,7 @@
                 <ul class="sub_menu">
                     <li><a href="<?php echo base_url().'/user/profile'; ?>">My Profile</a></li>
                     <li><a href="<?php echo base_url().'/user/drive'; ?>">My Drive</a></li>
+                    <li><a href="<?php echo base_url().'/user/recentupload'; ?>">My Unpublished Songs</a></li>
                     <li><a href="<?php echo base_url().'/user/plans'; ?>">My Plans</a></li>
                     <li><a href="<?php echo base_url().'/user/paymenthistory'; ?>">Payment History</a></li>
                     <li><a href="<?php echo base_url().'/user/changepassword'; ?>">Change Password</a></li>
