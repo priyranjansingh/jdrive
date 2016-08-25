@@ -210,6 +210,7 @@ table.table tr.template-upload td p.size {
     position: relative;
     height: 7px;
     padding: 27px 5px 0 0;
+    display: none;
 }
 
 .volume {
@@ -2145,21 +2146,115 @@ input#mysubmit {
     border: 2px solid #777;
     width: 100%;
     height: 80px;
+    z-index: auto;
+    border-radius: 5px;
+}
+
+.comment-post{
+    position: relative;
+    padding: 10px 20px 20px 100px;
+    margin: 10px 0 0;
+}
+
+.comment-container {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    border-top: 1px solid #ececec;
+}
+
+.comment-avatar {
+    display: block;
+    border-radius: 30px;
+    background: #f2f2f2;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    z-index: 1;
+}
+
+.comment-avatar img{
+    width: 60px;
+    height: 60px;
+    display: block;
+    float: left;
+    color: transparent;
+    border-radius: 30px;
+    background-clip: padding-box;
+    vertical-align: top;
+}
+
+
+.comment-item {
+    width: 100%;
+    min-height: 60px;
+    position: relative;
+    padding: 10px 10px 10px 80px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .comments {
-    height: 300px;
     overflow: auto;
     padding: 10px;
     width: 100%;
-    border: 1px solid #7d0000;
 }
 
 .comment {
     padding: 10px;
     float: left;
     width: 100%;
-    border-bottom: 1px solid #7d0000;
+    position: relative;
+    min-height: 60px;
+    padding: 5px 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.comment-head {
+    margin: 0 0 3px;
+}
+
+.comment-author {
+    font-size: .875em;
+    font-weight: 700;
+    float: left;
+    margin: 5px 15px 0 0px;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+span.card-stats {
+    font-size: .625em;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: block;
+    margin: 5px 0 0;
+    float: left;
+}
+
+span.card-posted {
+    padding: 0 10px 0 14px;
+    background-image: url(https://www.mixcloud.com/media/images/www/sprite/sprite-59.png);
+    background-size: 530px 3100px;
+    background-position: -145px -271px;
+    background-repeat: no-repeat;
+}
+
+.comment-body {
+    font-size: .813em;
+    font-weight: 400;
+    line-height: 20px;
+    word-wrap: break-word;
+    margin: 25px 0px 0px 1px;
+}
+
+.comment-body-cropped {
+    overflow: hidden;
 }
 
 .user_pic {

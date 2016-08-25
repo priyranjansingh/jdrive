@@ -41,8 +41,8 @@ $global = array(
     'free_duration' => array(   
                                 'day' => 'Day/Days',
                             ),
-    'stripe_secret_key' => 'sk_test_TAUDep4BCtXVN2JylyDhkrD6',
-    'stripe_access_key' => 'pk_test_jwghFvJb4NmKWhA16j1wgQva',
+    'stripe_secret_key' => 'sk_live_IdC61rkojtXEifmVuBwUM72a',
+    'stripe_access_key' => 'pk_live_X6kHJNpViL3iv4xwZnndg8Lk',
     'access_key_id' => '',
     'secret_access_key' => '',
     'api_client_id' => '1147939910-58D33C3A6106FF75E8A80FDFE9B36758',
@@ -50,9 +50,9 @@ $global = array(
     'api_user_id' => '34435820625666996-40DF3AACF34B631C07FE7208586E9FC7',
     'sonic_api' => '7006ab30-f03a-4135-80fb-24b441c037fb',
     'invoice_id' => '124097f9-122f-11e6-a8fe-3c07717072c4',
-    'paypal_business_email' => 'singh.priyranjan-facilitator@gmail.com',
-    'paypal_notify_url' => 'http://www.dealrush.in/jdrive/home/notify',
-    'paypal_cancel_url' => 'http://www.dealrush.in/jdrive/home/cancel',
-    'paypal_return_url' => 'http://www.dealrush.in/jdrive/home/thank'
+    'paypal_business_email' => 'troy@jockdrive.com',
+    'paypal_notify_url' => 'http://www.jockdrive.com/home/notify',
+    'paypal_cancel_url' => 'http://www.jockdrive.com/home/cancel',
+    'paypal_return_url' => 'http://www.jockdrive.com/home/thank'
 );
 ?>
