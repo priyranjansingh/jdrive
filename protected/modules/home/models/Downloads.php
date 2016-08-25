@@ -139,7 +139,7 @@ class Downloads extends BaseModel {
     }
     
     
-    public function HomeTrendingSong() {
+    public function HomeTrendingSong($offset = 0) {
         $current_date = date("Y-m-d");
         $previous_seven_days_date = date("Y-m-d",strtotime("-7 days"));
         
@@ -155,6 +155,8 @@ class Downloads extends BaseModel {
 
             $criteria = new CDbCriteria();
             $criteria->condition = "status = '1' AND acl=0  AND deleted = 0";
+            $criteria->limit = 20;
+            $criteria->offset = $offset;
             $criteria->addInCondition('id', $id_array);
             $songs_list = Songs::model()->findAll($criteria);
             return $songs_list;
@@ -184,7 +186,7 @@ class Downloads extends BaseModel {
         }
     }
     
-    public function HomeTrendingVideo() {
+    public function HomeTrendingVideo($offset = 0) {
         $current_date = date("Y-m-d");
         $previous_seven_days_date = date("Y-m-d",strtotime("-7 days"));
         
@@ -201,6 +203,8 @@ class Downloads extends BaseModel {
 
             $criteria = new CDbCriteria();
             $criteria->condition = "status = '1'  AND deleted = 0";
+            $criteria->limit = 20;
+            $criteria->offset = $offset;
             $criteria->addInCondition('id', $id_array);
             $songs_list = Songs::model()->findAll($criteria);
             return $songs_list;

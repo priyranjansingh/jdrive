@@ -2,7 +2,7 @@
 $baseUrl = Yii::app()->theme->baseUrl;
 ?>   
 <div style="font-size: 20px;color: #fff;margin: 10px;"><?php  echo $playlist_name; ?></div>
-<ul class="a_list">
+<!--<ul class="a_list">-->
 
             <?php
             if (!empty($playlist_songs)) {
@@ -55,4 +55,4 @@ $baseUrl = Yii::app()->theme->baseUrl;
 
 
 
-        </ul>
+<!--        </ul>-->

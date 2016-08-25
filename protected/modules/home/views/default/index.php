@@ -78,7 +78,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 </div>
 <div class="h_con">
     <div class="wraper" id="home_media_container">
-        <ul class="a_list">
+        <ul class="a_list" id="parent_ul">
             <?php
             if (!empty($songs)) {
                 $count = 1;
@@ -134,6 +134,11 @@ $baseUrl = Yii::app()->theme->baseUrl;
             ?>
 
         </ul>
+        <?php if($count > 20){ ?>
+        <div style="text-align: center">
+            <button id="see_more" class="btn-sm bg_red fc_white">See More...</button>
+        </div>
+        <?php  } ?>
     </div>
 </div>
 <script src="<?php echo base_url(); ?>/assets/js/home/home.js"></script>

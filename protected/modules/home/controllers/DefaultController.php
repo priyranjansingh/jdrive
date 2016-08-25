@@ -6,8 +6,8 @@ class DefaultController extends Controller {
     public $param = 'value';
 
     public function actionIndex() {
-        $songs = Songs::model()->findAll(array("condition" => "status = '1' AND  acl=0 AND type = '1' AND is_shared = 0 AND deleted = 0", "order" => "date_entered desc", "limit" => 20));
-        $videos = Videos::model()->findAll(array("condition" => "status = '1' AND  acl=0  AND type ='2' AND  is_shared = 0 AND deleted = 0", "order" => "date_entered desc", "limit" => 20));
+        $songs = Songs::model()->findAll(array("condition" => "status = '1' AND  acl=0 AND type = '1' AND  deleted = 0", "order" => "date_entered desc", "limit" => 20));
+        $videos = Videos::model()->findAll(array("condition" => "status = '1' AND  acl=0  AND type ='2'  AND deleted = 0", "order" => "date_entered desc", "limit" => 20));
         $this->render('index', array('songs' => $songs, 'videos' => $videos));
     }
 
@@ -193,12 +193,17 @@ class DefaultController extends Controller {
 
     public function actionHomeAjaxTrending() {
         $song_type = $_POST['song_type'];
+        $return_arr = array();
         if ($song_type == 'audio') {
-            $trending_AjaxPlaylistsong = Downloads::model()->HomeTrendingSong();
-            $this->renderPartial('home_ajax_song', array('song_list' => $trending_song));
+            $trending_song = Downloads::model()->HomeTrendingSong();
+            $return_arr['song_list'] = $this->renderPartial('home_ajax_song', array('song_list' => $trending_song),true);
+            $return_arr['song_count'] = count($trending_song);
+            echo json_encode($return_arr);
         } else if ($song_type == 'video') {
             $trending_video = Downloads::model()->HomeTrendingVideo();
-            $this->renderPartial('home_ajax_song', array('song_list' => $trending_video));
+            $return_arr['song_list'] = $this->renderPartial('home_ajax_song', array('song_list' => $trending_video),true);
+            $return_arr['song_count'] = count($trending_video);
+            echo json_encode($return_arr);
         }
     }
 
@@ -218,10 +223,15 @@ class DefaultController extends Controller {
         $song_type = $_POST['song_type'];
         if ($song_type == 'audio') {
             $song = Users::model()->HomeAjaxJustAdded(1);
-            $this->renderPartial('home_ajax_song', array('song_list' => $song));
+            $return_arr['song_list'] = $this->renderPartial('home_ajax_song', array('song_list' => $song),true);
+            $return_arr['song_count'] = count($song);
+            echo json_encode($return_arr);
+            
         } else if ($song_type == 'video') {
             $video = Users::model()->HomeAjaxJustAdded(2);
-            $this->renderPartial('home_ajax_song', array('song_list' => $video));
+            $return_arr['song_list'] = $this->renderPartial('home_ajax_song', array('song_list' => $video),true);
+            $return_arr['song_count'] = count($video);
+            echo json_encode($return_arr);
         }
     }
 
@@ -300,8 +310,11 @@ class DefaultController extends Controller {
     }
 
     public function actionHomeAjaxPlaylist() {
+        $return_arr = array();
         $playlists = Playlists::model()->findAll(array("condition" => "status = '1'  AND deleted = 0 ", "order" => "date_entered desc", "limit" => 20));
-        $this->renderPartial('home_ajax_playlist', array('playlists' => $playlists));
+        $return_arr['playlist'] = $this->renderPartial('home_ajax_playlist', array('playlists' => $playlists),true);
+        $return_arr['playlist_count'] = count($playlists);
+        echo json_encode($return_arr);
     }
 
     public function actionAjaxPlaylistSongs() {
@@ -319,9 +332,12 @@ class DefaultController extends Controller {
 
     public function actionHomeAjaxPlaylistSongs() {
         $playlist = $_POST['playlist'];
+        $return_arr = array();
         $playlist_detail = Playlists::model()->findByPk($playlist);
         $playlist_songs = PlaylistSongs::model()->findAll(array("condition" => "playlist_id = '$playlist'"));
-        $this->renderPartial('home_ajax_playlist_songs', array('playlist_songs' => $playlist_songs, 'playlist_name' => $playlist_detail->name));
+        $return_arr['playlist_songs'] = $this->renderPartial('home_ajax_playlist_songs', array('playlist_songs' => $playlist_songs, 'playlist_name' => $playlist_detail->name),true);
+        echo json_encode($return_arr);
+        
     }
 
     public function actionFollowUnfollow() {
@@ -551,7 +567,6 @@ class DefaultController extends Controller {
     public function actionTest() {
         $info = new UpdateVideoBPM("assets/temp/Beyonce - Sorry (Original) (Dirty).mp4");
     }
-    
 
     public function actionWebhook($listner) {
 
@@ -875,10 +890,8 @@ class DefaultController extends Controller {
 
                     $notification->message = $message_text;
                     $notification->save();
-                    
+
                     Users::model()->updateNotification($notification->receiver_id);
-                    
-                    
                 }
                 // end of notifications
             } else {
@@ -1191,15 +1204,14 @@ class DefaultController extends Controller {
 
             // for notifications
             $song_detail = Songs::model()->findByPk($song);
-            if(Yii::app()->user->id != $song_detail->created_by)
-            {
+            if (Yii::app()->user->id != $song_detail->created_by) {
                 $notification = new Notifications;
                 $notification->sender_id = Yii::app()->user->id;
                 $notification->receiver_id = $song_detail->created_by;
                 $notification->related_to_id = $song;
                 $notification->notification_type = 'COMMENT';
                 $notification->is_read = 0;
-                $message_text = $user->username." has commented on your song ".$song_detail->song_name;
+                $message_text = $user->username . " has commented on your song " . $song_detail->song_name;
                 $notification->message = $message_text;
                 $notification->save();
                 Users::model()->updateNotification($notification->receiver_id);
@@ -1244,5 +1256,60 @@ class DefaultController extends Controller {
             'name' => $genre['name']
         ));
     }
+
+    public function actionloadMoreJustAdded() {
+        $song_type = $_POST['song_type'];
+        if ($song_type == 'audio') {
+            $offset = $_POST['just_added_audio_offset'];
+            $songs = Songs::model()->findAll(array("condition" => "status = '1' AND  acl=0 AND type = '1' AND is_shared = 0 AND deleted = 0", "order" => "date_entered desc","offset"=>$offset, "limit" => 20));
+            $return_arr['song_list'] = $this->renderPartial('load_more', array('song_list' => $songs),true);
+            $return_arr['song_count'] = count($songs);
+            echo json_encode($return_arr);
+        } else if ($song_type == 'video') {
+            $offset = $_POST['just_added_video_offset'];
+            $videos = Videos::model()->findAll(array("condition" => "status = '1' AND  acl=0  AND type ='2' AND  is_shared = 0 AND deleted = 0", "order" => "date_entered desc","offset"=>$offset, "limit" => 20));
+            $return_arr['song_list'] = $this->renderPartial('load_more', array('song_list' => $videos));
+            $return_arr['song_count'] = count($videos);
+             echo json_encode($return_arr);
+        }
+    }
+    
+    
+    
+    public function actionloadMoreTrending() {
+        $song_type = $_POST['song_type'];
+        $return_arr = array();
+        if ($song_type == 'audio') {
+            $offset = $_POST['trending_audio_offset'];
+            $songs = Downloads::model()->HomeTrendingSong($offset);
+            $return_arr['song_list'] = $this->renderPartial('load_more', array('song_list' => $songs),true);
+            $return_arr['song_count'] = count($songs);
+            echo json_encode($return_arr);
+        } else if ($song_type == 'video') {
+            $offset = $_POST['trending_video_offset'];
+            $videos = Downloads::model()->HomeTrendingVideo($offset);
+            $return_arr['song_list'] = $this->renderPartial('load_more', array('song_list' => $videos));
+            $return_arr['song_count'] = count($videos);
+             echo json_encode($return_arr);
+        }
+       
+    }
+    
+    
+    
+    public function actionloadMorePlaylist()
+    {
+        $return_arr = array();
+        $offset = $_POST['playlist_offset'];
+        $playlists = Playlists::model()->findAll(array("condition" => "status = '1'  AND deleted = 0 ", "order" => "date_entered desc","offset"=>$offset, "limit" => 20));
+        $return_arr['playlist'] = $this->renderPartial('home_ajax_playlist', array('playlists' => $playlists),true);
+        $return_arr['playlist_count'] = count($playlists);
+        echo json_encode($return_arr);
+    }        
+    
+    
+    
+    
+    
 
 }

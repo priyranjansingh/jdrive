@@ -1,8 +1,6 @@
 <?php
 $baseUrl = Yii::app()->theme->baseUrl;
 ?>   
-<ul class="a_list">
-
             <?php
             if (!empty($playlists)) {
                 $count = 1;
@@ -29,6 +27,3 @@ $baseUrl = Yii::app()->theme->baseUrl;
             }
             ?>
 
-
-
-        </ul>
