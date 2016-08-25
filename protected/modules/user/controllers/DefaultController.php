@@ -25,23 +25,9 @@ class DefaultController extends Controller {
                     array_push($shared_songs_ids, "'$s->song_id'");
                 }
                 $ids = implode(',', $shared_songs_ids);
-                $song_list = Songs::model()->findAll(
-                        array(
-                            "condition" =>
-                            "status = '1' AND type='1' AND deleted = 0 AND"
-                            . " ((created_by = '$logged_in_user_id') OR (id IN($ids)) )  ", "order" => "date_entered desc")
-                );
-
                 $size = BaseModel::executeSimpleQuery("SELECT SUM(`file_size`) as total FROM `media` WHERE status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id' OR (id IN($ids))");
                 $total_size = $size[0]['total'];
             } else {
-                $song_list = Songs::model()->findAll(
-                        array(
-                            "condition" =>
-                            "status = '1' AND type='1' AND deleted = 0 AND"
-                            . " created_by = '$logged_in_user_id' ", "order" => "date_entered desc")
-                );
-
                 $size = BaseModel::executeSimpleQuery("SELECT SUM(`file_size`) as total FROM `media` WHERE status = '1' AND type='1' AND deleted = 0 AND created_by = '$logged_in_user_id'");
                 $total_size = $size[0]['total'];
             }
@@ -69,7 +55,6 @@ class DefaultController extends Controller {
                             "status = '1' AND type='2' AND deleted = 0 AND"
                             . " created_by = '$logged_in_user_id' ", "order" => "date_entered desc")
                 );
-
                 $size = BaseModel::executeSimpleQuery("SELECT SUM(`file_size`) as total FROM media WHERE status = '1' AND type='2' AND deleted = 0 AND created_by = '$logged_in_user_id'");
                 $total_size = $total_size + $size[0]['total'];
             }

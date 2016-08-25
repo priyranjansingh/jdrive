@@ -212,7 +212,7 @@ $(document).on("click", ".play_btn", function() {
     }
     var song = $(this).find('i').attr("data-song"),
             type = $(this).find('i').attr("data-type");
-    $(".loading").show();
+            $(".loading").show();
     $.ajax({
         url: base_url + "/home/verifysong",
         type: "POST",
@@ -225,6 +225,22 @@ $(document).on("click", ".play_btn", function() {
 //            this.media = {
 //                player: null
 //            }
+            
+            wavesurfer.on('loading', function (percents) {
+                document.getElementById('progress').value = percents;
+                if(percents == "100"){
+                    $('.play.jp-control').click();
+                    $(".loading").hide();
+                }
+            });
+            
+            wavesurfer.on('ready', function (wavesurfer) {
+                document.getElementById('progress').style.display = 'none';
+            });
+            wavesurfer.on('finish', function (wavesurfer) {
+                $('.play.jp-control').toggleClass('active');
+            });
+            wavesurfer.load(data.url);
 
 //            wavesurfer.on('loading', function (percents) {
 //                document.getElementById('progress').value = percents;
