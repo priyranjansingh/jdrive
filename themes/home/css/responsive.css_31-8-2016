@@ -106,11 +106,9 @@
 @media screen and (max-width:767px) {
 	.header .col-md-2{ width:100%; float:none; padding:0 15px; text-align:center;}
 	.header .col-md-10{ width:100%; float:none;}
-	.header .tar{ text-align:center;}
-	.s_pan{ display:block;}
-	.h_menu{text-align:center; display:block; float:none;}
+	.h_menu{text-align:center;}
 	.h_menu > li{margin: 0 0 0 25px;}
-	/*.h_menu li:first-child{width:100%; float:none; margin:0; }*/
+	.h_menu li:first-child{width:100%; float:none; margin:0; }
 	.search{ width:60%; margin:0 auto;}
 	.s_box {width: 90%;}
 	.red_bar{ padding:5px 25px;}
@@ -142,47 +140,25 @@
 	
 }
 @media screen and (max-width:599px) {
-	.s_pan{padding: 5px 0; position:relative;}
-	.s_pan .noti{ position:absolute; right:50px; top:40px;}
-	.search{ width:100%;}
+	.search{ width:80%;}
 	.s_box {width: 85%;}
 	.red_bar{padding: 5px 5px; text-align:center;}
 	.sub_top li a{ padding:5px 7px; font-size:12px; font-weight:600;}
 	.sub_top{ width:100%; float:none;}
 	.av_tab{ float:none; width:125px; margin:10px auto 0;}
-	.a_list > li{ width:50%; /*float:none; margin:0 auto;*/}
+	.a_list > li{ width:100%; float:none; margin:0 auto;}
 	.s_info{ margin:0;}
 	.s_info .l_titel{width: 188px;}
 	.sound_bar{ width:90%; margin:10px auto;}
 	
 	.togg_bar{ display:block;}
 	.header .col-md-10{ position:relative;}
-	.header .h_menu{ position:static; z-index:99; top:100%; left:0; width:100%; background:#000; padding:10px 0; display:none;}
+	.header .h_menu{ position:static; z-index:99; top:100%; left:0; width:100%; background:#666; padding:10px 0; display:none;}
 	.h_menu>li{ display:block; width:100%; margin:0; border-bottom:1px solid #333;}
-	.h_menu>li:first-child{ padding-bottom:5px;}
+	.h_menu>li:first-child{ border:none;}
 	.h_menu li .sub_menu{ display:none; position:static; width:100%; background:none; border:none; box-shadow:none; text-align:center;}
 	.h_menu li a{ padding:15px 0;}
 	.h_menu li .sub_menu a{ text-align:center;}
 	.h_menu li:hover .sub_menu{ display:none;}
-	.jp-title{ height:auto;}
-	.jp-album .col-sm-1{ width:20%; float:left; padding:0 5px;}
-	.jp-album .col-sm-11{ width:80%; float:left; padding:0 5px;}
-	.jp-album .col-sm-11 .now-playing, .jp-album .col-sm-11 .song-title{ display:block; text-align:left;}
-	
-	#playlist{ display:none;}
-	/*.jp-bar{ display:none;}*/
-	
-	.btn_p a{margin-right: 2px;}
-	.a_list .i_info .play_btn{ left:0!important; }
-	.left_bar a:hover, .left_bar a.active{ border:none; color:#d01818;}
-	.nt-wraper{ width:285px;}
-	
-	.noti{ font-size:14px;}
-	.noti_con{right: -66px; width: 290px;}
-	.noti_con::before{right:66px;}
-	#home_media_container.wraper{ width:100%; padding-bottom:220px;}
-	
 }
-@media screen and (max-width:400px) {
-	.a_list > li{ padding:5px; min-height:300px; /*width:100%; float:none; margin:0 auto;*/} 
-}
+

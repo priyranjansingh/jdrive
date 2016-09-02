@@ -737,8 +737,16 @@ class DefaultController extends Controller {
                             $g = $genre->id;
                         }
                         if ($t->type == 1) {
-                            $bpm = getSongBPM($file_url);
-                            $key = getSongKey($file_url);
+                            if(empty($info->data['bpm'])){
+								$bpm = getSongBPM($file_url);
+							} else {
+								$bpm = $info->data['bpm'];
+							}
+							if(empty($info->data['key'])){
+								$key = getSongKey($file_url);
+							} else {
+								$key = $info->data['key'];
+							}
                         } else {
                             $bpm = NULL;
                             $key = NULL;
@@ -1201,7 +1209,7 @@ class DefaultController extends Controller {
 
             $data['user'] = $user->username;
             $data['msg'] = $model->comment;
-
+			$data['time'] = $model->date_entered;
             // for notifications
             $song_detail = Songs::model()->findByPk($song);
             if (Yii::app()->user->id != $song_detail->created_by) {

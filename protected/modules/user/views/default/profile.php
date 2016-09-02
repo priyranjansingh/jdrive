@@ -105,7 +105,11 @@ $baseUrl = Yii::app()->theme->baseUrl;
     </div>
     <div class="right_pan">
         <div class="pro_banner" style="background:url(<?php echo $baseUrl; ?>/img/pro_banner.jpg)">
-            <div class="change_btn"><a href="<?php echo base_url() . '/user/edit' ?>">Edit Profile</a></div>
+            <div class="change_btn">
+				<a href="<?php echo base_url() . '/user/edit' ?>">Edit Profile</a>
+				<br />
+				<a href="#" data-toggle="modal" data-target="#Profile-Bg">Change Profile Background</a>
+			</div>
             <div class="count_t"><h2><?php echo $total_track_list; ?></h2> Tracks</div>
             <div class="pro_con">
                 <h1>
@@ -261,5 +265,44 @@ $baseUrl = Yii::app()->theme->baseUrl;
         </div>    
 
     </div>
+</div>
+<div class="modal fade" id="Profile-Bg">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content log_pan">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">CHANGE PROFILE BACKGROUND</h4>
+			</div>
+			<div class="modal-body">
+				<?php	
+					$form = $this->beginWidget('CActiveForm', array(
+						'id'=>'profile-bg-change-form',
+						'action'=>array('/user/bg'),
+						'enableClientValidation'=>true,
+						'enableAjaxValidation'=> true,
+						'clientOptions'=>array(
+							'validateOnSubmit'=>true,
+						),
+						'htmlOptions'=>array('enctype'=>'multipart/form-data'),
+					));
+				?>
+				<div class="m_row"><i class="fa fa-user"></i>
+					<div class="mr_col">
+						<?php echo $form->labelEx($bg,'profile',array('class'=>'t_box')); ?>
+						<?php echo $form->fileField($bg,'profile',array('class'=>'t_box')); ?>
+						<?php echo $form->error($bg, 'profile'); ?>
+					</div>
+				</div>
+				<div class="m_row tar">
+					<?php echo CHtml::submitButton('Change Image',array('class'=>'btn_small fc_white bg_blue')); ?>
+				</div>
+				<?php $this->endWidget(); ?>
+			</div>
+			<div class="modal-footer"> 
+				<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>--> 
+			</div>
+		</div>
+	</div>
 </div>
 <script src="<?php echo base_url(); ?>/assets/js/dj/dj.js"></script>

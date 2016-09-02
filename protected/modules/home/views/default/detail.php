@@ -6,7 +6,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
     <div class="wraper fc_black">
         <div class="sd_banner">
             <div class="col-lg-4 a_list">
-                <div class="i_info">
+                <div class="i_info detail_page">
                     <?php
                     if (!empty($media->album_art)) {
                         $src = $media->album_art;
@@ -14,9 +14,9 @@ $baseUrl = Yii::app()->theme->baseUrl;
                         $src = $baseUrl . "/img/alb1.jpg";
                     }
                     ?>
-                <img src="<?php echo $src; ?>" alt="<?php echo $media->song_name; ?>" />
-                    <span class="play_btn">
-                        <i class="fa fa-play-circle-o" style="font-size: 200px;" 
+                <img src="<?php echo $src; ?>" class="album_art" alt="<?php echo $media->song_name; ?>" />
+                    <span class="play_btn" style="padding-top:0px; top:30%;left: -65px;">
+                        <i class="fa fa-play-circle-o" style="font-size: 100px;" 
                             data-song="<?php echo $media->slug; ?>" 
                         <?php if($media->type == 1): ?>
                             data-type="song"
@@ -30,7 +30,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
             <div class="col-lg-8 song_d">
                 <h2><?php echo $media->song_name; ?></h2>
                 <p class="by-s"> Artist: <strong><?php echo $media->artist_name; ?></strong></p>
-                <p class="by-s"> By: <strong><?php echo $media->user->username; ?></strong></p>
+                <p class="by-s"> By: <strong><a href="<?php echo base_url().'/home/dj?user='.$media->user->username; ?>"><?php echo $media->user->username; ?></a></strong></p>
                 <div class="ico_p">
                     <span><i class="fa fa-arrow-up" aria-hidden="true"></i> <?php echo time_elapsed_string($media->date_entered); ?></span>
                 </div>
@@ -85,7 +85,6 @@ if (empty($user->profile_pic)):
                             <button class="btn btn-warning" id="comment_btn">Submit</button>
                         </div>
                         <div class="comments">
-                            <div m-new-comment-container=""></div>
                             <?php foreach ($comments as $comment): ?>
                             <div class="comment-container">
                                 <div class="comment-item">

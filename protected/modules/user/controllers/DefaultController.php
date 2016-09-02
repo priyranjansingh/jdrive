@@ -86,7 +86,7 @@ class DefaultController extends Controller {
                 $follow_unfollow_text = "Follow";
             }
             // pre($song_list,true);
-
+			$bg = new Bg;
             $this->render('profile', array(
                 'user' => $user,
                 'song_list' => $song_list,
@@ -96,7 +96,8 @@ class DefaultController extends Controller {
                 'follow_unfollow_text' => $follow_unfollow_text,
                 'recommended_list' => $recommended_list,
                 'total_percent' => $total_percent,
-                'total_size' => $total_size
+                'total_size' => $total_size,
+				'bg' => $bg
             ));
         }
     }
@@ -148,7 +149,37 @@ class DefaultController extends Controller {
             $this->render('change_password', array('model' => $model));
         }
     }
+	
+	public function actionBg() {
+        if (Yii::app()->user->isGuest) {
+            $this->redirect(base_url());
+        } else {
+            $id = Yii::app()->user->id;
+            $model = new Bg;
+            if (isset($_POST['ajax']) && $_POST['ajax'] === 'profile-bg-change-form') {
+                echo CActiveForm::validate($model);
+                Yii::app()->end();
+            }
 
+            $user = Users::model()->findByPk($id);
+            if (isset($_FILES['Bg'])) {
+				pre($_FILES['Bg'], true);
+                /*
+				$model->attributes = $_POST['ChangePassword'];
+                if ($model->validate()) {
+                    $user->password = md5($model->password);
+                    if ($user->validate()) {
+                        $user->save();
+                        Yii::app()->user->setFlash('success', "Password Changed Successfully");
+                        $this->redirect(array("changepassword"));
+                    }
+                }
+				*/
+				$this->redirect(array('profile'));
+            }
+        }
+    }
+	
     public function actionDrive() {
         if (Yii::app()->user->isGuest) {
             $this->redirect(Yii::app()->request->urlReferrer);

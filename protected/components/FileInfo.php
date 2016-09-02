@@ -12,31 +12,43 @@
                         
                         if($type == 1){
                             if(!empty($info['tags']['id3v2'])) {
-				if(isset($info['tags']['id3v2']['title'])){
-					$this->data['song'] = $info['tags']['id3v2']['title'][0];
-					$this->data['artist'] = $info['tags']['id3v2']['artist'][0];
-					if(!empty($info['tags']['id3v2']['genre'])){
-						$this->data['genre'] = $info['tags']['id3v2']['genre'][0];	
-					} else {
-						$this->data['genre'] = "NA";
-					}
-					if(!empty($info['tags']['id3v2']['album'])){
-						$this->data['album'] = $info['tags']['id3v2']['album'][0];
-					} else {
-						$this->data['album'] = "";
-					}
-					
-					$this->data['error'] = false;
-				} else {
-                                        $this->data['artist'] = trim($arr[0]);
-                                        $song = trim($arr[1]);
-                                        $name = explode(".mp",$song);
-                                        $this->data['song'] = trim($name[0]);
-                                        $this->data['album'] = "";
-                                        $this->data['genre'] = "NA";
-				}
+								if(isset($info['tags']['id3v2']['title'])){
+									$this->data['song'] = $info['tags']['id3v2']['title'][0];
+									$this->data['artist'] = $info['tags']['id3v2']['artist'][0];
+									if(!empty($info['tags']['id3v2']['genre'])){
+										$this->data['genre'] = $info['tags']['id3v2']['genre'][0];	
+									} else {
+										$this->data['genre'] = "NA";
+									}
+									if(!empty($info['tags']['id3v2']['album'])){
+										$this->data['album'] = $info['tags']['id3v2']['album'][0];
+									} else {
+										$this->data['album'] = "";
+									}
+									if(!empty($info['tags']['id3v2']['bpm'])){
+										$this->data['bpm'] = $info['tags']['id3v2']['bpm'];
+									} else {
+										$this->data['bpm'] = "";
+									}
+									
+									if(!empty($info['tags']['id3v2']['initial_key'])){
+										$this->data['key'] = $info['tags']['id3v2']['initial_key'];
+									} else {
+										$this->data['key'] = "";
+									}
+									$this->data['error'] = false;
+								} else {
+									$this->data['artist'] = trim($arr[0]);
+									$song = trim($arr[1]);
+									$name = explode(".mp",$song);
+									$this->data['song'] = trim($name[0]);
+									$this->data['album'] = "";
+									$this->data['genre'] = "NA";
+									$this->data['bpm'] = "";
+									$this->data['key'] = "";
+								}
                             } else {
-                                    $this->data['error'] = true;
+								$this->data['error'] = true;
                             }
                         } else {
                             if(!empty($info['tags']['quicktime'])) {

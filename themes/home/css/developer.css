@@ -332,7 +332,7 @@ table.table tr.template-upload td p.size {
 }
 
 .wraper{
-    margin-bottom: 100px;
+    padding-bottom: 100px;
 }
 
 .footer {
@@ -2676,18 +2676,17 @@ div#video_title {
 }
 
 .nt-wraper {
-    margin-left: 807px;
-    margin-top: -32px;
-    position: absolute;
-    width: 400px;
+	position: absolute;
+	top:30px;
+	left:-200px;
+	width: 400px;
     padding: 10px;
-    background: #fff;
-    border: 1px solid #5e5e5e;
+	background: #fff;
+	border: 1px solid #5e5e5e;
     border-radius: 5px;
-    z-index: 999;
-    max-height: 528px;
-    overflow: hidden;
-    display: none;
+	z-index: 999;
+	display: none;
+
 }
 
 .nt-wraper h2{
@@ -2696,10 +2695,16 @@ div#video_title {
 
 .pad-5{padding: 5px;border-bottom: 1px solid #333;}
 
-.unread a{color: #000;}
+.unread a{color: #fff;}
 
 #notifications div.row:last-child{border:none;}
 .no-notification {
     color: red;
     padding: 5px;
+	margin:0;
+}
+
+.detail_page img.album_art{
+	height: 245px;
+	width: 245px;
 }

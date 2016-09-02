@@ -346,14 +346,31 @@ if (!Array.prototype.indexOf) {
                     success: function(data) {
                         var record = $.parseJSON(data);
                         if (record.error == "0") {
-                            comment += '<div class="comment"><div class="user_pic">'
-                            comment += '<img src="' + record.avatar + '" alt="user">'
-                            comment += '<div>' + record.user + '</div>'
-                            comment += '</div>'
-                            comment += '<div class="user_comment">'
-                            comment += record.msg + '</div>'
+							
+							comment += '<div class="comment-container">';
+								comment += '<div class="comment-item">';
+									comment += '<div class="comment-avatar">';
+										comment += '<a href="/backup/home/dj?user=' + record.user + '">';
+											comment += '<img src="' + record.avatar + '" alt="user">';
+										comment += '</a>';
+									comment += '</div>';
+									comment += '<div class="comment">';
+										comment += '<div class="comment-head cf">';
+											comment += '<a href="#" class="comment-author">' + record.user + '</a>';
+											comment += '<span class="card-stats">';
+												comment += '<span class="card-posted">';
+													comment += '<i class="fa fa-calendar-o"></i>'+record.time+'</span>';
+												comment += '</span>';
+											comment += '</div>';
+										comment += '<div class="comment-body">';
+											comment += '<div class="comment-body-cropped">';
+												comment += '<p>'+record.msg+'</p>';
+											comment += '</div>';
+										comment += '</div>';
+									comment += '</div>';
+								comment += '</div>';
                             comment += '</div>';
-                            $(".comments").prepend(comment);
+						    $(".comments").prepend(comment);
                         } else {
                             alert("Comment Not Saved Please try Again");
                         }
