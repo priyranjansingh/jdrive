@@ -104,7 +104,18 @@ $baseUrl = Yii::app()->theme->baseUrl;
         <?php } ?>
     </div>
     <div class="right_pan">
-        <div class="pro_banner" style="background:url(<?php echo $baseUrl; ?>/img/pro_banner.jpg)">
+        <?php 
+        if(!empty($user->profile_background))
+        {
+            $background_src = base_url()."/assets/user-background/".$user->profile_background;
+        } 
+        else
+        {
+            $background_src = $baseUrl."/img/pro_banner.jpg";
+        }     
+        
+        ?>
+        <div class="pro_banner" style="background:url(<?php echo $background_src ?>);">
             <div class="change_btn">
 				<a href="<?php echo base_url() . '/user/edit' ?>">Edit Profile</a>
 				<br />
@@ -279,7 +290,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 						'id'=>'profile-bg-change-form',
 						'action'=>array('/user/bg'),
 						'enableClientValidation'=>true,
-						'enableAjaxValidation'=> true,
+						//'enableAjaxValidation'=> true,
 						'clientOptions'=>array(
 							'validateOnSubmit'=>true,
 						),
@@ -299,7 +310,7 @@ $baseUrl = Yii::app()->theme->baseUrl;
 				<?php $this->endWidget(); ?>
 			</div>
 			<div class="modal-footer"> 
-				<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<!--<button type="button" clapro_bannerss="btn btn-default" data-dismiss="modal">Close</button>
 				<button type="button" class="btn btn-primary">Save changes</button>--> 
 			</div>
 		</div>

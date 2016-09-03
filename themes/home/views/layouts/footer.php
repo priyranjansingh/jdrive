@@ -2,6 +2,7 @@
             <!--<div class="sound_bar"><img src="<?php echo $baseUrl;?>/img/74.gif"><img src="<?php echo $baseUrl;?>/img/73.gif"><img src="<?php echo $baseUrl;?>/img/74.gif"></div>-->
             <section class="player" id="player_container" style="display:none">
                 <div class="row">
+                    <span class="close_player" style="display:none">X</span>
                     <div class="col-lg-3 col-md-1 col-sm-1">
                         <div class="jp-album">
                             <div class="row ">
@@ -55,7 +56,7 @@
                             </div>          
                         </div>
                     </div>
-                    <div class="col-lg-9 col-md-11 col-sm-11 nopadding" >
+                    <div class="col-lg-9 col-md-11 col-sm-11 nopadding">
                         <div id="jpId" style="width: 0px; height: 0px;">
                             <img id="jp_poster_0" style="width: 0px; height: 0px; display: none;">
                             <audio id="jp_audio_0" preload="metadata"></audio>

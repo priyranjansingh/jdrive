@@ -120,3 +120,8 @@ CREATE TABLE IF NOT EXISTS `notifications` (
 
 
 ALTER TABLE `users` ADD `notification_count` INT(11) NULL DEFAULT '0' AFTER `phone`;
+
+
+----  3-9-2016 by priyranjan-----------
+
+ALTER TABLE `users` ADD `profile_background` VARCHAR(256) NULL AFTER `profile_pic`;

@@ -163,19 +163,10 @@ class DefaultController extends Controller {
 
             $user = Users::model()->findByPk($id);
             if (isset($_FILES['Bg'])) {
-				pre($_FILES['Bg'], true);
-                /*
-				$model->attributes = $_POST['ChangePassword'];
-                if ($model->validate()) {
-                    $user->password = md5($model->password);
-                    if ($user->validate()) {
-                        $user->save();
-                        Yii::app()->user->setFlash('success', "Password Changed Successfully");
-                        $this->redirect(array("changepassword"));
-                    }
-                }
-				*/
-				$this->redirect(array('profile'));
+               $name = uploadImage($_FILES['Bg']['name']['profile'], $_FILES['Bg']['type']['profile'], $_FILES['Bg']['tmp_name']['profile'], 'user-background');           
+               $user->profile_background = $name;
+               $user->save();
+               $this->redirect(array('profile'));
             }
         }
     }

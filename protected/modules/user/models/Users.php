@@ -48,11 +48,11 @@ class Users extends BaseModel {
             // array('username','length', 'min' => 6),
             array('username, password', 'length', 'min' => 6),
             array('phone', 'length', 'max' => 16),
-            array('profile_pic', 'length', 'max' => 256),
+            array('profile_pic,profile_background', 'length', 'max' => 256),
             array('date_modified', 'safe'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, username, password, facebook, twitter, gplus, instagram,youtube, s3_bucket, first_name, last_name, email, phone, profile_pic, state_id, country_id, is_admin, role_id, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on' => 'search'),
+            array('id, username, password, facebook, twitter, gplus, instagram,youtube, s3_bucket, first_name, last_name, email, phone, profile_pic,profile_background, state_id, country_id, is_admin, role_id, status, deleted, created_by, modified_by, date_entered, date_modified', 'safe', 'on' => 'search'),
         );
     }
 
@@ -91,6 +91,7 @@ class Users extends BaseModel {
             'email' => 'Email',
             'phone' => 'Phone',
             'profile_pic' => 'Profile Pic',
+            'profile_background' => 'Profile Background',
             'state_id' => 'State',
             'country_id' => 'Country',
             'is_admin' => 'Is Admin',
@@ -129,6 +130,7 @@ class Users extends BaseModel {
         $criteria->compare('email', $this->email, true);
         $criteria->compare('phone', $this->phone, true);
         $criteria->compare('profile_pic', $this->profile_pic, true);
+        $criteria->compare('profile_background', $this->profile_background, true);
         $criteria->compare('state_id', $this->state_id);
         $criteria->compare('country_id', $this->country_id);
         $criteria->compare('is_admin', $this->is_admin);
@@ -276,8 +278,9 @@ class Users extends BaseModel {
 
     // function for getting the total notification count of a particular user
     public function getNotificationCount($user_id) {
-        $notification_count = Notifications::model()->count(array("condition"=>"receiver_id = '$user_id' AND is_read= 0 AND deleted = 0 "));
-        return $notification_count; 
+        //$notification_count = Notifications::model()->count(array("condition"=>"receiver_id = '$user_id' AND is_read= 0 AND deleted = 0 "));
+         $user_detail = Users::model()->findByPk($user_id);
+        return $user_detail->notification_count; 
     }
      
 }
